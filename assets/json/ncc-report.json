@@ -1,0 +1,681 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "NCC 지표 제공 API",
+    "version": "1.0",
+    "title": "Report API",
+    "contact": {
+      "name": "soonryul.kwon@navercorp.com"
+    },
+    "license": {}
+  },
+  "host": "localhost:17000",
+  "basePath": "/",
+  "tags": [{
+    "name": "stat-controller",
+    "description": "NCC 광고관리 지표 조회 API"
+  }, {
+    "name": "advanced-report-controller",
+    "description": "NCC 보고서 지표 조회 API"
+  }, {
+    "name": "column-controller",
+    "description": "NCC 보고서 메타 정보 조회 API"
+  }],
+  "paths": {
+    "/api/advanced-report/columns": {
+      "get": {
+        "tags": ["column-controller"],
+        "summary": "NCC 보고서 지표 메타 정보 조회",
+        "description": "NCC 보고서에서 사용할 수 있는 지표의 메타정보를 제공하는 API",
+        "operationId": "getColumnUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/columnResponse"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/advanced-report/values{?values,attributes,since,until,startIndex,numberOfResults}": {
+      "get": {
+        "tags": ["advanced-report-controller"],
+        "summary": "NCC 보고서 지표 조회",
+        "description": "NCC 보고서 지표를 제공하는 API",
+        "operationId": "getStatUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "values",
+          "in": "query",
+          "description": "values",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "attributes",
+          "in": "query",
+          "description": "attributes",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "since",
+          "in": "query",
+          "description": "since",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "until",
+          "in": "query",
+          "description": "until",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "startIndex",
+          "in": "query",
+          "description": "startIndex",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "numberOfResults",
+          "in": "query",
+          "description": "numberOfResults",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/pivotResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/stats{?breakdown,fields,ids,timeRange,timeIncrement}": {
+      "get": {
+        "tags": ["stat-controller"],
+        "summary": "엔티티 N개 요약 지표 조회",
+        "description": "캠페인, 광고그룹, 소재, 소재확장, 키워드에 대한 지표 조회 API <br>breakdown 파라미터 없이 API 요청시, 엔티티의 조회기간내 합계 지표가 제공된다. <br>breakdown 파라미터를 추가하여 API 요청시, 엔티티의 조회기간내 합계지표 및 타게팅(PC/모바일별, 요일별, 시간별) 지표가 제공된다. <br>",
+        "operationId": "getBulkEntityStatUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "breakdown",
+          "in": "query",
+          "description": "breakdown",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "fields",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "timeRange",
+          "in": "query",
+          "description": "timeRange",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "timeIncrement",
+          "in": "query",
+          "description": "timeIncrement",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/bulkStatResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/stats{?defaultSummary,fields,id,timeRange}": {
+      "get": {
+        "tags": ["stat-controller"],
+        "summary": "엔티티 1개 일별 지표 조회",
+        "description": "캠페인, 광고그룹, 소재, 소재확장, 키워드에 대한 지표 조회 API <br>",
+        "operationId": "getSingleEntityStatUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "defaultSummary",
+          "in": "query",
+          "description": "defaultSummary",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "fields",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "id",
+          "in": "query",
+          "description": "id",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "timeRange",
+          "in": "query",
+          "description": "timeRange",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/singleStatResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "mykey": {
+      "type": "apiKey",
+      "name": "mykey",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "singleStatResponse": {
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StatMap"
+          }
+        },
+        "summary": {
+          "$ref": "#/definitions/Summary"
+        }
+      }
+    },
+    "TimeRange": {
+      "properties": {
+        "since": {
+          "type": "string"
+        },
+        "until": {
+          "type": "string"
+        }
+      }
+    },
+    "bulkStatResponse": {
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StatMap"
+          }
+        }
+      }
+    },
+    "Number": {},
+    "pivotResponse": {
+      "properties": {
+        "body": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Number"
+            }
+          }
+        },
+        "head": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timeRange": {
+          "$ref": "#/definitions/TimeRange"
+        }
+      }
+    },
+    "Breakdown": {
+      "properties": {
+        "avgRnk": {
+          "type": "number",
+          "format": "double"
+        },
+        "ccnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "clkCnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "convAmt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "convTp": {
+          "type": "string"
+        },
+        "cpConv": {
+          "type": "number",
+          "format": "double"
+        },
+        "cpc": {
+          "type": "number",
+          "format": "double"
+        },
+        "crto": {
+          "type": "number",
+          "format": "double"
+        },
+        "ctr": {
+          "type": "number",
+          "format": "double"
+        },
+        "dayw": {
+          "type": "string"
+        },
+        "drtCcnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "drtConvAmt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "expKeyword": {
+          "type": "string"
+        },
+        "hh24": {
+          "type": "string"
+        },
+        "idrtCcnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "idrtConvAmt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "impCnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "keyword": {
+          "type": "string"
+        },
+        "mblRank": {
+          "type": "number",
+          "format": "double"
+        },
+        "mblRecentRank": {
+          "type": "number",
+          "format": "double"
+        },
+        "mediaNm": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nccAdExtTp": {
+          "type": "string"
+        },
+        "nccAdExtensionId": {
+          "type": "string"
+        },
+        "nccAdId": {
+          "type": "string"
+        },
+        "nccAdgroupId": {
+          "type": "string"
+        },
+        "nccAdgroupNm": {
+          "type": "string"
+        },
+        "nccCampaignId": {
+          "type": "string"
+        },
+        "nccCampaignNm": {
+          "type": "string"
+        },
+        "nccCampaignTp": {
+          "type": "string"
+        },
+        "npCcnt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "npConvAmt": {
+          "type": "number",
+          "format": "double"
+        },
+        "ntwkTp": {
+          "type": "string"
+        },
+        "pcMblTp": {
+          "type": "string"
+        },
+        "pcRank": {
+          "type": "number",
+          "format": "double"
+        },
+        "pcRecentRank": {
+          "type": "number",
+          "format": "double"
+        },
+        "pv": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regnNo": {
+          "type": "string"
+        },
+        "ror": {
+          "type": "number",
+          "format": "double"
+        },
+        "salesAmt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "schTp": {
+          "type": "string"
+        },
+        "stayTm": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "viewUrl": {
+          "type": "string"
+        },
+        "ww": {
+          "type": "string"
+        },
+        "ymd": {
+          "type": "string"
+        },
+        "yyyymm": {
+          "type": "string"
+        },
+        "yyyyqq": {
+          "type": "string"
+        }
+      }
+    },
+    "Summary": {
+      "properties": {
+        "dateEnd": {
+          "type": "string"
+        },
+        "dateStart": {
+          "type": "string"
+        }
+      }
+    },
+    "StatMap": {
+      "properties": {
+        "avgRnk": {
+          "type": "number",
+          "format": "double"
+        },
+        "breakdowns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Breakdown"
+          }
+        },
+        "ccnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "clkCnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "convAmt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "convTp": {
+          "type": "string"
+        },
+        "cpConv": {
+          "type": "number",
+          "format": "double"
+        },
+        "cpc": {
+          "type": "number",
+          "format": "double"
+        },
+        "crto": {
+          "type": "number",
+          "format": "double"
+        },
+        "ctr": {
+          "type": "number",
+          "format": "double"
+        },
+        "dateEnd": {
+          "type": "string"
+        },
+        "dateStart": {
+          "type": "string"
+        },
+        "dayw": {
+          "type": "string"
+        },
+        "drtCcnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "drtConvAmt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "expKeyword": {
+          "type": "string"
+        },
+        "hh24": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "idrtCcnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "idrtConvAmt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "impCnt": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "keyword": {
+          "type": "string"
+        },
+        "mblRank": {
+          "type": "number",
+          "format": "double"
+        },
+        "mblRecentRank": {
+          "type": "number",
+          "format": "double"
+        },
+        "mediaNm": {
+          "type": "string"
+        },
+        "nccAdExtTp": {
+          "type": "string"
+        },
+        "nccAdExtensionId": {
+          "type": "string"
+        },
+        "nccAdId": {
+          "type": "string"
+        },
+        "nccAdgroupId": {
+          "type": "string"
+        },
+        "nccAdgroupNm": {
+          "type": "string"
+        },
+        "nccCampaignId": {
+          "type": "string"
+        },
+        "nccCampaignNm": {
+          "type": "string"
+        },
+        "nccCampaignTp": {
+          "type": "string"
+        },
+        "npCcnt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "npConvAmt": {
+          "type": "number",
+          "format": "double"
+        },
+        "ntwkTp": {
+          "type": "string"
+        },
+        "pcMblTp": {
+          "type": "string"
+        },
+        "pcRank": {
+          "type": "number",
+          "format": "double"
+        },
+        "pcRecentRank": {
+          "type": "number",
+          "format": "double"
+        },
+        "pv": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "regnNo": {
+          "type": "string"
+        },
+        "ror": {
+          "type": "number",
+          "format": "double"
+        },
+        "salesAmt": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "schTp": {
+          "type": "string"
+        },
+        "stayTm": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "viewUrl": {
+          "type": "string"
+        },
+        "ww": {
+          "type": "string"
+        },
+        "ymd": {
+          "type": "string"
+        },
+        "yyyymm": {
+          "type": "string"
+        },
+        "yyyyqq": {
+          "type": "string"
+        }
+      }
+    },
+    "columnResponse": {
+      "properties": {
+        "category": {
+          "type": "string"
+        },
+        "dataType": {
+          "type": "string"
+        },
+        "exclusive": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

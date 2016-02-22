@@ -1,0 +1,44 @@
+{
+  "COMMON": {
+    "MESSAGE": {
+      "INTRO": {
+        "MESSAGE": "This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.",
+        "TITLE": "Hello, world!"
+      }
+    },
+    "TERM": {
+      "CANCEL": "취소",
+      "COLUMN": {
+        "DESCRIPTION": "Description",
+        "JSON": "JSON",
+        "OPERATION": "Operation",
+        "PARAMETER_NAME": "Parameter name",
+        "PROPERTY_NAME": "Property Name",
+        "VALUE": "Value"
+      },
+      "DATA": "데이터",
+      "DEFINITIONS": "데이터 정의",
+      "EDIT_DESCRIPTION": "설명 편집",
+      "IMPORT": "불러오기",
+      "IMPORT_FILE": "파일 불러오기",
+      "LANG": {
+        "EN": "English",
+        "KO": "한국어"
+      },
+      "LANGUAGES": "언어",
+      "MENU": {
+        "DEFINITIONS": "데이터 정의",
+        "HOME": "개요",
+        "TAGS": "태그"
+      },
+      "OVERVIEW": "개요",
+      "PREVIEW": "미리보기",
+      "PROJECT_NAME": "프로젝트 이름",
+      "RESET": "초기화",
+      "SETTINGS": "설정",
+      "SHOW_TRANSLATION_ITEMS": "번역 항목 보기",
+      "SUBMIT": "제출",
+      "TAGS": "태그"
+    }
+  }
+}
