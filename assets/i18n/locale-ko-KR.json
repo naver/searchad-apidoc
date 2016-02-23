@@ -27,9 +27,18 @@
       },
       "LANGUAGES": "언어",
       "MENU": {
-        "DEFINITIONS": "데이터 정의",
+        "CONTACT": "",
+        "GUIDES": "안내",
         "HOME": "개요",
-        "TAGS": "태그"
+        "MENU1": "",
+        "MENU2": "",
+        "MENU3": "",
+        "MENU4": "",
+        "MENU5": "",
+        "MIGRATE": "",
+        "REFERENCE": "참조",
+        "SAMPLES": "예제",
+        "SUPPORT": ""
       },
       "OVERVIEW": "개요",
       "PREVIEW": "미리보기",

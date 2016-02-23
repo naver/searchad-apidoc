@@ -27,9 +27,18 @@
       },
       "LANGUAGES": "Languages",
       "MENU": {
-        "DEFINITIONS": "Definitions",
+        "CONTACT": "",
+        "GUIDES": "GUIDES",
         "HOME": "Home",
-        "TAGS": "Tags"
+        "MENU1": "",
+        "MENU2": "",
+        "MENU3": "",
+        "MENU4": "",
+        "MENU5": "",
+        "MIGRATE": "",
+        "REFERENCE": "REFERENCE",
+        "SAMPLES": "SAMPLES",
+        "SUPPORT": ""
       },
       "OVERVIEW": "Overview",
       "PREVIEW": "Preview",
