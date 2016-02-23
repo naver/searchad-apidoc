@@ -10,7 +10,9 @@
       "CANCEL": "취소",
       "COLUMN": {
         "DESCRIPTION": "Description",
+        "HTTP_REQUEST": "HTTP Request",
         "JSON": "JSON",
+        "METHOD": "Method",
         "OPERATION": "Operation",
         "PARAMETER_NAME": "Parameter name",
         "PROPERTY_NAME": "Property Name",
@@ -46,8 +48,7 @@
       "RESET": "초기화",
       "SETTINGS": "설정",
       "SHOW_TRANSLATION_ITEMS": "번역 항목 보기",
-      "SUBMIT": "제출",
-      "TAGS": "태그"
+      "SUBMIT": "제출"
     }
   }
 }

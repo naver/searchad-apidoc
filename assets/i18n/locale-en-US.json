@@ -10,7 +10,9 @@
       "CANCEL": "Cancel",
       "COLUMN": {
         "DESCRIPTION": "Description",
+        "HTTP_REQUEST": "HTTP Request",
         "JSON": "JSON",
+        "METHOD": "Method",
         "OPERATION": "Operation",
         "PARAMETER_NAME": "Parameter name",
         "PROPERTY_NAME": "Property Name",
@@ -46,8 +48,7 @@
       "RESET": "Reset",
       "SETTINGS": "Settings",
       "SHOW_TRANSLATION_ITEMS": "Show translation items",
-      "SUBMIT": "Submit",
-      "TAGS": "Tags"
+      "SUBMIT": "Submit"
     }
   }
 }

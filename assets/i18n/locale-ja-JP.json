@@ -10,7 +10,9 @@
       "CANCEL": "",
       "COLUMN": {
         "DESCRIPTION": "",
+        "HTTP_REQUEST": "",
         "JSON": "",
+        "METHOD": "",
         "OPERATION": "",
         "PARAMETER_NAME": "",
         "PROPERTY_NAME": "",
@@ -46,8 +48,7 @@
       "RESET": "",
       "SETTINGS": "",
       "SHOW_TRANSLATION_ITEMS": "",
-      "SUBMIT": "",
-      "TAGS": ""
+      "SUBMIT": ""
     }
   }
 }
