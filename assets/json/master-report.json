@@ -238,7 +238,7 @@
                 "message": {
                     "type": "string"
                 },
-                "fields": {
+                "details": {
                     "type": "string"
                 }
             }
