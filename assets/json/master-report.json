@@ -14,7 +14,7 @@
         "application/json"
     ],
     "paths": {
-        "/master-report": {
+        "/master-reports": {
             "get": {
                 "tags": [
                     "MasterReport"
@@ -115,7 +115,7 @@
                 }
             }
         },
-        "/master-report/{id}": {
+        "/master-reports/{id}": {
             "delete": {
                 "tags": [
                     "MasterReport"
