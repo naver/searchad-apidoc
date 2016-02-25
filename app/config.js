@@ -4,7 +4,7 @@ angular.module('config', [])
   ENV: 'production',
   debug: false,
   timezone: 'Asia/Seoul',
-  swaggerJson: ['http://10.113.217.209:8080/v2/api-docs?group=ncc', 'https://test-atower.searchad.naver.com/v2/api-docs', 'assets/json/ncc-report.json'],
+  swaggerJson: ['http://10.113.217.209:8080/v2/api-docs?group=ncc', 'https://test-atower.searchad.naver.com/v2/api-docs', 'assets/json/ncc-report.json', 'assets/json/master-report.json'],
   i18n: {
     prefix: 'assets/i18n/locale-',
     suffix: '.json'
