@@ -17,7 +17,7 @@
         "/master": {
             "get": {
                 "tags": [
-                    "Job"
+                    "MasterReport"
                 ],
                 "summary": "요청된 전체 작업 정보 조회",
                 "description": "요청한 작업중 최근 100개의 목록을 조회한다.\n",
@@ -27,7 +27,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Job"
+                                "$ref": "#/definitions/MasterReportJob"
                             }
                         }
                     },
@@ -41,7 +41,7 @@
             },
             "delete": {
                 "tags": [
-                    "Job"
+                    "MasterReport"
                 ],
                 "summary": "요청작업 이력 전체 삭제",
                 "description": "요청작업 이력 전체목록을 삭제한다.",
@@ -62,7 +62,7 @@
             },
             "post": {
                 "tags": [
-                    "Job"
+                    "MasterReport"
                 ],
                 "summary": "요청작업 등록",
                 "description": "마스터 보고서 생성 요청.",
@@ -75,22 +75,35 @@
                         "in": "body",
                         "type": "string",
                         "format": "dateTime",
-                        "description": "변경분 요청시 조회 시작 시간. [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) UTC 표기법을 따른다."
+                        "description": "변경분 요청시 조회 시작 시간. [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) UTC 표기법을 따른다., fromTime을 입력하지 않으면, 삭제를 제외하고 가장최근까지 수집된 모든 정보를 제공한다."
                     },
                     {
                         "name": "item",
                         "required": true,
                         "in": "body",
                         "type": "enum",
-                        "format": "string",
-                        "description": "생성 요청할 아이템 종류. Job.item 정보를 따른다"
+                        "enum": [
+	                        "Campaign",
+	                        "CampaignBudget",
+	                        "BusinessChannel",
+	                        "Adgroup",
+	                        "AdgroupBudget",
+	                        "Keyword",
+	                        "Account",
+	                        "Ad",
+	                        "AdExtension",
+	                        "Qi",
+	                        "Label",
+	                        "LabelRef"
+	                    ],
+                        "description": "생성 요청할 아이템 종류. MasterReportJob.item 정보를 따른다. #required-request"
                     }
                 ],
                 "responses": {
                     "201": {
                         "description": "마스터 작업 생성 요청 정보",
                         "schema": {
-                            "$ref": "#/definitions/Job"
+                            "$ref": "#/definitions/MasterReportJob"
                         }
                     },
                     "default": {
@@ -105,7 +118,7 @@
         "/master/{id}": {
             "delete": {
                 "tags": [
-                    "Job"
+                    "MasterReport"
                 ],
                 "summary": "ID에 해당하는 작업 삭제",
                 "description": "ID에 해당하는 작업을 삭제한다.",
@@ -114,7 +127,7 @@
                         "name": "id",
                         "in": "path",
                         "type": "string",
-                        "description": "Job 생성이 정상적으로 완료되었을 경우 응답으로 받은 ID.",
+                        "description": "MasterReportJob 생성이 정상적으로 완료되었을 경우 응답으로 받은 ID.",
                         "required": true
                     }
                 ],
@@ -135,7 +148,7 @@
             },
             "get": {
                 "tags": [
-                    "Job"
+                    "MasterReport"
                 ],
                 "summary": "ID에 해당하는 작업 정보를 조회",
                 "description": "ID에 해당하는 작업의 상세 정보를 조회한다.\n",
@@ -144,7 +157,7 @@
                         "name": "id",
                         "in": "path",
                         "type": "string",
-                        "description": "Job 생성이 정상적으로 완료되었을 경우 응답으로 받은 ID.",
+                        "description": "MasterReportJob 생성이 정상적으로 완료되었을 경우 응답으로 받은 ID.",
                         "required": true
                     }
                 ],
@@ -152,7 +165,7 @@
                     "200": {
                         "description": "요청 정보",
                         "schema": {
-                            "$ref": "#/definitions/Job"
+                            "$ref": "#/definitions/MasterReportJob"
                         }
                     },
                     "default": {
@@ -166,7 +179,7 @@
         }
     },
     "definitions": {
-        "Job": {
+        "MasterReportJob": {
             "type": "object",
             "properties": {
                 "id": {
@@ -189,7 +202,7 @@
                         "Label",
                         "LabelRef"
                     ],
-                    "description": "아이템목록. Campaign:캠페인, CampaignBudget:캠페인예산, BusinessChannel:비즈채널, Adgroup:그룹, AdgroupBudget:그룹예산, Keyword:광고, Account:권한설정, Ad:소재, AdExtension:확장소재, Qi:품질지수, Label:즐겨찾기, LabelRef:즐겨찾기 등록ID\n"
+                    "description": "아이템목록. Campaign:캠페인, CampaignBudget:캠페인예산, BusinessChannel:비즈채널, Adgroup:그룹, AdgroupBudget:그룹예산, Keyword:광고, Account:권한설정, Ad:소재, AdExtension:확장소재, Qi:품질지수, Label:즐겨찾기, LabelRef:즐겨찾기 등록ID"
                 },
                 "fromTime": {
                     "type": "string",
@@ -208,11 +221,11 @@
                         "NONE",
                         "ERROR"
                     ],
-                    "description": "작업 진행상태. REGIST:등록, RUNNING:생성중, BUILT:생성완료, NONE:자료없음, ERROR:생성실패."
+                    "description": "작업 진행상태., REGIST:등록, RUNNING:생성중, BUILT:생성완료, NONE:자료없음, ERROR:생성실패."
                 },
                 "downloadUrl": {
                     "type": "string",
-                    "description": "생성된 파일을 다운로드 받을 수 있는 URL."
+                    "description": "생성된 파일을 다운로드 받을 수 있는 URL. 이 URL은 조회 후 5분간만 유효하며, 5분 후에는 사용할 수 없다. 5분이 지난 후에는 재조회하여 새 URL을 받아야한다."
                 }
             }
         },
