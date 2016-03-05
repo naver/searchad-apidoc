@@ -200,9 +200,10 @@
                         "AdExtension",
                         "Qi",
                         "Label",
-                        "LabelRef"
+                        "LabelRef",
+                        "Media"
                     ],
-                    "description": "아이템목록. Campaign:캠페인, CampaignBudget:캠페인예산, BusinessChannel:비즈채널, Adgroup:그룹, AdgroupBudget:그룹예산, Keyword:광고, Account:권한설정, Ad:소재, AdExtension:확장소재, Qi:품질지수, Label:즐겨찾기, LabelRef:즐겨찾기 등록ID"
+                    "description": "아이템목록. Campaign:캠페인, CampaignBudget:캠페인예산, BusinessChannel:비즈채널, Adgroup:그룹, AdgroupBudget:그룹예산, Keyword:광고, Account:권한설정, Ad:소재, AdExtension:확장소재, Qi:품질지수, Label:즐겨찾기, LabelRef:즐겨찾기 등록ID, Media:노출매체정보"
                 },
                 "fromTime": {
                     "type": "string",
