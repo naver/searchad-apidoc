@@ -12,7 +12,7 @@ angular.module('config', [])
   menus: ['guides', 'reference', 'samples'],
   tags: {
     pascalCase: true,
-    exclude: ['accesscontrol', 'advancedreportcontroller', 'apiapikey', 'apicustomerauth', 'apihistory', 'apikeys', 'apilicenses', 'apimyclientscontroller', 'auth', 'columncontroller', 'customer', 'customerauth', 'customerlinks', 'history', 'managercandidates', 'nccmanagedkeyword', 'l7~', 'basicerror~', '~endpoint', 'endpoint~', '~controller']
+    exclude: ['accesscontrol', 'advancedreportcontroller', 'apiapikey', 'apicustomerauth', 'apihistory', 'apikeys', 'apilicenses', 'apimyclientscontroller', 'auth', 'columncontroller', 'customerauth', 'customerlinks', 'history', 'managercandidates', 'nccmanagedkeyword', 'l7~', 'basicerror~', '~endpoint', 'endpoint~', '~controller']
   },
   definitions: {
     order: ['*', '~tm'],
