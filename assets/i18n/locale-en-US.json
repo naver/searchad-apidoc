@@ -4,7 +4,8 @@
       "INTRO": {
         "MESSAGE": "This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.",
         "TITLE": "Hello, world!"
-      }
+      },
+      "ITEMS_WILL_BE_PROVIDED_AS_AN_ELEMENT_OF_THE_ARRAY": "The following items will be provided as an element of the array."
     },
     "TERM": {
       "CANCEL": "Cancel",

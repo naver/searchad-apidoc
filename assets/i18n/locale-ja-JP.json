@@ -4,7 +4,8 @@
       "INTRO": {
         "MESSAGE": "",
         "TITLE": ""
-      }
+      },
+      "ITEMS_WILL_BE_PROVIDED_AS_AN_ELEMENT_OF_THE_ARRAY": ""
     },
     "TERM": {
       "CANCEL": "",
