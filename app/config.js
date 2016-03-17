@@ -19,7 +19,7 @@ angular.module('config', [])
   tags: {
     pascalCase: true,
     include: ['~[a-zA-Z]+~'],
-    exclude: ['accesscontrol', 'advancedreportcontroller', 'apiapikey', 'apicustomerauth', 'apihistory', 'apikeys', 'apilicenses', 'apimyclientscontroller', 'auth', 'columncontroller', 'customerauth', 'customerlinks', 'history', 'managercandidates', 'nccmanagedkeyword', 'l7~', 'basicerror~', '~endpoint', 'endpoint~', '~controller']
+    exclude: ['accesscontrol', 'advancedreportcontroller', 'apiapikey', 'apicustomerauth', 'apihistory', 'apikeys', 'apilicenses', 'apimyclientscontroller', 'auth', 'columncontroller', 'customer', 'customerauth', 'customerlinks', 'history', 'managercandidates', 'nccmanagedkeyword', 'l7~', 'basicerror~', '~endpoint', 'endpoint~', '~controller']
   },
   definitions: {
     order: ['*', '~tm'],
