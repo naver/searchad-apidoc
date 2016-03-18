@@ -12,8 +12,9 @@
         "/keywordstool": {
             "get": {
                 "tags": [
-                    "KeywordsTool"
+                    "RelKwdStat"
                 ],
+                "summary": "list",
                 "description": "Retrieves related keywords and their statistical indicators by query parameters. To determine search types and conditions, a user requests data by combining at least one parameter among `pc business ID`, `mobile business ID`, `pc site`, `mobile site`, `keyword hints`, `season`, `event ID` and by using several conditional parameters.    \n",
                 "parameters": [
                     {
@@ -97,7 +98,7 @@
                             "title": "keywordList",
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/relKwdStat"
+                                "$ref": "#/definitions/RelKwdStat"
                             }
                         }
                     }
@@ -106,7 +107,7 @@
         }
     },
     "definitions": {
-        "relKwdStat": {
+        "RelKwdStat": {
             "type": "object",
             "properties": {
                 "relKeyword": {
@@ -146,92 +147,92 @@
                     "description": "A competitiveness index. Computed as (an average depth of PC) / (집계시점의 PC 노출가능광고개수). If compIdx < 0.3 then you get \"낮음\", else if compIdx < 0.7 then you get \"중간\", and for other cases, you get \"높음\". With no data, you get \"-\"."
                 },
                 "monthlyProgressList": {
-                    "$ref": "#/definitions/monthlyProgressList"
+                    "$ref": "#/definitions/MonthlyProgressList"
                 },
                 "userStat": {
-                    "$ref": "#/definitions/userStat"
+                    "$ref": "#/definitions/UserStat"
                 }
             }
         },
-        "monthlyProgressList": {
+        "MonthlyProgressList": {
             "type": "object",
             "description": "A monthly query count list of PC and mobile for the last year",
             "properties": {
                 "monthlyLabel": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/monthStr"
+                        "$ref": "#/definitions/MonthStr"
                     }
                 },
                 "monthlyProgressPcQcCnt": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/pcQcCnt"
+                        "$ref": "#/definitions/PcQcCnt"
                     }
                 },
                 "monthlyProgressMobileQcCnt": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/mobileQcCnt"
+                        "$ref": "#/definitions/MobileQcCnt"
                     }
                 }
             }
         },
-        "monthStr": {
+        "MonthStr": {
             "description": "A label with YYYYMM date format (e.g. '201601')",
             "type": "string"
         },
-        "pcQcCnt": {
+        "PcQcCnt": {
             "description": "The sum of PC query count during one month per keyword",
             "type": "integer"
         },
-        "mobileQcCnt": {
+        "MobileQcCnt": {
             "description": "The sum of mobile query count during one month per keyword",
             "type": "integer"
         },
-        "userStat": {
+        "UserStat": {
             "type": "object",
             "description": "User statistics include the following data, a gender type list, a age group list, a query count list for PC and a query count list for mobile. The lists are in the same order. Therefore, the same index from the lists indicates the same set. For example, suppose you obtain genderType = ['m', 'f', 'm', 'f'], ageGroup = ['40-49', '13-19', '25-29', '0-12'], monthlyPcQcCnt = [4, 2, 100, 1000], monthlyMobileQcCnt = [600, 200, 10, 90]. It means there are 4 sets of data like ('m', '40-49', 4, 600), ('f', '13-19', 2, 200), ('m', '25-29', 100, 10) and ('f', '0-12', 1000, 90).",
             "properties": {
                 "genderType": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/gender"
+                        "$ref": "#/definitions/Gender"
                     }
                 },
                 "ageGroup": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/age"
+                        "$ref": "#/definitions/Age"
                     }
                 },
                 "monthlyPcQcCnt": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/latestPcQcCnt"
+                        "$ref": "#/definitions/LatestPcQcCnt"
                     }
                 },
                 "monthlyMobileQcCnt": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/latestMobileQcCnt"
+                        "$ref": "#/definitions/LatestMobileQcCnt"
                     }
                 }
             }
         },
-        "gender": {
+        "Gender": {
             "description": "Represents female as 'f', male as 'm'.",
             "type": "string"
         },
-        "age": {
+        "Age": {
             "description": "Represents age-group as '0-12', '13-19', '20-24', '25-29', '30-39', '40-49' and '50-'.",
             "type": "string"
         },
-        "latestPcQcCnt": {
+        "LatestPcQcCnt": {
             "description": "The sum of PC query count from 30 days ago until yesterday.",
             "type": "integer"
         },
-        "latestMobileQcCnt": {
+        "LatestMobileQcCnt": {
             "description": "The sum of Mobile query count from 30 days ago until yesterday.",
             "type": "integer"
         }
