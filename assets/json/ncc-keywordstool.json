@@ -1,0 +1,236 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "A tool that provides a sorted list of the relevent keywords and their traffic statistics based on the multiple search types and conditions as query parameters.\n",
+        "version": "Alpha",
+        "title": "KeywordsTool",
+        "contact": {
+            "name": "yeseul.park@navercorp.com"
+        }
+    },
+    "paths": {
+        "/keywordstool": {
+            "get": {
+                "description": "Retrieves related keywords and their statistical indicators by query parameters. To determine search types and conditions, a user requests data by combining at least one parameter among `pc business ID`, `mobile business ID`, `pc site`, `mobile site`, `keyword hints`, `season`, `event ID` and by using several conditional parameters.    \n",
+                "parameters": [
+                    {
+                        "name": "site",
+                        "in": "query",
+                        "description": "PC site (e.g. http://www.naver.com)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "mobileSite",
+                        "in": "query",
+                        "description": "Mobile site (e.g. http://m.naver.com)",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "biztpId",
+                        "in": "query",
+                        "description": "Business id for pc",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "mobileBiztpId",
+                        "in": "query",
+                        "description": "Business id for mobile",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "hintKeywords",
+                        "in": "query",
+                        "description": "Keyword list for hint (e.g. 꽃배달,flower,화환,bouquet)",
+                        "required": false,
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "includeHintKeywords",
+                        "in": "query",
+                        "description": "Set `includeHintKeywords` = 1 to selectively fetch the related keywords containing any word in keyword hints, else set `includeHintKeywords` = 0. Therefore, `includeHintKeywords` can be 1 when using keyword hints with `hintKeywords` parameter.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "eventId",
+                        "in": "query",
+                        "description": "Event id",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "month",
+                        "in": "query",
+                        "description": "Month (e.g. 12)",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "showStat",
+                        "in": "query",
+                        "description": "Set `showStat` = 1 to fetch statistic information per each related keyword (query count, click count, ctr, competitiveness index, depth explained below) as well as relavent keywords list. For fetching related keywords only, set `showStat` = 0.",
+                        "required": false,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "Choose one keyword among relevent keywords to retrive 1) user statistics in the last month such as query count by gender type or age group, and 2) monthly query count list for the last year.",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "title": "keywordList",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/relKwdStat"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "relKwdStat": {
+            "type": "object",
+            "properties": {
+                "relKeyword": {
+                    "type": "string",
+                    "description": "A related keyword"
+                },
+                "monthlyPcQcCnt": {
+                    "type": "string",
+                    "description": "A simple version of the sum of PC query count from 30 days ago until yesterday. If the query count is less than 10, you get \"<10\". With no data, you get \"-\"."
+                },
+                "monthlyMobileQcCnt": {
+                    "type": "string",
+                    "description": "A simple version of the sum of mobile query count from 30 days ago until yesterday. If the query count is less than 10, you get \"<10\". With no data, you get \"-\"."
+                },
+                "monthlyPcClkCnt": {
+                    "type": "string",
+                    "description": "An average click count of PC for a keyword. Computed as (the sum of PC click count for the last 4 weeks) / (average depth for PC). With no data, you get \"-\"."
+                },
+                "monthlyMobileClkCnt": {
+                    "type": "string",
+                    "description": "A click count of mobile for a keyword. Computed as (the sum of mobile click count for the last 4 weeks) / (average depth for mobile). With no data, you get \"-\"."
+                },
+                "monthlyPcCtr": {
+                    "type": "string",
+                    "description": "A click-through rate of PC. Computed as (the sum of PC click count for the last 4 weeks) / (the sum of PC impression count for the last 4 weeks). With no data, you get \"-\"."
+                },
+                "monthlyMobileCtr": {
+                    "type": "string",
+                    "description": "A click-through rate of mobile. Computed as (the sum of mobile click count for the last 4 weeks) / (the sum of mobile impression count for the last 4 weeks). With no data, you get \"-\"."
+                },
+                "plAvgDepth": {
+                    "type": "string",
+                    "description": "An average depth of PC. Computed as (the sum of PC impression count for the last 4 weeks) / (the sum of PC 조회수 for the last 4 weeks). With no data, you get \"-\"."
+                },
+                "compIdx": {
+                    "type": "string",
+                    "description": "A competitiveness index. Computed as (an average depth of PC) / (집계시점의 PC 노출가능광고개수). If compIdx < 0.3 then you get \"낮음\", else if compIdx < 0.7 then you get \"중간\", and for other cases, you get \"높음\". With no data, you get \"-\"."
+                },
+                "monthlyProgressList": {
+                    "$ref": "#/definitions/monthlyProgressList"
+                },
+                "userStat": {
+                    "$ref": "#/definitions/userStat"
+                }
+            }
+        },
+        "monthlyProgressList": {
+            "type": "object",
+            "description": "A monthly query count list of PC and mobile for the last year",
+            "properties": {
+                "monthlyLabel": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/monthStr"
+                    }
+                },
+                "monthlyProgressPcQcCnt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/pcQcCnt"
+                    }
+                },
+                "monthlyProgressMobileQcCnt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/mobileQcCnt"
+                    }
+                }
+            }
+        },
+        "monthStr": {
+            "description": "A label with YYYYMM date format (e.g. '201601')",
+            "type": "string"
+        },
+        "pcQcCnt": {
+            "description": "The sum of PC query count during one month per keyword",
+            "type": "integer"
+        },
+        "mobileQcCnt": {
+            "description": "The sum of mobile query count during one month per keyword",
+            "type": "integer"
+        },
+        "userStat": {
+            "type": "object",
+            "description": "User statistics include the following data, a gender type list, a age group list, a query count list for PC and a query count list for mobile. The lists are in the same order. Therefore, the same index from the lists indicates the same set. For example, suppose you obtain genderType = ['m', 'f', 'm', 'f'], ageGroup = ['40-49', '13-19', '25-29', '0-12'], monthlyPcQcCnt = [4, 2, 100, 1000], monthlyMobileQcCnt = [600, 200, 10, 90]. It means there are 4 sets of data like ('m', '40-49', 4, 600), ('f', '13-19', 2, 200), ('m', '25-29', 100, 10) and ('f', '0-12', 1000, 90).",
+            "properties": {
+                "genderType": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gender"
+                    }
+                },
+                "ageGroup": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/age"
+                    }
+                },
+                "monthlyPcQcCnt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/latestPcQcCnt"
+                    }
+                },
+                "monthlyMobileQcCnt": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/latestMobileQcCnt"
+                    }
+                }
+            }
+        },
+        "gender": {
+            "description": "Represents female as 'f', male as 'm'.",
+            "type": "string"
+        },
+        "age": {
+            "description": "Represents age-group as '0-12', '13-19', '20-24', '25-29', '30-39', '40-49' and '50-'.",
+            "type": "string"
+        },
+        "latestPcQcCnt": {
+            "description": "The sum of PC query count from 30 days ago until yesterday.",
+            "type": "integer"
+        },
+        "latestMobileQcCnt": {
+            "description": "The sum of Mobile query count from 30 days ago until yesterday.",
+            "type": "integer"
+        }
+    }
+}
