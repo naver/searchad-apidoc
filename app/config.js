@@ -9,7 +9,7 @@ angular.module('config', [])
     'http://10.113.217.209:8080/v2/api-docs?group=tool',
     'https://test-atower.searchad.naver.com/v2/api-docs',
     'http://10.99.196.208:17000/v2/api-docs',
-    'assets/json/master-report.json'
+    'assets/json/master-report.json',
     'assets/json/ncc-keywordstool.json'
   ],
   i18n: {
