@@ -10,6 +10,7 @@ angular.module('config', [])
     'https://test-atower.searchad.naver.com/v2/api-docs',
     'http://10.99.196.208:17000/v2/api-docs',
     'assets/json/master-report.json'
+    'assets/json/ncc-keywordstool.json'
   ],
   i18n: {
     prefix: 'assets/i18n/locale-',
