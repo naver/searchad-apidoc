@@ -162,25 +162,39 @@
                 "monthlyLabel": {
                     "type": "array",
                     "description": "A list of date labels",
-                    "items": {
-                        "type": "string"
+                    "properties" : {
+                        "items": {
+                            "$ref": "#/definitions/MonthStr"
+                        }
                     }
                 },
                 "monthlyProgressPcQcCnt": {
                     "type": "array",
-                    "description": "A list of PC query count for the last year / The sum of PC query count during one month per keyword",
+                    "description": "A list of PC query count for the last year",
                     "items": {
-                        "type": "integer"
+                        "$ref": "#/definitions/PcQcCnt"
                     }
                 },
                 "monthlyProgressMobileQcCnt": {
                     "type": "array",
-                    "description": "A list of mobile query count for the last year / The sum of mobile query count during one month per keyword",
+                    "description": "A list of mobile query count for the last year",
                     "items": {
-                        "type": "integer"
+                        "$ref": "#/definitions/MobileQcCnt"
                     }
                 }
             }
+        },
+        "MonthStr": {
+            "description": "A label with YYYYMM date format (e.g. '201601')",
+            "type": "string"
+        },
+        "PcQcCnt": {
+            "description": "The sum of PC query count during one month per keyword",
+            "type": "integer"
+        },
+        "MobileQcCnt": {
+            "description": "The sum of mobile query count during one month per keyword",
+            "type": "integer"
         },
         "UserStat": {
             "type": "object",
