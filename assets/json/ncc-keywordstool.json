@@ -163,7 +163,9 @@
                     "type": "array",
                     "description": "A list of date labels",
                     "items": {
-                        "$ref": "#/definitions/MonthStr"
+                        "properties": {
+                            "$ref": "#/definitions/MonthStr"
+                        }
                     }
                     
                 },
