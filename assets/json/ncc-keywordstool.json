@@ -168,28 +168,19 @@
                 },
                 "monthlyProgressPcQcCnt": {
                     "type": "array",
-                    "description": "A list of PC query count for the last year",
+                    "description": "A list of PC query count for the last year / The sum of PC query count during one month per keyword",
                     "items": {
-                        ""
+                        "type": "integer"
                     }
                 },
                 "monthlyProgressMobileQcCnt": {
                     "type": "array",
-                    "description": "A list of mobile query count for the last year",
+                    "description": "A list of mobile query count for the last year / The sum of mobile query count during one month per keyword",
                     "items": {
-                        "$ref": "#/definitions/MobileQcCnt"
+                        "type": "integer"
                     }
                 }
             }
-        },
-
-        "PcQcCnt": {
-            "description": "The sum of PC query count during one month per keyword",
-            "type": "integer"
-        },
-        "MobileQcCnt": {
-            "description": "The sum of mobile query count during one month per keyword",
-            "type": "integer"
         },
         "UserStat": {
             "type": "object",
