@@ -222,8 +222,8 @@
         },
         "Gender": {
             "description": "Represents female as 'f', male as 'm'.",
-            "properties" : {
-                "type": "string"
+            "properties": {
+                "type": "string",
                 "enum": [
                     "f",
                     "m"
