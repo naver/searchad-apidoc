@@ -162,11 +162,10 @@
                 "monthlyLabel": {
                     "type": "array",
                     "description": "A list of date labels",
-                    "properties" : {
-                        "items": {
-                            "$ref": "#/definitions/MonthStr"
-                        }
+                    "items": {
+                        "$ref": "#/definitions/MonthStr"
                     }
+                    
                 },
                 "monthlyProgressPcQcCnt": {
                     "type": "array",
