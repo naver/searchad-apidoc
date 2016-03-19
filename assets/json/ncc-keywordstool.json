@@ -183,8 +183,10 @@
             }
         },
         "MonthStr": {
-            "description": "A label with YYYYMM date format (e.g. '201601')",
-            "type": "string"
+            "type": "string",
+            "properties": {
+                "description": "A label with YYYYMM date format (e.g. '201601')"
+            }
         },
         "PcQcCnt": {
             "description": "The sum of PC query count during one month per keyword",
