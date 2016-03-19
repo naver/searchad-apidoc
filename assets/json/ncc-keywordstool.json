@@ -165,7 +165,6 @@
                     "items": {
                         "$ref": "#/definitions/MonthStr"
                     }
-                    
                 },
                 "monthlyProgressPcQcCnt": {
                     "type": "array",
@@ -184,10 +183,8 @@
             }
         },
         "MonthStr": {
-            "properties": {
-                "type": "string",
-                "description": "A label with YYYYMM date format (e.g. '201601')"
-            }
+            "type": "string",
+            "description": "A label with YYYYMM date format (e.g. '201601')"
         },
         "PcQcCnt": {
             "description": "The sum of PC query count during one month per keyword",
@@ -202,24 +199,28 @@
             "properties": {
                 "genderType": {
                     "type": "array",
+                    "description": "Represents a female/male list.",
                     "items": {
                         "$ref": "#/definitions/Gender"
                     }
                 },
                 "ageGroup": {
                     "type": "array",
+                    "description": "Represents a age-group list.",
                     "items": {
                         "$ref": "#/definitions/Age"
                     }
                 },
                 "monthlyPcQcCnt": {
                     "type": "array",
+                    "description": "A list of the sum of PC query count from 30 days ago until yesterday.",
                     "items": {
                         "$ref": "#/definitions/LatestPcQcCnt"
                     }
                 },
                 "monthlyMobileQcCnt": {
                     "type": "array",
+                    "description": "A list of the sum of Mobile query count from 30 days ago until yesterday.",
                     "items": {
                         "$ref": "#/definitions/LatestMobileQcCnt"
                     }
