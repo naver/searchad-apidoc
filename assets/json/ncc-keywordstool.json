@@ -186,10 +186,8 @@
         "MonthStr": {
             "type": object,
             "properties": {
-                "month": {
-                    "type": "string",
-                    "description": "A label with YYYYMM date format (e.g. '201601')"
-                }
+                "type": "string",
+                "description": "A label with YYYYMM date format (e.g. '201601')"
             }
         },
         "PcQcCnt": {
