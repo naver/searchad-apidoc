@@ -183,6 +183,7 @@
             }
         },
         "MonthStr": {
+            "name": "MonthStr",
             "description": "A label with YYYYMM date format (e.g. '201601')",
             "type": "string"
         },
