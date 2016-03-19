@@ -163,7 +163,7 @@
                     "type": "array",
                     "description": "A list of date labels",
                     "items": {
-                        "$ref": "#/definitions/MonthStr"
+                        "$ref": "MonthStr"
                     }
                 },
                 "monthlyProgressPcQcCnt": {
@@ -183,7 +183,6 @@
             }
         },
         "MonthStr": {
-            "name": "MonthStr",
             "description": "A label with YYYYMM date format (e.g. '201601')",
             "type": "string"
         },
