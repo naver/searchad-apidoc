@@ -147,31 +147,35 @@
                     "description": "A competitiveness index. Computed as (an average depth of PC) / (집계시점의 PC 노출가능광고개수). If compIdx < 0.3 then you get \"낮음\", else if compIdx < 0.7 then you get \"중간\", and for other cases, you get \"높음\". With no data, you get \"-\"."
                 },
                 "monthlyProgressList": {
+                    "description": "A monthly query count list of PC and mobile for the last year",
                     "$ref": "#/definitions/MonthlyProgressList"
                 },
                 "userStat": {
+                    "description": "User statistics include the following data, a gender type list, a age group list, a query count list for PC and a query count list for mobile. The lists are in the same order. Therefore, the same index from the lists indicates the same set. For example, suppose you obtain genderType = ['m', 'f', 'm', 'f'], ageGroup = ['40-49', '13-19', '25-29', '0-12'], monthlyPcQcCnt = [4, 2, 100, 1000], monthlyMobileQcCnt = [600, 200, 10, 90]. It means there are 4 sets of data like ('m', '40-49', 4, 600), ('f', '13-19', 2, 200), ('m', '25-29', 100, 10) and ('f', '0-12', 1000, 90).",
                     "$ref": "#/definitions/UserStat"
                 }
             }
         },
         "MonthlyProgressList": {
             "type": "object",
-            "description": "A monthly query count list of PC and mobile for the last year",
             "properties": {
                 "monthlyLabel": {
                     "type": "array",
+                    "description": "A list of date labels",
                     "items": {
                         "$ref": "#/definitions/MonthStr"
                     }
                 },
                 "monthlyProgressPcQcCnt": {
                     "type": "array",
+                    "description": "A list of PC query count for the last year",
                     "items": {
                         "$ref": "#/definitions/PcQcCnt"
                     }
                 },
                 "monthlyProgressMobileQcCnt": {
                     "type": "array",
+                    "description": "A list of mobile query count for the last year",
                     "items": {
                         "$ref": "#/definitions/MobileQcCnt"
                     }
@@ -192,7 +196,6 @@
         },
         "UserStat": {
             "type": "object",
-            "description": "User statistics include the following data, a gender type list, a age group list, a query count list for PC and a query count list for mobile. The lists are in the same order. Therefore, the same index from the lists indicates the same set. For example, suppose you obtain genderType = ['m', 'f', 'm', 'f'], ageGroup = ['40-49', '13-19', '25-29', '0-12'], monthlyPcQcCnt = [4, 2, 100, 1000], monthlyMobileQcCnt = [600, 200, 10, 90]. It means there are 4 sets of data like ('m', '40-49', 4, 600), ('f', '13-19', 2, 200), ('m', '25-29', 100, 10) and ('f', '0-12', 1000, 90).",
             "properties": {
                 "genderType": {
                     "type": "array",
