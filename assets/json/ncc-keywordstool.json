@@ -184,7 +184,6 @@
             }
         },
         "MonthStr": {
-            "type": object,
             "properties": {
                 "type": "string",
                 "description": "A label with YYYYMM date format (e.g. '201601')"
