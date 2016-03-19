@@ -162,10 +162,8 @@
                 "monthlyLabel": {
                     "type": "array",
                     "description": "A list of date labels",
-                    "items": {
-                        "properties": {
-                            "$ref": "#/definitions/MonthStr"
-                        }
+                    "properties": {
+                        "$ref": "#/definitions/MonthStr"
                     }
                     
                 },
