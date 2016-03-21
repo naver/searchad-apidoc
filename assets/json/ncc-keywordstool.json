@@ -199,30 +199,47 @@
             "properties": {
                 "genderType": {
                     "type": "array",
-                    "description": "Represents a female/male list.",
+                    "description": "Represents female as 'f', male as 'm'.",
                     "items": {
-                        "$ref": "#/definitions/Gender"
+                        "description": "Represents female as 'f', male as 'm'.",
+                        "type": "string",
+                        "enum": [
+                            "f",
+                            "m"
+                        ]
                     }
                 },
                 "ageGroup": {
                     "type": "array",
-                    "description": "Represents a age-group list.",
+                    "description": "Represents age-group as '0-12', '13-19', '20-24', '25-29', '30-39', '40-49' and '50-'.",
                     "items": {
-                        "$ref": "#/definitions/Age"
+                        "description": "Represents age-group as '0-12', '13-19', '20-24', '25-29', '30-39', '40-49' and '50-'.",
+                        "type": "string",
+                        "enum": [
+                            "0-12",
+                            "13-19",
+                            "20-24",
+                            "25-29",
+                            "30-39",
+                            "40-49",
+                            "50-"
+                        ]
                     }
                 },
                 "monthlyPcQcCnt": {
                     "type": "array",
                     "description": "A list of the sum of PC query count from 30 days ago until yesterday.",
                     "items": {
-                        "$ref": "#/definitions/LatestPcQcCnt"
+                        "description": "The sum of PC query count from 30 days ago until yesterday.",
+                        "type": "integer"
                     }
                 },
                 "monthlyMobileQcCnt": {
                     "type": "array",
                     "description": "A list of the sum of Mobile query count from 30 days ago until yesterday.",
                     "items": {
-                        "$ref": "#/definitions/LatestMobileQcCnt"
+                        "description": "The sum of Mobile query count from 30 days ago until yesterday.",
+                        "type": "integer"
                     }
                 }
             }
