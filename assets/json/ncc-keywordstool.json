@@ -77,9 +77,9 @@
                         "type": "integer"
                     },
                     {
-                        "name": "showStat",
+                        "name": "includeMonthlyProgressList",
                         "in": "query",
-                        "description": "Set `showStat` = 1 to fetch statistic information per each related keyword (query count, click count, ctr, competitiveness index, depth explained below) as well as relavent keywords list. For fetching related keywords only, set `showStat` = 0.",
+                        "description": "Set `includeMonthlyProgressList` = 1 to fetch statistic information per each related keyword (query count, click count, ctr, competitiveness index, depth explained below) as well as relavent keywords list. For fetching related keywords and query count info only, set `includeMonthlyProgressList` = 0.",
                         "required": false,
                         "type": "integer"
                     },
