@@ -227,6 +227,7 @@
                 },
                 "monthlyMobileQcCnt": {
                     "type": "array",
+                    "description": "A list of the sum of Mobile query count from 30 days ago until yesterday.",
                     "items": {
                         "description": "The sum of Mobile query count from 30 days ago until yesterday.",
                         "type": "integer"
