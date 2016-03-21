@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "Master API",
-        "description": "마스터 데이터 API",
+        "description": "Master Data API",
         "version": "1.0.0"
     },
     "host": "api.naver.com",
@@ -19,11 +19,11 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "요청된 전체 작업 정보 조회",
-                "description": "요청한 작업중 최근 100개의 목록을 조회한다.\n",
+                "summary": "Get the list of ‘Master Report’ Jobs",
+                "description": "Get the list of ‘Master Report’ Jobs LIST (maximum 100 jobs) which recently created \n",
                 "responses": {
                     "200": {
-                        "description": "요청 작업 목록",
+                        "description": "list of ‘Master Report’ Jobs",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -32,7 +32,7 @@
                         }
                     },
                     "default": {
-                        "description": "응답 메시지",
+                        "description": "response message",
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -43,17 +43,17 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "요청작업 이력 전체 삭제",
-                "description": "요청작업 이력 전체목록을 삭제한다.",
+                "summary": "Delete all jobs",
+                "description": "Delete all 'Master Report' jobs.",
                 "responses": {
                     "200": {
-                        "description": "응답 메시지",
+                        "description": "response message",
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
                     },
                     "default": {
-                        "description": "응답 메시지",
+                        "description": "response message",
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -64,8 +64,8 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "요청작업 등록",
-                "description": "마스터 보고서 생성 요청.",
+                "summary": "Create job",
+                "description": "Create ‘Master Report’ job",
                 "consumes": [
                     "application/json"
                 ],
@@ -75,7 +75,7 @@
                         "in": "body",
                         "type": "string",
                         "format": "dateTime",
-                        "description": "변경분 요청시 조회 시작 시간. [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) UTC 표기법을 따른다., fromTime을 입력하지 않으면, 삭제를 제외하고 가장최근까지 수집된 모든 정보를 제공한다."
+                        "description": "The time at which the “Delta”(entity changed during a specific period of time) starts (ISO 8601 UTC).\nIf the parameter is not input, the master report is generated without Delta data.\n"
                     },
                     {
                         "name": "item",
@@ -83,31 +83,32 @@
                         "in": "body",
                         "type": "enum",
                         "enum": [
-	                        "Campaign",
-	                        "CampaignBudget",
-	                        "BusinessChannel",
-	                        "Adgroup",
-	                        "AdgroupBudget",
-	                        "Keyword",
-	                        "Account",
-	                        "Ad",
-	                        "AdExtension",
-	                        "Qi",
-	                        "Label",
-	                        "LabelRef"
-	                    ],
-                        "description": "생성 요청할 아이템 종류. MasterReportJob.item 정보를 따른다. #required-request"
+                            "Campaign",
+                            "CampaignBudget",
+                            "BusinessChannel",
+                            "Adgroup",
+                            "AdgroupBudget",
+                            "Keyword",
+                            "Account",
+                            "Ad",
+                            "AdExtension",
+                            "Qi",
+                            "Label",
+                            "LabelRef"
+                        ],
+                        "format": "string",
+                        "description": "The type of the Master Reprot item."
                     }
                 ],
                 "responses": {
                     "201": {
-                        "description": "마스터 작업 생성 요청 정보",
+                        "description": "responses a created Master Report Job details.",
                         "schema": {
                             "$ref": "#/definitions/MasterReportJob"
                         }
                     },
                     "default": {
-                        "description": "응답 메시지",
+                        "description": "response message",
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -120,20 +121,20 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "ID에 해당하는 작업 삭제",
-                "description": "ID에 해당하는 작업을 삭제한다.",
+                "summary": "Delete by job id",
+                "description": "Delete by 'Master Report' job id.",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "type": "string",
-                        "description": "MasterReportJob 생성이 정상적으로 완료되었을 경우 응답으로 받은 ID.",
+                        "description": "Valid Master Report Job Id",
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "작업 삭제 완료",
+                        "description": "response message",
                         "schema": {
                             "$ref": "#/definitions/Error"
                         }
@@ -150,20 +151,20 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "ID에 해당하는 작업 정보를 조회",
-                "description": "ID에 해당하는 작업의 상세 정보를 조회한다.\n",
+                "summary": "Get a ‘Master Report’ Job details by specific ID.",
+                "description": "Get a ‘Master Report’ Job details by specific ID..\n",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "type": "string",
-                        "description": "MasterReportJob 생성이 정상적으로 완료되었을 경우 응답으로 받은 ID.",
+                        "description": "Valid Master Report Job Id.",
                         "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "요청 정보",
+                        "description": "‘Master Report’ Job details.",
                         "schema": {
                             "$ref": "#/definitions/MasterReportJob"
                         }
@@ -184,7 +185,7 @@
             "properties": {
                 "id": {
                     "type": "string",
-                    "description": "요청 작업의 키 값."
+                    "description": "Master Report Job id."
                 },
                 "item": {
                     "type": "enum",
@@ -203,15 +204,15 @@
                         "LabelRef",
                         "Media"
                     ],
-                    "description": "아이템목록. Campaign:캠페인, CampaignBudget:캠페인예산, BusinessChannel:비즈채널, Adgroup:그룹, AdgroupBudget:그룹예산, Keyword:광고, Account:권한설정, Ad:소재, AdExtension:확장소재, Qi:품질지수, Label:즐겨찾기, LabelRef:즐겨찾기 등록ID, Media:노출매체정보"
+                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info\n"
                 },
                 "fromTime": {
                     "type": "string",
-                    "description": "변경분 요청시 조회 시작 시간. [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) UTC 표기법을 따른다."
+                    "description": "The time at which the \"Delta\"(entity changed during a specific period of time) starts (ISO 8601 UTC)"
                 },
                 "updateTime": {
                     "type": "string",
-                    "description": "가장 최근 갱신된 시간 값. [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) UTC 표기법을 따른다."
+                    "description": "Time of report generation (ISO 8601 UTC)."
                 },
                 "status": {
                     "type": "enum",
@@ -222,11 +223,11 @@
                         "NONE",
                         "ERROR"
                     ],
-                    "description": "작업 진행상태., REGIST:등록, RUNNING:생성중, BUILT:생성완료, NONE:자료없음, ERROR:생성실패."
+                    "description": "Job status., REGIST, RUNNING, BUILT, NONE, ERROR"
                 },
                 "downloadUrl": {
                     "type": "string",
-                    "description": "생성된 파일을 다운로드 받을 수 있는 URL. 이 URL은 조회 후 5분간만 유효하며, 5분 후에는 사용할 수 없다. 5분이 지난 후에는 재조회하여 새 URL을 받아야한다."
+                    "description": "Address of a report file. Expired five minutes after the report generation."
                 }
             }
         },
