@@ -243,35 +243,6 @@
                     }
                 }
             }
-        },
-        "Gender": {
-            "description": "Represents female as 'f', male as 'm'.",
-            "type": "string",
-            "enum": [
-                "f",
-                "m"
-            ]
-        },
-        "Age": {
-            "description": "Represents age-group as '0-12', '13-19', '20-24', '25-29', '30-39', '40-49' and '50-'.",
-            "type": "string",
-            "enum": [
-                "0-12",
-                "13-19",
-                "20-24",
-                "25-29",
-                "30-39",
-                "40-49",
-                "50-"
-            ]
-        },
-        "LatestPcQcCnt": {
-            "description": "The sum of PC query count from 30 days ago until yesterday.",
-            "type": "integer"
-        },
-        "LatestMobileQcCnt": {
-            "description": "The sum of Mobile query count from 30 days ago until yesterday.",
-            "type": "integer"
         }
     }
 }
