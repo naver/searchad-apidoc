@@ -19,11 +19,12 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "Get the list of ‘Master Report’ Jobs",
-                "description": "Get the list of ‘Master Report’ Jobs LIST (maximum 100 jobs) which recently created \n",
+                "summary": "Get the list of \"Master Report\" Jobs",
+                "operationId": "getAllMasterReports",
+                "description": "Get the list of \"Master Report\" Jobs LIST (maximum 100 jobs) which recently created \n",
                 "responses": {
                     "200": {
-                        "description": "list of ‘Master Report’ Jobs",
+                        "description": "list of \"Master Report\" Jobs",
                         "schema": {
                             "type": "array",
                             "items": {
@@ -44,7 +45,8 @@
                     "MasterReport"
                 ],
                 "summary": "Delete all jobs",
-                "description": "Delete all 'Master Report' jobs.",
+                "operationId": "deleteAllMasterReports",
+                "description": "Delete all \"Master Report\" jobs.",
                 "responses": {
                     "200": {
                         "description": "response message",
@@ -65,39 +67,19 @@
                     "MasterReport"
                 ],
                 "summary": "Create job",
-                "description": "Create ‘Master Report’ job",
+                "operationId": "createMasterReport",
+                "description": "Create \"Master Report\" job",
                 "consumes": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "fromTime",
+                        "name": "Job",
                         "in": "body",
-                        "type": "string",
-                        "format": "dateTime",
-                        "description": "The time at which the “Delta”(entity changed during a specific period of time) starts (ISO 8601 UTC).\nIf the parameter is not input, the master report is generated without Delta data.\n"
-                    },
-                    {
-                        "name": "item",
-                        "required": true,
-                        "in": "body",
-                        "type": "enum",
-                        "enum": [
-                            "Campaign",
-                            "CampaignBudget",
-                            "BusinessChannel",
-                            "Adgroup",
-                            "AdgroupBudget",
-                            "Keyword",
-                            "Account",
-                            "Ad",
-                            "AdExtension",
-                            "Qi",
-                            "Label",
-                            "LabelRef"
-                        ],
-                        "format": "string",
-                        "description": "The type of the Master Reprot item."
+                        "description": "\"item\" is mandatory parameter. \"fromTime\" is optional parameter. the others aren't required. \"fromTime\" is a specific period of time at starts (ISO 8601 UTC). If \"fromTime\" is input, the Delta master report is generated between \"fromTime\" and now. If \"fromTime\" is not input, the master report is generated without Delta data.\n",
+                        "schema": {
+                            "$ref": "#/definitions/MasterReportJob"
+                        }
                     }
                 ],
                 "responses": {
@@ -122,7 +104,8 @@
                     "MasterReport"
                 ],
                 "summary": "Delete by job id",
-                "description": "Delete by 'Master Report' job id.",
+                "operationId": "deleteMasterReport",
+                "description": "Delete by \"Master Report\" job id.",
                 "parameters": [
                     {
                         "name": "id",
@@ -151,8 +134,9 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "Get a ‘Master Report’ Job details by specific ID.",
-                "description": "Get a ‘Master Report’ Job details by specific ID..\n",
+                "summary": "Get a \"Master Report\" Job details by specific ID.",
+                "operationId": "getMasterReport",
+                "description": "Get a \"Master Report\" Job details by specific ID..\n",
                 "parameters": [
                     {
                         "name": "id",
@@ -164,7 +148,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "‘Master Report’ Job details.",
+                        "description": "\"Master Report\" Job details.\n",
                         "schema": {
                             "$ref": "#/definitions/MasterReportJob"
                         }
@@ -188,7 +172,7 @@
                     "description": "Master Report Job id."
                 },
                 "item": {
-                    "type": "enum",
+                    "type": "string",
                     "enum": [
                         "Campaign",
                         "CampaignBudget",
@@ -204,18 +188,20 @@
                         "LabelRef",
                         "Media"
                     ],
-                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info\n"
+                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
                 },
                 "fromTime": {
                     "type": "string",
-                    "description": "The time at which the \"Delta\"(entity changed during a specific period of time) starts (ISO 8601 UTC)"
+                    "format": "dateTime",
+                    "description": "The time at which the \"Delta\"(entity changed during a specific period of time) starts (ISO 8601 UTC)\n"
                 },
                 "updateTime": {
                     "type": "string",
-                    "description": "Time of report generation (ISO 8601 UTC)."
+                    "format": "dateTime",
+                    "description": "Time of report generation (ISO 8601 UTC)\n"
                 },
                 "status": {
-                    "type": "enum",
+                    "type": "string",
                     "enum": [
                         "REGIST",
                         "RUNNING",
@@ -227,7 +213,7 @@
                 },
                 "downloadUrl": {
                     "type": "string",
-                    "description": "Address of a report file. Expired five minutes after the report generation."
+                    "description": "Address of a report file. Expired five minutes after the report generation.\n"
                 }
             }
         },
