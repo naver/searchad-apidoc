@@ -15,7 +15,7 @@
                     "RelKwdStat"
                 ],
                 "summary": "list",
-                "description": "Retrieves related keywords and their statistical indicators by query parameters. To determine search types and conditions, a user requests data by combining at least one parameter among `pc business ID`, `mobile business ID`, `pc site`, `mobile site`, `keyword hints`, `season`, `event ID` and by using several conditional parameters.    \n",
+                "description": "Retrieves related keywords and their statistical indicators by query parameters. To determine search types and conditions, a user requests data by combining at least one parameter among `business ID', `ncc business channel ID`, `keyword hints`, `season`, `event ID` and by using several conditional parameters.    \n",
                 "parameters": [
                     {
                         "name": "siteId",
