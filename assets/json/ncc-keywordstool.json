@@ -20,21 +20,21 @@
                     {
                         "name": "siteId",
                         "in": "query",
-                        "description": "NCC Business Channel ID",
+                        "description": "Buisness chanel ID(nccBusinessChannelId) restricted for site channel type (channelTp= “SITE”)",
                         "required": false,
                         "type": "string"
                     },
                     {
                         "name": "biztpId",
                         "in": "query",
-                        "description": "Business ID",
+                        "description": "Business type id",
                         "required": false,
                         "type": "integer"
                     },
                     {
                         "name": "hintKeywords",
                         "in": "query",
-                        "description": "Hint keywords with comma-joined (e.g. 꽃배달,flower,화환,bouquet)",
+                        "description": "Keyword list for hint. The list delimiter is comma (e.g. 꽃배달,flower,화환,bouquet), up to 5 keywords could be listed.",
                         "required": false,
                         "type": "string"
                     },
@@ -62,7 +62,7 @@
                     {
                         "name": "showDetail",
                         "in": "query",
-                        "description": "Set `showDetail` = 1 to fetch detailed statistic information per each related keyword (monthly query count, monthly average click count, monthly average ctr, competitiveness index, depth explained below) as well as relavent keywords list. For fetching related keywords and monthly query count info only, set `showDetail` = 0.",
+                        "description": "Set `showDetail` = 1 to fetch detailed statistic information per each related keyword (query count, click count, CTR, competitiveness index, depth) as well as relavent keywords list. For fetching related keywords and monthly query count info only, set `showDetail` = 0.",
                         "required": false,
                         "type": "integer"
                     }
@@ -92,35 +92,35 @@
                 },
                 "monthlyPcQcCnt": {
                     "type": "string",
-                    "description": "A simple version of the sum of PC query count from 30 days ago until yesterday. If the query count is less than 10, you get \"<10\". With no data, you get \"-\"."
+                    "description": "Sum of PC query counts in recent 30 days. If the query count is less than 10, you get \"<10\". With no data, you get \"-\"."
                 },
                 "monthlyMobileQcCnt": {
                     "type": "string",
-                    "description": "A simple version of the sum of mobile query count from 30 days ago until yesterday. If the query count is less than 10, you get \"<10\". With no data, you get \"-\"."
+                    "description": "Sum of Mobile query counts in recent 30 days. If the query count is less than 10, you get \"<10\". With no data, you get \"-\"."
                 },
                 "monthlyAvePcClkCnt": {
                     "type": "string",
-                    "description": "A monthly average click count of PC for a keyword. Computed as (the sum of PC click count for the last 4 weeks) / (average depth for PC). With no data, you get \"-\"."
+                    "description": "Average PC click counts per keyword's ad in recent 4 weeks. With no data, you get \"-\"."
                 },
                 "monthlyAveMobileClkCnt": {
                     "type": "string",
-                    "description": "A monthly average click count of mobile for a keyword. Computed as (the sum of mobile click count for the last 4 weeks) / (average depth for mobile). With no data, you get \"-\"."
+                    "description": "Average Mobile click counts per keyword's ad in recent 4 weeks. With no data, you get \"-\"."
                 },
                 "monthlyAvePcCtr": {
                     "type": "string",
-                    "description": "A click-through rate of PC. Computed as (the sum of PC click count for the last 4 weeks) / (the sum of PC impression count for the last 4 weeks). With no data, you get \"-\"."
+                    "description": "Click-through rate of PC in recent 4 weeks. With no data, you get \"-\"."
                 },
                 "monthlyAveMobileCtr": {
                     "type": "string",
-                    "description": "A click-through rate of mobile. Computed as (the sum of mobile click count for the last 4 weeks) / (the sum of mobile impression count for the last 4 weeks). With no data, you get \"-\"."
+                    "description": "Click-through rate of Mobile in recent 4 weeks. With no data, you get \"-\"."
                 },
                 "plAvgDepth": {
                     "type": "string",
-                    "description": "An average depth of PC. Computed as (the sum of PC impression count for the last 4 weeks) / (the sum of PC 조회수 for the last 4 weeks). With no data, you get \"-\"."
+                    "description": "Average depth of PC ad in recent 4 weeks. With no data, you get \"-\"."
                 },
                 "compIdx": {
                     "type": "string",
-                    "description": "A competitiveness index. Computed as (an average depth of PC) / (집계시점의 PC 노출가능광고개수). If compIdx < 0.3 then you get \"낮음\", else if compIdx < 0.7 then you get \"중간\", and for other cases, you get \"높음\". With no data, you get \"-\"."
+                    "description": "A competitiveness index based on PC ad. low: low competitiveness, mid: middle competitiveness, high: high competitiveness"
                 }
             }
         }
