@@ -46,9 +46,9 @@
                         "type": "integer"
                     },
                     {
-                        "name": "eventId",
+                        "name": "event",
                         "in": "query",
-                        "description": "Event id",
+                        "description": "Event ID",
                         "required": false,
                         "type": "integer"
                     },
