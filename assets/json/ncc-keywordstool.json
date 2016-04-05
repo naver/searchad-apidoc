@@ -36,7 +36,7 @@
                         "in": "query",
                         "description": "Hint keywords with comma-joined (e.g. 꽃배달,flower,화환,bouquet)",
                         "required": false,
-                        "type": "string",
+                        "type": "string"
                     },
                     {
                         "name": "includeHintKeywords",
