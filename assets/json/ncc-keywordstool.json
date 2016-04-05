@@ -121,7 +121,7 @@
                 "compIdx": {
                     "type": "string",
                     "description": "A competitiveness index. Computed as (an average depth of PC) / (집계시점의 PC 노출가능광고개수). If compIdx < 0.3 then you get \"낮음\", else if compIdx < 0.7 then you get \"중간\", and for other cases, you get \"높음\". With no data, you get \"-\"."
-                },
+                }
             }
         }
     }
