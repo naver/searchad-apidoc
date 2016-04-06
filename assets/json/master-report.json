@@ -83,7 +83,7 @@
                     }
                 ],
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "responses a created Master Report Job details.",
                         "schema": {
                             "$ref": "#/definitions/MasterReportJob"
