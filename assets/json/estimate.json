@@ -21,7 +21,7 @@
                 ],
                 "summary": "get",
                 "operationId": "getAveragePositionBid",
-                "description": "estiate bid by average position statistics.\n",
+                "description": "estimate bid by average position statistics.\n",
                 "consumes": [
                     "application/json"
                 ],
@@ -70,7 +70,7 @@
                 ],
                 "summary": "get",
                 "operationId": "getMedianBid",
-                "description": "estiate bid by median\n",
+                "description": "estimate bid by median\n",
                 "consumes": [
                     "application/json"
                 ],
@@ -119,7 +119,7 @@
                 ],
                 "summary": "get",
                 "operationId": "getFirstPageBid",
-                "description": "estiate bid by first page statistics.\n",
+                "description": "estimate bid by first page statistics.\n",
                 "consumes": [
                     "application/json"
                 ],
@@ -168,7 +168,7 @@
                 ],
                 "summary": "get",
                 "operationId": "getPerformance",
-                "description": "estiate performance data by expect bid.\n",
+                "description": "estimate performance data by expect bid.\n",
                 "consumes": [
                     "application/json"
                 ],
