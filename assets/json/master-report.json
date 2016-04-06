@@ -19,9 +19,9 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "Get the list of \"Master Report\" Jobs",
+                "summary": "list",
                 "operationId": "getAllMasterReports",
-                "description": "Get the list of \"Master Report\" Jobs LIST (maximum 100 jobs) which recently created \n",
+                "description": "Get all list of \"Master Report\" Jobs LIST (maximum 100 jobs) which recently created \n",
                 "responses": {
                     "200": {
                         "description": "list of \"Master Report\" Jobs",
@@ -44,7 +44,7 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "Delete all jobs",
+                "summary": "delete all",
                 "operationId": "deleteAllMasterReports",
                 "description": "Delete all \"Master Report\" jobs.",
                 "responses": {
@@ -66,7 +66,7 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "Create job",
+                "summary": "create",
                 "operationId": "createMasterReport",
                 "description": "Create \"Master Report\" job",
                 "consumes": [
@@ -78,7 +78,7 @@
                         "in": "body",
                         "description": "\"item\" is mandatory parameter. \"fromTime\" is optional parameter. the others aren't required. \"fromTime\" is a specific period of time at starts (ISO 8601 UTC). If \"fromTime\" is input, the Delta master report is generated between \"fromTime\" and now. If \"fromTime\" is not input, the master report is generated without Delta data.\n",
                         "schema": {
-                            "$ref": "#/definitions/MasterReportJob"
+                            "$ref": "#/definitions/RequestJob"
                         }
                     }
                 ],
@@ -103,7 +103,7 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "Delete by job id",
+                "summary": "delete",
                 "operationId": "deleteMasterReport",
                 "description": "Delete by \"Master Report\" job id.",
                 "parameters": [
@@ -134,7 +134,7 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "Get a \"Master Report\" Job details by specific ID.",
+                "summary": "get (by id)",
                 "operationId": "getMasterReport",
                 "description": "Get a \"Master Report\" Job details by specific ID..\n",
                 "parameters": [
@@ -186,9 +186,10 @@
                         "Qi",
                         "Label",
                         "LabelRef",
-                        "Media"
+                        "Media",
+                        "Biz"
                     ],
-                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
+                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n"
                 },
                 "fromTime": {
                     "type": "string",
@@ -214,6 +215,36 @@
                 "downloadUrl": {
                     "type": "string",
                     "description": "Address of a report file. Expired five minutes after the report generation.\n"
+                }
+            }
+        },
+        "RequestJob": {
+            "type": "object",
+            "properties": {
+                "item": {
+                    "type": "string",
+                    "enum": [
+                        "Campaign",
+                        "CampaignBudget",
+                        "BusinessChannel",
+                        "Adgroup",
+                        "AdgroupBudget",
+                        "Keyword",
+                        "Account",
+                        "Ad",
+                        "AdExtension",
+                        "Qi",
+                        "Label",
+                        "LabelRef",
+                        "Media",
+                        "Biz"
+                    ],
+                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
+                },
+                "fromTime": {
+                    "type": "string",
+                    "format": "dateTime",
+                    "description": "The time at which the \"Delta\"(entity changed during a specific period of time) starts (ISO 8601 UTC)\n"
                 }
             }
         },
