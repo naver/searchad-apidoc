@@ -226,6 +226,7 @@
                 "items": {
                     "title": "Array Of keys",
                     "type": "array",
+                    "description": "array of key and position object\n",
                     "items": {
                         "$ref": "#/definitions/KeyAndPosition"
                     }
@@ -234,13 +235,15 @@
         },
         "KeyAndPosition": {
             "type": "object",
+            "description": "key and position",
             "properties": {
                 "key": {
                     "type": "string",
                     "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key is AdKeyword.`nccKeywordId`\n"
                 },
                 "position": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "the `position` for a targetted keyword. valid range: 1~15 on PC, 1~5 on MOBILE\n  \n"
                 }
             }
         },
@@ -257,6 +260,7 @@
                 },
                 "estimate": {
                     "title": "Array Of estimate bid",
+                    "description": "array of estimated value",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/EstimateBidByPosition"
@@ -266,18 +270,23 @@
         },
         "EstimateBidByPosition": {
             "type": "object",
+            "description": "estimated value by average position",
             "properties": {
                 "keyword": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "search ad keyword"
                 },
                 "position": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "expected position for ad"
                 },
                 "nccKeywordId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "AdKeyword.nccKeywordId"
                 },
                 "bid": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "maximum cost per click for a ad (unit: 10 KRW). valid range: 70~100,000\n"
                 }
             }
         },
@@ -294,6 +303,7 @@
                 },
                 "items": {
                     "title": "Array Of keys",
+                    "description": "array of keys",
                     "type": "array",
                     "items": {
                         "title": "Keys",
@@ -304,6 +314,7 @@
         },
         "EstimateBid": {
             "type": "object",
+            "description": "estimated bid by statistical distribution",
             "properties": {
                 "device": {
                     "type": "string",
@@ -315,6 +326,7 @@
                 },
                 "estimate": {
                     "title": "Array Of estimate bid",
+                    "description": "estimated value",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Bid"
@@ -326,18 +338,22 @@
             "type": "object",
             "properties": {
                 "keyword": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "keyword"
                 },
                 "nccKeywordId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "AdKeyword.nccKeywordId"
                 },
                 "bid": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Bid price"
                 }
             }
         },
         "RequestPerformance": {
             "type": "object",
+            "description": "request of performance graph data",
             "properties": {
                 "device": {
                     "type": "string",
@@ -358,6 +374,7 @@
                 },
                 "bids": {
                     "title": "Array Of bids",
+                    "description": "array of bid",
                     "type": "array",
                     "items": {
                         "title": "bid",
@@ -379,16 +396,20 @@
                     ]
                 },
                 "keywordplus": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "use keyword-plus statistics"
                 },
                 "keyword": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "keyword"
                 },
                 "nccKeywordId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "AdKeyword.nccKeywordId"
                 },
                 "estimate": {
                     "title": "Array Of performance",
+                    "description": "estimated value",
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Performance"
@@ -398,21 +419,26 @@
         },
         "Performance": {
             "type": "object",
+            "description": "performance graph data",
             "properties": {
                 "bid": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "bid price"
                 },
                 "clicks": {
                     "type": "integer",
-                    "format": "int64"
+                    "format": "int64",
+                    "description": "expect click count"
                 },
                 "impressions": {
                     "type": "integer",
-                    "format": "int64"
+                    "format": "int64",
+                    "description": "expect impression count"
                 },
                 "cost": {
                     "type": "integer",
-                    "format": "int64"
+                    "format": "int64",
+                    "description": "expect cost"
                 }
             }
         },
@@ -420,13 +446,16 @@
             "type": "object",
             "properties": {
                 "code": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "error code"
                 },
                 "message": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "error message"
                 },
                 "details": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "more detailed for error"
                 }
             }
         }
