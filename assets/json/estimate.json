@@ -227,18 +227,20 @@
                     "title": "Array Of keys",
                     "type": "array",
                     "items": {
-                        "title": "KeyAndPosition",
-                        "type": "object",
-                        "properties": {
-                            "key": {
-                                "type": "string",
-                                "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key is AdKeyword.`nccKeywordId`\n"
-                            },
-                            "position": {
-                                "type": "integer"
-                            }
-                        }
+                        "$ref": "#/definitions/KeyAndPosition"
                     }
+                }
+            }
+        },
+        "KeyAndPosition": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key is AdKeyword.`nccKeywordId`\n"
+                },
+                "position": {
+                    "type": "integer"
                 }
             }
         },
@@ -257,23 +259,25 @@
                     "title": "Array Of estimate bid",
                     "type": "array",
                     "items": {
-                        "title": "estimate bid",
-                        "type": "object",
-                        "properties": {
-                            "keyword": {
-                                "type": "string"
-                            },
-                            "position": {
-                                "type": "integer"
-                            },
-                            "nccKeywordId": {
-                                "type": "string"
-                            },
-                            "bid": {
-                                "type": "integer"
-                            }
-                        }
+                        "$ref": "#/definitions/EstimateBidByPosition"
                     }
+                }
+            }
+        },
+        "EstimateBidByPosition": {
+            "type": "object",
+            "properties": {
+                "keyword": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer"
+                },
+                "nccKeywordId": {
+                    "type": "string"
+                },
+                "bid": {
+                    "type": "integer"
                 }
             }
         },
@@ -313,20 +317,22 @@
                     "title": "Array Of estimate bid",
                     "type": "array",
                     "items": {
-                        "title": "estimate bid",
-                        "type": "object",
-                        "properties": {
-                            "keyword": {
-                                "type": "string"
-                            },
-                            "nccKeywordId": {
-                                "type": "string"
-                            },
-                            "bid": {
-                                "type": "integer"
-                            }
-                        }
+                        "$ref": "#/definitions/Bid"
                     }
+                }
+            }
+        },
+        "Bid": {
+            "type": "object",
+            "properties": {
+                "keyword": {
+                    "type": "string"
+                },
+                "nccKeywordId": {
+                    "type": "string"
+                },
+                "bid": {
+                    "type": "integer"
                 }
             }
         },
@@ -385,26 +391,28 @@
                     "title": "Array Of performance",
                     "type": "array",
                     "items": {
-                        "title": "performance",
-                        "type": "object",
-                        "properties": {
-                            "bid": {
-                                "type": "integer"
-                            },
-                            "clicks": {
-                                "type": "integer",
-                                "format": "int64"
-                            },
-                            "impressions": {
-                                "type": "integer",
-                                "format": "int64"
-                            },
-                            "cost": {
-                                "type": "integer",
-                                "format": "int64"
-                            }
-                        }
+                        "$ref": "#/definitions/Performance"
                     }
+                }
+            }
+        },
+        "Performance": {
+            "type": "object",
+            "properties": {
+                "bid": {
+                    "type": "integer"
+                },
+                "clicks": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "impressions": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "cost": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },
