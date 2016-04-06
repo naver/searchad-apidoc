@@ -226,7 +226,7 @@
                 "items": {
                     "title": "Array Of keys",
                     "type": "array",
-                    "description": "array of key and position object\n",
+                    "description": "The maximum of 200 keys can be requested at once.\n",
                     "items": {
                         "$ref": "#/definitions/KeyAndPosition"
                     }
@@ -303,7 +303,7 @@
                 },
                 "items": {
                     "title": "Array Of keys",
-                    "description": "array of keys",
+                    "description": "The maximum of 200 keys can be requested at once.",
                     "type": "array",
                     "items": {
                         "title": "Keys",
@@ -374,7 +374,7 @@
                 },
                 "bids": {
                     "title": "Array Of bids",
-                    "description": "array of bid",
+                    "description": "The maximum of 100 bids can be requested at once.",
                     "type": "array",
                     "items": {
                         "title": "bid",
