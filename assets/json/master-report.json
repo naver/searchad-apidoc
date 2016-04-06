@@ -103,7 +103,7 @@
                 "tags": [
                     "MasterReport"
                 ],
-                "summary": "delete",
+                "summary": "delete (by id)",
                 "operationId": "deleteMasterReport",
                 "description": "Delete by \"Master Report\" job id.",
                 "parameters": [
