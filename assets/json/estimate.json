@@ -166,7 +166,7 @@
                 "tags": [
                     "Estimate"
                 ],
-                "summary": "get performance",
+                "summary": "get (performance)",
                 "operationId": "getPerformance",
                 "description": "estimate performance data by expect bid.\n",
                 "consumes": [
