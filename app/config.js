@@ -5,12 +5,14 @@ angular.module('config', [])
   debug: false,
   timezone: 'Asia/Seoul',
   swaggerJson: [
-    'http://10.113.217.209:8080/v2/api-docs?group=ncc',
+    //'http://10.113.217.209:8080/v2/api-docs?group=ncc',
+    'assets/json/ncc-heroes.json',
     'http://10.113.217.209:8080/v2/api-docs?group=tool',
     'https://test-atower.searchad.naver.com/v2/api-docs',
     'assets/json/ncc-report.json',
     'assets/json/master-report.json', 
-    'assets/json/ncc-keywordstool.json'
+    'assets/json/ncc-keywordstool.json',
+    'assets/json/estimate.json'
   ],
   i18n: {
     prefix: 'assets/i18n/locale-',
