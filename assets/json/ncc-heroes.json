@@ -3111,7 +3111,7 @@
         }
       }
     },
-    "Estimate": {
+    "EstimateLegacy": {
       "properties": {
         "bidAmt": {
           "type": "integer",
