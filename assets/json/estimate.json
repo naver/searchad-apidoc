@@ -19,7 +19,7 @@
                 "tags": [
                     "Estimate"
                 ],
-                "summary": "get",
+                "summary": "get (average position bid)",
                 "operationId": "getAveragePositionBid",
                 "description": "estimate bid by average position statistics.\n",
                 "consumes": [
@@ -68,7 +68,7 @@
                 "tags": [
                     "Estimate"
                 ],
-                "summary": "get",
+                "summary": "get (median bid)",
                 "operationId": "getMedianBid",
                 "description": "estimate bid by median\n",
                 "consumes": [
@@ -117,7 +117,7 @@
                 "tags": [
                     "Estimate"
                 ],
-                "summary": "get",
+                "summary": "get (first page bid)",
                 "operationId": "getFirstPageBid",
                 "description": "estimate bid by first page statistics.\n",
                 "consumes": [
@@ -166,7 +166,7 @@
                 "tags": [
                     "Estimate"
                 ],
-                "summary": "get",
+                "summary": "get performance",
                 "operationId": "getPerformance",
                 "description": "estimate performance data by expect bid.\n",
                 "consumes": [
