@@ -9,7 +9,7 @@ angular.module('config', [])
     'assets/json/ncc-heroes.json',
     // 'http://10.113.217.209:8080/v2/api-docs?group=tool',
     'https://demo.searchad.naver.com/v2/api-docs?group=tool',
-    'https://test-atower.searchad.naver.com/v2/api-docs',
+    'https://atower.searchad.naver.com/v2/api-docs',
     'assets/json/ncc-report.json',
     'assets/json/master-report.json', 
     'assets/json/ncc-keywordstool.json',
