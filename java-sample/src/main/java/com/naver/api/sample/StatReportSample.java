@@ -1,3 +1,5 @@
+package com.naver.api.sample;
+
 import com.naver.api.model.StatReport;
 import com.naver.api.rest.StatReports;
 import com.naver.api.util.PropertiesLoader;

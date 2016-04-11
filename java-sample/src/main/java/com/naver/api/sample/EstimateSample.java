@@ -1,3 +1,5 @@
+package com.naver.api.sample;
+
 import com.naver.api.model.estimate.*;
 import com.naver.api.rest.Estimate;
 import com.naver.api.util.PropertiesLoader;

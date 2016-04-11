@@ -1,3 +1,5 @@
+package com.naver.api.sample;
+
 import com.naver.api.model.*;
 import com.naver.api.rest.*;
 import com.naver.api.util.PropertiesLoader;

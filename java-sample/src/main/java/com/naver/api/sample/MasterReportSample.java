@@ -1,3 +1,5 @@
+package com.naver.api.sample;
+
 import com.mashape.unirest.http.HttpResponse;
 import com.naver.api.model.MasterReport;
 import com.naver.api.rest.MasterReports;
