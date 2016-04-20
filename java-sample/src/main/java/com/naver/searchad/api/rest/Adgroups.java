@@ -39,13 +39,13 @@ public class Adgroups {
 		return rest.asObject(response, Adgroup.class);
 	}
 
-	public static Adgroup[] update(RestClient rest, long customerId, Adgroup adgroup, String fields) throws Exception {
+	public static Adgroup update(RestClient rest, long customerId, Adgroup adgroup, String fields) throws Exception {
 		HttpResponse<String> response =
-				rest.put(apiPath, customerId)
+				rest.put(apiPath + "/" + adgroup.getNccAdgroupId(), customerId)
 						.queryString("fields", fields)
-						.body(Arrays.asList(adgroup))
+						.body(adgroup)
 						.asString();
-		return rest.asObject(response, Adgroup[].class);
+		return rest.asObject(response, Adgroup.class);
 	}
 
 	public static void delete(RestClient rest, long customerId, String adgroupId) throws Exception {

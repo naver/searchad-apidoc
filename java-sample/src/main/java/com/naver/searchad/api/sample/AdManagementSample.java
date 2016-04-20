@@ -48,7 +48,7 @@ public class AdManagementSample {
 
 				// 그룹 수정 PUT /ncc/adgroups/{adgroupId}{?fields}
 				adgroup.setUserLock(UserLock.PAUSED);
-				Adgroup[] updatedAdgroup = Adgroups.update(rest, customerId, adgroup, "userLock");
+				Adgroup updatedAdgroup = Adgroups.update(rest, customerId, adgroup, "userLock");
 
 				String adgroupId = adgroups[0].getNccAdgroupId();
 
