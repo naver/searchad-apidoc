@@ -4,6 +4,7 @@ import com.naver.searchad.api.model.*;
 import com.naver.searchad.api.rest.*;
 import com.naver.searchad.api.util.PropertiesLoader;
 import com.naver.searchad.api.util.RestClient;
+import com.naver.searchad.api.util.Schedules;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -57,6 +58,15 @@ public class AdManagementSample {
 
 				// 소재
 				AdSamples(rest, customerId, adgroupId, adgroup2.getNccAdgroupId());
+
+				// 전화번호 유형의 비즈채널이 존재하는 경우 전화번호 유형의 확장 소재를 등록해볼 수 있다.
+				Optional<Channel> phoneChannel = Stream.of(channels).filter(channel -> "PHONE".equals(channel.getChannelTp())).findFirst();
+
+				if (phoneChannel.isPresent()) {
+					// 확장 소재
+					AdExtensionSample(rest, customerId, adgroupId, phoneChannel.get().getNccBusinessChannelId());
+				}
+
 			} finally {
 				if (adgroup != null) {
 					Adgroups.delete(rest, customerId, adgroup.getNccAdgroupId());
@@ -223,6 +233,37 @@ public class AdManagementSample {
 		keywords = Keywords.listByAdgroupId(rest, customerId, adgroupId);
 		String ids = Stream.of(keywords).map(Keyword::getNccKeywordId).collect(Collectors.joining(","));
 		Keywords.delete(rest, customerId, ids);
+	}
+
+	private static void AdExtensionSample(RestClient rest, long customerId, String ownerId, String channelId) throws Exception {
+		// 이 샘플에서는 전화번호 타입의 확장소재에 대해서만 동작한다.
+		AdExtension newAdExtension = new AdExtension();
+		newAdExtension.setCustomerId(customerId);
+		newAdExtension.setOwnerId(ownerId);
+		newAdExtension.setType("PHONE");
+		newAdExtension.setPcChannelId(channelId);
+		newAdExtension.setMobileChannelId(channelId);
+		newAdExtension.setSchedule(Schedules.everyDayAndHour());
+
+		// 확장 소재 생성 GET /ncc/ad-extensions{?ownerId}
+		AdExtension adExtension = AdExtensions.create(rest, customerId, newAdExtension);
+
+		// 확장 소재 조회 POST /ncc/ad-extensions
+		AdExtension[] adExtensions = AdExtensions.listByOwnerId(rest, customerId, ownerId);
+
+		adExtension.setSchedule(
+				Schedules.builder()
+						.monday(15, 16, 17, 18)
+						.tuesday(15, 16, 17)
+						.build()
+		);
+
+		// 확장 소재 수정 PUT /ncc/ad-extensions/{adExtensionId}{?fields}
+		AdExtensions.update(rest, customerId, adExtension.getNccAdExtensionId(), adExtension);
+
+		// 확장 소재 삭제 DELETE /ncc/ad-extensions/{adExtensionId}
+		String ids = adExtension.getNccAdExtensionId();
+		AdExtensions.delete(rest, customerId, ids);
 	}
 
 }
