@@ -427,18 +427,6 @@
    "definitions":{
       "ReportJobResponse":{
          "properties":{
-            "buildState":{
-               "type":"string",
-               "description":"Report build state\n S:Build succeeded, E:Build failed, R:build in progress, W:Waiting for build, N:No stat, Y:Before stat aggregation",
-               "enum":[
-                  "S",
-                  "E",
-                  "R",
-                  "W",
-                  "N",
-                  "Y"
-               ]
-            },
             "downloadUrl":{
                "type":"string",
                "description":"Download URL\n The download address of a file"
@@ -466,6 +454,19 @@
             "statDt":{
                "type":"string",
                "description":"Effective date\n yyyy-MM-ddTHH:mm:ssZ (ISO8601)"
+            },
+            "status":{
+               "type":"string",
+               "description":"Job status, REGIST, RUNNING, BUILT, NONE, ERROR, WAITING, AGGREGATING",
+               "enum":[
+                  "REGIST",
+                  "RUNNING",
+                  "BUILT",
+                  "NONE",
+                  "ERROR",
+                  "WAITING",
+                  "AGGREGATING"
+               ]
             },
             "updateTm":{
                "type":"string",
