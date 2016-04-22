@@ -17,7 +17,7 @@ angular.module('config', [])
     prefix: 'assets/i18n/locale-',
     suffix: '.json'
   },
-  menus: ['guides', 'reference', 'samples'],
+  menus: ['guides', 'reference', 'samples', 'release-note'],
   tags: {
     pascalCase: true,
     include: ['~[a-zA-Z]+~'],
