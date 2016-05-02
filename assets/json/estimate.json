@@ -112,14 +112,14 @@
                 }
             }
         },
-        "/estimate/first-page-bid/{type}": {
+        "/estimate/exposure-minimum-bid/{type}": {
             "post": {
                 "tags": [
                     "Estimate"
                 ],
-                "summary": "get (first page bid)",
-                "operationId": "getFirstPageBid",
-                "description": "estimate bid by first page statistics.\n",
+                "summary": "get (exposure minimum bid)",
+                "operationId": "getExposureMinimumBid",
+                "description": "estimate the minimum bid is always exposure.\n",
                 "consumes": [
                     "application/json"
                 ],
@@ -301,6 +301,14 @@
                         "MOBILE"
                     ]
                 },
+                "period": {
+                    "type": "string",
+                    "description": "Choose whether to use the stats of yesterday or last 28 days",
+                    "enum": [
+                        "DAY",
+                        "MONTH"
+                    ]
+                },
                 "items": {
                     "title": "Array Of keys",
                     "description": "The maximum of 200 keys can be requested at once.",
@@ -322,6 +330,14 @@
                     "enum": [
                         "PC",
                         "MOBILE"
+                    ]
+                },
+                "period": {
+                    "type": "string",
+                    "description": "Choose whether to use the stats of yesterday or last 28 days",
+                    "enum": [
+                        "DAY",
+                        "MONTH"
                     ]
                 },
                 "estimate": {
