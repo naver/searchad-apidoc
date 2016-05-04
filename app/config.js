@@ -7,6 +7,7 @@ angular.module('config', [])
   swaggerJson: [
     'https://demo.searchad.naver.com/v2/api-docs?group=ncc',
     'https://demo.searchad.naver.com/v2/api-docs?group=tool',
+    'https://demo.searchad.naver.com/v2/api-docs?group=billing',
     'assets/json/atower.json',
     'assets/json/ncc-report.json',
     'assets/json/master-report.json', 
