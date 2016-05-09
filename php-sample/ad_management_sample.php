@@ -91,16 +91,17 @@ $req_avg_pos = array(
 $response = $api->POST('/estimate/average-position-bid/keyword', $req_avg_pos);
 debug($response, $DEBUG);
 
-echo "  #2. first-page-bid\n";
+echo "  #2. exposure-minimum-bid\n";
 $req_bid = array(
     "device" => "PC",
+    "period" => "MONTH",
     "items" => array(
         "제주여행",
         "게스트하우스",
         "자전거여행",
     )
 );
-$response = $api->POST('/estimate/first-page-bid/keyword', $req_bid);
+$response = $api->POST('/estimate/exposure-minimum-bid/keyword', $req_bid);
 debug($response, $DEBUG);
 
 echo "  #3. median-bid\n";

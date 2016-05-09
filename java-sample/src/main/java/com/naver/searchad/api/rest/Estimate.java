@@ -21,9 +21,9 @@ public class Estimate {
 		return rest.asObject(response, ResponseBidByStatisticsDistribution.class);
 	}
 
-	public static ResponseBidByStatisticsDistribution GetFirstPageBid(RestClient rest, long customerId, IDType type, RequestBidByStatisticsDistribution req) throws Exception {
+	public static ResponseBidByStatisticsDistribution GetExposureMinimumeBid(RestClient rest, long customerId, IDType type, RequestBidByStatisticsDistribution req) throws Exception {
 		HttpResponse<String> response =
-				rest.post("/estimate/first-page-bid/" + type, customerId)
+				rest.post("/estimate/exposure-minimum-bid/" + type, customerId)
 						.body(req)
 						.asString();
 		return rest.asObject(response, ResponseBidByStatisticsDistribution.class);

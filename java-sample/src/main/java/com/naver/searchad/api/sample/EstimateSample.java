@@ -27,14 +27,16 @@ public class EstimateSample {
 			System.out.println("res = " + res);
 			RequestBidByStatisticsDistribution req2 = new RequestBidByStatisticsDistribution();
 			req2.setDevice(Device.PC);
+			req2.setPeriod(PeriodType.MONTH);
 			req2.setItems(Collections.singletonList("제주여행"));
 			ResponseBidByStatisticsDistribution res2 = Estimate.getMedianBid(rest, customerId, IDType.keyword, req2);
 			System.out.println("res2 = " + res2);
 
 			RequestBidByStatisticsDistribution req3 = new RequestBidByStatisticsDistribution();
 			req3.setDevice(Device.PC);
+			req3.setPeriod(PeriodType.MONTH);
 			req3.setItems(Collections.singletonList("게스트하우스"));
-			ResponseBidByStatisticsDistribution res3 = Estimate.GetFirstPageBid(rest, customerId, IDType.keyword, req3);
+			ResponseBidByStatisticsDistribution res3 = Estimate.GetExposureMinimumeBid(rest, customerId, IDType.keyword, req3);
 			System.out.println("res3 = " + res3);
 
 			RequestPerformance req4 = new RequestPerformance();
