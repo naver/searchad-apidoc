@@ -11,5 +11,6 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestBidByStatisticsDistribution {
 	private Device device;
+	private PeriodType period;
 	private List<String> items;
 }
