@@ -21,12 +21,11 @@ public class StatReports {
 	}
 
 	// get
-	public static StatReport[] get(RestClient rest, long customerId, long reportJobId) throws Exception {
-		HttpResponse<String> response = rest.get("/stat-reports", customerId)
-				.queryString("reportJobId", reportJobId)
+	public static StatReport get(RestClient rest, long customerId, long reportJobId) throws Exception {
+		HttpResponse<String> response = rest.get("/stat-reports/" + reportJobId, customerId)
 				.asString();
 
-		return rest.asObject(response, StatReport[].class);
+		return rest.asObject(response, StatReport.class);
 	}
 
 }

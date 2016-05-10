@@ -28,7 +28,7 @@ public class StatReportSample {
 			long reportJobId = statReport.getReportJobId();
 
 			// 리포트 조회 GET /stat-reports/{reportJobId}
-			StatReport[] statReports = StatReports.get(rest, customerId, reportJobId);
+			StatReport singleStatReport = StatReports.get(rest, customerId, reportJobId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

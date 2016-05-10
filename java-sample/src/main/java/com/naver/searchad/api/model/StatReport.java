@@ -10,7 +10,7 @@ import lombok.Data;
 public class StatReport {
 	private Long reportJobId;
 	private String reportTp;
-	private String buildState;
+	private String status;
 	private String downloadUrl;
 	private String statDt;
 	private String updateTm;
