@@ -1,29 +1,43 @@
-<article itemprop="text" class="markdown-body-disabled entry-content">
-  <h2><a id="user-content-20160509-release-note" href="#20160509-release-note" aria-hidden="true" class="anchor"></a>2016.05.09 release note</h2>
-  <h3><a id="user-content-master-report" href="#master-report" aria-hidden="true" class="anchor"></a>Master Report</h3>
-  <ul>
-    <li><code>BusinessChannel</code> report has "Name" value added</li>
-  </ul>
-  <h3><a id="user-content-ad-management" href="#ad-management" aria-hidden="true" class="anchor"></a>Ad Management</h3>
-  <ul>
-    <li>List of the campaign, AdGroup, Keyword will be applied paging </li>
-    <li>APIs will be added two parameters (baseSearchId and recordSize)</li>
-  </ul>
-  <h2><a id="user-content-20160502-release-note" href="#20160502-release-note" aria-hidden="true" class="anchor"></a>2016.05.02 release note</h2>
-  <h3><a id="user-content-estimate" href="#estimate" aria-hidden="true" class="anchor"></a>Estimate</h3>
-  <ul>
-    <li>URI Moved  :   <code>/estimate/first-page-bid</code> => <code>/estimate/exposure-minimum-bid</code></li>
-    <li>Required parameter (<code>period</code>) added : <code>/estiamte/median-bid</code>, <code>/estimate/exposure-minimum-bid</code>
+<div>
+  <h1 id="release-notes">Release Notes</h1>
+  <hr>
+  <div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body-disabled entry-content" itemprop="text">
+      <h2><a id="user-content-20160509-release-note" class="anchor" href="#20160509-release-note" aria-hidden="true"></a>2016.05.09 release note</h2>
+      <h3><a id="user-content-master-report" class="anchor" href="#master-report" aria-hidden="true"></a>Master Report</h3>
       <ul>
-        <li>period
+        <li><code>BusinessChannel</code> report has "Name" value added</li>
+      </ul>
+      <h3><a id="user-content-ad-management" class="anchor" href="#ad-management" aria-hidden="true"></a>Ad Management</h3>
+      <ul>
+        <li>List of the campaign, AdGroup, Keyword will be applied paging </li>
+        <li>APIs will be added two parameters (baseSearchId and recordSize)</li>
+      </ul>
+      <h2><a id="user-content-20160502-release-note" class="anchor" href="#20160502-release-note" aria-hidden="true"></a>2016.05.02 release note</h2>
+      <h3><a id="user-content-estimate" class="anchor" href="#estimate" aria-hidden="true"></a>Estimate</h3>
+      <ul>
+        <li>URI Moved : <code>/estimate/first-page-bid</code> =&gt; <code>/estimate/exposure-minimum-bid</code></li>
+        <li>Required parameter (<code>period</code>) added : <code>/estiamte/median-bid</code>, <code>/estimate/exposure-minimum-bid</code>
           <ul>
-            <li>DAY : use yesterday statistics</li>
-            <li>MONTH : use last 28 days statistics</li>
+            <li>period
+              <ul>
+                <li>DAY : use yesterday statistics</li>
+                <li>MONTH : use last 28 days statistics</li>
+              </ul>
+            </li>
+            <li>Example :</li>
           </ul>
         </li>
-        <li>Example :</li>
       </ul>
-    </li>
-  </ul>
-  <pre></pre>
-</article>
+      <pre><code>{  
+   "device":"PC",
+   "period":"DAY",
+   "items":[  
+     "제주여행",
+     "자전거여행"
+  ]
+}
+</code></pre>
+    </article>
+  </div>
+</div>
