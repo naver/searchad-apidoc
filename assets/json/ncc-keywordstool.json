@@ -50,7 +50,8 @@
                         "in": "query",
                         "description": "Event ID",
                         "required": false,
-                        "type": "integer"
+                        "type": "integer",
+                        "example":"[gist:\"235202ffb08f9433b6f7cb10e45875f7\"]"
                     },
                     {
                         "name": "month",
