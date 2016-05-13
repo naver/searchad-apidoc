@@ -1,80 +1,43 @@
 <div>
-  <h2>Notice</h2>
-  <h3>2016-04-26 00:00:00 +0000 Release Note</h3>
-  <div>
-    <p>second release</p>
-    <ul>
-      <li>asdf</li>
-      <li>~~qwer~~</li>
-      <li>!@#$</li>
-    </ul>
-    <p><code># rm -rf /</code></p>
-  </div>
-  <h3>2016-04-26 00:00:00 +0000 New Test</h3>
-  <div>
-    <p>new test..</p>
-    <ol>
-      <li>asdf</li>
-      <li>~~qwer~~</li>
-      <li>!@#$</li>
-    </ol>
-    <table>
-      <thead>
-        <tr>
-          <th>QWER</th>
-          <th>ASDF</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1234</td>
-          <td>5678</td>
-        </tr>
-        <tr>
-          <td>5678</td>
-          <td>1234</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <h3>2016-04-25 00:00:00 +0000 test post</h3>
-  <div>
-    <p>test post….</p>
-    <blockquote>
-      <p>release note!</p>
-    </blockquote>
-    <ul>
-      <li>asdf</li>
-      <li>~~qwer~~</li>
-      <li>!@#$</li>
-    </ul>
-    <p><code>System.out.println(&quot;test&quot;);</code></p>
-  </div>
-  <h3>2016-04-22 00:00:00 +0000 First notice</h3>
-  <div>
-    <p>notice test..</p>
-    <ol>
-      <li>asdf</li>
-      <li>~~qwer~~</li>
-      <li>!@#$</li>
-    </ol>
-    <table>
-      <thead>
-        <tr>
-          <th>QWER</th>
-          <th>ASDF</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1234</td>
-          <td>5678</td>
-        </tr>
-        <tr>
-          <td>5678</td>
-          <td>1234</td>
-        </tr>
-      </tbody>
-    </table>
+  <h1 id="release-notes">Release Notes</h1>
+  <hr>
+  <div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body-disabled entry-content" itemprop="text">
+      <h2><a id="user-content-20160509-release-note" class="anchor" href="#20160509-release-note" aria-hidden="true"></a>2016.05.09 release note</h2>
+      <h3><a id="user-content-master-report" class="anchor" href="#master-report" aria-hidden="true"></a>Master Report</h3>
+      <ul>
+        <li><code>BusinessChannel</code> report has "Name" value added</li>
+      </ul>
+      <h3><a id="user-content-ad-management" class="anchor" href="#ad-management" aria-hidden="true"></a>Ad Management</h3>
+      <ul>
+        <li>List of the campaign, AdGroup, Keyword will be applied paging </li>
+        <li>APIs will be added two parameters (baseSearchId and recordSize)</li>
+      </ul>
+      <h2><a id="user-content-20160502-release-note" class="anchor" href="#20160502-release-note" aria-hidden="true"></a>2016.05.02 release note</h2>
+      <h3><a id="user-content-estimate" class="anchor" href="#estimate" aria-hidden="true"></a>Estimate</h3>
+      <ul>
+        <li>URI Moved : <code>/estimate/first-page-bid</code> =&gt; <code>/estimate/exposure-minimum-bid</code></li>
+        <li>Required parameter (<code>period</code>) added : <code>/estiamte/median-bid</code>, <code>/estimate/exposure-minimum-bid</code>
+          <ul>
+            <li>period
+              <ul>
+                <li>DAY : use yesterday statistics</li>
+                <li>MONTH : use last 28 days statistics</li>
+              </ul>
+            </li>
+            <li>Example :</li>
+          </ul>
+        </li>
+      </ul>
+      <pre><code>{  
+   "device":"PC",
+   "period":"DAY",
+   "items":[  
+     "제주여행",
+     "자전거여행"
+  ]
+}
+</code></pre>
+    </article>
   </div>
 </div>

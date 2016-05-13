@@ -48,11 +48,8 @@
                 "operationId": "deleteAllMasterReports",
                 "description": "Delete all \"Master Report\" jobs.",
                 "responses": {
-                    "200": {
-                        "description": "response message",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
+                    "204": {
+                        "description": "response message"
                     },
                     "default": {
                         "description": "response message",
@@ -116,11 +113,8 @@
                     }
                 ],
                 "responses": {
-                    "200": {
-                        "description": "response message",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
+                    "204": {
+                        "description": "response message"
                     },
                     "default": {
                         "description": "Unexpected error",
