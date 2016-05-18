@@ -20,7 +20,7 @@ angular.module('config', [])
   },
   menus: ['guides', 'reference', 'samples', {
     name: 'release-notes',
-    url: 'pages/release-notes.html'
+    url: 'pages/notice.html'
   }],
   tags: {
     pascalCase: true,
