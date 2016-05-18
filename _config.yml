@@ -1,0 +1,18 @@
+# General
+name: Search AD API
+url: http://naver.github.io/searchad-apidoc
+
+# Permalinks
+permalink: pretty
+
+# Default YAML frontmatter settings
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+
+# Do not copy these file to the output directory
+exclude: ['README.md', '.gitignore']
+keep_files: ['.git', 'app', 'assets', 'robots.txt', 'index.html']
+encoding: "utf-8"

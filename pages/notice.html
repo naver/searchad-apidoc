@@ -1,0 +1,17 @@
+---
+layout: null
+title: Notice
+permalink: notice/
+---
+<div>
+	<h1 id="release-notes">Release Notes</h1>
+	<hr>
+	<div id="readme" class="readme blob instapaper_body">
+		<article class="markdown-body-disabled entry-content" itemprop="text">
+{% for post in site.posts %}
+			<h2>{{ post.date | date: "%Y.%m.%d" }} {{ post.title }}</h2>
+			{{ post.content }}
+{% endfor %}
+		</article>
+	</div>
+</div>
