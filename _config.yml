@@ -5,6 +5,8 @@ url: http://naver.github.io/searchad-apidoc
 # Permalinks
 permalink: pretty
 
+future: true
+
 # Default YAML frontmatter settings
 defaults:
   -
