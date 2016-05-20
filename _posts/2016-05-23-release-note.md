@@ -38,6 +38,14 @@ useKeywordPlus | Integer | boolean
 useCntsNetworkBidAmt | Integer | boolean
 
 
+
+### Target
+
+Json Property Name | AS-IS Type| TO-BE Type
+------------------|---------------------|---------------
+targetTp | Integer | Enum
+
+
 ### Ad
 
 Json Property Name | AS-IS Type| TO-BE Type
