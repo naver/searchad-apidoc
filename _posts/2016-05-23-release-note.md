@@ -13,6 +13,19 @@ No|Field Name|Value|Max.Length|Description
 ## Ad Manage
 * Json Object data type has been changed
 
+### Campaign
+
+Json Property Name | AS-IS Type| TO-BE Type
+------------------|---------------------|---------------
+userLock | Integer | boolean 
+delFlag | Integer | boolean
+usePeriod | Integer | boolean
+useDailyBudget | Integer | boolean
+budgetLock  | Integer | boolean
+deliveryMethod | Integer | Enum
+trackingMode | Integer | Enum
+
+
 ### AdGroup
 
 Json Property Name | AS-IS Type| TO-BE Type
