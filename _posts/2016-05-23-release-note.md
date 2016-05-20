@@ -11,7 +11,7 @@ No|Field Name|Value|Max.Length|Description
 
 
 ## Ad Manage
-* Json Object data type change
+* Json Object data type has been changed
 
 ### AdGroup
 
