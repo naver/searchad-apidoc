@@ -130,7 +130,7 @@
                 ],
                 "summary": "get (by id)",
                 "operationId": "getMasterReport",
-                "description": "Get a \"Master Report\" Job details by specific ID..\n",
+                "description": "Get a \"Master Report\" Job details by specific ID.\n",
                 "parameters": [
                     {
                         "name": "id",
@@ -181,7 +181,8 @@
                         "Label",
                         "LabelRef",
                         "Media",
-                        "Biz"
+                        "Biz",
+                        "SeasonalEvent"
                     ],
                     "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n"
                 },
@@ -208,7 +209,7 @@
                 },
                 "downloadUrl": {
                     "type": "string",
-                    "description": "Address of a report file"
+                    "description": "Address of a report file. Expired five minutes after the report generation.\n"
                 }
             }
         },
@@ -231,7 +232,8 @@
                         "Label",
                         "LabelRef",
                         "Media",
-                        "Biz"
+                        "Biz",
+                        "SeasonalEvent"
                     ],
                     "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
                 },
