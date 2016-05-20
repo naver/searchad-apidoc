@@ -209,7 +209,7 @@
                 },
                 "downloadUrl": {
                     "type": "string",
-                    "description": "Address of a report file. Expired five minutes after the report generation.\n"
+                    "description": "Address of a report file.\n"
                 }
             }
         },
