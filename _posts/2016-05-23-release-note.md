@@ -53,3 +53,10 @@ Json Property Name | AS-IS Type| TO-BE Type
 userLock | Integer | boolean 
 delFlag | Integer | boolean
 inspectStatus | Integer | Enum 
+
+### Bizmoney
+
+Json Property Name | AS-IS Type| TO-BE Type
+------------------|---------------------|---------------
+budgetLock | Integer | boolean 
+refundLock | Integer | boolean
