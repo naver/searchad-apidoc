@@ -54,6 +54,13 @@ userLock | Integer | boolean
 delFlag | Integer | boolean
 inspectStatus | Integer | Enum 
 
+### Ad-extension
+
+Json Property Name | AS-IS Type| TO-BE Type
+------------------|---------------------|---------------
+userLock | Integer | boolean 
+delFlag | Integer | boolean
+
 ### Bizmoney
 
 Json Property Name | AS-IS Type| TO-BE Type
