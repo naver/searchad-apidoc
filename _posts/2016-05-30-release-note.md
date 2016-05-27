@@ -4,6 +4,7 @@
      * `after` : PC network bidding weight
 
 ### Ad group (Adgroup)
+
 No|Field Name|Value|Max.Length|Description
 ----|---|---|---|---
 1|Customer ID|int||Customer ID
