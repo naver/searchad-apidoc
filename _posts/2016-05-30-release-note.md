@@ -3,10 +3,8 @@
      * `before` : Using mobile network bidding weight
      * `after` : PC network bidding weight
 
-### Ad group (Adgroup)
-
 No|Field Name|Value|Max.Length|Description
-----|---|---|---|---
+--|----------|-----|----------|-----------
 1|Customer ID|int||Customer ID
 2|Ad Group ID|string|31|Ad Group ID
 3|Campaign ID|string|31|Campaign(which has this Ad Group) ID 
