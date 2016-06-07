@@ -17,13 +17,13 @@ No|Field Name|Value|Max.Length|Description
 
 Json Property Name | AS-IS Type| TO-BE Type
 ------------------|---------------------|---------------
-userLock | Integer | boolean 
-delFlag | Integer | boolean
-usePeriod | Integer | boolean
-useDailyBudget | Integer | boolean
-budgetLock  | Integer | boolean
-deliveryMethod | Integer | Enum
-trackingMode | Integer | Enum
+isAdult | Integer | boolean 
+isBrand | Integer | boolean
+isLowSearchVolume | Integer | boolean
+isRestricted | Integer | boolean
+isSeason  | Integer | boolean
+isSellProhibit | Integer | boolean
+isShoppingMall | Integer | boolean
 
 
 ### AdGroup
