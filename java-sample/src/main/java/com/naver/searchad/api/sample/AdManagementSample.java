@@ -28,6 +28,12 @@ public class AdManagementSample {
 			// 캠페인 목록 조회 GET /ncc/campaigns
 			long customerId = customerLinks[0].getClientCustomerId();
 			Campaign[] campaigns = Campaigns.list(rest, customerId);
+			
+			//캠페인 수정  PUT /ncc/campaigns/{campaignId}{?fields}
+			Campaign campaign = campaigns[0];
+			campaign.setUserLock(false);
+			Campaign updatedCampaign = Campaigns.update(rest, customerId, campaign, "userLock");
+			
 
 			// 비즈 채널 목록 조회 GET /ncc/channels
 			Channel[] channels = Channels.list(rest, customerId);
@@ -48,16 +54,16 @@ public class AdManagementSample {
 				adgroup2 = Adgroups.create(rest, customerId, campaignId, "API-GROUP#" + random.nextInt(1000) + "_" + +random.nextInt(1000), channels[0].getNccBusinessChannelId());
 
 				// 그룹 수정 PUT /ncc/adgroups/{adgroupId}{?fields}
-				adgroup.setUserLock(UserLock.PAUSED);
+				adgroup.setUserLock(false);
 				Adgroup updatedAdgroup = Adgroups.update(rest, customerId, adgroup, "userLock");
 
 				String adgroupId = adgroups[0].getNccAdgroupId();
 
-				//키워드
-				AdKeywordSample(rest, customerId, adgroupId);
-
 				// 소재
 				AdSamples(rest, customerId, adgroupId, adgroup2.getNccAdgroupId());
+				
+				//키워드
+				AdKeywordSample(rest, customerId, adgroupId);
 
 				// 전화번호 유형의 비즈채널이 존재하는 경우 전화번호 유형의 확장 소재를 등록해볼 수 있다.
 				Optional<Channel> phoneChannel = Stream.of(channels).filter(channel -> "PHONE".equals(channel.getChannelTp())).findFirst();
@@ -85,22 +91,21 @@ public class AdManagementSample {
 		String adId = null;
 
 		// Create an ad : POST /ncc/ads /////////////////////////////////////////////////////
-
 		//	{
 		//		"pc":{
 		//		"final":"http://searchad.naver.com"
-		//	},
+		//		},
 		//		"mobile":{
 		//		"final":"http://m.searchad.naver.com"
-		//	},
+		//		},
 		//		"headline":"the first line",
-		//			"description":"the second line of your ad text"
+		//		"description":"the second line of your ad text"
 		//	}
 		Map<String, Object> text45_ad = new HashMap<>();
 		text45_ad.put("pc", Collections.singletonMap("final", "http://searchad.naver.com"));
 		text45_ad.put("mobile", Collections.singletonMap("final", "http://m.searchad.naver.com"));
 		text45_ad.put("headline", "the first line");
-		text45_ad.put("description", "the second line of your ad text4");
+		text45_ad.put("description", "the second line of your ad text5");
 
 		Ad createAd = new Ad();
 		createAd.setCustomerId(customerId);
@@ -139,7 +144,7 @@ public class AdManagementSample {
 
 		Ad userLockAd = new Ad();
 		userLockAd.setNccAdId(adId);
-		userLockAd.setUserLock(UserLock.PAUSED);
+		userLockAd.setUserLock(true);
 
 		Ad updatedAd = Ads.update(rest, adId, fields, userLockAd, customerId);
 		if (updatedAd == null) {
@@ -201,6 +206,8 @@ public class AdManagementSample {
 				.map(keyword -> {
 					Keyword adKeyword = new Keyword();
 					adKeyword.setKeyword(keyword);
+					adKeyword.setBidAmt(700L);
+					adKeyword.setUseGroupBidAmt(false);
 					return adKeyword;
 				}).collect(Collectors.toList());
 
@@ -213,20 +220,20 @@ public class AdManagementSample {
 		Map<String, Object> links = new HashMap<>();
 		links.put("pc", Collections.singletonMap("final", "http://searchad.naver.com"));
 		links.put("mobile", Collections.singletonMap("final", "http://m.searchad.naver.com"));
-
 		Stream.of(keywords).forEach(keyword -> keyword.setLinks(links));
 
 		// 키워드 수정 PUT /ncc/keywords{?field} Links
-
 		Keyword[] updatedKeywordsForLinks = Keywords.updateItems(rest, customerId, keywords, "links");
 
-		Stream.of(keywords).forEach(keyword -> keyword.setBidAmt(1000L));
+
+		Stream.of(keywords).forEach(keyword -> keyword.setUseGroupBidAmt(true));
+		Stream.of(keywords).forEach(keyword -> keyword.setBidAmt(70L));
 		Keyword[] updatedKeywordsForBidAmt = Keywords.updateItems(rest, customerId, keywords, "bidAmt");
 
 		// 키워드 수정 PUT /ncc/keywords{?field} bidAmt
 		String fields = "bidAmt";
+		updatedKeywordsForBidAmt[0].setUseGroupBidAmt(false);
 		updatedKeywordsForBidAmt[0].setBidAmt(130L);
-
 		// 키워드 수정 PUT /ncc/keywords/{keywordId}
 		Keyword updatedKeyword = Keywords.updateItem(rest, customerId, updatedKeywordsForBidAmt[0], fields);
 

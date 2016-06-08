@@ -18,12 +18,12 @@ public class Adgroup {
 	private String pcChannelId;
 	private Integer bidAmt;
 	private String name;
-	private UserLock userLock;
-	private Integer useDailyBudget;
-	private Integer useKeywordPlus;
+	private Boolean userLock;
+	private Boolean useDailyBudget;
+	private Boolean useKeywordPlus;
 	private Integer keywordPlusWeight;
 	private Integer contentsNetworkBidAmt;
-	private Integer useCntsNetworkBidAmt;
+	private Boolean useCntsNetworkBidAmt;
 	private Long mobileNetworkBidWeight;
 	private Long pcNetworkBidWeight;
 	private Long dailyBudget;

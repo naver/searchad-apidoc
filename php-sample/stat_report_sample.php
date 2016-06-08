@@ -22,7 +22,7 @@ $api = new RestApi($config['BASE_URL'], $config['API_KEY'], $config['SECRET_KEY'
 
 echo "Test StatReport\n";
 $reportType = "AD_DETAIL";
-$statDt = "20160201";
+$statDt = date('Ymd',strtotime("-1 days"));;
 $stat_req = array(
     "reportTp" => $reportType,
     "statDt" => $statDt
@@ -31,23 +31,23 @@ $stat_req = array(
 $response = $api->POST("/stat-reports", $stat_req);
 debug($response, $DEBUG);
 $reportjobid = $response["reportJobId"];
-$status = $response["buildState"];
-echo "registed : reportJobId = $reportjobid, buildState = " . $status . "\n";
-while ($status == 'W' || $status == 'R') {
+$status = $response["status"];
+echo "registed : reportJobId = $reportjobid, status = " . $status . "\n";
+while ($status == 'REGIST' || $status == 'RUNNING' || $status == 'WAITING') {
     echo "waiting a report..\n";
     sleep(5);
     $response = $api->GET("/stat-reports/" . $reportjobid);
-    $status = $response["buildState"];
-    echo "check : reportJobId = $reportjobid, buildState = " . $status . "\n";
+    $status = $response["status"];
+    echo "check : reportJobId = $reportjobid, status = " . $status . "\n";
 }
-if ($status == 'S') {
+if ($status == 'BUILT') {
     echo "downloadUrl => " . $response["downloadUrl"] . "\n";
     $api->DOWNLOAD($response["downloadUrl"], $reportType . "-" . $statDt . ".tsv");
-} else if ($status == 'E') {
+} else if ($status == 'ERROR') {
     echo "failed to build stat report\n";
-} else if ($status == 'N') {
+} else if ($status == 'NONE') {
     echo "report has no data\n";
-} else if ($status == 'Y') {
+} else if ($status == 'AGGREGATING') {
     echo "stat aggregation not yet finished\n";
 }
 

@@ -14,11 +14,11 @@ public class Campaign {
 	private String campaignTp;
 	private Long customerId;
 	private String name;
-	private UserLock userLock;
-	private Integer deliveryMethod;
-	private Integer useDailyBudget;
+	private Boolean userLock;
+	private String deliveryMethod;
+	private Boolean useDailyBudget;
 	private Long dailyBudget;
-	private Integer usePeriod;
+	private Boolean usePeriod;
 	private Date periodStartDt;
 	private Date periodEndDt;
 }

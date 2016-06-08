@@ -17,10 +17,10 @@ public class Keyword {
 	private String nccAdgroupId;
 	private String nccCampaignId;
 	private Map<String, Object> links;
-	private Integer userLock;
-	private Integer inspectStatus;
+	private Boolean userLock;
+	private InspectStatus inspectStatus;
 	private Long bidAmt;
-	private Integer useGroupBidAmt;
+	private Boolean useGroupBidAmt;
 	private Date regTm;
 	private Date editTm;
 	private String status;
@@ -34,7 +34,6 @@ public class Keyword {
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public static class NccQi {
 		private Integer qiGrade;
-		private String nccAdgroupId;
 	}
 
 	@Data
@@ -42,13 +41,14 @@ public class Keyword {
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	public static class ManagedKeyword {
 		private String keyword;
-		private Integer isAdult;
-		private Integer isBrand;
-		private Integer isRestricted;
-		private Integer isSeason;
-		private Integer isSellProhibit;
-		private Integer isShoppingMall;
-		private Integer isLowSearchVolume;
+		private Boolean isAdult;
+		private Boolean isBrand;
+		private Boolean isRestricted;
+		private Boolean isSeason;
+		private Boolean isSellProhibit;
+		private Boolean isShoppingMall;
+		private Boolean isLowSearchVolume;
+		private Integer pCPLMaxDepth;
 		private Date regTm;
 		private Date editTm;
 	}

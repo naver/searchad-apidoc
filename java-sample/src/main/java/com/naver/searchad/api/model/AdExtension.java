@@ -3,7 +3,6 @@ package com.naver.searchad.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 
 import java.util.Date;
@@ -23,7 +22,7 @@ public class AdExtension {
     private String mobileChannelId;
     private Date regTm;
     private Date editTm;
-    private UserLock userLock;
+    private Boolean userLock;
     private String status;
     private String statusReason;
 }

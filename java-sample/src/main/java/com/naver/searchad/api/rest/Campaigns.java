@@ -12,5 +12,18 @@ public class Campaigns {
 
 		return rest.asObject(response, Campaign[].class);
 	}
+	
+	public static Campaign update(RestClient rest, long customerId, Campaign campaign, String fields) throws Exception {
+		String path = "/ncc/campaigns";
+		
+		HttpResponse<String> response =
+				rest.put(path + "/" + campaign.getNccCampaignId(), customerId)
+						.queryString("fields", fields)
+						.body(campaign)
+						.asString();
+		return rest.asObject(response, Campaign.class);
+	}
+	
+	
 
 }

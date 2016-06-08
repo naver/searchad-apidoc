@@ -13,9 +13,9 @@ public class Ad {
 	private String nccAdId;
 	private String nccAdgroupId;
 	private Long customerId;
-	private Integer inspectStatus;
+	private InspectStatus inspectStatus;
 	private String type;
 	private Map<String, Object> ad;
-	private UserLock userLock;
+	private Boolean userLock;
 	private String inspectRequestMsg;
 }
