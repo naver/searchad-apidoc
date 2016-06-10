@@ -101,7 +101,7 @@ class RestApi
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeader(__FUNCTION__, $uri));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeader('GET', $uri));
 
         $output = curl_exec($ch);
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -138,7 +138,7 @@ class RestApi
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeader(__FUNCTION__, $uri));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeader('POST', $uri));
 
         $output = curl_exec($ch);
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -172,7 +172,7 @@ class RestApi
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
         curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeader(__FUNCTION__, $uri));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeader('DELETE', $uri));
 
         $output = curl_exec($ch);
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -209,7 +209,7 @@ class RestApi
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeader(__FUNCTION__, $uri));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHeader('PUT', $uri));
 
         $output = curl_exec($ch);
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
