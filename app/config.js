@@ -5,9 +5,9 @@ angular.module('config', [])
   debug: false,
   timezone: 'Asia/Seoul',
   swaggerJson: [
-    'https://demo.searchad.naver.com/v2/api-docs?group=ncc',
-    'https://demo.searchad.naver.com/v2/api-docs?group=tool',
-    'https://demo.searchad.naver.com/v2/api-docs?group=billing',
+    'assets/json/ncc-heroes-ncc.json',
+    'assets/json/ncc-heroes-tool.json',
+    'assets/json/ncc-heroes-billing.json',
     'assets/json/atower.json',
     'assets/json/ncc-report.json',
     'assets/json/master-report.json', 
