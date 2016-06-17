@@ -2,9 +2,13 @@ package com.naver.searchad.api.rest;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.naver.searchad.api.model.Adgroup;
+import com.naver.searchad.api.model.Target;
 import com.naver.searchad.api.util.RestClient;
 
 import java.util.Arrays;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Adgroups {
 	/*
@@ -53,6 +57,15 @@ public class Adgroups {
 				rest.delete(apiPath + "/" + adgroupId, customerId)
 						.asString();
 		rest.asObject(response, String.class);
+	}
+
+	public static Map<String, Target> targets(RestClient rest, long customerId, String adgroupId) throws Exception {
+		HttpResponse<String> response =
+				rest.get(apiPath + "/" + adgroupId + "/targets", customerId)
+						.asString();
+		Target[] targets = rest.asObject(response, Target[].class);
+		Map<String, Target> targetMap = Arrays.stream(targets).collect(Collectors.toMap(Target::getTargetTp, Function.identity()));
+		return targetMap;
 	}
 
 }

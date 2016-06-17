@@ -58,6 +58,9 @@ public class AdManagementSample {
 				Adgroup updatedAdgroup = Adgroups.update(rest, customerId, adgroup, "userLock");
 
 				String adgroupId = adgroups[0].getNccAdgroupId();
+				
+				// 타게팅
+				TargetSamples(rest, customerId, adgroups[0]);
 
 				// 소재
 				AdSamples(rest, customerId, adgroupId, adgroup2.getNccAdgroupId());
@@ -273,4 +276,61 @@ public class AdManagementSample {
 		AdExtensions.delete(rest, customerId, ids);
 	}
 
+	private static void TargetSamples(RestClient rest, long customerId, Adgroup adgroup) throws Exception {
+		// 타게팅 정보 조회 GET /ncc/adgroups/{adgroupId}/targets
+		Map<String, Target> targetMap = Adgroups.targets(rest, customerId, adgroup.getNccAdgroupId());
+		for (String targetTp : targetMap.keySet()) {
+			System.out.println("## " + targetTp + ": " + targetMap.get(targetTp).getTarget());
+		}
+
+		List<Target> targets = new ArrayList<>();
+
+		// 요일/시간대 타게팅
+		Target timeTargeting = targetMap.get("TIME_WEEKLY_TARGET");
+		timeTargeting.setTarget(
+				Schedules.builder()
+						.monday(15, 16, 17, 18)
+						.tuesday(15, 16, 17)
+						.build());
+
+		// 지역 타게팅
+		Target regionalTargeting = targetMap.get("REGIONAL_TARGET");
+		Map<String, Object> target = new HashMap<>();
+		Map<String, Object> map = new HashMap<>();
+		map.put("KR", Arrays.asList("09", "07"));
+		map.put("OTHERS", Collections.emptyList());
+		target.put("location", map);
+		regionalTargeting.setTarget(target);
+
+		// 매체 타게팅
+		Target mediaTargeting = targetMap.get("MEDIA_TARGET");
+		target = new HashMap<>();
+		map = new HashMap<>();
+		map.put("media", Collections.singletonList(27758L));
+		map.put("mediaGroup", Collections.singletonList(1L));
+		target.put("type", 3);
+		target.put("white", map);
+		mediaTargeting.setTarget(target);
+
+		// PC/모바일 타게팅
+		Target pcMobileTargeting = targetMap.get("PC_MOBILE_TARGET");
+		target = new HashMap<>();
+		target.put("pc", true);
+		target.put("mobile", false);
+		pcMobileTargeting.setTarget(target);
+
+		targets.add(timeTargeting);
+		targets.add(regionalTargeting);
+		targets.add(mediaTargeting);
+		targets.add(pcMobileTargeting);
+		adgroup.setTargets(targets);
+
+		Adgroups.update(rest, customerId, adgroup, "targetLocation,targetMedia,targetTime");
+
+		Map<String, Target> updatedTargetMap = Adgroups.targets(rest, customerId, adgroup.getNccAdgroupId());
+		for (String targetTp : updatedTargetMap.keySet()) {
+			System.out.println("## " + targetTp + ": " + updatedTargetMap.get(targetTp).getTarget());
+		}
+	}
+	
 }
