@@ -1,0 +1,915 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Heroes 서비스에서 제공하는 tool api 목록",
+    "version": "2.0",
+    "title": "Heroes New Clickchoice 외부 연동 API",
+    "termsOfService": "http://searchad.naver.com",
+    "contact": {},
+    "license": {}
+  },
+  "host": "demo.searchad.naver.com",
+  "basePath": "/",
+  "tags": [{
+    "name": "서류 관리-DocumentController",
+    "description": "Document Controller"
+  }, {
+    "name": "AnalyticsController",
+    "description": "Analytics Controller"
+  }, {
+    "name": "세금계산서 발행처 위임 일자 조회",
+    "description": "Bill Recipient His Controller"
+  }, {
+    "name": "IpExclusion",
+    "description": "Ip Exclusion Controller"
+  }],
+  "paths": {
+    "/api/tool/analyticses{?field}": {
+      "post": {
+        "tags": ["AnalyticsController"],
+        "summary": "Analytics",
+        "description": "Analytics 신청",
+        "operationId": "addUsingPOST_7",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "field",
+          "in": "query",
+          "description": "field",
+          "required": false,
+          "type": "string"
+        }, {
+          "in": "body",
+          "name": "analyticses",
+          "description": "analyticses",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Analytics"
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Analytics"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/analyticses{?modifyType}": {
+      "put": {
+        "tags": ["AnalyticsController"],
+        "summary": "Analytics",
+        "description": "Analytics 해지, 전환일 변경, 해지취소",
+        "operationId": "modifyUsingPUT_14",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "modifyType",
+          "in": "query",
+          "description": "modifyType",
+          "required": false,
+          "type": "string"
+        }, {
+          "in": "body",
+          "name": "analyticses",
+          "description": "analyticses",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Analytics"
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Analytics"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/analyticses{?searchType}": {
+      "get": {
+        "tags": ["AnalyticsController"],
+        "summary": "Analytics",
+        "description": "Analytics 서비스 현황 전체",
+        "operationId": "getAnalyticsListUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "searchType",
+          "in": "query",
+          "description": "searchType",
+          "required": false,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Analytics"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/bill-recipient-histories/latest": {
+      "get": {
+        "tags": ["세금계산서 발행처 위임 일자 조회"],
+        "summary": "getByCustomerId",
+        "operationId": "getByCustomerIdUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BillRecipientHis"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/client-ip": {
+      "get": {
+        "tags": ["IpExclusion"],
+        "summary": "get Client IP",
+        "description": "#hidden",
+        "operationId": "getClientIpUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["application/json;charset=UTF-8"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/document": {
+      "get": {
+        "tags": ["서류 관리-DocumentController"],
+        "summary": "Document",
+        "description": "서류관리 현황 전체",
+        "operationId": "getDocumentListUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Document"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["서류 관리-DocumentController"],
+        "summary": "Document",
+        "description": "서류내용 등록",
+        "operationId": "addUsingPOST_8",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "documents",
+          "description": "documents",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Document"
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Document"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/file/upload{?data}": {
+      "post": {
+        "tags": ["서류 관리-DocumentController"],
+        "summary": "Document",
+        "description": "파일 업로드",
+        "operationId": "fileUploadUsingPOST_1",
+        "consumes": ["multipart/form-data"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "file",
+          "in": "formData",
+          "description": "file",
+          "required": true,
+          "type": "file"
+        }, {
+          "name": "data",
+          "in": "query",
+          "description": "data",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Document"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/ip-exclusion-histories{?page,rpp,searchStartDate,searchEndDate}": {
+      "get": {
+        "tags": ["IpExclusion"],
+        "summary": "사용자 제한 IP 이력",
+        "description": "#hidden",
+        "operationId": "historiesUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["application/json;charset=UTF-8"],
+        "parameters": [{
+          "name": "page",
+          "in": "query",
+          "description": "page",
+          "required": true,
+          "type": "integer",
+          "format": "int32"
+        }, {
+          "name": "rpp",
+          "in": "query",
+          "description": "rpp",
+          "required": true,
+          "type": "integer",
+          "format": "int32"
+        }, {
+          "name": "searchStartDate",
+          "in": "query",
+          "description": "searchStartDate",
+          "required": true,
+          "type": "string",
+          "format": "date-time"
+        }, {
+          "name": "searchEndDate",
+          "in": "query",
+          "description": "searchEndDate",
+          "required": true,
+          "type": "string",
+          "format": "date-time"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IpExclusionHistory"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/ip-exclusions": {
+      "get": {
+        "tags": ["IpExclusion"],
+        "summary": "get",
+        "description": "Get the registered restricted IP of user.",
+        "operationId": "getExclusionsIpUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/IpExclusion"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": ["IpExclusion"],
+        "summary": "create",
+        "description": "Register the restrict IP of user.",
+        "operationId": "addUsingPOST_9",
+        "consumes": ["application/json"],
+        "produces": ["application/json;charset=UTF-8"],
+        "parameters": [{
+          "in": "body",
+          "name": "ip",
+          "description": "ip",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/IpExclusion"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IpExclusion"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["IpExclusion"],
+        "summary": "update",
+        "description": "Register the restrict IP of user.",
+        "operationId": "modifyUsingPUT_15",
+        "consumes": ["application/json"],
+        "produces": ["application/json;charset=UTF-8"],
+        "parameters": [{
+          "in": "body",
+          "name": "ip",
+          "description": "ip",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/IpExclusion"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IpExclusion"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/tool/ip-exclusions/{id}": {
+      "delete": {
+        "tags": ["IpExclusion"],
+        "summary": "delete",
+        "description": "Remove a restricted IP.",
+        "operationId": "removeUsingDELETE_9",
+        "consumes": ["application/json"],
+        "produces": ["application/json;charset=UTF-8"],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "id",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IpExclusion"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/tool/ip-exclusions{?ids}": {
+      "delete": {
+        "tags": ["IpExclusion"],
+        "summary": "delete(by ids)",
+        "description": "Remove business IPs in id list.",
+        "operationId": "removeIpExclusionsUsingDELETE",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NccFile": {
+      "properties": {
+        "fileExt": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "fileSize": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "fileType": {
+          "type": "string"
+        },
+        "image": {
+          "type": "boolean"
+        },
+        "imageHeight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "imageWidth": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "savedFileName": {
+          "type": "string"
+        },
+        "tmpIssuedFileId": {
+          "type": "string"
+        }
+      }
+    },
+    "IpExclusion": {
+      "properties": {
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer #hidden-request"
+        },
+        "filterIp": {
+          "type": "string",
+          "description": "The IP users want to filtering."
+        },
+        "ipFilterId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the filter ip"
+        },
+        "loginId": {
+          "type": "string",
+          "description": "The user loing id of system. #hidden-request"
+        },
+        "memo": {
+          "type": "string",
+          "description": "User memo of IP exclusion."
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that the ip exclusion has been created. (RFC 3339 datetime). #hidden-request"
+        },
+        "userId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The user id of system. #hidden-request"
+        }
+      }
+    },
+    "BillRecipientHis": {
+      "properties": {
+        "applyDt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "billRecipientHisId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "opUserId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "preRecvAgencyId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "preRecvBillTp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "recvAgencyId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "recvBillTp": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Document": {
+      "properties": {
+        "businessChannelId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "filePath": {
+          "type": "string"
+        },
+        "inputTp": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nccFile": {
+          "$ref": "#/definitions/NccFile"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "regUserId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "regUserName": {
+          "type": "string"
+        },
+        "savedFileName": {
+          "type": "string"
+        },
+        "siteName": {
+          "type": "string"
+        },
+        "tmpIssuedFileId": {
+          "type": "string"
+        },
+        "urlDocId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "urlDoctpId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "urlDoctpName": {
+          "type": "string"
+        },
+        "urlId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "userFileName": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "userTp": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Analytics": {
+      "properties": {
+        "adviceStatus": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "analyticsId": {
+          "type": "string"
+        },
+        "analyticsIntallType": {
+          "type": "string",
+          "enum": ["CTS_SCRIPT_INSTALL_TP_AGENCY", "CTS_SCRIPT_INSTALL_TP_CUSTOMER"]
+        },
+        "analyticsMallType": {
+          "type": "string",
+          "enum": ["CTS_MALL_TP_GENERAL_MALL", "CTS_MALL_TP_MOBILE_FARMS"]
+        },
+        "analyticsStatus": {
+          "type": "string",
+          "enum": ["CTS_OFF", "CTS_UNSERVICEABILITY", "CTS_OLD_SERVICE_REQUESTED", "CTS_OLD_SERVICE_ON", "CTS_MOD_OLD_PARTNER", "CTS_FAIL_INSTALLTION", "CTS_REQUESTED", "CTS_MOD_PARTNER", "CTS_ON", "CTS_OLD_SERVICE_CLOSED", "CTS_SERVICE_CLOSED"]
+        },
+        "businessInfo": {
+          "type": "string"
+        },
+        "convertDays": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "convertTp": {
+          "type": "string"
+        },
+        "convertTp1": {
+          "type": "string"
+        },
+        "convertTp2": {
+          "type": "string"
+        },
+        "convertTp3": {
+          "type": "string"
+        },
+        "convertTp4": {
+          "type": "string"
+        },
+        "convertTp5": {
+          "type": "string"
+        },
+        "ctsUrlJobDesc": {
+          "type": "string"
+        },
+        "ctsUrlJobDt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "extraDesc": {
+          "type": "string"
+        },
+        "finishTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "installTp": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "isMobileFarms": {
+          "type": "boolean"
+        },
+        "isPossibleApply": {
+          "type": "boolean"
+        },
+        "mallId": {
+          "type": "string"
+        },
+        "mallTp": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "naAccountId": {
+          "type": "string"
+        },
+        "nccBusinessChannelId": {
+          "type": "string"
+        },
+        "partnerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "partnerName": {
+          "type": "string"
+        },
+        "partnerPhone": {
+          "type": "string"
+        },
+        "picEmail": {
+          "type": "string"
+        },
+        "picName": {
+          "type": "string"
+        },
+        "picPhone": {
+          "type": "string"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "resultCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "siteName": {
+          "type": "string"
+        },
+        "statusTp": {
+          "type": "string",
+          "enum": ["CTS_OFF", "CTS_UNSERVICEABILITY", "CTS_OLD_SERVICE_REQUESTED", "CTS_OLD_SERVICE_ON", "CTS_MOD_OLD_PARTNER", "CTS_FAIL_INSTALLTION", "CTS_REQUESTED", "CTS_MOD_PARTNER", "CTS_ON", "CTS_OLD_SERVICE_CLOSED", "CTS_SERVICE_CLOSED"]
+        },
+        "tmpAccountId": {
+          "type": "string"
+        },
+        "viewUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "IpExclusionHistory": {
+      "properties": {
+        "filterIp": {
+          "type": "string"
+        },
+        "filterType": {
+          "type": "string"
+        },
+        "historyType": {
+          "type": "string"
+        },
+        "loginId": {
+          "type": "string"
+        },
+        "memo": {
+          "type": "string"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "totalRecords": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "userName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

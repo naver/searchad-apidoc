@@ -1,0 +1,144 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Heroes 서비스에서 제공하는 billing api 목록",
+    "version": "2.0",
+    "title": "Heroes New Clickchoice 빌링 API",
+    "termsOfService": "http://searchad.naver.com",
+    "contact": {},
+    "license": {}
+  },
+  "host": "demo.searchad.naver.com",
+  "basePath": "/",
+  "tags": [{
+    "name": "Bizmoney",
+    "description": "Api Billing Controller"
+  }],
+  "paths": {
+    "/api/billing/bizmoney": {
+      "get": {
+        "tags": ["Bizmoney"],
+        "summary": "get",
+        "description": "Returns amount of bizmoney and a status of locks.",
+        "operationId": "getBizmoneyUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Bizmoney"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/billing/bizmoney/cost{?statDt}": {
+      "get": {
+        "tags": ["Bizmoney"],
+        "summary": "getCost",
+        "description": "Returns the used amount of bizmoney that day",
+        "operationId": "getBizmoneyCostUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "statDt",
+          "in": "query",
+          "description": "statDt",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BizmoneyCost"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Bizmoney": {
+      "properties": {
+        "bizmoney": {
+          "type": "integer",
+          "format": "int64",
+          "description": "the balance of bizmoney"
+        },
+        "budgetLock": {
+          "type": "boolean",
+          "description": "the value which indicates a lock for budget"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer #hidden-request"
+        },
+        "refundLock": {
+          "type": "boolean",
+          "description": "the value which indicates a lock for refund"
+        }
+      }
+    },
+    "BizmoneyCost": {
+      "properties": {
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer #hidden-request"
+        },
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time at which the spend of money that date(RFC 3339 date-time)"
+        },
+        "device": {
+          "type": "string",
+          "description": "This value indicates what device used",
+          "enum": ["NONE", "PC", "MOBILE"]
+        },
+        "networkType": {
+          "type": "string",
+          "description": "This value indicates that ad where exposure",
+          "enum": ["NONE", "NAVER", "EXTERNAL"]
+        },
+        "nonRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "amount of non-refundable bizmoney for the account"
+        },
+        "productCode": {
+          "type": "string"
+        },
+        "refundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "amount of refundable bizmoney for the account"
+        }
+      }
+    }
+  }
+}

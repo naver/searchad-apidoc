@@ -1,0 +1,4099 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Heroes 서비스에서 제공하는 NCC api 목록",
+    "version": "2.0",
+    "title": "Heroes New Clickchoice API",
+    "termsOfService": "http://searchad.naver.com",
+    "contact": {
+      "name": "jongcheol.kim@navercorp.com"
+    }
+  },
+  "host": "test-new.searchad.naver.com",
+  "basePath": "/",
+  "tags": [{
+    "name": "Adgroup",
+    "description": "New Click Choice Adgroup Controller"
+  }, {
+    "name": "AdKeyword",
+    "description": "New Click Choice Keyword Controller"
+  }, {
+    "name": "BusinessChannel",
+    "description": "New Click Choice Business Channel Controller"
+  }, {
+    "name": "LabelRef",
+    "description": "New Click Choice Label Ref Controller"
+  }, {
+    "name": "Label",
+    "description": "New Click Choice Label Controller"
+  }, {
+    "name": "Ad",
+    "description": "New Click Choice Ad Controller"
+  }, {
+    "name": "ManagedKeyword",
+    "description": "Managed Keyword Controller"
+  }, {
+    "name": "ncc-mass-job-controller",
+    "description": "Ncc Mass Job Controller"
+  }, {
+    "name": "AdExtension",
+    "description": "New Click Choice Ad Extension Controller"
+  }, {
+    "name": "Campaign",
+    "description": "New Click Choice Campaign Controller"
+  }],
+  "paths": {
+    "/api/ncc/ad-extensions": {
+      "post": {
+        "tags": ["AdExtension"],
+        "summary": "create",
+        "description": "Registers a new AD extension to the specified campaign or adgroup",
+        "operationId": "addUsingPOST_2",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "adExtension",
+          "description": "adExtension",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/AdExtension"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AdExtension"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ad-extensions/custom-types": {
+      "get": {
+        "tags": ["AdExtension"],
+        "summary": "getCustomMenuEnableTypes",
+        "operationId": "getCustomMenuEnableTypesUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["PHONE", "LOCATION", "BOOKING", "TALK", "CALCULATION"]
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ad-extensions/{adExtensionId}": {
+      "get": {
+        "tags": ["AdExtension"],
+        "summary": "get",
+        "description": "Retrieves information on an AD extension",
+        "operationId": "getByIdUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adExtensionId",
+          "in": "path",
+          "description": "adExtensionId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AdExtension"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AdExtension"],
+        "summary": "delete",
+        "description": "Deletes a registered AD extension",
+        "operationId": "removeUsingDELETE_3",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adExtensionId",
+          "in": "path",
+          "description": "The unique ID of the AD extension",
+          "required": false,
+          "type": "string"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/ad-extensions/{adExtensionId}{?fields}": {
+      "put": {
+        "tags": ["AdExtension"],
+        "summary": "update",
+        "description": "Change an AD extension\nThe parameter field, you can enter one of the following: 'userLock' ",
+        "operationId": "modifyUsingPUT_2",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adExtensionId",
+          "in": "path",
+          "description": "adExtensionId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "fields",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }, {
+          "in": "body",
+          "name": "adExtension",
+          "description": "adExtension",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/AdExtension"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AdExtension"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ad-extensions{?fields}": {
+      "put": {
+        "tags": ["AdExtension"],
+        "summary": "update items",
+        "description": "Change multiple AD extensions\nThe parameter field, you can enter one of the following: 'userlock', 'inspect' #hidden",
+        "operationId": "modifyUsingPUT_3",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "adExtensions",
+          "description": "adExtensions",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AdExtension"
+            }
+          }
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "fields",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdExtension"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ad-extensions{?ids}": {
+      "get": {
+        "tags": ["AdExtension"],
+        "summary": "list (by ids)",
+        "description": "Retrieves information on multiple AD extensions",
+        "operationId": "getByIdsUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdExtension"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AdExtension"],
+        "summary": "delete items",
+        "description": "Deletes multiple registered AD extensions #hidden",
+        "operationId": "removeAdExtensionsUsingDELETE",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/ad-extensions{?ownerId}": {
+      "get": {
+        "tags": ["AdExtension"],
+        "summary": "list (by owner id)",
+        "description": "Retrieves information on multiple AD extensions\nThe ownerId value indicates either campaign id or adgroup id.",
+        "operationId": "getByOwnerIdUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ownerId",
+          "in": "query",
+          "description": "ownerId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdExtension"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups": {
+      "post": {
+        "tags": ["Adgroup"],
+        "summary": "create",
+        "description": "Create a new adgroup",
+        "operationId": "addUsingPOST_3",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "group",
+          "description": "group",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Adgroup"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Adgroup"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Adgroup"],
+        "summary": "update AdGroups",
+        "description": "Change adgroups. #hidden",
+        "operationId": "modifyUsingPUT_7",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "groups",
+          "description": "groups",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Adgroup"
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Adgroup"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups/{adgroupId}": {
+      "get": {
+        "tags": ["Adgroup"],
+        "summary": "get",
+        "description": "Returns the adgroup of input ID",
+        "operationId": "getUsingGET_3",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adgroupId",
+          "in": "path",
+          "description": "The unique ID of the adgroup.",
+          "required": false,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Adgroup"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Adgroup"],
+        "summary": "update",
+        "description": "Change the Ad Group",
+        "operationId": "modifyUsingPUT_5",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "group",
+          "description": "group",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Adgroup"
+          }
+        }, {
+          "name": "adgroupId",
+          "in": "path",
+          "description": "The unique ID of the Ad Group.",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Adgroup"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Adgroup"],
+        "summary": "delete",
+        "description": "Remove a Ad Group",
+        "operationId": "removeUsingDELETE_4",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adgroupId",
+          "in": "path",
+          "description": "The unique ID of the adgroup.",
+          "required": false,
+          "type": "string"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups/{adgroupId}/restricted-keywords": {
+      "post": {
+        "tags": ["Adgroup"],
+        "summary": "뉴 클릭초이스 그룹",
+        "description": "뉴 클릭초이스 그룹의 확장 제한 키워드  생성 #hidden",
+        "operationId": "addRestrictedKeywordsUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adgroupId",
+          "in": "path",
+          "description": "adgroupId",
+          "required": true,
+          "type": "string"
+        }, {
+          "in": "body",
+          "name": "restrictedKeywords",
+          "description": "restrictedKeywords",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AdgroupRestrictKwd"
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdgroupRestrictKwd"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups/{adgroupId}/restricted-keywords?type=KEYWORD_PLUS_RESTRICT": {
+      "get": {
+        "tags": ["Adgroup"],
+        "summary": "뉴 클릭초이스 광고 그룹",
+        "description": "뉴 클릭초이스 그룹 확장 제외 키워드 정보 조회 #hidden",
+        "operationId": "getRestrictedKeywordsUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adgroupId",
+          "in": "path",
+          "description": "adgroupId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "type",
+          "in": "query",
+          "description": "type",
+          "required": false,
+          "type": "string",
+          "enum": ["KEYWORD_PLUS_RESTRICT"]
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdgroupRestrictKwd"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups/{adgroupId}/restricted-keywords{?ids}": {
+      "delete": {
+        "tags": ["Adgroup"],
+        "summary": "뉴 클릭초이스 광고 그룹",
+        "description": "뉴 클릭초이스 특정 그룹의 확장 제한 키워드 삭제 #hidden",
+        "operationId": "removeRestrictedKeywordsUsingDELETE",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adgroupId",
+          "in": "path",
+          "description": "adgroupId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups/{adgroupId}/targets{?type}": {
+      "get": {
+        "tags": ["Adgroup"],
+        "summary": "뉴 클릭초이스 광고 그룹",
+        "description": "뉴 클릭초이스 그룹 타겟팅 정보 조회 #hidden",
+        "operationId": "getGroupTargetsUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adgroupId",
+          "in": "path",
+          "description": "adgroupId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "type",
+          "in": "query",
+          "description": "type",
+          "required": false,
+          "type": "integer",
+          "format": "int32"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Target"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups/{adgroupId}{?fields}": {
+      "put": {
+        "tags": ["Adgroup"],
+        "summary": "update (by fields)",
+        "description": "Change the Ad Group. The parameter fields, enter the name of the Ad Group field you want to change.",
+        "operationId": "modifyUsingPUT_4",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "group",
+          "description": "group",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Adgroup"
+          }
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "Field name of the Ad Group you want to modify",
+          "required": false,
+          "type": "string",
+          "enum": ["bidAmt", "userLock", "budget", "useKeywordPlus", "networkBidWeight", "targetLocation", "targetTime", "targetMedia"]
+        }, {
+          "name": "adgroupId",
+          "in": "path",
+          "description": "The unique ID of the Ad Group.",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Adgroup"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups{?baseSearchId,recordSize}": {
+      "get": {
+        "tags": ["Adgroup"],
+        "summary": "list-customer",
+        "description": "Returns the list of partially AdGroups of the customer  #hidden",
+        "operationId": "getGroupsUsingGET_2",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "baseSearchId",
+          "in": "query",
+          "description": "The query criteria AdGroup ID value.",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "recordSize",
+          "in": "query",
+          "description": "The number of list of AdGroups to receive the response. You can enter between 1 to 1000",
+          "required": false,
+          "type": "integer",
+          "format": "int32"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Adgroup"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups{?fields}": {
+      "put": {
+        "tags": ["Adgroup"],
+        "summary": "update items",
+        "description": "Change adgroups. The parameter fields, enter the name of the adgroup field you want to change. #hidden",
+        "operationId": "modifyUsingPUT_6",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "groups",
+          "description": "groups",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Adgroup"
+            }
+          }
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "Field name of the adgroup you want to modify",
+          "required": false,
+          "type": "string",
+          "enum": ["bidAmt", "userLock", "budget", "useKeywordPlus", "networkBidWeight", "targetLocation", "targetTime", "targetMedia"]
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Adgroup"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups{?ids}": {
+      "get": {
+        "tags": ["Adgroup"],
+        "summary": "list (by ids)",
+        "description": "Returns the list of adgroups of input adgroup ids",
+        "operationId": "getGroupsUsingGET_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "IDs of the new clickchoice adgroup",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Adgroup"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Adgroup"],
+        "summary": "delete items",
+        "description": "뉴 클릭초이스 다수의 그룹 삭제 #hidden",
+        "operationId": "removeGroupsUsingDELETE",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups{?nccCampaignId,baseSearchId,recordSize}": {
+      "get": {
+        "tags": ["Adgroup"],
+        "summary": "list (by campaign id)",
+        "description": "Returns the list of partially AdGroups of input campaign id",
+        "operationId": "getGroupsUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "nccCampaignId",
+          "in": "query",
+          "description": "ID of the new clickchoice campaign",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "baseSearchId",
+          "in": "query",
+          "description": "The query criteria AdGroup ID value.",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "recordSize",
+          "in": "query",
+          "description": "The number of list of AdGroups to receive the response. You can enter between 1 to 1000",
+          "required": false,
+          "type": "integer",
+          "format": "int32"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Adgroup"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/adgroups{?nccLabelId}": {
+      "get": {
+        "tags": ["Adgroup"],
+        "summary": "list (by label id)",
+        "description": "Returns the list of adgroups of input label id",
+        "operationId": "getGroupsByLabelIdUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "nccLabelId",
+          "in": "query",
+          "description": "ID of the new clickchoice label",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Adgroup"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ads": {
+      "post": {
+        "tags": ["Ad"],
+        "summary": "create",
+        "description": "create an ad",
+        "operationId": "addUsingPOST_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "ad",
+          "description": "ad",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Ad"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Ad"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ads/{adId}": {
+      "get": {
+        "tags": ["Ad"],
+        "summary": "get",
+        "description": "Return the ad of the adId",
+        "operationId": "getUsingGET_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adId",
+          "in": "path",
+          "description": "ID of new clickchoice ad",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Ad"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Ad"],
+        "summary": "delete",
+        "description": "remove an ad of the adId",
+        "operationId": "removeUsingDELETE_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "adId",
+          "in": "path",
+          "description": "ID of the ad",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/ads/{adId}{?fields}": {
+      "put": {
+        "tags": ["Ad"],
+        "summary": "update",
+        "description": "Update the fields of the ads",
+        "operationId": "modifyUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "ad",
+          "description": "ad",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Ad"
+          }
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "The field to modify",
+          "required": true,
+          "type": "string",
+          "enum": ["userLock", "inspect"]
+        }, {
+          "name": "adId",
+          "in": "path",
+          "description": "ID of the ad",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Ad"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ads{?ids,targetAdgroupId,userLock}": {
+      "put": {
+        "tags": ["Ad"],
+        "summary": "copy",
+        "description": "Copy ads to another adgroup",
+        "operationId": "copyUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "targetAdgroupId",
+          "in": "query",
+          "description": "targetAdgroupId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "userLock",
+          "in": "query",
+          "description": "userLock",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Ad"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ads{?ids}": {
+      "get": {
+        "tags": ["Ad"],
+        "summary": "list",
+        "description": "Return the list of ads",
+        "operationId": "getUsingGET_2",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "IDs of the ad",
+          "required": false,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Ad"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/ads{?nccAdgroupId}": {
+      "get": {
+        "tags": ["Ad"],
+        "summary": "list (by adgroup id)",
+        "description": "Returns the list of ads of the adgroup id",
+        "operationId": "getByAdgroupIdUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "nccAdgroupId",
+          "in": "query",
+          "description": "ID of the adgroup",
+          "required": false,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Ad"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/campaigns": {
+      "post": {
+        "tags": ["Campaign"],
+        "summary": "create",
+        "description": "새 캠페인을 만듭니다. #hidden",
+        "operationId": "addUsingPOST_5",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "campaign",
+          "description": "campaign",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Campaign"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Campaign"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/campaigns/types": {
+      "get": {
+        "tags": ["Campaign"],
+        "summary": "뉴 클릭초이스 캠페인",
+        "description": "뉴 클릭초이스 캠페인 타입 조회 #hidden",
+        "operationId": "getCampaignTypesUsingGET_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Collection«CampaignTypeProperty»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/campaigns/types/{campaignType}": {
+      "get": {
+        "tags": ["Campaign"],
+        "summary": "get",
+        "description": "뉴 클릭초이스 캠페인 타입 조회 #hidden",
+        "operationId": "getCampaignTypesUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "campaignType",
+          "in": "path",
+          "description": "campaignType",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CampaignTypeProperty"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/campaigns/{campaignId}": {
+      "get": {
+        "tags": ["Campaign"],
+        "summary": "get",
+        "description": "Returns the campaign of input ID",
+        "operationId": "getUsingGET_6",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "campaignId",
+          "in": "path",
+          "description": "ID of new click choice campaign",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Campaign"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Campaign"],
+        "summary": "delete",
+        "description": "지정한 캠페인을 영구적으로 삭제합니다. 하위 요소가 존재하는 경우, 모든 하위요소는 함께 삭제됩니다. #hidden",
+        "operationId": "removeUsingDELETE_7",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "campaignId",
+          "in": "path",
+          "description": "campaignId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/campaigns/{campaignId}{?fields}": {
+      "put": {
+        "tags": ["Campaign"],
+        "summary": "update",
+        "description": "Change the Campaign.\n The parameter field, you can enter one of the following: 'userlock'",
+        "operationId": "modifyUsingPUT_10",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "campaignId",
+          "in": "path",
+          "description": "campaignId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "fields",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }, {
+          "in": "body",
+          "name": "campaign",
+          "description": "campaign",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Campaign"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Campaign"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/campaigns{?baseSearchId,recordSize}": {
+      "get": {
+        "tags": ["Campaign"],
+        "summary": "list (by customer id)",
+        "description": "Returns the list of partially campaigns of customer",
+        "operationId": "getCampaignsUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "baseSearchId",
+          "in": "query",
+          "description": "The query criteria Campaign ID value.",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "recordSize",
+          "in": "query",
+          "description": "The number of list of Campaigns to receive the response. You can enter between 1 to 2000",
+          "required": false,
+          "type": "integer",
+          "format": "int32"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Campaign"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/campaigns{?fields}": {
+      "put": {
+        "tags": ["Campaign"],
+        "summary": "update items",
+        "description": "뉴 클릭초이스 캠페인 수정 #hidden",
+        "operationId": "modifyUsingPUT_11",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "fields",
+          "in": "query",
+          "description": "userLock",
+          "required": false,
+          "type": "string"
+        }, {
+          "in": "body",
+          "name": "campaigns",
+          "description": "List of new click choice campaigns",
+          "required": false,
+          "schema": {
+            "type": "object"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Campaign"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/campaigns{?ids}": {
+      "get": {
+        "tags": ["Campaign"],
+        "summary": "list (by ids)",
+        "description": "Returns the list of campaigns of input campaign ids.",
+        "operationId": "getCampaignsUsingGET_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "IDs of the campaign.",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Campaign"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Campaign"],
+        "summary": "delete items",
+        "description": "뉴 클릭초이스 다수의 캠페인 삭제 #hidden",
+        "operationId": "removeCampaignsUsingDELETE",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels": {
+      "post": {
+        "tags": ["BusinessChannel"],
+        "summary": "create",
+        "description": "Create a new business channel.",
+        "operationId": "addUsingPOST_4",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "channel",
+          "description": "channel",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/BusinessChannel"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BusinessChannel"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/checkBookingUrl{?url}": {
+      "get": {
+        "tags": ["BusinessChannel"],
+        "summary": "BookingUrl 상태",
+        "description": "#hidden",
+        "operationId": "isCheckBookingUrlUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "url",
+          "in": "query",
+          "description": "url",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/nidmap": {
+      "get": {
+        "tags": ["BusinessChannel"],
+        "summary": "Login Token",
+        "description": "Get Naver login token for create talk system channel. #hidden",
+        "operationId": "getNidMapTokenUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/JsonNode"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/talk/{channelKey}/name": {
+      "put": {
+        "tags": ["BusinessChannel"],
+        "summary": "update talk channel name",
+        "description": "#hidden",
+        "operationId": "modifyTalkChannelNameUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "channelKey",
+          "in": "path",
+          "description": "channelKey",
+          "required": true,
+          "type": "string"
+        }, {
+          "in": "body",
+          "name": "channel",
+          "description": "channel",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/BusinessChannel"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BusinessChannel"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/useTalkChannel": {
+      "get": {
+        "tags": ["BusinessChannel"],
+        "summary": "talk channel 사용 가능 여부",
+        "description": "#hidden",
+        "operationId": "isTalkChannerUserUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/{businessChannelId}": {
+      "get": {
+        "tags": ["BusinessChannel"],
+        "summary": "get",
+        "description": "Returns the business channel of input ID.",
+        "operationId": "getUsingGET_4",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "businessChannelId",
+          "in": "path",
+          "description": "businessChannelId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BusinessChannel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["BusinessChannel"],
+        "summary": "delete",
+        "description": "Remove a business channel",
+        "operationId": "removeUsingDELETE_5",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "businessChannelId",
+          "in": "path",
+          "description": "businessChannelId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/{businessChannelId}/inspect{?message}": {
+      "put": {
+        "tags": ["BusinessChannel"],
+        "summary": "request inspect",
+        "description": "removes virtual phone number on phone type business channel.",
+        "operationId": "requestInspectUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "businessChannelId",
+          "in": "path",
+          "description": "businessChannelId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "message",
+          "in": "query",
+          "description": "message",
+          "required": false,
+          "type": "string"
+        }, {
+          "in": "body",
+          "name": "channel",
+          "description": "channel",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/BusinessChannel"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BusinessChannel"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/{businessChannelId}/virtualPhone": {
+      "post": {
+        "tags": ["BusinessChannel"],
+        "summary": "generate virtual phone number",
+        "description": "Generates a virtual phone number on phone type business channel.#hidden",
+        "operationId": "getVirtualPhoneUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "businessChannelId",
+          "in": "path",
+          "description": "businessChannelId",
+          "required": true,
+          "type": "string"
+        }, {
+          "in": "body",
+          "name": "channel",
+          "description": "channel",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/BusinessChannel"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BusinessChannel"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/{businessChannelId}/virtualPhone/{virtualPhone}": {
+      "delete": {
+        "tags": ["BusinessChannel"],
+        "summary": "delete virtual phone number",
+        "description": "removes virtual phone number on phone type business channel.#hidden",
+        "operationId": "deleteVirtualPhoneUsingDELETE",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "businessChannelId",
+          "in": "path",
+          "description": "businessChannelId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "virtualPhone",
+          "in": "path",
+          "description": "virtualPhone",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BusinessChannel"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels/{businessChannelId}{?fields}": {
+      "put": {
+        "tags": ["BusinessChannel"],
+        "summary": "update",
+        "description": "Change the business channel <br> The parameter field, you can enter one of the following: 'virtual', 'name', 'siteId', 'sitePw', 'addressOption', 'secondary'",
+        "operationId": "modifyUsingPUT_8",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "businessChannelId",
+          "in": "path",
+          "description": "businessChannelId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "fields",
+          "required": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }, {
+          "in": "body",
+          "name": "channel",
+          "description": "channel",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/BusinessChannel"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BusinessChannel"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels{?fields}": {
+      "put": {
+        "tags": ["BusinessChannel"],
+        "summary": "update items",
+        "description": "Change business channel name \n The parameter field, you can enter one of the following: 'name' #hidden",
+        "operationId": "modifyUsingPUT_9",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "fields",
+          "in": "query",
+          "description": "fields",
+          "required": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }, {
+          "in": "body",
+          "name": "channels",
+          "description": "channels",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/BusinessChannel"
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BusinessChannel"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/channels{?ids}": {
+      "get": {
+        "tags": ["BusinessChannel"],
+        "summary": "list",
+        "description": "Returns the list of business channel.",
+        "operationId": "getUsingGET_5",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BusinessChannel"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["BusinessChannel"],
+        "summary": "delete(by ids)",
+        "description": "Remove business channels in id list.",
+        "operationId": "removeUsingDELETE_6",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords/preview{?keyword,regionalCode,channelAlias}": {
+      "get": {
+        "tags": ["AdKeyword"],
+        "summary": "AD Keyword",
+        "description": "AD Keyword 노출현황 조회 #hidden",
+        "operationId": "getExposureUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "keyword",
+          "in": "query",
+          "description": "keyword",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "regionalCode",
+          "in": "query",
+          "description": "regionalCode",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "channelAlias",
+          "in": "query",
+          "description": "channelAlias",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords/{nccKeywordId}": {
+      "get": {
+        "tags": ["AdKeyword"],
+        "summary": "get",
+        "description": "Return an AdKeyword of input AdKeywordId.",
+        "operationId": "getUsingGET_7",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "nccKeywordId",
+          "in": "path",
+          "description": "The unique Id of the keyword",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AdKeyword"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AdKeyword"],
+        "summary": "delete",
+        "description": "Remove a AdKeyword.",
+        "operationId": "removeUsingDELETE_8",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "nccKeywordId",
+          "in": "path",
+          "description": "The unique Id of the keyword.",
+          "required": false,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords/{nccKeywordId}{?fields}": {
+      "put": {
+        "tags": ["AdKeyword"],
+        "summary": "update.",
+        "description": "Change the AD Keyword The parameter field, you can enter one of the following: 'userLock', 'bidAmt', 'links', 'inspect' \n- if field is userLock then Adkeyword.userlock is required \n- if field is bidAmt then Adkeywords.bidAmt and Adkeyword.useGroupBidAmt are required\n- if field is links then Adkeyword.links is required and links is json-formatted string\n- if field is inspect then Adkeyword's status sholud have pendded.",
+        "operationId": "modifyUsingPUT_12",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "keyword",
+          "description": "keyword",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/AdKeyword"
+          }
+        }, {
+          "name": "nccKeywordId",
+          "in": "path",
+          "description": "The unique Id of the keyword.",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "update target",
+          "required": false,
+          "type": "string",
+          "enum": ["'userLock'", "'bidAmt'", "'links'", "'inspect'"]
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AdKeyword"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords{?fields}": {
+      "put": {
+        "tags": ["AdKeyword"],
+        "summary": "update-items",
+        "description": "Change AD Keywords.(fields=userLock, bidAmt, inspect, links) The maximum number of requests is 200.\n- if field is userLock then Adkeyword.userlock is required \n- if field is bidAmt then Adkeywords.bidAmt and Adkeyword.useGroupBidAmt are required\n- if field is links then Adkeyword.links is required and links is json-formatted string\n- if field is inspect then Adkeyword's status sholud have pendded.",
+        "operationId": "modifyUsingPUT_13",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "nccKeywords",
+          "description": "nccKeywords",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AdKeyword"
+            }
+          }
+        }, {
+          "name": "fields",
+          "in": "query",
+          "description": "update target",
+          "required": false,
+          "type": "string",
+          "enum": ["'userLock'", "'bidAmt'", "'links'", "'inspect'"]
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdKeyword"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords{?ids,targetCampaignId,targetAdgroupId,userLock,useBidAmt,useLinks}": {
+      "put": {
+        "tags": ["AdKeyword"],
+        "summary": "copy-items",
+        "description": "Copy AD Keywords to another adgroup  #hidden",
+        "operationId": "copyUsingPUT_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "targetCampaignId",
+          "in": "query",
+          "description": "targetCampaignId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "targetAdgroupId",
+          "in": "query",
+          "description": "targetAdgroupId",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "userLock",
+          "in": "query",
+          "description": "userLock",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "useBidAmt",
+          "in": "query",
+          "description": "useBidAmt",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "useLinks",
+          "in": "query",
+          "description": "useLinks",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdKeyword"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords{?ids}": {
+      "get": {
+        "tags": ["AdKeyword"],
+        "summary": "list (by ids)",
+        "description": "Returns the list of AdKeyword of input AdKeyword Ids.",
+        "operationId": "getByIdsUsingGET_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids of the AdKeywordId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdKeyword"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["AdKeyword"],
+        "summary": "delete-items",
+        "description": "remove requested keywords.",
+        "operationId": "removeKeywordsUsingDELETE",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "ids",
+          "in": "query",
+          "description": "ids of the AdKeywordId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords{?nccAdgroupId,baseSearchId,recordSize}": {
+      "get": {
+        "tags": ["AdKeyword"],
+        "summary": "list (by adgroup id)",
+        "description": "Returns the partially keyword list of input AdGroup Id.",
+        "operationId": "getByAdgroupIdUsingGET_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "nccAdgroupId",
+          "in": "query",
+          "description": "The unique ID of the AdGroup.",
+          "required": true,
+          "type": "string"
+        }, {
+          "name": "baseSearchId",
+          "in": "query",
+          "description": "The query criteria Adkeyword ID value.",
+          "required": false,
+          "type": "string"
+        }, {
+          "name": "recordSize",
+          "in": "query",
+          "description": "The number of list of Adkeywords to receive the response. You can enter between 1 to 1000",
+          "required": false,
+          "type": "integer",
+          "format": "int32"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdKeyword"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords{?nccAdgroupId}": {
+      "post": {
+        "tags": ["AdKeyword"],
+        "summary": "create",
+        "description": "Create AD Keyword. The maximum number of requests is 100.",
+        "operationId": "addUsingPOST_6",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "nccKeywords",
+          "description": "nccKeywords",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/AdKeyword"
+            }
+          }
+        }, {
+          "name": "nccAdgroupId",
+          "in": "query",
+          "description": "nccAdgroupId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdKeyword"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/keywords{?nccLabelId}": {
+      "get": {
+        "tags": ["AdKeyword"],
+        "summary": "list (by label id)",
+        "description": "Returns the list of AdKeyword of input label id.",
+        "operationId": "getKeywordsByLabelIdUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "nccLabelId",
+          "in": "query",
+          "description": "nccLabelId",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdKeyword"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/label-refs": {
+      "put": {
+        "tags": ["LabelRef"],
+        "summary": "update",
+        "description": "Create or Delete label references to Adgroups or Ads or Keywords.",
+        "operationId": "addLabelsUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "labelRefs",
+          "description": "labelRefs",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/LabelRef"
+            }
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LabelRef"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/label-refs{?refIds}": {
+      "get": {
+        "tags": ["LabelRef"],
+        "summary": "list-refs",
+        "description": "Retrieves information on all label references of refIds #hidden",
+        "operationId": "getLabelRefsUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "refIds",
+          "in": "query",
+          "description": "refIds",
+          "required": false,
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "collectionFormat": "multi"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LabelRef"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/labels": {
+      "get": {
+        "tags": ["Label"],
+        "summary": "list",
+        "description": "Retrieves information on the entire labels of an advertiser.",
+        "operationId": "getCustomerLabelsUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Label"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": ["Label"],
+        "summary": "update",
+        "description": "Renames a label. Any names which are already used in other labels within one advertiser cannot be used.",
+        "operationId": "upsertUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "label",
+          "description": "label",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Label"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Label"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/managedKeyword{?keywords}": {
+      "get": {
+        "tags": ["ManagedKeyword"],
+        "summary": "list (by keywords)",
+        "description": "Returns the list of ManagedKeyword List of input keywords",
+        "operationId": "getManagedKeywordUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "keywords",
+          "in": "query",
+          "description": "keywords",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AdKeyword"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/massjobs": {
+      "post": {
+        "tags": ["ncc-mass-job-controller"],
+        "summary": "add",
+        "operationId": "addUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "job",
+          "description": "job",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/NccMassJob"
+          }
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NccMassJob"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/massjobs/adgroups-copy": {
+      "post": {
+        "tags": ["ncc-mass-job-controller"],
+        "summary": "copy",
+        "description": "Copy Request",
+        "operationId": "copyUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "in": "body",
+          "name": "copyRequest",
+          "description": "copyRequest",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/NccAdgroupCopyJobRequest"
+          }
+        }],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/massjobs/upload{?data}": {
+      "post": {
+        "tags": ["ncc-mass-job-controller"],
+        "summary": "fileUpload",
+        "operationId": "fileUploadUsingPOST",
+        "consumes": ["multipart/form-data"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "file",
+          "in": "formData",
+          "description": "file",
+          "required": true,
+          "type": "file"
+        }, {
+          "name": "data",
+          "in": "query",
+          "description": "data",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NccMassJob"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/massjobs/{id}": {
+      "get": {
+        "tags": ["ncc-mass-job-controller"],
+        "summary": "get",
+        "operationId": "getUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "id",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NccMassJob"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/massjobs/{id}/cancel": {
+      "put": {
+        "tags": ["ncc-mass-job-controller"],
+        "summary": "cancel",
+        "operationId": "cancelUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "id",
+          "in": "path",
+          "description": "id",
+          "required": true,
+          "type": "string"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/massjobs{?type}": {
+      "get": {
+        "tags": ["ncc-mass-job-controller"],
+        "summary": "gets",
+        "operationId": "getsUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [{
+          "name": "type",
+          "in": "query",
+          "description": "type",
+          "required": false,
+          "type": "string",
+          "enum": ["COPY_ADGROUPS", "DOWNLOAD_ADS", "REGISTER_KEYWORDS", "MODIFY_KEYWORDS_BID_AMT", "MODIFY_KEYWORDS_LINKS", "MODIFY_KEYWORDS_USER_LOCK"]
+        }],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NccMassJob"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "NccMassJob": {
+      "type": "object",
+      "properties": {
+        "cancelLoginId": {
+          "type": "string"
+        },
+        "cancelTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "endTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "inputJson": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "inputJson1": {
+          "type": "string"
+        },
+        "inputJson2": {
+          "type": "string"
+        },
+        "loginCustomerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "loginId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nccMassJobId": {
+          "type": "string"
+        },
+        "outputJson": {
+          "$ref": "#/definitions/JsonNode"
+        },
+        "outputJson1": {
+          "type": "string"
+        },
+        "outputJson2": {
+          "type": "string"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "startTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": {
+          "type": "string",
+          "enum": ["WAITING", "ENQUEUED", "RUNNING", "CANCELED", "COMPLETED", "FAILED"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["COPY_ADGROUPS", "DOWNLOAD_ADS", "REGISTER_KEYWORDS", "MODIFY_KEYWORDS_BID_AMT", "MODIFY_KEYWORDS_LINKS", "MODIFY_KEYWORDS_USER_LOCK"]
+        },
+        "typeCd": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Ad": {
+      "type": "object",
+      "properties": {
+        "ad": {
+          "example": "{\"pc\":{\"final\":\"http://searchad.naver.com\"},\"mobile\":{\"final\":\"http://m.searchad.naver.com\"},\"headline\":\"the first line\",\"description\":\"the second line of your ad text\"}",
+          "description": "Creative of this instance. This creative's json schema formed by the field 'type'. #required-create #hidden-update",
+          "$ref": "#/definitions/JsonNode"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The id of the customer containing this ad. #hidden-request"
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The lastest time when this ad was modified (RFC 3339 datetime). #hidden-request #hidden-create"
+        },
+        "inspectRequestMsg": {
+          "type": "string",
+          "description": "A message for the inspector of the ad values. This field may set when create or update an ad. #optional-create #optional-update"
+        },
+        "inspectStatus": {
+          "type": "string",
+          "description": "The approval status of this ad. 10:UNDER_REVIEW, 20:APPROVED, 30:PENDING, 40:DISAPPROVED #hidden-create #hidden-request",
+          "enum": ["UNDER_REVIEW", "APPROVED", "PENDING"]
+        },
+        "nccAdId": {
+          "type": "string",
+          "description": "The id of this ad. #hidden-create #required-update"
+        },
+        "nccAdgroupId": {
+          "type": "string",
+          "description": "The id of the adgroup containing this ad. #required-create #hidden-update"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time when this ad was created (RFC 3339 datetime). #hidden-request #hidden-create"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of this ad. #hidden-request #hidden-create",
+          "enum": ["ELIGIBLE", "LIMITED_ELIGIBLE", "PAUSED", "DELETED"]
+        },
+        "statusReason": {
+          "type": "string",
+          "description": "Status reason of this ad. #hidden-request #hidden-create",
+          "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "DISCONNECTED_EXTERNAL_SYSTEM", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
+        },
+        "type": {
+          "type": "string",
+          "example": "[gist: \"9e18ded78951a8668267889205b6eb69\"]",
+          "description": "Type of this ad (defined by json-schema form). #required-create #hidden-update",
+          "enum": ["TEXT_45"]
+        },
+        "userLock": {
+          "type": "boolean",
+          "example": false,
+          "description": "Enable or Pause this ad by the user. 0:'ENABLED', 1:'PAUSED'. #optional-update"
+        }
+      }
+    },
+    "AdKeyword": {
+      "type": "object",
+      "properties": {
+        "bidAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Max CPC (cost per click) bid. At the AD Keyword level. You can enter between 70 to 100000. When you create a new Ad Keyword, If this field is blank, and then set to the default value (70). This field should be used with 'useGroupBidAmt' field. #optional-create #optional-update #optional-update-items  #hidden-uri-managedKeyword"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer #hidden-request  #hidden-uri-managedKeyword"
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Recently modified time (RFC 3339 datetime). #hidden-request  #hidden-uri-managedKeyword"
+        },
+        "inspectStatus": {
+          "type": "string",
+          "description": "Inspect status of this AD keyword #hidden-request  #hidden-uri-managedKeyword",
+          "enum": ["UNDER_REVIEW", "APPROVED", "PENDING"]
+        },
+        "keyword": {
+          "type": "string",
+          "description": "AD Keyword #required-create #hidden-update #hidden-update-items"
+        },
+        "links": {
+          "example": "{\n  \"pc\":{\n    \"final\":\"http://yourdomain\" \n  },\n  \"mobile\":{\n    \"final\":\"http://yourdomain\"\n    }\n}",
+          "description": "links json. #optional-create #optional-update #optional-update-items  #hidden-uri-managedKeyword",
+          "$ref": "#/definitions/JsonNode"
+        },
+        "managedKeyword": {
+          "description": "AD keyword Information #hidden-request",
+          "$ref": "#/definitions/ManagedKeyword"
+        },
+        "nccAdgroupId": {
+          "type": "string",
+          "description": "The unique ID of the adgroup containing this AD Keyword #hidden-create #required-update #required-update-items  #hidden-uri-managedKeyword"
+        },
+        "nccCampaignId": {
+          "type": "string",
+          "description": "The unique ID of the campaign containing this Ad Keyword #hidden-request  #hidden-uri-managedKeyword"
+        },
+        "nccKeywordId": {
+          "type": "string",
+          "description": "The unique Id of the keyword #required-update #required-update-items #hidden-create  #hidden-uri-managedKeyword"
+        },
+        "nccQi": {
+          "description": "QI Information #hidden-request  #hidden-uri-managedKeyword",
+          "$ref": "#/definitions/NccQi"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Created time. (RFC 3339 datetime). #hidden-request  #hidden-uri-managedKeyword"
+        },
+        "resultStatus": {
+          "description": "Registration Result Infomation #hidden-request  #hidden-uri-managedKeyword",
+          "$ref": "#/definitions/ResultStatus"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of this AD keyword #hidden-request #hidden-uri-managedKeyword",
+          "enum": ["ELIGIBLE", "PAUSED", "DELETED"]
+        },
+        "statusReason": {
+          "type": "string",
+          "description": "Status reason of this Ad Keyword #hidden-request #hidden-uri-managedKeyword",
+          "enum": ["KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW"]
+        },
+        "useGroupBidAmt": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether to use adgroup bid amount. This field should be used with 'bidAmt' field. #optional-create #optional-update #optional-update-items  #hidden-uri-managedKeyword"
+        },
+        "userLock": {
+          "type": "boolean",
+          "example": false,
+          "description": "This field can be used for ENABLED or PAUSED of the AD keyword. #optional-create  #optional-update #optional-update-items  #hidden-uri-managedKeyword"
+        }
+      }
+    },
+    "ResultStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Registration failed when the error code. #hidden-request"
+        },
+        "message": {
+          "type": "string",
+          "description": "Registration failed when the error message. #hidden-request"
+        }
+      }
+    },
+    "Adgroup": {
+      "type": "object",
+      "properties": {
+        "bidAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Max CPC (cost per click) bid. At the Ad group level, this represents the default bid applicable for keywords in this Ad Group. You can enter between 70 to 100000. When you create a new Ad Group, If this field is blank, and then set to the default value (70). #required-update"
+        },
+        "budgetLock": {
+          "type": "boolean",
+          "example": false,
+          "description": "Daily budget status of this AdGroup."
+        },
+        "contentsNetworkBidAmt": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Max CPC (cost per click) bid used in contents networks. You can enter between 70 to 100000. When you create a new Ad Group, If this field is blank, and then set to the default value.(70) #required-update"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer. #required-create #hidden-request"
+        },
+        "dailyBudget": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The maximum budget of the use of the Ad Group during the day. You can enter between 70 to 1000000000. When you create a new Ad Group, If this field is blank, and then set to the default value.(0). #required-update"
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Recently modified time (RFC 3339 datetime). #hidden-request"
+        },
+        "keywordPlusWeight": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Bids weights for keyword-plus of the Ad Group. You can enter between 1 to 9999. When you create a new Ad Group, If this field is blank, and then set to the default value.(100) #required-update"
+        },
+        "mobileChannelId": {
+          "type": "string",
+          "description": "The unique ID of the mobile buisness channel containing this Ad Group #required-create"
+        },
+        "mobileNetworkBidWeight": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Bids weights used in mobile networks. You can enter between 10 to 500. When you create a new Ad Group, If this field is blank, and then set to the default value.(100). #required-update"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of this Ad Group. This field is required and should not be null for ADD operations. #required-create"
+        },
+        "nccAdgroupId": {
+          "type": "string",
+          "description": "The unique ID of this Ad Group #hidden-create #required-update"
+        },
+        "nccCampaignId": {
+          "type": "string",
+          "description": "The unique ID of the campaign with which this Ad Group is associated. #required-create"
+        },
+        "pcChannelId": {
+          "type": "string",
+          "description": "The unique ID of the pc buisness channel containing this Ad Group. #required-create"
+        },
+        "pcNetworkBidWeight": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Bids weights used in PC networks. You can enter between 10 to 500. When you create a new Ad Group, If this field is blank, and then set to the default value.(100) #required-update"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that the Ad Group has been created. (RFC 3339 datetime). #hidden-request"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of this Ad Group #hidden-request",
+          "enum": ["ELIGIBLE", "LIMITED_ELIGIBLE", "PAUSED", "DELETED"]
+        },
+        "statusReason": {
+          "type": "string",
+          "description": "Status reason of this Ad Group #hidden-request",
+          "enum": ["CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET"]
+        },
+        "targets": {
+          "type": "array",
+          "description": "Each targeting information in the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default targetting",
+          "items": {
+            "$ref": "#/definitions/Target"
+          }
+        },
+        "useCntsNetworkBidAmt": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether to use separate bids for the content network. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
+        },
+        "useDailyBudget": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether to use maximum budget of a day of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
+        },
+        "useKeywordPlus": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether to use keyword-plus of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
+        },
+        "userLock": {
+          "type": "boolean",
+          "example": false,
+          "description": "This field can be used for ENABLED or PAUSED of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
+        }
+      }
+    },
+    "Label": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string",
+          "description": "Color of this label. This field is required and should not be null for UPDATE operation."
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "customerId #hidden-request"
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that the label has been updated. (RFC 3339 datetime). #hidden-request"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of this label. This field is required and should not be null for UPDATE operation."
+        },
+        "nccLabelId": {
+          "type": "string",
+          "description": "labelId"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that the label has been created. (RFC 3339 datetime). #hidden-request"
+        }
+      }
+    },
+    "JsonNode": {
+      "type": "object",
+      "properties": {
+        "array": {
+          "type": "boolean"
+        },
+        "bigDecimal": {
+          "type": "boolean"
+        },
+        "bigInteger": {
+          "type": "boolean"
+        },
+        "binary": {
+          "type": "boolean"
+        },
+        "boolean": {
+          "type": "boolean"
+        },
+        "containerNode": {
+          "type": "boolean"
+        },
+        "double": {
+          "type": "boolean"
+        },
+        "float": {
+          "type": "boolean"
+        },
+        "floatingPointNumber": {
+          "type": "boolean"
+        },
+        "int": {
+          "type": "boolean"
+        },
+        "integralNumber": {
+          "type": "boolean"
+        },
+        "long": {
+          "type": "boolean"
+        },
+        "missingNode": {
+          "type": "boolean"
+        },
+        "nodeType": {
+          "type": "string",
+          "enum": ["ARRAY", "BINARY", "BOOLEAN", "MISSING", "NULL", "NUMBER", "OBJECT", "POJO", "STRING"]
+        },
+        "null": {
+          "type": "boolean"
+        },
+        "number": {
+          "type": "boolean"
+        },
+        "object": {
+          "type": "boolean"
+        },
+        "pojo": {
+          "type": "boolean"
+        },
+        "short": {
+          "type": "boolean"
+        },
+        "textual": {
+          "type": "boolean"
+        },
+        "valueNode": {
+          "type": "boolean"
+        }
+      }
+    },
+    "AdExtension": {
+      "type": "object",
+      "properties": {
+        "adExtension": {
+          "description": "The creative of the AD extension\nThe format of this value is JSON #hidden-request",
+          "$ref": "#/definitions/JsonNode"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer #hidden-request"
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Recently modified time (RFC 3339 datetime). #hidden-request"
+        },
+        "inspectStatus": {
+          "type": "string",
+          "description": "The inspect status of the AD extension #hidden-request",
+          "enum": ["UNDER_REVIEW", "APPROVED", "PENDING"]
+        },
+        "mobileChannelId": {
+          "type": "string",
+          "description": "The unique ID of mobile Biz Channel which produces the creative #required-create #hidden-update"
+        },
+        "nccAdExtensionId": {
+          "type": "string",
+          "description": "The unique ID of the AD extension #hidden-create #required-update"
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "The unique ID of owner entity which is either campaign or adgroup containing this AD extension #required-create #hidden-update"
+        },
+        "pcChannelId": {
+          "type": "string",
+          "description": "The unique ID of PC Biz Channel which produces the creative #required-create #hidden-update"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that the AD extension has been registered (RFC 3339 datetime). #hidden-request"
+        },
+        "schedule": {
+          "example": "[gist: \"0c01a5fdee874e93e2ab568a10a53fdb\"]",
+          "description": "The schedule of the AD extension\nThe format of this value is JSON\n- Every day and time : null\n- Partially applied : {\"SUN\":16777215,\"MON\":16777215,\"TUE\":16777215,\"WED\":16777215,\"THU\":16777215,\"FRI\":16777215,\"SAT\":16777215}\n - Each key is the day of week and value is the sum of bit operation with hour which is between 0 and 23 #required-create #optional-update",
+          "$ref": "#/definitions/JsonNode"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of this AD extension #hidden-request",
+          "enum": ["ELIGIBLE", "LIMITED_ELIGIBLE", "PAUSED", "DELETED"]
+        },
+        "statusReason": {
+          "type": "string",
+          "description": "Status reason of this AD extension #hidden-request",
+          "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "DISCONNECTED_EXTERNAL_SYSTEM", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the AD extension #required-create #hidden-update",
+          "enum": ["PHONE", "LOCATION", "BOOKING", "TALK", "CALCULATION"]
+        },
+        "userLock": {
+          "type": "boolean",
+          "example": false,
+          "description": "This field can be used for ENABLED or PAUSED of the AD extension #required-create #optional-update"
+        }
+      }
+    },
+    "AdgroupRestrictKwd": {
+      "type": "object",
+      "properties": {
+        "delFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "del flag"
+        },
+        "description": {
+          "type": "string",
+          "description": "description"
+        },
+        "keyword": {
+          "type": "string",
+          "description": "keyword"
+        },
+        "managedKeyword": {
+          "description": "managed keyword",
+          "$ref": "#/definitions/ManagedKeyword"
+        },
+        "nccAdgroupId": {
+          "type": "string",
+          "description": "###이 속한 광고그룹의 고유 키값"
+        },
+        "nccAdgroupRestrictKwdId": {
+          "type": "string",
+          "description": "ncc adgroup restrict kwd id"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "###이 생성된 시각 (RFC 3339 datetime). #hidden-request"
+        },
+        "type": {
+          "type": "string",
+          "description": "type",
+          "enum": ["KEYWORD_PLUS_RESTRICT"]
+        }
+      }
+    },
+    "Collection«CampaignTypeProperty»": {
+      "type": "object"
+    },
+    "ManagedKeyword": {
+      "type": "object",
+      "properties": {
+        "editTm": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "isAdult": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether an adult keyword."
+        },
+        "isBrand": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether a brand keyword."
+        },
+        "isLowSearchVolume": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether low search volume keyword."
+        },
+        "isRestricted": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether a exposure restricted keyword."
+        },
+        "isSeason": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether a seasonal keyword."
+        },
+        "isSellProhibit": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether a sell prohibited keyword."
+        },
+        "isShoppingMall": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether a shopping keyword."
+        },
+        "keyword": {
+          "type": "string",
+          "description": "AD Keyword"
+        },
+        "pCPLMaxDepth": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Max AD exposure count of NAVER PC powerlink & BizSite Media"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "BusinessChannel": {
+      "type": "object",
+      "properties": {
+        "adultStatus": {
+          "type": "string",
+          "description": "Adult status of this business channel. #hidden-request",
+          "enum": ["NOT_ADULT_URL", "ADULT_URL", "SEMI_ADULT_URL"]
+        },
+        "blackStatus": {
+          "type": "string",
+          "description": "Black status of this business channel. #hidden-request",
+          "enum": ["WHITE_URL", "BLACK_URL"]
+        },
+        "businessInfo": {
+          "type": "string",
+          "description": "The main data of the business channel.<br>The format of this value is JSON"
+        },
+        "channelKey": {
+          "type": "string",
+          "description": "The key information of channel. eg. site type is URL"
+        },
+        "channelTp": {
+          "type": "string",
+          "description": "The business channel type",
+          "enum": ["SITE", "PHONE", "ADDRESS", "BOOKING", "TALK", "BLOG"]
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer #hidden-request"
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Recently modified time (RFC 3339 datetime). #hidden-request"
+        },
+        "enabled": {
+          "type": "boolean",
+          "example": false,
+          "description": "#hidden-request #required-create #required-update"
+        },
+        "firstChargeTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that business channel used for ads. (RFC 3339 datetime). #hidden-request"
+        },
+        "inspectRequestMsg": {
+          "type": "string",
+          "description": "Inspect request message. ##hidden-create #hidden-update"
+        },
+        "inspectRequestTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that business channel request inspect. (RFC 3339 datetime). #hidden-request"
+        },
+        "inspectTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that business channel inspected. (RFC 3339 datetime). #hidden-request"
+        },
+        "mobileInspectStatus": {
+          "type": "string",
+          "description": "Inspect result for mobile devices. #hidden-create #hidden-update",
+          "enum": ["UNDER_REVIEW", "APPROVED", "PENDING"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of this business channel. This field is required and should not be null for ADD operations."
+        },
+        "nccBusinessChannelId": {
+          "type": "string",
+          "description": "The unique ID of the business channel #hidden-create #required-update"
+        },
+        "pcInspectStatus": {
+          "type": "string",
+          "description": "Inspect result for PC devices. #hidden-create #hidden-update",
+          "enum": ["UNDER_REVIEW", "APPROVED", "PENDING"]
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that the business channel has been created. (RFC 3339 datetime). #hidden-request"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of this business channel. #hidden-create #hidden-update",
+          "enum": ["ELIGIBLE", "LIMITED_ELIGIBLE", "PAUSED", "DELETED"]
+        },
+        "statusReason": {
+          "type": "string",
+          "description": "Status reason of this business channel. #hidden-create #hidden-update",
+          "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "DISCONNECTED_EXTERNAL_SYSTEM", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
+        }
+      }
+    },
+    "LabelRef": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer #hidden-request"
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that the labelRef has been updated. (RFC 3339 datetime). #hidden-request"
+        },
+        "enable": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Whether to enable this label reference."
+        },
+        "nccLabelId": {
+          "type": "string",
+          "description": "The unique ID of the label"
+        },
+        "refId": {
+          "type": "string",
+          "description": "ID of reference. The refId value indicates nccAdgroupId or nccAdId or nccKeywordId."
+        },
+        "refTp": {
+          "type": "string",
+          "description": "Type of reference.",
+          "enum": ["ADGROUP", "AD", "KEYWORD"]
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time that the labelRef has been created. (RFC 3339 datetime). #hidden-request"
+        }
+      }
+    },
+    "CampaignTypeProperty": {
+      "type": "object",
+      "properties": {
+        "availableAdExtensionType": {
+          "type": "array",
+          "description": "available ad extension type",
+          "items": {
+            "type": "string",
+            "enum": ["PHONE", "LOCATION", "BOOKING", "TALK", "CALCULATION"]
+          }
+        },
+        "keywordSaleType": {
+          "type": "string",
+          "description": "keyword sale type"
+        },
+        "mainAdType": {
+          "type": "array",
+          "description": "main ad type",
+          "items": {
+            "type": "string",
+            "enum": ["TEXT_45"]
+          }
+        },
+        "mainBusinessChannelType": {
+          "type": "string",
+          "description": "main business channel type",
+          "enum": ["SITE", "PHONE", "ADDRESS", "BOOKING", "TALK", "BLOG"]
+        },
+        "name": {
+          "type": "string",
+          "description": "### 이름"
+        },
+        "type": {
+          "type": "string",
+          "description": "type",
+          "enum": ["WEB_SITE", "POWER_CONTENTS", "SHOPPING"]
+        }
+      }
+    },
+    "Target": {
+      "type": "object",
+      "properties": {
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Recently modified time (RFC 3339 datetime). #hidden-request"
+        },
+        "nccTargetId": {
+          "type": "string",
+          "description": "The unique ID of the target"
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "The unique ID of owner entity which containing this target"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time at which the target was created (RFC 3339 date-time). #hidden-request"
+        },
+        "target": {
+          "type": "string",
+          "example": "[gist: \"081193f4d41503666e0bb3390a9bc596\"]",
+          "description": "Targeting information #type:object"
+        },
+        "targetTp": {
+          "type": "string",
+          "description": "The type of the targeting. Available values are 'TIME_WEEKLY_TARGET', 'REGIONAL_TARGET', 'MEDIA_TARGET', 'PC_MOBILE_TARGET'.",
+          "enum": ["TIME_WEEKLY_TARGET", "REGIONAL_TARGET", "MEDIA_TARGET", "PC_MOBILE_TARGET"]
+        }
+      }
+    },
+    "Campaign": {
+      "type": "object",
+      "properties": {
+        "campaignTp": {
+          "type": "string",
+          "description": "The type for the campaign.  Currently, 'WEB_SITE' value is only available.  #required-create #hidden-update",
+          "enum": ["WEB_SITE"]
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer #required-create #hidden-request"
+        },
+        "dailyBudget": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The maximum budget of the use of the campaign during the day. If this field is blank, and then set to the default value.(0). #hidden-update"
+        },
+        "deliveryMethod": {
+          "type": "string",
+          "description": "choosing 'Accelerated' or 'Standard' ad delivery.  The default value is 'ACCELERATED'.  \n Available values are 'ACCELERATED', 'STANDARD'   #hidden-update",
+          "enum": ["ACCELERATED", "STANDARD"]
+        },
+        "editTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Recently modified time (RFC 3339 datetime). #hidden-request"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of this campaign. This field is required and should not be null for ADD operations. #required-create  #hidden-update"
+        },
+        "nccCampaignId": {
+          "type": "string",
+          "description": "The unique ID of the campaign  #hidden-create #required-update"
+        },
+        "periodEndDt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time at which the campaign ends (RFC 3339 date-time). #hidden-update"
+        },
+        "periodStartDt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time at which the campaign starts (RFC 3339 date-time). #hidden-update"
+        },
+        "regTm": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time at which the campaign was created (RFC 3339 date-time). #hidden-request"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of this campaign #hidden-request",
+          "enum": ["ELIGIBLE", "PAUSED", "DELETED"]
+        },
+        "statusReason": {
+          "type": "string",
+          "description": "Status reason of this campaign #hidden-request",
+          "enum": ["CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET"]
+        },
+        "trackingMode": {
+          "type": "string",
+          "description": "The type of the conversion tracking. Available values are 'TRACKING_DISABLED', 'AUTO_TRACKING_MODE', 'PASS_THROUGH_SITE_MODE'.  #hidden-update ",
+          "enum": ["TRACKING_DISABLED", "AUTO_TRACKING_MODE", "PASS_THROUGH_SITE_MODE"]
+        },
+        "trackingUrl": {
+          "type": "string",
+          "description": "The value which indicates an URL of the intermediate site used by customer for the purpose of conversion tracking. #hidden-update"
+        },
+        "useDailyBudget": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether to use maximum budget of a day of the campaign. If this field is blank, and then set to the default value.(false)  \n true: use, false: unuse #hidden-update"
+        },
+        "usePeriod": {
+          "type": "boolean",
+          "example": false,
+          "description": "use period.  \n true: use, false: unuse  #hidden-update"
+        },
+        "userLock": {
+          "type": "boolean",
+          "example": false,
+          "description": "This field can be used for ENABLED or PAUSED of the campaign. When you create a new campaign, If this field is blank, and then set to the default value.(false)  #required-update"
+        }
+      }
+    },
+    "NccAdgroupCopyJobRequest": {
+      "type": "object",
+      "properties": {
+        "nccAdgroupIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nccAdgroupNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "nccCampaignId": {
+          "type": "string"
+        },
+        "nccCampaignName": {
+          "type": "string"
+        },
+        "originNccCampaignId": {
+          "type": "string"
+        },
+        "originNccCampaignName": {
+          "type": "string"
+        },
+        "userLock": {
+          "type": "boolean"
+        }
+      }
+    },
+    "NccQi": {
+      "type": "object",
+      "properties": {
+        "qiGrade": {
+          "type": "integer",
+          "format": "int32",
+          "description": "qi grade"
+        }
+      }
+    }
+  }
+}
