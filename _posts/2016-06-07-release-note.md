@@ -10,11 +10,11 @@ nccAdgroupId | ownerId
 
 Json Property Name | AS-IS Type | TO-BE Type
 ------------------|------------|---------------
- sAdult           | Integer | boolean 
- sBrand           | Integer | boolean
-sLowSearchVolume  | Integer | boolean
-sRestricted       | Integer | boolean
-sSeason           | Integer | boolean
-sSellProhibit     | Integer | boolean
-sShoppingMall     | Integer | boolean
+ isAdult           | Integer | boolean 
+ isBrand           | Integer | boolean
+isLowSearchVolume  | Integer | boolean
+isRestricted       | Integer | boolean
+isSeason           | Integer | boolean
+isSellProhibit     | Integer | boolean
+isShoppingMall     | Integer | boolean
 
