@@ -7,7 +7,6 @@ nccAdgroupId | ownerId
 
 
 ### ManagedKeyword
-
 Json Property Name | AS-IS Type | TO-BE Type
 ------------------|------------|---------------
  isAdult           | Integer | boolean 
