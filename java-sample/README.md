@@ -13,7 +13,7 @@
 ### Issue the API License and the secret key
 
 1. Sign up for NAVER SEARCH ADVERTISER's Center (http://searchad.naver.com)
-2. Go to the Experience Zone (http://demo.searchad.naver.com)
+2. Go to (http://manage.searchad.naver.com)
 3. Go to Tools > API Manager
 4. Create API license
 
