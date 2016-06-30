@@ -93,31 +93,31 @@
                 },
                 "monthlyPcQcCnt": {
                     "type": "string",
-                    "description": "Sum of PC query counts in recent 30 days. If the query count is less than 10, you get \"<10\". With no data, you get \"-\"."
+                    "description": "Sum of PC query counts in recent 30 days. If the query count is less than 10, you get \"<10\".
                 },
                 "monthlyMobileQcCnt": {
                     "type": "string",
-                    "description": "Sum of Mobile query counts in recent 30 days. If the query count is less than 10, you get \"<10\". With no data, you get \"-\"."
+                    "description": "Sum of Mobile query counts in recent 30 days. If the query count is less than 10, you get \"<10\".
                 },
                 "monthlyAvePcClkCnt": {
                     "type": "string",
-                    "description": "Average PC click counts per keyword's ad in recent 4 weeks. With no data, you get \"-\"."
+                    "description": "Average PC click counts per keyword's ad in recent 4 weeks. With no data, you get 0."
                 },
                 "monthlyAveMobileClkCnt": {
                     "type": "string",
-                    "description": "Average Mobile click counts per keyword's ad in recent 4 weeks. With no data, you get \"-\"."
+                    "description": "Average Mobile click counts per keyword's ad in recent 4 weeks. With no data, you get 0."
                 },
                 "monthlyAvePcCtr": {
                     "type": "string",
-                    "description": "Click-through rate of PC in recent 4 weeks. With no data, you get \"-\"."
+                    "description": "Click-through rate of PC in recent 4 weeks. With no data, you get 0."
                 },
                 "monthlyAveMobileCtr": {
                     "type": "string",
-                    "description": "Click-through rate of Mobile in recent 4 weeks. With no data, you get \"-\"."
+                    "description": "Click-through rate of Mobile in recent 4 weeks. With no data, you get 0."
                 },
                 "plAvgDepth": {
                     "type": "string",
-                    "description": "Average depth of PC ad in recent 4 weeks. With no data, you get \"-\"."
+                    "description": "Average depth of PC ad in recent 4 weeks. With no data, you get 0."
                 },
                 "compIdx": {
                     "type": "string",
