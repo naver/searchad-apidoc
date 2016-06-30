@@ -93,11 +93,11 @@
                 },
                 "monthlyPcQcCnt": {
                     "type": "string",
-                    "description": "Sum of PC query counts in recent 30 days. If the query count is less than 10, you get \"<10\".
+                    "description": "Sum of PC query counts in recent 30 days. If the query count is less than 10, you get \"<10\"."
                 },
                 "monthlyMobileQcCnt": {
                     "type": "string",
-                    "description": "Sum of Mobile query counts in recent 30 days. If the query count is less than 10, you get \"<10\".
+                    "description": "Sum of Mobile query counts in recent 30 days. If the query count is less than 10, you get \"<10\"."
                 },
                 "monthlyAvePcClkCnt": {
                     "type": "string",
