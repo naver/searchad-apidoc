@@ -4,25 +4,31 @@
     "description": "Heroes 서비스에서 제공하는 billing api 목록",
     "version": "2.0",
     "title": "Heroes New Clickchoice 빌링 API",
-    "termsOfService": "http://searchad.naver.com",
-    "contact": {},
-    "license": {}
+    "termsOfService": "http://searchad.naver.com"
   },
-  "host": "demo.searchad.naver.com",
+  "host": "manage.searchad.naver.com",
   "basePath": "/",
-  "tags": [{
-    "name": "Bizmoney",
-    "description": "Api Billing Controller"
-  }],
+  "tags": [
+    {
+      "name": "Bizmoney",
+      "description": "Api Billing Controller"
+    }
+  ],
   "paths": {
     "/api/billing/bizmoney": {
       "get": {
-        "tags": ["Bizmoney"],
+        "tags": [
+          "Bizmoney"
+        ],
         "summary": "get",
         "description": "Returns amount of bizmoney and a status of locks.",
         "operationId": "getBizmoneyUsingGET",
-        "consumes": ["application/json"],
-        "produces": ["*/*"],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -44,19 +50,27 @@
     },
     "/api/billing/bizmoney/cost{?statDt}": {
       "get": {
-        "tags": ["Bizmoney"],
+        "tags": [
+          "Bizmoney"
+        ],
         "summary": "getCost",
         "description": "Returns the used amount of bizmoney that day",
         "operationId": "getBizmoneyCostUsingGET",
-        "consumes": ["application/json"],
-        "produces": ["*/*"],
-        "parameters": [{
-          "name": "statDt",
-          "in": "query",
-          "description": "statDt",
-          "required": true,
-          "type": "string"
-        }],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "statDt",
+            "in": "query",
+            "description": "statDt",
+            "required": true,
+            "type": "string"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -82,6 +96,7 @@
   },
   "definitions": {
     "Bizmoney": {
+      "type": "object",
       "properties": {
         "bizmoney": {
           "type": "integer",
@@ -90,6 +105,7 @@
         },
         "budgetLock": {
           "type": "boolean",
+          "example": false,
           "description": "the value which indicates a lock for budget"
         },
         "customerId": {
@@ -99,11 +115,13 @@
         },
         "refundLock": {
           "type": "boolean",
+          "example": false,
           "description": "the value which indicates a lock for refund"
         }
       }
     },
     "BizmoneyCost": {
+      "type": "object",
       "properties": {
         "customerId": {
           "type": "integer",
@@ -118,12 +136,20 @@
         "device": {
           "type": "string",
           "description": "This value indicates what device used",
-          "enum": ["NONE", "PC", "MOBILE"]
+          "enum": [
+            "NONE",
+            "PC",
+            "MOBILE"
+          ]
         },
         "networkType": {
           "type": "string",
           "description": "This value indicates that ad where exposure",
-          "enum": ["NONE", "NAVER", "EXTERNAL"]
+          "enum": [
+            "NONE",
+            "NAVER",
+            "EXTERNAL"
+          ]
         },
         "nonRefundableAmt": {
           "type": "integer",
@@ -131,7 +157,15 @@
           "description": "amount of non-refundable bizmoney for the account"
         },
         "productCode": {
-          "type": "string"
+          "type": "string",
+          "description": "The Product Code",
+          "enum": [
+            "CPC",
+            "CC_WEB",
+            "BRND",
+            "CCP",
+            "PLA"
+          ]
         },
         "refundableAmt": {
           "type": "integer",
