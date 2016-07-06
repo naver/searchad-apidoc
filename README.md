@@ -3,6 +3,9 @@
 ## API Specification
 http://naver.github.io/searchad-apidoc/
 
+## Notice
+http://doc.api.naver.com/searchad/ko/notice_all
+
 ## NAVER SEARCH ADVERTISER's Center
 http://manage.searchad.naver.com
 
