@@ -1,8 +1,11 @@
 # Naver Search AD API
 
 ##Inspection Notice (2016/7)
+
 Date: July, 14, 2016 (Thursday) 2:00 AM - 4:00 AM 
-      (Korea Standard Time,The inspection time may vary depending on the conditions.)
+
+      (Korea Standard Time, The inspection time may vary depending on the conditions.)
+
 API service will be suspended during the inspection period.
 
 ## API Specification
