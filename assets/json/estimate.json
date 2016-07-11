@@ -29,7 +29,7 @@
                     {
                         "name": "type",
                         "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
+                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
                         "required": true,
                         "type": "string",
                         "enum": [
@@ -78,7 +78,7 @@
                     {
                         "name": "type",
                         "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
+                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
                         "required": true,
                         "type": "string",
                         "enum": [
@@ -127,7 +127,7 @@
                     {
                         "name": "type",
                         "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
+                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
                         "required": true,
                         "type": "string",
                         "enum": [
@@ -176,7 +176,7 @@
                     {
                         "name": "type",
                         "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
+                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
                         "required": true,
                         "type": "string",
                         "enum": [
@@ -199,6 +199,44 @@
                         "description": "Successful response",
                         "schema": {
                             "$ref": "#/definitions/ResponsePerformance"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/estimate/performance-bulk": {
+            "post": {
+                "tags": [
+                    "Estimate"
+                ],
+                "summary": "get (performance-bulk)",
+                "operationId": "getPerformanceBulk",
+                "description": "estimate performance data by keyword and bid.\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "req",
+                        "in": "body",
+                        "description": "requst array of `keyword`,`bid`,`device` and `keywordplus`",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RequestPerformanceBulk"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/ResponsePerformanceBulk"
                         }
                     },
                     "default": {
@@ -239,11 +277,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key is AdKeyword.`nccKeywordId`\n"
+                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key\nis AdKeyword.`nccKeywordId`\n"
                 },
                 "position": {
                     "type": "integer",
-                    "description": "the `position` for a targetted keyword. valid range: 1~15 on PC, 1~5 on MOBILE\n  \n"
+                    "description": "the `position` for a targetted keyword. valid range: 1~15 on PC, 1~5\non MOBILE\n  \n"
                 }
             }
         },
@@ -286,7 +324,7 @@
                 },
                 "bid": {
                     "type": "integer",
-                    "description": "maximum cost per click for a ad (unit: 10 KRW). valid range: 70~100,000\n"
+                    "description": "maximum cost per click for a ad (unit: 10 KRW). valid range:\n70~100,000\n"
                 }
             }
         },
@@ -386,7 +424,7 @@
                 },
                 "key": {
                     "type": "string",
-                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key is AdKeyword.`nccKeywordId`\n"
+                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key\nis AdKeyword.`nccKeywordId`\n"
                 },
                 "bids": {
                     "title": "Array Of bids",
@@ -472,6 +510,103 @@
                 "details": {
                     "type": "string",
                     "description": "more detailed for error"
+                }
+            }
+        },
+        "RequestPerformanceBulk": {
+            "type": "object",
+            "description": "request of performance bulk data",
+            "properties": {
+                "items": {
+                    "title": "Array Of items",
+                    "description": "The maximum of 200 items can be requested at once.\n",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RequestPerformanceBulkItem"
+                    }
+                }
+            }
+        },
+        "RequestPerformanceBulkItem": {
+            "type": "object",
+            "description": "request of performance bulk item",
+            "properties": {
+                "device": {
+                    "type": "string",
+                    "description": "User Device",
+                    "enum": [
+                        "PC",
+                        "MOBILE",
+                        "BOTH"
+                    ]
+                },
+                "keywordplus": {
+                    "type": "boolean",
+                    "description": "use keyword-plus statistics"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "Ad Keyword"
+                },
+                "bid": {
+                    "type": "integer",
+                    "description": "bid price"
+                }
+            }
+        },
+        "ResponsePerformanceBulk": {
+            "type": "object",
+            "description": "response of performance bulk data",
+            "properties": {
+                "items": {
+                    "title": "Array Of items",
+                    "description": "estimated values",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ResponsePerformanceBulkItem"
+                    }
+                }
+            }
+        },
+        "ResponsePerformanceBulkItem": {
+            "type": "object",
+            "description": "response of performance bulk item",
+            "properties": {
+                "device": {
+                    "type": "string",
+                    "description": "User Device",
+                    "enum": [
+                        "PC",
+                        "MOBILE",
+                        "BOTH"
+                    ]
+                },
+                "keywordplus": {
+                    "type": "boolean",
+                    "description": "use keyword-plus statistics"
+                },
+                "keyword": {
+                    "type": "string",
+                    "description": "Ad Keyword"
+                },
+                "bid": {
+                    "type": "integer",
+                    "description": "bid price"
+                },
+                "clicks": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "expect click count"
+                },
+                "impressions": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "expect impression count"
+                },
+                "cost": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "expect cost"
                 }
             }
         }
