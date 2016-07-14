@@ -9,7 +9,7 @@
       "name": "jongcheol.kim@navercorp.com"
     }
   },
-  "host": "test-new.searchad.naver.com",
+  "host": "manage.searchad.naver.com",
   "basePath": "/",
   "tags": [{
     "name": "Adgroup",
@@ -501,7 +501,7 @@
         "tags": ["Adgroup"],
         "summary": "update",
         "description": "Change the Ad Group",
-        "operationId": "modifyUsingPUT_5",
+        "operationId": "modifyUsingPUT_4",
         "consumes": ["application/json"],
         "produces": ["*/*"],
         "parameters": [{
@@ -749,7 +749,7 @@
         "tags": ["Adgroup"],
         "summary": "update (by fields)",
         "description": "Change the Ad Group. The parameter fields, enter the name of the Ad Group field you want to change.",
-        "operationId": "modifyUsingPUT_4",
+        "operationId": "modifyUsingPUT_5",
         "consumes": ["application/json"],
         "produces": ["*/*"],
         "parameters": [{
@@ -796,12 +796,12 @@
         }
       }
     },
-    "/api/ncc/adgroups{?baseSearchId,recordSize}": {
+    "/api/ncc/adgroups{?baseSearchId,recordSize,selector}": {
       "get": {
         "tags": ["Adgroup"],
         "summary": "list-customer",
         "description": "Returns the list of partially AdGroups of the customer  #hidden",
-        "operationId": "getGroupsUsingGET_2",
+        "operationId": "getGroupsUsingGET",
         "consumes": ["application/json"],
         "produces": ["*/*"],
         "parameters": [{
@@ -817,6 +817,13 @@
           "required": false,
           "type": "integer",
           "format": "int32"
+        }, {
+          "name": "selector",
+          "in": "query",
+          "description": "If, please enter the value of the “PREVIOUS” to the selector parameter if you want to read the previous data.",
+          "required": false,
+          "type": "string",
+          "enum": ["PREVIOUS", "NEXT"]
         }],
         "responses": {
           "200": {
@@ -959,12 +966,12 @@
         }
       }
     },
-    "/api/ncc/adgroups{?nccCampaignId,baseSearchId,recordSize}": {
+    "/api/ncc/adgroups{?nccCampaignId,baseSearchId,recordSize,selector}": {
       "get": {
         "tags": ["Adgroup"],
         "summary": "list (by campaign id)",
         "description": "Returns the list of partially AdGroups of input campaign id",
-        "operationId": "getGroupsUsingGET",
+        "operationId": "getGroupsUsingGET_2",
         "consumes": ["application/json"],
         "produces": ["*/*"],
         "parameters": [{
@@ -986,6 +993,13 @@
           "required": false,
           "type": "integer",
           "format": "int32"
+        }, {
+          "name": "selector",
+          "in": "query",
+          "description": "If, please enter the value of the “PREVIOUS” to the selector parameter if you want to read the previous data.",
+          "required": false,
+          "type": "string",
+          "enum": ["PREVIOUS", "NEXT"]
         }],
         "responses": {
           "200": {
@@ -1538,7 +1552,7 @@
         }
       }
     },
-    "/api/ncc/campaigns{?baseSearchId,recordSize}": {
+    "/api/ncc/campaigns{?baseSearchId,recordSize,selector}": {
       "get": {
         "tags": ["Campaign"],
         "summary": "list (by customer id)",
@@ -1559,6 +1573,13 @@
           "required": false,
           "type": "integer",
           "format": "int32"
+        }, {
+          "name": "selector",
+          "in": "query",
+          "description": "If, please enter the value of the “PREVIOUS” to the selector parameter if you want to read the previous data.",
+          "required": false,
+          "type": "string",
+          "enum": ["PREVIOUS", "NEXT"]
         }],
         "responses": {
           "200": {
@@ -2592,7 +2613,7 @@
         }
       }
     },
-    "/api/ncc/keywords{?nccAdgroupId,baseSearchId,recordSize}": {
+    "/api/ncc/keywords{?nccAdgroupId,baseSearchId,recordSize,selector}": {
       "get": {
         "tags": ["AdKeyword"],
         "summary": "list (by adgroup id)",
@@ -2619,6 +2640,13 @@
           "required": false,
           "type": "integer",
           "format": "int32"
+        }, {
+          "name": "selector",
+          "in": "query",
+          "description": "If, please enter the value of the “PREVIOUS” to the selector parameter if you want to read the previous data.",
+          "required": false,
+          "type": "string",
+          "enum": ["PREVIOUS", "NEXT"]
         }],
         "responses": {
           "200": {
@@ -3121,7 +3149,7 @@
           "description": "type",
           "required": false,
           "type": "string",
-          "enum": ["COPY_ADGROUPS", "DOWNLOAD_ADS", "REGISTER_KEYWORDS", "MODIFY_KEYWORDS_BID_AMT", "MODIFY_KEYWORDS_LINKS", "MODIFY_KEYWORDS_USER_LOCK"]
+          "enum": ["COPY_ADGROUPS", "DOWNLOAD_ADS", "REGISTER_KEYWORDS", "MODIFY_KEYWORDS_BID_AMT", "MODIFY_KEYWORDS_LINKS", "MODIFY_KEYWORDS_USER_LOCK", "REGISTER_ADS", "ESTIMATE_KEYWORD"]
         }],
         "responses": {
           "200": {
@@ -3174,6 +3202,10 @@
         "inputJson2": {
           "type": "string"
         },
+        "lineCount": {
+          "type": "integer",
+          "format": "int32"
+        },
         "loginCustomerId": {
           "type": "integer",
           "format": "int64"
@@ -3210,7 +3242,7 @@
         },
         "type": {
           "type": "string",
-          "enum": ["COPY_ADGROUPS", "DOWNLOAD_ADS", "REGISTER_KEYWORDS", "MODIFY_KEYWORDS_BID_AMT", "MODIFY_KEYWORDS_LINKS", "MODIFY_KEYWORDS_USER_LOCK"]
+          "enum": ["COPY_ADGROUPS", "DOWNLOAD_ADS", "REGISTER_KEYWORDS", "MODIFY_KEYWORDS_BID_AMT", "MODIFY_KEYWORDS_LINKS", "MODIFY_KEYWORDS_USER_LOCK", "REGISTER_ADS", "ESTIMATE_KEYWORD"]
         },
         "typeCd": {
           "type": "integer",
