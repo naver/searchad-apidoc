@@ -2294,7 +2294,7 @@
     "/api/ncc/keywords/{nccKeywordId}{?fields}": {
       "put": {
         "tags": ["AdKeyword"],
-        "summary": "update.",
+        "summary": "update",
         "description": "Change the AD Keyword The parameter field, you can enter one of the following: 'userLock', 'bidAmt', 'links', 'inspect' \n- if field is userLock then Adkeyword.userlock is required \n- if field is bidAmt then Adkeywords.bidAmt and Adkeyword.useGroupBidAmt are required\n- if field is links then Adkeyword.links is required and links is json-formatted string\n- if field is inspect then Adkeyword's status sholud have pendded.",
         "operationId": "modifyUsingPUT_12",
         "consumes": ["application/json"],
