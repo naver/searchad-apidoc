@@ -126,5 +126,31 @@ $req_performance = array(
 $response = $api->POST('/estimate/performance/keyword', $req_performance);
 debug($response, $DEBUG);
 
+echo "  #5. performance-bulk\n";
+$req_performance_bulk = array (
+		"items" => array (
+				0 => array (
+						"device" => "PC",
+						"keywordplus" => true,
+						"keyword" => "제주여행",
+						"bid" => 70 
+				),
+				1 => array (
+						"device" => "PC",
+						"keywordplus" => true,
+						"keyword" => "제주도",
+						"bid" => 80 
+				),
+				2 => array (
+						"device" => "PC",
+						"keywordplus" => true,
+						"keyword" => "제주맛집",
+						"bid" => 90 
+				) 
+		) 
+);
+$response = $api->POST('/estimate/performance-bulk', $req_performance_bulk);
+debug($response, $DEBUG);
+
 echo "\nTest End\n";
 ?>

@@ -11,13 +11,13 @@ public class Channels {
 
 	private static String apiPath = "/ncc/channels";
 
-	public static Channel create(RestClient rest, long customerId, String campaignId, String name, String channelId) throws Exception {
+	public static Channel create(RestClient rest, long customerId,  String name, String site) throws Exception {
 		Channel channel = new Channel();
 		channel.setCustomerId(customerId);
 		channel.setName(name);
 		channel.setChannelTp("SITE");
 		Map<String, Object> bi = new HashMap<>();
-		bi.put("site", "http://api.searchad.naver.com");
+		bi.put("site", site);
 		channel.setBusinessInfo(bi);
 
 		HttpResponse<String> response = rest.post(apiPath, customerId).body(channel).asString();

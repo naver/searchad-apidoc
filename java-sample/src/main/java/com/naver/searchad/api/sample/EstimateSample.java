@@ -46,6 +46,11 @@ public class EstimateSample {
 			req4.setBids(Collections.singletonList(4500));
 			ResponsePerformance res4 = Estimate.GetPerformance(rest, customerId, IDType.keyword, req4);
 			System.out.println("res4 = " + res4);
+			
+			RequestPerformanceBulk req5 = new RequestPerformanceBulk();
+			req5.setItems(Collections.singletonList(new BulkItem("제주렌트카", 100, false, Device.PC)));
+			ResponsePerformanceBulk res5 = Estimate.GetPerformanceBulk(rest, customerId, req5);
+			System.out.println("res5 = " + res5);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

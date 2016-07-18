@@ -36,4 +36,11 @@ public class Estimate {
 						.asString();
 		return rest.asObject(response, ResponsePerformance.class);
 	}
+	public static ResponsePerformanceBulk GetPerformanceBulk(RestClient rest, long customerId, RequestPerformanceBulk req) throws Exception {
+		HttpResponse<String> response =
+				rest.post("/estimate/performance-bulk", customerId)
+				.body(req)
+				.asString();
+		return rest.asObject(response, ResponsePerformanceBulk.class);
+	}
 }

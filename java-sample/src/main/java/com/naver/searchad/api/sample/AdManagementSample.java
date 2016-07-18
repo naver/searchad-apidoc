@@ -48,10 +48,14 @@ public class AdManagementSample {
 			Adgroup adgroup2 = null;
 			try {
 				Random random = new Random();
-
+				
+				
+				//채널생성 POST /ncc/channels
+				Channel newChannel = Channels.create(rest, customerId, "API-CHANNEL#" + random.nextInt(1000), "http://www.naver-api"  + random.nextInt(1000) +  ".com");
+				
 				// 그룹 생성 POST /ncc/adgroups
 				adgroup = Adgroups.create(rest, customerId, campaignId, "API-GROUP#" + random.nextInt(1000) + "_" + random.nextInt(1000), channels[0].getNccBusinessChannelId());
-				adgroup2 = Adgroups.create(rest, customerId, campaignId, "API-GROUP#" + random.nextInt(1000) + "_" + +random.nextInt(1000), channels[0].getNccBusinessChannelId());
+				adgroup2 = Adgroups.create(rest, customerId, campaignId, "API-GROUP#" + random.nextInt(1000) + "_" + random.nextInt(1000), newChannel.getNccBusinessChannelId());
 
 				// 그룹 수정 PUT /ncc/adgroups/{adgroupId}{?fields}
 				adgroup.setUserLock(false);

@@ -126,7 +126,7 @@ class RestApi
     public function POST($uri, $data, $query = array())
     {
         $data_string = json_encode($data);
-
+		echo "request : ". $data_string . "\n";
         $ch = curl_init();
         if (!$ch) {
             die ("Couldn't initialize a cURL handle");
