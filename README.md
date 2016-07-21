@@ -2,9 +2,8 @@
 
 ##Inspection Notice (2016/7)
 
-Date: July, 14, 2016 (Thursday) 2:00 AM - 4:00 AM 
-
-      (Korea Standard Time, The inspection time may vary depending on the conditions.)
+Date: August, 4, 2016 (Thursday) 3:00 AM - 7:00 AM 
+Korea Standard Time, The inspection time may vary depending on the conditions.
 
 API service will be suspended during the inspection period.
 
