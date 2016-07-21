@@ -1,6 +1,6 @@
 # Naver Search AD API
 
-##Inspection Notice (2016/7)
+##Inspection Notice (2016/8)
 
 Date: August, 4, 2016 (Thursday) 3:00 AM - 7:00 AM 
 
