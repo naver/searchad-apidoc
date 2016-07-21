@@ -6,7 +6,7 @@
     "title": "Heroes New Clickchoice 빌링 API",
     "termsOfService": "http://searchad.naver.com"
   },
-  "host": "manage.searchad.naver.com",
+  "host": "10.99.163.35:10001",
   "basePath": "/",
   "tags": [
     {
@@ -123,6 +123,16 @@
     "BizmoneyCost": {
       "type": "object",
       "properties": {
+        "adjustedNonRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "amount of adjusted non-refundable bizmoney"
+        },
+        "adjustedRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "amount of adjusted refundable bizmoney"
+        },
         "customerId": {
           "type": "integer",
           "format": "int64",
