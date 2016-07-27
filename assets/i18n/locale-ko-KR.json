@@ -16,8 +16,8 @@
         "METHOD": "Method",
         "OPERATION": "Operation",
         "PARAMETER_NAME": "Parameter name",
-        "PROPERTY_NAME": "Property Name",
-        "VALUE": "Value"
+        "PROPERTY_NAME": "Property name",
+        "VALUE": "Data type"
       },
       "DATA": "데이터",
       "DEFINITIONS": "데이터 정의",
