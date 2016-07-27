@@ -3818,8 +3818,8 @@
           "description": "Time that the labelRef has been updated. (RFC 3339 datetime). #hidden-request"
         },
         "enable": {
-          "type": "integer",
-          "format": "int32",
+          "type": "boolean",
+          "example": false,
           "description": "Whether to enable this label reference."
         },
         "nccLabelId": {
