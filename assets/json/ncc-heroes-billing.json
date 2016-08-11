@@ -168,7 +168,7 @@
         },
         "productCode": {
           "type": "string",
-          "description": "The Product Code",
+          "description": "The Product Code. In case of \"productCode=BRND\", provided period-recognition costs(revenue, including VAT)",
           "enum": [
             "CPC",
             "CC_WEB",
