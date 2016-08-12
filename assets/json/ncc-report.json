@@ -241,7 +241,8 @@
                      "cpc",
                      "avgRnk",
                      "ccnt",
-                     "drtCrto"
+					 "recentAvgRnk",
+                     "recentAvgCpc"
                   ]
                },
                {
@@ -346,7 +347,8 @@
                      "cpc",
                      "avgRnk",
                      "ccnt",
-                     "drtCrto"
+					 "recentAvgRnk",
+                     "recentAvgCpc"
                   ]
                },
                {
