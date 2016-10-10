@@ -82,36 +82,6 @@
         }
       }
     },
-    "/api/ncc/ad-extensions/custom-types": {
-      "get": {
-        "tags": ["AdExtension"],
-        "summary": "getCustomMenuEnableTypes",
-        "operationId": "getCustomMenuEnableTypesUsingGET",
-        "consumes": ["application/json"],
-        "produces": ["*/*"],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string",
-                "enum": ["PHONE", "LOCATION", "BOOKING", "TALK", "CALCULATION"]
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
     "/api/ncc/ad-extensions/{adExtensionId}": {
       "get": {
         "tags": ["AdExtension"],
