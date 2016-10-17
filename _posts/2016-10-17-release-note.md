@@ -7,6 +7,7 @@
 
 #### StatType : NPLA_SCH_KEYWORD
 * Receive the search keyword, total clicks, direct conversion ratio, sales amount(including VAT) by ad id or adgroup id within the last 30 days
+* Data will be provided only when `the number of clicks is equal to or greater than 1`
 * Actual data will be provided after it has been displayed on `November 10` shopping search advertising 
 * This type offers the only `shopping campaign type` data
 
