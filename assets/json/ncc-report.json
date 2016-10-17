@@ -417,6 +417,57 @@
                }
             }
          }
+      },"/api/stats{?id,statType}":{
+         "get":{
+            "tags":[
+               "Stat"
+            ],
+            "summary":"get (by statType)",
+            "description":"Receive the Customized Report per stat type and single entity",
+            "operationId":"getCustomizedStatUsingGET",
+            "consumes":[
+               "application/json"
+            ],
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"id",
+                  "in":"query",
+                  "description":"Entity Id #required-create #required-update",
+                  "required":true,
+                  "type":"string"
+               },
+               {
+                  "name":"statType",
+                  "in":"query",
+                  "description":"Predefined stat type. For example, NPLA_SCH_KEYWORD #required-create #required-update",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"OK",
+                  "schema":{
+                     "type":"array",
+                     "items":{
+                        "$ref":"#/definitions/StatTypeResponse"
+                     }
+                  }
+               },
+               "401":{
+                  "description":"Unauthorized"
+               },
+               "403":{
+                  "description":"Forbidden"
+               },
+               "404":{
+                  "description":"Not Found"
+               }
+            }
+         }
       }
    },
    "securityDefinitions":{
@@ -712,6 +763,24 @@
             "dateStart":{
                "type":"string",
                "description":"Summary start date of Stats period (YYYY-MM-DD, KST)"
+            }
+         }
+      }, "StatTypeResponse":{
+         "properties":{
+            "clkCnt":{
+               "type":"integer",
+               "format":"int32"
+            },
+            "drtCrto":{
+               "type":"number",
+               "format":"double"
+            },
+            "salesAmt":{
+               "type":"integer",
+               "format":"int32"
+            },
+            "schKeyword":{
+               "type":"string"
             }
          }
       },
