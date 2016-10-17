@@ -1,4 +1,5 @@
 ### Stat
+
 #### add a new parameter
 * GET /stats/{?id,`statType`}
 * statType : predefined type of stats
