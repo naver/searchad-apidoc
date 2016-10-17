@@ -1315,7 +1315,7 @@
             "post": {
                 "tags": ["Campaign"],
                 "summary": "create",
-                "description": "Create a new campaign",
+                "description": "Create a new campaign #hidden",
                 "operationId": "addUsingPOST_5",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
