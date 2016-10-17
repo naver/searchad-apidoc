@@ -1,7 +1,7 @@
 ### Stat
 #### add a new parameter
 * GET /stats/{?id,`statType`}
- * statType : predefined type of stats
+* statType : predefined type of stats
 * Available statType : NPLA_SCH_KEYWORD
 
 #### StatType : NPLA_SCH_KEYWORD
