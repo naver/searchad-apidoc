@@ -21,13 +21,13 @@ salesAmt |integer|sales amount(including VAT)
 ### Target
 
 #### new operation added
-* GET /ncc/targets{?ownerId,types}
- * Retrieves the targets of owner entity.
- * Also filtering by type(targetTp) is available.
-* parameter description
- * the `ownerId` is either adgroup id or ad id. (Required)
- * the `types` is targetTp. (Optional)
+  * GET /ncc/targets{?ownerId,types}
+    * Retrieves the targets of owner entity.
+    * Also filtering by type(targetTp) is available.
+    * parameter description
+      * the `ownerId` is either adgroup id or ad id. (Required)
+      * the `types` is targetTp. (Optional)
 
-* PUT /ncc/targets/{targetId}
- * Updates single target.
- * the `ownerId` MUST be provided in request body.
+  * PUT /ncc/targets/{targetId}
+    * Updates single target.
+    * the `ownerId` MUST be provided in request body.
