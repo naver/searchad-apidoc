@@ -19,6 +19,7 @@ drtCrto|real|direct conversion ratio
 salesAmt |integer|sales amount(including VAT)
 
 ### Target
+
 #### new operation added
 * GET /ncc/targets{?ownerId,types}
  * Retrieves the targets of owner entity.
