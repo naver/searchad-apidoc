@@ -36,7 +36,6 @@ No|Field Name|Value|Max.Length|Description
 
    * `BusinessChannel` report has changed
    
-### Business Channel (BusinessChannel)
 No|Field Name|Value|Max.Length|Description
 ----|---|---|---|---
 1|Customer ID|int||Customer ID
