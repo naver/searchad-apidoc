@@ -1,6 +1,6 @@
 ### Master Report
    * `ShoppingProduct` report has added
-   
+
 No|Field Name|Value|Max.Length|Description
 ----|---|---|---|---
 1|Customer ID|int||Customer ID
@@ -35,7 +35,7 @@ No|Field Name|Value|Max.Length|Description
 30|Category Name of Mall|string|256|Category Name
 
    * `BusinessChannel` report has changed
-   
+
 No|Field Name|Value|Max.Length|Description
 ----|---|---|---|---
 1|Customer ID|int||Customer ID
@@ -47,3 +47,4 @@ No|Field Name|Value|Max.Length|Description
 7|Mobile Inspect Status|int|| - 10: UNDER_REVIEW<br/> - 20: APPROVED<br/> - 30: LIMITED_APPROVED<br/> - 40: PENDING
 8|regTm|date||The time at which information was created(ISO8601)
 9|delTm|date||The time at which the campaign was deleted(ISO8601)
+
