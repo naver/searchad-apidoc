@@ -397,7 +397,7 @@
                 "tags": ["Adgroup"],
                 "summary": "update AdGroups",
                 "description": "Change adgroups. #hidden",
-                "operationId": "modifyUsingPUT_6",
+                "operationId": "modifyUsingPUT_7",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
                 "parameters": [{
@@ -826,7 +826,7 @@
                 "tags": ["Adgroup"],
                 "summary": "update items",
                 "description": "Change adgroups. The parameter fields, enter the name of the adgroup field you want to change. #hidden",
-                "operationId": "modifyUsingPUT_7",
+                "operationId": "modifyUsingPUT_6",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
                 "parameters": [{
@@ -1110,7 +1110,7 @@
                 "tags": ["Ad"],
                 "summary": "delete",
                 "description": "remove an ad of the adId",
-                "operationId": "removeUsingDELETE_1",
+                "operationId": "removeUsingDELETE",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
                 "parameters": [{
@@ -1315,7 +1315,7 @@
             "post": {
                 "tags": ["Campaign"],
                 "summary": "create",
-                "description": "Create a new campaign #hidden",
+                "description": "Create a new campaign",
                 "operationId": "addUsingPOST_5",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
@@ -1470,7 +1470,7 @@
                 "tags": ["Campaign"],
                 "summary": "list (by customer id, campaign type)",
                 "description": "Returns the list of partially campaigns of customer",
-                "operationId": "getCampaignsUsingGET",
+                "operationId": "getCampaignsUsingGET_1",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
                 "parameters": [{
@@ -1575,7 +1575,7 @@
                 "tags": ["Campaign"],
                 "summary": "list (by ids)",
                 "description": "Returns the list of campaigns of input campaign ids.",
-                "operationId": "getCampaignsUsingGET_1",
+                "operationId": "getCampaignsUsingGET",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
                 "parameters": [{
@@ -1642,7 +1642,7 @@
                 "tags": ["BusinessChannel"],
                 "summary": "list",
                 "description": "Returns the list of business channel.",
-                "operationId": "getUsingGET_6",
+                "operationId": "getUsingGET_7",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
                 "responses": {
@@ -2000,8 +2000,8 @@
         "/api/ncc/channels{?channelTp}": {
             "get": {
                 "tags": ["BusinessChannel"],
-                "summary": "list",
-                "description": "Returns the business channel list of  channel type.",
+                "summary": "list(by channel Type)",
+                "description": "Returns the business channel list of channel type.",
                 "operationId": "getUsingGET_8",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
@@ -2093,9 +2093,9 @@
         "/api/ncc/channels{?ids}": {
             "get": {
                 "tags": ["BusinessChannel"],
-                "summary": "list",
+                "summary": "list(by ids)",
                 "description": "Returns the business channel list of input ID list.",
-                "operationId": "getUsingGET_7",
+                "operationId": "getUsingGET_6",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
                 "parameters": [{
@@ -3075,7 +3075,7 @@
                     "description": "type",
                     "required": false,
                     "type": "string",
-                    "enum": ["INVALID", "COPY_ADGROUPS", "KEYWORD_DOWNLOAD", "KEYWORD_REGISTER", "KEYWORD_UPDATE_BID", "KEYWORD_UPDATE_URL", "KEYWORD_UPDATE_ONOFF", "AD_REGISTER", "KEYWORD_ESTIMATE", "CLONE_ADGROUP", "SHOPPING_DOWNLOAD", "AD_UPDATE_BID", "AD_UPDATE_ONOFF"]
+                    "enum": ["INVALID", "COPY_ADGROUPS", "DOWNLOAD_KEYWORD", "ADD_KEYWORD", "EDIT_KEYWORD_BID", "EDIT_KEYWORD_URL", "EDIT_KEYWORD_ONOFF", "ADD_AD", "ESTIMATE_KEYWORD", "CLONE_ADGROUP", "DOWNLOAD_SHOPPING", "EDIT_AD_BID", "EDIT_AD_ONOFF", "ADD_SHOPPING_AD", "ADD_SHOPPING_GROUP_ADEXT", "ADD_SHOPPING_ADEXT", "EDIT_SHOPPING_AD", "REMOVE_SHOPPING_ADEXT"]
                 }],
                 "responses": {
                     "200": {
@@ -3102,8 +3102,7 @@
         "/api/ncc/shoppingMall{?shoppingToken,mallId}": {
             "get": {
                 "tags": ["BusinessChannel"],
-                "summary": "get",
-                "description": "Returns the list of business channel.",
+                "summary": "shoppingMall",
                 "operationId": "shoppingMallUsingGET",
                 "consumes": ["application/json"],
                 "produces": ["*/*"],
@@ -3303,7 +3302,7 @@
                 },
                 "type": {
                     "type": "string",
-                    "enum": ["INVALID", "COPY_ADGROUPS", "KEYWORD_DOWNLOAD", "KEYWORD_REGISTER", "KEYWORD_UPDATE_BID", "KEYWORD_UPDATE_URL", "KEYWORD_UPDATE_ONOFF", "AD_REGISTER", "KEYWORD_ESTIMATE", "CLONE_ADGROUP", "SHOPPING_DOWNLOAD", "AD_UPDATE_BID", "AD_UPDATE_ONOFF"]
+                    "enum": ["INVALID", "COPY_ADGROUPS", "DOWNLOAD_KEYWORD", "ADD_KEYWORD", "EDIT_KEYWORD_BID", "EDIT_KEYWORD_URL", "EDIT_KEYWORD_ONOFF", "ADD_AD", "ESTIMATE_KEYWORD", "CLONE_ADGROUP", "DOWNLOAD_SHOPPING", "EDIT_AD_BID", "EDIT_AD_ONOFF", "ADD_SHOPPING_AD", "ADD_SHOPPING_GROUP_ADEXT", "ADD_SHOPPING_ADEXT", "EDIT_SHOPPING_AD", "REMOVE_SHOPPING_ADEXT"]
                 },
                 "typeCd": {
                     "type": "integer",
@@ -3431,7 +3430,7 @@
                 "statusReason": {
                     "type": "string",
                     "description": "Status reason of this ad. #hidden-request #hidden-create",
-                    "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_ABNORMAL_INTERLOCK", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
+                    "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "GROUP_PAUSED_BY_INVALID_TARGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_ABNORMAL_INTERLOCK", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
                 },
                 "type": {
                     "type": "string",
@@ -3778,7 +3777,7 @@
                 "statusReason": {
                     "type": "string",
                     "description": "Status reason of this AD extension #hidden-request",
-                    "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_ABNORMAL_INTERLOCK", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
+                    "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "GROUP_PAUSED_BY_INVALID_TARGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_ABNORMAL_INTERLOCK", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
                 },
                 "type": {
                     "type": "string",
@@ -4002,7 +4001,7 @@
                 "statusReason": {
                     "type": "string",
                     "description": "Status reason of this business channel. #hidden-create #hidden-update",
-                    "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_ABNORMAL_INTERLOCK", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
+                    "enum": ["ELIGIBLE", "CAMPAIGN_DELETED", "CAMPAIGN_PAUSED", "CAMPAIGN_PENDING", "CAMPAIGN_ENDED", "CAMPAIGN_LIMITED_BY_BUDGET", "BUSINESS_CHANNEL_PAUSED", "BUSINESS_CHANNEL_DISAPPROVED", "BUSINESS_CHANNEL_UNDER_REVIEW", "BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_APPROVED", "PC_BUSINESS_CHANNEL_DISAPPROVED", "PC_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "PC_BUSINESS_CHANNEL_UNDER_REVIEW", "MOBILE_BUSINESS_CHANNEL_APPROVED", "MOBILE_BUSINESS_CHANNEL_DISAPPROVED", "MOBILE_BUSINESS_CHANNEL_ABNORMAL_INTERLOCK", "MOBILE_BUSINESS_CHANNEL_UNDER_REVIEW", "GROUP_DELETED", "GROUP_PAUSED", "GROUP_LIMITED_BY_BUDGET", "GROUP_PAUSED_BY_INVALID_TARGET", "KEYWORD_DELETED", "KEYWORD_PAUSED", "KEYWORD_DISAPPROVED", "KEYWORD_UNDER_REVIEW", "AD_DELETED", "AD_PAUSED", "AD_ABNORMAL_INTERLOCK", "AD_DISAPPROVED", "AD_UNDER_REVIEW", "AD_EXTENSION_DELETED", "AD_EXTENSION_PAUSED", "AD_EXTENSION_NOT_SCHEDULED", "AD_EXTENSION_DISAPPROVED", "AD_EXTENSION_UNDER_REVIEW", "LACK_OF_ACCOUNT_BALANCE", "REFUND_IN_PROGRESS", "ENABLED"]
                 }
             }
         },
@@ -4088,7 +4087,7 @@
                 "customerId": {
                     "type": "integer",
                     "format": "int64",
-                    "description": "The unique ID of the customer #required-create #hidden-request"
+                    "description": "The unique ID of the customer #required-create #required-update  #hidden-request"
                 },
                 "dailyBudget": {
                     "type": "integer",
@@ -4240,11 +4239,18 @@
                     "type": "integer",
                     "format": "int64"
                 },
+                "DEL_FLAG": {
+                    "type": "integer",
+                    "format": "int64"
+                },
                 "DEL_TM": {
                     "type": "integer",
                     "format": "int64"
                 },
                 "adCustomerId": {
+                    "type": "string"
+                },
+                "brand": {
                     "type": "string"
                 },
                 "category1Id": {
@@ -4287,6 +4293,9 @@
                     "type": "string"
                 },
                 "lowPrice": {
+                    "type": "string"
+                },
+                "maker": {
                     "type": "string"
                 },
                 "mallNo": {
