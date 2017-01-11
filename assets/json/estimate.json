@@ -247,6 +247,104 @@
                     }
                 }
             }
+        },
+        "/npla-estimate/average-position-bid/{type}": {
+            "post": {
+                "tags": [
+                    "Estimate"
+                ],
+                "summary": "get (average position bid) - NPLA",
+                "operationId": "getNPLAAveragePositionBid",
+                "description": "estimate bid by average position statistics.\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "the type of keys. `id` means keys are Ad.nccAdId.\n`product` means keys are Ad.productId\n",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "id",
+                            "product"
+                        ]
+                    },
+                    {
+                        "name": "req",
+                        "in": "body",
+                        "description": "requst `productId` or `nccAdId` with expected `position`",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/RequestWithPosition"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/NPLAEstimateBidByPosition"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/npla-estimate/exposure-minimum-bid/{type}": {
+            "post": {
+                "tags": [
+                    "Estimate"
+                ],
+                "summary": "get (exposure minimum bid) - NPLA",
+                "operationId": "getNPLAExposureMinimumBid",
+                "description": "estimate the minimum bid is always exposure.\n",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "the type of keys. `id` means keys are Ad.nccAdId.\n`product` means keys are Ad.productId\n",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "id",
+                            "product"
+                        ]
+                    },
+                    {
+                        "name": "req",
+                        "in": "body",
+                        "description": "requst `product` or `nccAdId`",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NPLARequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/NPLAEstimateBid"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -328,6 +426,28 @@
                 }
             }
         },
+        "NPLAEstimateBidByPosition": {
+            "type": "object",
+            "description": "estimated value by average position",
+            "properties": {
+                "product": {
+                    "type": "string",
+                    "description": "NAVER shopping product ID"
+                },
+                "position": {
+                    "type": "integer",
+                    "description": "expected position for ad"
+                },
+                "nccAdId": {
+                    "type": "string",
+                    "description": "Ad.nccAdId"
+                },
+                "bid": {
+                    "type": "integer",
+                    "description": "maximum cost per click for a ad (unit: 10 KRW). valid range:\n70~100,000\n"
+                }
+            }
+        },
         "Request": {
             "type": "object",
             "properties": {
@@ -345,6 +465,28 @@
                     "enum": [
                         "DAY",
                         "MONTH"
+                    ]
+                },
+                "items": {
+                    "title": "Array Of keys",
+                    "description": "The maximum of 200 keys can be requested at once.",
+                    "type": "array",
+                    "items": {
+                        "title": "Keys",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "NPLARequest": {
+            "type": "object",
+            "properties": {
+                "device": {
+                    "type": "string",
+                    "description": "User Device",
+                    "enum": [
+                        "PC",
+                        "MOBILE"
                     ]
                 },
                 "items": {
@@ -388,6 +530,28 @@
                 }
             }
         },
+        "NPLAEstimateBid": {
+            "type": "object",
+            "description": "estimated bid by statistical distribution",
+            "properties": {
+                "device": {
+                    "type": "string",
+                    "description": "User Device",
+                    "enum": [
+                        "PC",
+                        "MOBILE"
+                    ]
+                },
+                "estimate": {
+                    "title": "Array Of estimate bid",
+                    "description": "estimated value",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NPLABid"
+                    }
+                }
+            }
+        },
         "Bid": {
             "type": "object",
             "properties": {
@@ -398,6 +562,23 @@
                 "nccKeywordId": {
                     "type": "string",
                     "description": "AdKeyword.nccKeywordId"
+                },
+                "bid": {
+                    "type": "integer",
+                    "description": "Bid price"
+                }
+            }
+        },
+        "NPLABid": {
+            "type": "object",
+            "properties": {
+                "product": {
+                    "type": "string",
+                    "description": "NAVER shopping product ID"
+                },
+                "nccAdId": {
+                    "type": "string",
+                    "description": "Ad.nccAdId"
                 },
                 "bid": {
                     "type": "integer",
