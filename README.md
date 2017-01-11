@@ -8,12 +8,11 @@ Date: January, 19, 2017 (Thursday) 03:00 AM - 07:30 AM
 
 API service will be suspended during the inspection period.
 
-##Conversion data recovery notice (2016/12/06)
+##Conversion data recovery notice (2017/1/11)
 
-Date: December, 6, 2016
+Date: January, 11, 2017
 
-The conversion data of Shopping SearchAd + Naver Storefarm site(as Business Channel) 
-during Nov, 17 (Thu) ~ Nov, 21 (Mon) (KST) is recoverd at December, 6, 2016
+The conversion data during Nov, 1 (Thu), 2016 ~ Jan, 4 (Wen) (KST) is recoverd at January, 11, 2017
 
 ## API Specification
 http://naver.github.io/searchad-apidoc/
