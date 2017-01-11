@@ -1,5 +1,13 @@
 # Naver Search AD API
 
+##Inspection Notice (2017/1)
+
+Date: January, 19, 2017 (Thursday) 03:00 AM - 07:30 AM 
+
+(Korea Standard Time, The inspection time may vary depending on the conditions.)
+
+API service will be suspended during the inspection period.
+
 ##Conversion data recovery notice (2016/12/06)
 
 Date: December, 6, 2016
