@@ -1,6 +1,7 @@
 ### Estimate
   * NPLA estimation service added
   * /npla-estimate/average-position-bid/{type}
+  
 {% highlight json %}
 ==>
 POST /npla-estimate/average-position-bid/id
@@ -38,7 +39,9 @@ POST /npla-estimate/average-position-bid/id
 }
 {% endhighlight %}
 
+
   * /npla-estimate/exposure-minimum-bid/{type}
+  
 {% highlight json %}
 ==>
 POST /npla-estimate/exposure-minimum-bid/product
