@@ -12,6 +12,11 @@
 }
 {% endhighlight %}
 
+ * Valid items of `contentsChannelType` are
+   * `BLOG`
+   * `CAFE`
+   * `POST`
+
 ### Adgroup
  * an adgroup api will be added a new property
    * adgroupAttrJson : For `Power Contents` campaign types, this indicates adgroup type.
