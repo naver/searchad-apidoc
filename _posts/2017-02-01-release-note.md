@@ -79,6 +79,6 @@ or
 ### ManagedKeyword
  * a `isShoppingMall` property will be removed. Please check below note.
  * a new `expUiType` property will be added.
-    * The type of `expUiType` is `Integer`.
+    * The type of `expUiType` is `String`.
     * A valid item is
       * `SHOPPING_MALL`
