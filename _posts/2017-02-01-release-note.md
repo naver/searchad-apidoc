@@ -2,7 +2,7 @@
  * a new type `POWER_CONTENTS` will be added.
 
 ### Channel
- * a new type `CHANNEL` will be added.
+ * a new type `CONTENTS` will be added.
    * example businessInfo property
 {% highlight json %}
 {
