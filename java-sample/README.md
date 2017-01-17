@@ -8,7 +8,7 @@
 - JDK 8 : http://www.oracle.com/technetwork/java/javase/downloads/index.html
 - Git client : https://git-scm.com/downloads
 - Maven (optional) : https://maven.apache.org/download.cgi
-
+- Lombok : https://projectlombok.org/download.html
 
 ### Issue the API License and the secret key
 
