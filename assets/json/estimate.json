@@ -345,6 +345,104 @@
                     }
                 }
             }
+        },
+        "/npc-estimate/average-position-bid/{type}": {
+            "post": {
+                "tags": [
+                    "Estimate"
+                ],
+                "summary": "get (average position bid) - NPC",
+                "description": "estimate bid by average position statistics. ",
+                "operationId": "getNPCAveragePositionBid",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "id",
+                            "keyword"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "payload",
+                        "description": "requst `keyword` or `nccKeywordId` with expected `position`",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NpcRequestAveragePositionBid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/NpcEstimateBid"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/npc-estimate/exposure-minimum-bid/{type}": {
+            "post": {
+                "tags": [
+                    "Estimate"
+                ],
+                "summary": "get (exposure minimum bid) - NPC",
+                "description": "estimate the minimum bid is always exposure. ",
+                "operationId": "getNPCExposureMinimumBid",
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "path",
+                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "id",
+                            "keyword"
+                        ]
+                    },
+                    {
+                        "in": "body",
+                        "name": "payload",
+                        "description": "requst `keyword` or `nccKeywordId`",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/NpcRequestMinMaxBid"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "schema": {
+                            "$ref": "#/definitions/NpcEstimateBid"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -788,6 +886,103 @@
                     "type": "integer",
                     "format": "int64",
                     "description": "expect cost"
+                }
+            }
+        },
+        "NpcKeyAndPosition": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key is AdKeyword.`nccKeywordId`"
+                },
+                "position": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "the `position` for a targetted keyword. valid range: 1~3 on PC, 1~3 on MOBILE"
+                }
+            },
+            "description": "key and position"
+        },
+        "NpcRequestAveragePositionBid": {
+            "type": "object",
+            "properties": {
+                "device": {
+                    "type": "string",
+                    "description": "User Device",
+                    "enum": [
+                        "PC",
+                        "MOBILE",
+                        "BOTH"
+                    ]
+                },
+                "items": {
+                    "type": "array",
+                    "description": "The maximum of 200 keys can be requested at once.",
+                    "items": {
+                        "$ref": "#/definitions/NpcKeyAndPosition"
+                    }
+                }
+            },
+            "description": "request key with position"
+        },
+        "NpcRequestMinMaxBid": {
+            "type": "object",
+            "properties": {
+                "device": {
+                    "type": "string",
+                    "description": "User Device",
+                    "enum": [
+                        "PC",
+                        "MOBILE",
+                        "BOTH"
+                    ]
+                },
+                "items": {
+                    "type": "array",
+                    "description": "The maximum of 200 keys can be requested at once.",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "description": "request estimated bid"
+        },
+        "NpcExpect": {
+            "type": "object",
+            "properties": {
+                "bid": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "keyword": {
+                    "type": "string"
+                },
+                "nccKeywordId": {
+                    "type": "string"
+                },
+                "position": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        },
+        "NpcEstimateBid": {
+            "type": "object",
+            "properties": {
+                "device": {
+                    "type": "string",
+                    "enum": [
+                        "PC",
+                        "MOBILE",
+                        "BOTH"
+                    ]
+                },
+                "estimate": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/NpcExpect"
+                    }
                 }
             }
         }
