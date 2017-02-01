@@ -912,8 +912,7 @@
                     "description": "User Device",
                     "enum": [
                         "PC",
-                        "MOBILE",
-                        "BOTH"
+                        "MOBILE"
                     ]
                 },
                 "items": {
@@ -934,8 +933,7 @@
                     "description": "User Device",
                     "enum": [
                         "PC",
-                        "MOBILE",
-                        "BOTH"
+                        "MOBILE"
                     ]
                 },
                 "items": {
@@ -974,8 +972,7 @@
                     "type": "string",
                     "enum": [
                         "PC",
-                        "MOBILE",
-                        "BOTH"
+                        "MOBILE"
                     ]
                 },
                 "estimate": {
