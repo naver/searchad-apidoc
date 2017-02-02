@@ -77,6 +77,8 @@ or
  * a `managedKeyword` property will be removed.
 
 ### ManagedKeyword
+ * a `pCPLMaxDepth` property will be `PCPLMaxDepth`.
+    * `pCPLMaxDepth` -> `PCPLMaxDepth`
  * a `isShoppingMall` property will be removed. Please check below note.
  * a new `expUiType` property will be added.
     * The type of `expUiType` is `String`.
