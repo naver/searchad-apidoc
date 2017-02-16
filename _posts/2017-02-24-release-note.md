@@ -1,7 +1,9 @@
 ### Master Report
+
    * New Channel Type value added to `Business Channel Type` and `Channel Contents`.
 
 #### Business Channel (BusinessChannel)
+
 No|Field Name|Value|Max.Length|Description
 ----|---|---|---|---
 4|Business Channel Type|int|| - 1: Web Site<br/> - 2: Phone<br/> - 3: Address<br/> - 4: "NAVER Booking" Service<br/> - 5: "NAVER TALK" service<br/> - 6: NAVER Shopping<br/> - 7 : NAVER BLOG
@@ -10,6 +12,7 @@ No|Field Name|Value|Max.Length|Description
    * A `Content Type`  column added to `Ad group` master report.
 
 ### Ad group (Adgroup)
+
 No|Field Name|Value|Max.Length|Description
 ----|---|---|---|---
 17|Content Type|string|32|Content type information. Only if the campaign type is 3.<br/>- INFORMATION : Contents  Ad Type is Information Type.<br/>- PRODUCT : Contents Ad Type is Product Type.
@@ -17,6 +20,7 @@ No|Field Name|Value|Max.Length|Description
    * `ContentsAd` master report has added. 
 
 ### Contents (ContentsAd)
+
 No|Field Name|Value|Max.Length|Description
 ----|---|---|---|---
 1|Customer ID|int||Customer ID
