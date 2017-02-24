@@ -182,7 +182,9 @@
                         "LabelRef",
                         "Media",
                         "Biz",
-                        "SeasonalEvent"
+                        "SeasonalEvent",
+                        "ShoppingProduct",
+                        "ContentsAd"
                     ],
                     "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n"
                 },
@@ -209,7 +211,7 @@
                 },
                 "downloadUrl": {
                     "type": "string",
-                    "description": "Address of a report file.\n"
+                    "description": "Address of a report file."
                 }
             }
         },
@@ -233,7 +235,9 @@
                         "LabelRef",
                         "Media",
                         "Biz",
-                        "SeasonalEvent"
+                        "SeasonalEvent",
+                        "ShoppingProduct",
+                        "ContentsAd"
                     ],
                     "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
                 },
