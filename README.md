@@ -1,8 +1,8 @@
 # Naver Search AD API
 
-##Emergency Inspection Notice (2017/2)
+##Emergency Inspection Notice (2017/3)
 
-Date: February, 16, 2017 (Thursday) 10:00 PM - February, 17, 2017 (Friday) 06:00 AM 
+Date: March, 9, 2017 (Thursday) 03:00 AM - March, 9, 2017 (Thursday) 07:00 AM 
 
 (Korea Standard Time, The inspection time may vary depending on the conditions.)
 
