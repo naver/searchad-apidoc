@@ -39,13 +39,6 @@
                         "type": "string"
                     },
                     {
-                        "name": "includeHintKeywords",
-                        "in": "query",
-                        "description": "Set `includeHintKeywords` = 1 to selectively fetch the related keywords containing any word in keyword hints, else set `includeHintKeywords` = 0. Therefore, `includeHintKeywords` can be 1 when using keyword hints with `hintKeywords` parameter.",
-                        "required": false,
-                        "type": "integer"
-                    },
-                    {
                         "name": "event",
                         "in": "query",
                         "description": "Event ID",
