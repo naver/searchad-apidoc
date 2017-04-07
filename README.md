@@ -1,5 +1,10 @@
 # Naver Search AD API
 
+
+##Notice (2017/4)
+From May 4, 2017
+JAVA version 6 or earlier is not supported.
+
 ##Emergency Inspection Notice (2017/3)
 
 Date: March, 9, 2017 (Thursday) 03:00 AM - March, 9, 2017 (Thursday) 07:00 AM 
