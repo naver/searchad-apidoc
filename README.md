@@ -2,6 +2,7 @@
 
 ## Notice (2017/4)
 From May 4, 2017
+
 JAVA version 6 or earlier is not supported.
 
 ## Emergency Inspection Notice (2017/3)
