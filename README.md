@@ -3,7 +3,7 @@
 ## Notice (2017/4)
 From May 4, 2017
 
-JAVA version 6 or earlier is not supported anymore.
+JAVA 6 and older versions are not supported anymore.
 
 ## Emergency Inspection Notice (2017/3)
 
