@@ -1,23 +1,16 @@
 # Naver Search AD API
 
-
-##Notice (2017/4)
+## Notice (2017/4)
 From May 4, 2017
 JAVA version 6 or earlier is not supported.
 
-##Emergency Inspection Notice (2017/3)
+## Emergency Inspection Notice (2017/3)
 
 Date: March, 9, 2017 (Thursday) 03:00 AM - March, 9, 2017 (Thursday) 07:00 AM 
 
 (Korea Standard Time, The inspection time may vary depending on the conditions.)
 
 API service will be suspended during the inspection period.
-
-##Conversion data recovery notice (2017/1/11)
-
-Date: January, 11, 2017
-
-The conversion data during Nov, 1 (Thu), 2016 ~ Jan, 4 (Wen) (KST) is recoverd at January, 11, 2017
 
 ## API Specification
 http://naver.github.io/searchad-apidoc/
