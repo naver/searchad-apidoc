@@ -15,6 +15,8 @@ JAVA 6 and older versions are not supported anymore.
 
 ## API Specification
 http://naver.github.io/searchad-apidoc/
+Error Code 
+https://github.com/naver/searchad-apidoc/blob/master/NaverSA_API_Error_Code_MAP.md
 
 ## Notice (KOR)
 http://doc.api.naver.com/searchad/ko/notice_all
