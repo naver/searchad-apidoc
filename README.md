@@ -1,6 +1,6 @@
 # Naver Search AD API
 
-##Emergency Inspection Notice (2017/7)
+## Emergency Inspection Notice (2017/7)
 
 Date: July, 11, 2017 (Thursday) 03:00 AM - May, 11, 2017 (Thursday) 07:00 AM 
 
