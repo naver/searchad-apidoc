@@ -2,7 +2,7 @@
 
 ## Emergency Inspection Notice (2017/7)
 
-Date: July, 11, 2017 (Thursday) 03:00 AM - May, 11, 2017 (Thursday) 07:00 AM 
+Date: July, 13, 2017 (Thursday) 03:00 AM - July, 13, 2017 (Thursday) 07:00 AM 
 
 (Korea Standard Time, The inspection time may vary depending on the conditions.)
 
