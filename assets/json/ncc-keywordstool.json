@@ -41,7 +41,7 @@
                     {
                         "name": "event",
                         "in": "query",
-                        "description": "Event ID",
+                        "description": "Seaonal theme",
                         "required": false,
                         "type": "integer",
                         "example":"[gist:\"235202ffb08f9433b6f7cb10e45875f7\"]"
