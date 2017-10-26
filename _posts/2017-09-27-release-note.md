@@ -10,3 +10,4 @@ NPLA_SCH_KEYWORD|Provides metrics for shopping search keywords with clicks in th
 
 #### Reference
 * The results of the API response, in descending order of impressions, will return up to 1000 statistics metrics for each query.
+ 
