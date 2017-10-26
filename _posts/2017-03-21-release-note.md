@@ -17,7 +17,9 @@
    * these types are able to be registered under **adgroup** only.
    * for each new type, you can register **two** ad extension  under adgroup with respectively.
    * here are json sample.
-{%highlight json %}
+   
+{% highlight json %}
+
 HEADLINE
 {
   "headline": "세일 하는 지금이 기회야!"
@@ -53,4 +55,4 @@ PRICE_LINKS
     "final": "http://www.naver.com"
   }
 ]
-{%endhighlight %}
+{% endhighlight %}
