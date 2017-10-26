@@ -41,3 +41,29 @@ POST /npc-estimate/average-position-bid/id
 
   * /npc-estimate/exposure-minimum-bid/{type}
   
+{% highlight json %}
+==>
+POST /npc-estimate/exposure-minimum-bid/keyword
+{  
+  "device":"PC",
+  "items":[  
+    "고기집창업",
+    "PC방창업"
+  ]
+}
+
+<==
+{  
+  "device":"PC",
+  "estimate":[  
+    {  
+      "bid":300,
+      "keyword":"고기집창업"
+    },
+    {  
+      "bid":5280,
+      "keyword":"PC방창업"
+    }
+  ]
+}
+{% endhighlight %}
