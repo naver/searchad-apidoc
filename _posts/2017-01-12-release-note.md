@@ -19,9 +19,15 @@ POST /npla-estimate/average-position-bid/id
   ]
 }
 
-{  
-  "device":"PC"
-}
+
+
+
+
+
+
+
+
+
 {% endhighlight %}
 
   * /npla-estimate/exposure-minimum-bid/{type}
