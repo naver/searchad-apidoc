@@ -4,7 +4,7 @@
    * name: `imageColorCode`
    * type: `string`
  * this property reflects the color of `imageUrl` property.
- * this property is **read only**.
+ * this property is {% read only %}
  
 ### Bizmoney
 
