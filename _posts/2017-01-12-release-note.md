@@ -4,16 +4,16 @@
   
 {% highlight json %}
 ==>
-POST /npla-estimate/average-position-bid/id
-{
+POST /npc-estimate/average-position-bid/id
+{  
   "device":"PC",
   "items":[  
     {  
-      "key":"nad-a001-01-00000000000xxxx",
+      "key":"nkw-a001-03-000000000XXXXXX",
       "position":1
     },
     {  
-      "key":"nad-a001-01-00000000000xxxx",
+      "key":"nkw-a001-03-000000000XXXXXX",
       "position":1
     }
   ]
