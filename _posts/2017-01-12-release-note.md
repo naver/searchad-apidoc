@@ -19,23 +19,8 @@ POST /npla-estimate/average-position-bid/id
   ]
 }
 
-<==
 {  
-  "device":"PC",
-  "items":[  
-    {  
-      "product":"67460836xx",
-      "key":"nad-a001-01-00000000000xxxx",
-      "position":1,
-      "bid":220
-    },
-    {  
-      "keyword":"997460666xx",
-      "key":"nad-a001-01-00000000000xxxx",
-      "position":1,
-      "bid":5190
-    }
-  ]
+  "device":"PC"
 }
 {% endhighlight %}
 
