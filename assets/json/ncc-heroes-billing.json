@@ -174,7 +174,8 @@
             "CC_WEB",
             "BRND",
             "CCP",
-            "PLA"
+            "PLA",
+            "BRAND_SEARCH"
           ]
         },
         "refundableAmt": {
