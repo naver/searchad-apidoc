@@ -3,7 +3,6 @@
   * /npc-estimate/average-position-bid/{type}
   
 {% highlight json %}
-==>
 POST /npc-estimate/average-position-bid/id
 {  
   "device":"PC",
@@ -19,7 +18,7 @@ POST /npc-estimate/average-position-bid/id
   ]
 }
 
-<==
+
 {  
   "device":"PC",
   "items":[  
@@ -39,11 +38,9 @@ POST /npc-estimate/average-position-bid/id
 }
 {% endhighlight %}
 
-
-  * /npc-estimate/exposure-minimum-bid/{type}
+* /npc-estimate/exposure-minimum-bid/{type}
   
 {% highlight json %}
-==>
 POST /npc-estimate/exposure-minimum-bid/keyword
 {  
   "device":"PC",
@@ -53,7 +50,6 @@ POST /npc-estimate/exposure-minimum-bid/keyword
   ]
 }
 
-<==
 {  
   "device":"PC",
   "estimate":[  
