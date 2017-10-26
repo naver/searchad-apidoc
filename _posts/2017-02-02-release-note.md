@@ -38,3 +38,6 @@ POST /npc-estimate/average-position-bid/id
   ]
 }
 {% endhighlight %}
+
+  * /npc-estimate/exposure-minimum-bid/{type}
+  
