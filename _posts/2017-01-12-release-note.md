@@ -38,33 +38,3 @@ POST /npla-estimate/average-position-bid/id
   ]
 }
 {% endhighlight %}
-
-
-  * /npla-estimate/exposure-minimum-bid/{type}
-  
-{% highlight json %}
-==>
-POST /npla-estimate/exposure-minimum-bid/product
-{  
-  "device":"PC",
-  "items":[  
-    "6746083685",
-    "99746066682"
-  ]
-}
-
-<==
-{  
-  "device":"PC",
-  "items":[  
-    {  
-      "productId":"6746083685",
-      "bid":220
-    },
-    {  
-      "productId":"99746066682",
-      "bid":5190
-    }
-  ]
-}
-{% endhighlight %}
