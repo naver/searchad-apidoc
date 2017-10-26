@@ -18,7 +18,6 @@ POST /npla-estimate/average-position-bid/id
     }
   ]
 }
-
 <==
 {  
   "device":"PC",
