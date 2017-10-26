@@ -5,7 +5,7 @@
 {% highlight json %}
 ==>
 POST /npla-estimate/average-position-bid/id
-{  
+{
   "device":"PC",
   "items":[  
     {  
@@ -19,7 +19,7 @@ POST /npla-estimate/average-position-bid/id
   ]
 }
 
-{  
+{
   "device":"PC",
   "items":[  
     {  
