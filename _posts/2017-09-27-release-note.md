@@ -1,6 +1,6 @@
 ### Stat
 * The aggregation criteria for the provided indicators will change.
-  + Applied to GET /stats{?id,statType, statType=NPLA_SCH_KEYWORD
+  + Applied to GET /stats?id,statType, statType=NPLA_SCH_KEYWORD
 * The impCnt (impressions) added to the metric provided with the change in aggregation criteria.
 * There is no change to the request interface, and an additional impCnt is returned as the api response value.
 
