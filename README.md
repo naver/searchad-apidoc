@@ -1,8 +1,8 @@
 # Naver Search AD API
 
-## Inspection Notice (2017/9)
+## Inspection Notice (2018/2)
 
-Date: september, 21, 2017 (thursday) 03:00 AM - september, 21, 2017 (thursday) 07:00 AM 
+Date: february, 8, 2018 (thursday) 03:00 AM - february, 8, 2017 (thursday) 07:00 AM 
 
 (Korea Standard Time, The inspection time may vary depending on the conditions.)
 
