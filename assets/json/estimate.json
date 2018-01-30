@@ -1,1083 +1,1107 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "1.0.0",
-        "title": "Estimate API",
-        "description": "estimate bid, click, impression and cost"
-    },
-    "host": "api.naver.com",
-    "schemes": [
-        "https"
-    ],
-    "basePath": "/",
-    "produces": [
-        "application/json"
-    ],
-    "paths": {
-        "/estimate/average-position-bid/{type}": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (average position bid)",
-                "operationId": "getAveragePositionBid",
-                "description": "estimate bid by average position statistics.\n",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            "id",
-                            "keyword"
-                        ]
-                    },
-                    {
-                        "name": "req",
-                        "in": "body",
-                        "description": "requst `keyword` or `nccKeywordId` with expected `position`",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/RequestWithPosition"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/EstimateBidWithPostion"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Estimate API",
+    "description": "estimate bid, click, impression and cost"
+  },
+  "host": "api.naver.com",
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/",
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/estimate/average-position-bid/{type}": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (average position bid)",
+        "operationId": "getAveragePositionBid",
+        "description": "estimate bid by average position statistics.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "id",
+              "keyword"
+            ]
+          },
+          {
+            "name": "req",
+            "in": "body",
+            "description": "requst `keyword` or `nccKeywordId` with expected `position`",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestWithPosition"
             }
-        },
-        "/estimate/median-bid/{type}": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (median bid)",
-                "operationId": "getMedianBid",
-                "description": "estimate bid by median\n",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            "id",
-                            "keyword"
-                        ]
-                    },
-                    {
-                        "name": "req",
-                        "in": "body",
-                        "description": "requst `keyword` or `nccKeywordId`",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Request"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/EstimateBid"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/EstimateBidWithPostion"
             }
-        },
-        "/estimate/exposure-minimum-bid/{type}": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (exposure minimum bid)",
-                "operationId": "getExposureMinimumBid",
-                "description": "estimate the minimum bid is always exposure.\n",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            "id",
-                            "keyword"
-                        ]
-                    },
-                    {
-                        "name": "req",
-                        "in": "body",
-                        "description": "requst `keyword` or `nccKeywordId`",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/Request"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/EstimateBid"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
-        },
-        "/estimate/performance/{type}": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (performance)",
-                "operationId": "getPerformance",
-                "description": "estimate performance data by expect bid.\n",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            "id",
-                            "keyword"
-                        ]
-                    },
-                    {
-                        "name": "req",
-                        "in": "body",
-                        "description": "requst `keyword` or `nccKeywordId` and bid array",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/RequestPerformance"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/ResponsePerformance"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/estimate/performance-bulk": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (performance-bulk)",
-                "operationId": "getPerformanceBulk",
-                "description": "estimate performance data by keyword and bid.\n",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "req",
-                        "in": "body",
-                        "description": "requst array of `keyword`,`bid`,`device` and `keywordplus`",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/RequestPerformanceBulk"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/ResponsePerformanceBulk"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/npla-estimate/average-position-bid/{type}": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (average position bid) - NPLA",
-                "operationId": "getNPLAAveragePositionBid",
-                "description": "estimate bid by average position statistics.\n",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "the type of keys. `id` means keys are Ad.nccAdId.\n`product` means keys are Ad.productId\n",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            "id",
-                            "product"
-                        ]
-                    },
-                    {
-                        "name": "req",
-                        "in": "body",
-                        "description": "requst `productId` or `nccAdId` with expected `position`",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/RequestWithPosition"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/NPLAEstimateBidByPosition"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/npla-estimate/exposure-minimum-bid/{type}": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (exposure minimum bid) - NPLA",
-                "operationId": "getNPLAExposureMinimumBid",
-                "description": "estimate the minimum bid is always exposure.\n",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "the type of keys. `id` means keys are Ad.nccAdId.\n`product` means keys are Ad.productId\n",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            "id",
-                            "product"
-                        ]
-                    },
-                    {
-                        "name": "req",
-                        "in": "body",
-                        "description": "requst `product` or `nccAdId`",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NPLARequest"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/NPLAEstimateBid"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/npc-estimate/average-position-bid/{type}": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (average position bid) - NPC",
-                "description": "estimate bid by average position statistics. ",
-                "operationId": "getNPCAveragePositionBid",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            "id",
-                            "keyword"
-                        ]
-                    },
-                    {
-                        "in": "body",
-                        "name": "payload",
-                        "description": "requst `keyword` or `nccKeywordId` with expected `position`",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NpcRequestAveragePositionBid"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/NpcEstimateBid"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
-        },
-        "/npc-estimate/exposure-minimum-bid/{type}": {
-            "post": {
-                "tags": [
-                    "Estimate"
-                ],
-                "summary": "get (exposure minimum bid) - NPC",
-                "description": "estimate the minimum bid is always exposure. ",
-                "operationId": "getNPCExposureMinimumBid",
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "type",
-                        "in": "path",
-                        "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
-                        "required": true,
-                        "type": "string",
-                        "enum": [
-                            "id",
-                            "keyword"
-                        ]
-                    },
-                    {
-                        "in": "body",
-                        "name": "payload",
-                        "description": "requst `keyword` or `nccKeywordId`",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/NpcRequestMinMaxBid"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "$ref": "#/definitions/NpcEstimateBid"
-                        }
-                    },
-                    "default": {
-                        "description": "Unexpected error",
-                        "schema": {
-                            "$ref": "#/definitions/Error"
-                        }
-                    }
-                }
-            }
+          }
         }
-    },
-    "/npc-estimate/performance":{  
-         "post":{  
-            "tags":[  
-               "Estimate"
-            ],
-            "summary":"get (performance) - NPC",
-            "description":"estimate performance data by keyword. ",
-            "operationId":"getNPCPerformance",
-            "consumes":[  
-               "application/json"
-            ],
-            "produces":[  
-               "application/json"
-            ],
-            "parameters":[  
-               {  
-                  "in":"body",
-                  "name":"payload",
-                  "description":"request `keyword` array, level and device",
-                  "required":true,
-                  "schema":{  
-                     "$ref":"#/definitions/NpcRequestPerformance"
-                  }
-               }
-            ],
-            "responses":{  
-               "200":{  
-                  "description":"Successful response",
-                  "schema":{  
-                     "$ref":"#/definitions/NpcResponsePerformance"
-                  }
-               },
-               "default":{  
-                  "description":"Unexpected error",
-                  "schema":{  
-                     "$ref":"#/definitions/Error"
-                  }
-               }
-            }
-         }
       }
-   },
-    "definitions": {
-        "RequestWithPosition": {
-            "type": "object",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "items": {
-                    "title": "Array Of keys",
-                    "type": "array",
-                    "description": "The maximum of 200 keys can be requested at once.\n",
-                    "items": {
-                        "$ref": "#/definitions/KeyAndPosition"
-                    }
-                }
+    },
+    "/estimate/median-bid/{type}": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (median bid)",
+        "operationId": "getMedianBid",
+        "description": "estimate bid by median\n",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "id",
+              "keyword"
+            ]
+          },
+          {
+            "name": "req",
+            "in": "body",
+            "description": "requst `keyword` or `nccKeywordId`",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Request"
             }
-        },
-        "KeyAndPosition": {
-            "type": "object",
-            "description": "key and position",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key\nis AdKeyword.`nccKeywordId`\n"
-                },
-                "position": {
-                    "type": "integer",
-                    "description": "the `position` for a targetted keyword. valid range: 1~15 on PC, 1~5\non MOBILE\n  \n"
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/EstimateBid"
             }
-        },
-        "EstimateBidWithPostion": {
-            "type": "object",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "estimate": {
-                    "title": "Array Of estimate bid",
-                    "description": "array of estimated value",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/EstimateBidByPosition"
-                    }
-                }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
-        },
-        "EstimateBidByPosition": {
-            "type": "object",
-            "description": "estimated value by average position",
-            "properties": {
-                "keyword": {
-                    "type": "string",
-                    "description": "search ad keyword"
-                },
-                "position": {
-                    "type": "integer",
-                    "description": "expected position for ad"
-                },
-                "nccKeywordId": {
-                    "type": "string",
-                    "description": "AdKeyword.nccKeywordId"
-                },
-                "bid": {
-                    "type": "integer",
-                    "description": "maximum cost per click for a ad (unit: 10 KRW). valid range:\n70~100,000\n"
-                }
+          }
+        }
+      }
+    },
+    "/estimate/exposure-minimum-bid/{type}": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (exposure minimum bid)",
+        "operationId": "getExposureMinimumBid",
+        "description": "estimate the minimum bid is always exposure.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "id",
+              "keyword"
+            ]
+          },
+          {
+            "name": "req",
+            "in": "body",
+            "description": "requst `keyword` or `nccKeywordId`",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Request"
             }
-        },
-        "NPLAEstimateBidByPosition": {
-            "type": "object",
-            "description": "estimated value by average position",
-            "properties": {
-                "product": {
-                    "type": "string",
-                    "description": "NAVER shopping product ID"
-                },
-                "position": {
-                    "type": "integer",
-                    "description": "expected position for ad"
-                },
-                "nccAdId": {
-                    "type": "string",
-                    "description": "Ad.nccAdId"
-                },
-                "bid": {
-                    "type": "integer",
-                    "description": "maximum cost per click for a ad (unit: 10 KRW). valid range:\n70~100,000\n"
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/EstimateBid"
             }
-        },
-        "Request": {
-            "type": "object",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "period": {
-                    "type": "string",
-                    "description": "Choose whether to use the stats of yesterday or last 28 days",
-                    "enum": [
-                        "DAY",
-                        "MONTH"
-                    ]
-                },
-                "items": {
-                    "title": "Array Of keys",
-                    "description": "The maximum of 200 keys can be requested at once.",
-                    "type": "array",
-                    "items": {
-                        "title": "Keys",
-                        "type": "string"
-                    }
-                }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
-        },
-        "NPLARequest": {
-            "type": "object",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "items": {
-                    "title": "Array Of keys",
-                    "description": "The maximum of 200 keys can be requested at once.",
-                    "type": "array",
-                    "items": {
-                        "title": "Keys",
-                        "type": "string"
-                    }
-                }
+          }
+        }
+      }
+    },
+    "/estimate/performance/{type}": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (performance)",
+        "operationId": "getPerformance",
+        "description": "estimate performance data by expect bid.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId.\n`keyword` means keys are AdKeyword.Keyword\n",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "id",
+              "keyword"
+            ]
+          },
+          {
+            "name": "req",
+            "in": "body",
+            "description": "requst `keyword` or `nccKeywordId` and bid array",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestPerformance"
             }
-        },
-        "EstimateBid": {
-            "type": "object",
-            "description": "estimated bid by statistical distribution",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "period": {
-                    "type": "string",
-                    "description": "Choose whether to use the stats of yesterday or last 28 days",
-                    "enum": [
-                        "DAY",
-                        "MONTH"
-                    ]
-                },
-                "estimate": {
-                    "title": "Array Of estimate bid",
-                    "description": "estimated value",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Bid"
-                    }
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/ResponsePerformance"
             }
-        },
-        "NPLAEstimateBid": {
-            "type": "object",
-            "description": "estimated bid by statistical distribution",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "estimate": {
-                    "title": "Array Of estimate bid",
-                    "description": "estimated value",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/NPLABid"
-                    }
-                }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
-        },
-        "Bid": {
-            "type": "object",
-            "properties": {
-                "keyword": {
-                    "type": "string",
-                    "description": "keyword"
-                },
-                "nccKeywordId": {
-                    "type": "string",
-                    "description": "AdKeyword.nccKeywordId"
-                },
-                "bid": {
-                    "type": "integer",
-                    "description": "Bid price"
-                }
+          }
+        }
+      }
+    },
+    "/estimate/performance-bulk": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (performance-bulk)",
+        "operationId": "getPerformanceBulk",
+        "description": "estimate performance data by keyword and bid.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "req",
+            "in": "body",
+            "description": "requst array of `keyword`,`bid`,`device` and `keywordplus`",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestPerformanceBulk"
             }
-        },
-        "NPLABid": {
-            "type": "object",
-            "properties": {
-                "product": {
-                    "type": "string",
-                    "description": "NAVER shopping product ID"
-                },
-                "nccAdId": {
-                    "type": "string",
-                    "description": "Ad.nccAdId"
-                },
-                "bid": {
-                    "type": "integer",
-                    "description": "Bid price"
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/ResponsePerformanceBulk"
             }
-        },
-        "RequestPerformance": {
-            "type": "object",
-            "description": "request of performance graph data",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE",
-                        "BOTH"
-                    ]
-                },
-                "keywordplus": {
-                    "type": "boolean",
-                    "description": "use keyword-plus statistics"
-                },
-                "key": {
-                    "type": "string",
-                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key\nis AdKeyword.`nccKeywordId`\n"
-                },
-                "bids": {
-                    "title": "Array Of bids",
-                    "description": "The maximum of 100 bids can be requested at once.",
-                    "type": "array",
-                    "items": {
-                        "title": "bid",
-                        "type": "integer"
-                    }
-                }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
-        },
-        "ResponsePerformance": {
-            "type": "object",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE",
-                        "BOTH"
-                    ]
-                },
-                "keywordplus": {
-                    "type": "boolean",
-                    "description": "use keyword-plus statistics"
-                },
-                "keyword": {
-                    "type": "string",
-                    "description": "keyword"
-                },
-                "nccKeywordId": {
-                    "type": "string",
-                    "description": "AdKeyword.nccKeywordId"
-                },
-                "estimate": {
-                    "title": "Array Of performance",
-                    "description": "estimated value",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Performance"
-                    }
-                }
+          }
+        }
+      }
+    },
+    "/npla-estimate/average-position-bid/{type}": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (average position bid) - NPLA",
+        "operationId": "getNPLAAveragePositionBid",
+        "description": "estimate bid by average position statistics.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "the type of keys. `id` means keys are Ad.nccAdId.\n`product` means keys are Ad.productId\n",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "id",
+              "product"
+            ]
+          },
+          {
+            "name": "req",
+            "in": "body",
+            "description": "requst `productId` or `nccAdId` with expected `position`",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RequestWithPosition"
             }
-        },
-        "Performance": {
-            "type": "object",
-            "description": "performance graph data",
-            "properties": {
-                "bid": {
-                    "type": "integer",
-                    "description": "bid price"
-                },
-                "clicks": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "expect click count"
-                },
-                "impressions": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "expect impression count"
-                },
-                "cost": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "expect cost"
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/NPLAEstimateBidByPosition"
             }
-        },
-        "Error": {
-            "type": "object",
-            "properties": {
-                "code": {
-                    "type": "string",
-                    "description": "error code"
-                },
-                "message": {
-                    "type": "string",
-                    "description": "error message"
-                },
-                "details": {
-                    "type": "string",
-                    "description": "more detailed for error"
-                }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
-        },
-        "RequestPerformanceBulk": {
-            "type": "object",
-            "description": "request of performance bulk data",
-            "properties": {
-                "items": {
-                    "title": "Array Of items",
-                    "description": "The maximum of 200 items can be requested at once.\n",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/RequestPerformanceBulkItem"
-                    }
-                }
+          }
+        }
+      }
+    },
+    "/npla-estimate/exposure-minimum-bid/{type}": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (exposure minimum bid) - NPLA",
+        "operationId": "getNPLAExposureMinimumBid",
+        "description": "estimate the minimum bid is always exposure.\n",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "the type of keys. `id` means keys are Ad.nccAdId.\n`product` means keys are Ad.productId\n",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "id",
+              "product"
+            ]
+          },
+          {
+            "name": "req",
+            "in": "body",
+            "description": "requst `product` or `nccAdId`",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NPLARequest"
             }
-        },
-        "RequestPerformanceBulkItem": {
-            "type": "object",
-            "description": "request of performance bulk item",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE",
-                        "BOTH"
-                    ]
-                },
-                "keywordplus": {
-                    "type": "boolean",
-                    "description": "use keyword-plus statistics"
-                },
-                "keyword": {
-                    "type": "string",
-                    "description": "Ad Keyword"
-                },
-                "bid": {
-                    "type": "integer",
-                    "description": "bid price"
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/NPLAEstimateBid"
             }
-        },
-        "ResponsePerformanceBulk": {
-            "type": "object",
-            "description": "response of performance bulk data",
-            "properties": {
-                "items": {
-                    "title": "Array Of items",
-                    "description": "estimated values",
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/ResponsePerformanceBulkItem"
-                    }
-                }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
-        },
-        "ResponsePerformanceBulkItem": {
-            "type": "object",
-            "description": "response of performance bulk item",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE",
-                        "BOTH"
-                    ]
-                },
-                "keywordplus": {
-                    "type": "boolean",
-                    "description": "use keyword-plus statistics"
-                },
-                "keyword": {
-                    "type": "string",
-                    "description": "Ad Keyword"
-                },
-                "bid": {
-                    "type": "integer",
-                    "description": "bid price"
-                },
-                "clicks": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "expect click count"
-                },
-                "impressions": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "expect impression count"
-                },
-                "cost": {
-                    "type": "integer",
-                    "format": "int64",
-                    "description": "expect cost"
-                }
+          }
+        }
+      }
+    },
+    "/npc-estimate/average-position-bid/{type}": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (average position bid) - NPC",
+        "description": "estimate bid by average position statistics. ",
+        "operationId": "getNPCAveragePositionBid",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "id",
+              "keyword"
+            ]
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "requst `keyword` or `nccKeywordId` with expected `position`",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NpcRequestAveragePositionBid"
             }
-        },
-        "NpcKeyAndPosition": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key is AdKeyword.`nccKeywordId`"
-                },
-                "position": {
-                    "type": "integer",
-                    "format": "int32",
-                    "description": "the `position` for a targetted keyword. valid range: 1~3 on PC, 1~3 on MOBILE"
-                }
-            },
-            "description": "key and position"
-        },
-        "NpcRequestAveragePositionBid": {
-            "type": "object",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "items": {
-                    "type": "array",
-                    "description": "The maximum of 200 keys can be requested at once.",
-                    "items": {
-                        "$ref": "#/definitions/NpcKeyAndPosition"
-                    }
-                }
-            },
-            "description": "request key with position"
-        },
-        "NpcRequestMinMaxBid": {
-            "type": "object",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "description": "User Device",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "items": {
-                    "type": "array",
-                    "description": "The maximum of 200 keys can be requested at once.",
-                    "items": {
-                        "type": "string"
-                    }
-                }
-            },
-            "description": "request estimated bid"
-        },
-        "NpcExpect": {
-            "type": "object",
-            "properties": {
-                "bid": {
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "keyword": {
-                    "type": "string"
-                },
-                "nccKeywordId": {
-                    "type": "string"
-                },
-                "position": {
-                    "type": "integer",
-                    "format": "int32"
-                }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/NpcEstimateBid"
             }
-        },
-        "NpcEstimateBid": {
-            "type": "object",
-            "properties": {
-                "device": {
-                    "type": "string",
-                    "enum": [
-                        "PC",
-                        "MOBILE"
-                    ]
-                },
-                "estimate": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/NpcExpect"
-                    }
-                }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
             }
-        },
-      "NpcRequestPerformance":{  
-         "type":"object",
-         "properties":{  
-            "device":{  
-               "type":"string",
-               "description":"User Device",
-               "enum":[  
-                  "PC",
-                  "MOBILE",
-                  "BOTH"
-               ]
-            },
-            "keywords":{  
-               "type":"array",
-               "description":"The maximum of 200 keywords can be requested at once.",
-               "items":{  
-                  "type":"string"
-               }
-            },
-            "level":{  
-               "type":"integer",
-               "format":"int32",
-               "description":"Stepwise cumulative distribution"
+          }
+        }
+      }
+    },
+    "/npc-estimate/exposure-minimum-bid/{type}": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (exposure minimum bid) - NPC",
+        "description": "estimate the minimum bid is always exposure. ",
+        "operationId": "getNPCExposureMinimumBid",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description": "the type of keys. `id` means keys are AdKeyowrd.nccKeywordId. `keyword` means keys are AdKeyword.Keyword",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "id",
+              "keyword"
+            ]
+          },
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "requst `keyword` or `nccKeywordId`",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NpcRequestMinMaxBid"
             }
-         },
-         "description":"request estimated performance"
-      },
-      "NpcResponsePerformance":{  
-         "type":"object",
-         "properties":{  
-            "device":{  
-               "type":"string",
-               "description":"User Device",
-               "enum":[  
-                  "PC",
-                  "MOBILE",
-                  "BOTH"
-               ]
-            },
-            "items":{  
-               "type":"array",
-               "description":"requested keywords",
-               "items":{  
-                  "$ref":"#/definitions/NpcPerformance"
-               }
-            },
-            "level":{  
-               "type":"integer",
-               "format":"int32",
-               "description":"Stepwise cumulative distribution"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/NpcEstimateBid"
             }
-         },
-         "description":"response estimated performance"
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/npc-estimate/performance": {
+      "post": {
+        "tags": [
+          "Estimate"
+        ],
+        "summary": "get (performance) - NPC",
+        "description": "estimate performance data by keyword. ",
+        "operationId": "getNPCPerformance",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "payload",
+            "description": "request `keyword` array, level and device",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/NpcRequestPerformance"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/NpcResponsePerformance"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
       }
     }
+  },
+  "definitions": {
+    "RequestWithPosition": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "items": {
+          "title": "Array Of keys",
+          "type": "array",
+          "description": "The maximum of 200 keys can be requested at once.\n",
+          "items": {
+            "$ref": "#/definitions/KeyAndPosition"
+          }
+        }
+      }
+    },
+    "KeyAndPosition": {
+      "type": "object",
+      "description": "key and position",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key\nis AdKeyword.`nccKeywordId`\n"
+        },
+        "position": {
+          "type": "integer",
+          "description": "the `position` for a targetted keyword. valid range: 1~15 on PC, 1~5\non MOBILE\n  \n"
+        }
+      }
+    },
+    "EstimateBidWithPostion": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "estimate": {
+          "title": "Array Of estimate bid",
+          "description": "array of estimated value",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EstimateBidByPosition"
+          }
+        }
+      }
+    },
+    "EstimateBidByPosition": {
+      "type": "object",
+      "description": "estimated value by average position",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "search ad keyword"
+        },
+        "position": {
+          "type": "integer",
+          "description": "expected position for ad"
+        },
+        "nccKeywordId": {
+          "type": "string",
+          "description": "AdKeyword.nccKeywordId"
+        },
+        "bid": {
+          "type": "integer",
+          "description": "maximum cost per click for a ad (unit: 10 KRW). valid range:\n70~100,000\n"
+        }
+      }
+    },
+    "NPLAEstimateBidByPosition": {
+      "type": "object",
+      "description": "estimated value by average position",
+      "properties": {
+        "product": {
+          "type": "string",
+          "description": "NAVER shopping product ID"
+        },
+        "position": {
+          "type": "integer",
+          "description": "expected position for ad"
+        },
+        "nccAdId": {
+          "type": "string",
+          "description": "Ad.nccAdId"
+        },
+        "bid": {
+          "type": "integer",
+          "description": "maximum cost per click for a ad (unit: 10 KRW). valid range:\n70~100,000\n"
+        }
+      }
+    },
+    "Request": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "period": {
+          "type": "string",
+          "description": "Choose whether to use the stats of yesterday or last 28 days",
+          "enum": [
+            "DAY",
+            "MONTH"
+          ]
+        },
+        "items": {
+          "title": "Array Of keys",
+          "description": "The maximum of 200 keys can be requested at once.",
+          "type": "array",
+          "items": {
+            "title": "Keys",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "NPLARequest": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "items": {
+          "title": "Array Of keys",
+          "description": "The maximum of 200 keys can be requested at once.",
+          "type": "array",
+          "items": {
+            "title": "Keys",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "EstimateBid": {
+      "type": "object",
+      "description": "estimated bid by statistical distribution",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "period": {
+          "type": "string",
+          "description": "Choose whether to use the stats of yesterday or last 28 days",
+          "enum": [
+            "DAY",
+            "MONTH"
+          ]
+        },
+        "estimate": {
+          "title": "Array Of estimate bid",
+          "description": "estimated value",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Bid"
+          }
+        }
+      }
+    },
+    "NPLAEstimateBid": {
+      "type": "object",
+      "description": "estimated bid by statistical distribution",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "estimate": {
+          "title": "Array Of estimate bid",
+          "description": "estimated value",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NPLABid"
+          }
+        }
+      }
+    },
+    "Bid": {
+      "type": "object",
+      "properties": {
+        "keyword": {
+          "type": "string",
+          "description": "keyword"
+        },
+        "nccKeywordId": {
+          "type": "string",
+          "description": "AdKeyword.nccKeywordId"
+        },
+        "bid": {
+          "type": "integer",
+          "description": "Bid price"
+        }
+      }
+    },
+    "NPLABid": {
+      "type": "object",
+      "properties": {
+        "product": {
+          "type": "string",
+          "description": "NAVER shopping product ID"
+        },
+        "nccAdId": {
+          "type": "string",
+          "description": "Ad.nccAdId"
+        },
+        "bid": {
+          "type": "integer",
+          "description": "Bid price"
+        }
+      }
+    },
+    "RequestPerformance": {
+      "type": "object",
+      "description": "request of performance graph data",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE",
+            "BOTH"
+          ]
+        },
+        "keywordplus": {
+          "type": "boolean",
+          "description": "use keyword-plus statistics"
+        },
+        "key": {
+          "type": "string",
+          "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key\nis AdKeyword.`nccKeywordId`\n"
+        },
+        "bids": {
+          "title": "Array Of bids",
+          "description": "The maximum of 100 bids can be requested at once.",
+          "type": "array",
+          "items": {
+            "title": "bid",
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "ResponsePerformance": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE",
+            "BOTH"
+          ]
+        },
+        "keywordplus": {
+          "type": "boolean",
+          "description": "use keyword-plus statistics"
+        },
+        "keyword": {
+          "type": "string",
+          "description": "keyword"
+        },
+        "nccKeywordId": {
+          "type": "string",
+          "description": "AdKeyword.nccKeywordId"
+        },
+        "estimate": {
+          "title": "Array Of performance",
+          "description": "estimated value",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Performance"
+          }
+        }
+      }
+    },
+    "Performance": {
+      "type": "object",
+      "description": "performance graph data",
+      "properties": {
+        "bid": {
+          "type": "integer",
+          "description": "bid price"
+        },
+        "clicks": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect click count"
+        },
+        "impressions": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect impression count"
+        },
+        "cost": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect cost"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "error code"
+        },
+        "message": {
+          "type": "string",
+          "description": "error message"
+        },
+        "details": {
+          "type": "string",
+          "description": "more detailed for error"
+        }
+      }
+    },
+    "RequestPerformanceBulk": {
+      "type": "object",
+      "description": "request of performance bulk data",
+      "properties": {
+        "items": {
+          "title": "Array Of items",
+          "description": "The maximum of 200 items can be requested at once.\n",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RequestPerformanceBulkItem"
+          }
+        }
+      }
+    },
+    "RequestPerformanceBulkItem": {
+      "type": "object",
+      "description": "request of performance bulk item",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE",
+            "BOTH"
+          ]
+        },
+        "keywordplus": {
+          "type": "boolean",
+          "description": "use keyword-plus statistics"
+        },
+        "keyword": {
+          "type": "string",
+          "description": "Ad Keyword"
+        },
+        "bid": {
+          "type": "integer",
+          "description": "bid price"
+        }
+      }
+    },
+    "ResponsePerformanceBulk": {
+      "type": "object",
+      "description": "response of performance bulk data",
+      "properties": {
+        "items": {
+          "title": "Array Of items",
+          "description": "estimated values",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ResponsePerformanceBulkItem"
+          }
+        }
+      }
+    },
+    "ResponsePerformanceBulkItem": {
+      "type": "object",
+      "description": "response of performance bulk item",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE",
+            "BOTH"
+          ]
+        },
+        "keywordplus": {
+          "type": "boolean",
+          "description": "use keyword-plus statistics"
+        },
+        "keyword": {
+          "type": "string",
+          "description": "Ad Keyword"
+        },
+        "bid": {
+          "type": "integer",
+          "description": "bid price"
+        },
+        "clicks": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect click count"
+        },
+        "impressions": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect impression count"
+        },
+        "cost": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect cost"
+        }
+      }
+    },
+    "NpcKeyAndPosition": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key is AdKeyword.`nccKeywordId`"
+        },
+        "position": {
+          "type": "integer",
+          "format": "int32",
+          "description": "the `position` for a targetted keyword. valid range: 1~3 on PC, 1~3 on MOBILE"
+        }
+      },
+      "description": "key and position"
+    },
+    "NpcRequestAveragePositionBid": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "description": "The maximum of 200 keys can be requested at once.",
+          "items": {
+            "$ref": "#/definitions/NpcKeyAndPosition"
+          }
+        }
+      },
+      "description": "request key with position"
+    },
+    "NpcRequestMinMaxBid": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "description": "The maximum of 200 keys can be requested at once.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "request estimated bid"
+    },
+    "NpcExpect": {
+      "type": "object",
+      "properties": {
+        "bid": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "keyword": {
+          "type": "string"
+        },
+        "nccKeywordId": {
+          "type": "string"
+        },
+        "position": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "NpcEstimateBid": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "enum": [
+            "PC",
+            "MOBILE"
+          ]
+        },
+        "estimate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NpcExpect"
+          }
+        }
+      }
+    },
+    "NpcRequestPerformance": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE",
+            "BOTH"
+          ]
+        },
+        "keywords": {
+          "type": "array",
+          "description": "The maximum of 200 keywords can be requested at once.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "level": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Stepwise cumulative distribution"
+        }
+      },
+      "description": "request estimated performance"
+    },
+    "NpcResponsePerformance": {
+      "type": "object",
+      "properties": {
+        "device": {
+          "type": "string",
+          "description": "User Device",
+          "enum": [
+            "PC",
+            "MOBILE",
+            "BOTH"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "description": "requested keywords",
+          "items": {
+            "$ref": "#/definitions/NpcPerformance"
+          }
+        },
+        "level": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Stepwise cumulative distribution"
+        }
+      },
+      "description": "response estimated performance"
+    },
+    "NpcPerformance": {
+      "type": "object",
+      "properties": {
+        "clicks": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect click count"
+        },
+        "cost": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect cost"
+        },
+        "impressions": {
+          "type": "integer",
+          "format": "int64",
+          "description": "expect impression count"
+        },
+        "keyword": {
+          "type": "string",
+          "description": "requested keyword"
+        }
+      },
+      "description": "estimated performance"
+    }
+  }
 }
