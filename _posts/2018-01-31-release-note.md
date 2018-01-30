@@ -7,6 +7,7 @@
 {% highlight json %}
 
 Request: /npc-estimate/performance
+[
 {
   "device": "PC",
   "keywords": [
@@ -17,8 +18,10 @@ Request: /npc-estimate/performance
   ],
   "level": 1
 }
+]
 
 Response: 
+[
 {  
    "device": "PC",
    "level": 1,
@@ -48,4 +51,5 @@ Response:
          "cost":51620
       }
    ]
-}{% endhighlight %}
+}]
+{% endhighlight %}
