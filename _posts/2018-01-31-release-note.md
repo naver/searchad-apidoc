@@ -9,12 +9,12 @@
 Request
 {
   "device": "PC",
-  "keywords": [
+  "keywords": {
     "제주숙소",
     "제주도에어카텔",
     "제주도렌터카",
     "제주도리조트"
-  ],
+  },
   "level": 1
 }
 
@@ -22,7 +22,7 @@ Response
 {  
    "device": "PC",
    "level": 1,
-   "items":[  
+   "items":{
       {  
          "keyword":"제주숙소",
          "clicks":63844,
@@ -47,6 +47,7 @@ Response
          "impressions":240,
          "cost":51620
       }
-   ]
+   }
 }
+
 {% endhighlight %}
