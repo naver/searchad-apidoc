@@ -445,6 +445,48 @@
             }
         }
     },
+    "/npc-estimate/performance":{  
+         "post":{  
+            "tags":[  
+               "Estimate"
+            ],
+            "summary":"get (performance) - NPC",
+            "description":"estimate performance data by keyword. ",
+            "operationId":"getNPCPerformance",
+            "consumes":[  
+               "application/json"
+            ],
+            "produces":[  
+               "application/json"
+            ],
+            "parameters":[  
+               {  
+                  "in":"body",
+                  "name":"payload",
+                  "description":"request `keyword` array, level and device",
+                  "required":true,
+                  "schema":{  
+                     "$ref":"#/definitions/NpcRequestPerformance"
+                  }
+               }
+            ],
+            "responses":{  
+               "200":{  
+                  "description":"Successful response",
+                  "schema":{  
+                     "$ref":"#/definitions/NpcResponsePerformance"
+                  }
+               },
+               "default":{  
+                  "description":"Unexpected error",
+                  "schema":{  
+                     "$ref":"#/definitions/Error"
+                  }
+               }
+            }
+         }
+      }
+   },
     "definitions": {
         "RequestWithPosition": {
             "type": "object",
@@ -982,6 +1024,60 @@
                     }
                 }
             }
-        }
+        },
+      "NpcRequestPerformance":{  
+         "type":"object",
+         "properties":{  
+            "device":{  
+               "type":"string",
+               "description":"User Device",
+               "enum":[  
+                  "PC",
+                  "MOBILE",
+                  "BOTH"
+               ]
+            },
+            "keywords":{  
+               "type":"array",
+               "description":"The maximum of 200 keywords can be requested at once.",
+               "items":{  
+                  "type":"string"
+               }
+            },
+            "level":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Stepwise cumulative distribution"
+            }
+         },
+         "description":"request estimated performance"
+      },
+      "NpcResponsePerformance":{  
+         "type":"object",
+         "properties":{  
+            "device":{  
+               "type":"string",
+               "description":"User Device",
+               "enum":[  
+                  "PC",
+                  "MOBILE",
+                  "BOTH"
+               ]
+            },
+            "items":{  
+               "type":"array",
+               "description":"requested keywords",
+               "items":{  
+                  "$ref":"#/definitions/NpcPerformance"
+               }
+            },
+            "level":{  
+               "type":"integer",
+               "format":"int32",
+               "description":"Stepwise cumulative distribution"
+            }
+         },
+         "description":"response estimated performance"
+      }
     }
 }
