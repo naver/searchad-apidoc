@@ -48,6 +48,4 @@ Response:
          "cost":51620
       }
    ]
-}
-
-{% endhighlight %}
+}{% endhighlight %}
