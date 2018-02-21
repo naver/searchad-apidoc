@@ -8,7 +8,7 @@ No|Property name|Data type|Description
 2|CUSTOMER ID|int|CUSTOMER ID
 3|Campaign ID|string|Campaign ID
 4|AD Group ID|string|AD Group ID
-5|Search keyword|string|SearchKeyword ID
+5|Search keyword|string|Search Keyword
 6|AD ID|string|AD ID
 7|Business Channel ID|string|Business Channel ID
 8|Hours|string|Hours of basic date
@@ -29,7 +29,7 @@ No|Property name|Data type|Description
 2|CUSTOMER ID|int|CUSTOMER ID
 3|Campaign ID|string|Campaign ID
 4|AD Group ID|string|AD Group ID
-5|Search keyword|string|SearchKeyword ID
+5|Search keyword|string|Search Keyword
 6|AD ID|string|AD ID
 7|Business Channel ID|string|Business Channel ID
 8|Hours|string|Hours of basic date
