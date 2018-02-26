@@ -500,7 +500,9 @@
                   "ADEXTENSION",
                   "ADEXTENSION_CONVERSION",
                   "NAVERPAY_CONVERSION",
-                  "EXPKEYWORD"
+                  "EXPKEYWORD",
+		  "SHOPPINGKEYWORD_DETAIL",
+                  "SHOPPINGKEYWORD_CONVERSION_DETAIL"
                ]
             },
             "statDt":{
@@ -819,7 +821,9 @@
                   "ADEXTENSION",
                   "ADEXTENSION_CONVERSION",
                   "NAVERPAY_CONVERSION",
-                  "EXPKEYWORD"
+                  "EXPKEYWORD",
+		  "SHOPPINGKEYWORD_DETAIL",
+                  "SHOPPINGKEYWORD_CONVERSION_DETAIL"
                ]
             },
             "statDt":{
