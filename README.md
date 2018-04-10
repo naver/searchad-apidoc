@@ -6,9 +6,12 @@
 
 Date: April, 12, 2018 (thursday) 01:00 AM - April, 12, 2018 (thursday) 07:00 AM 
 
+(Korea Standard Time, The inspection time may vary depending on the conditions.)
+
 2nd Inspection
 
 Date: April, 19, 2018 (thursday) 03:00 AM - April, 19, 2018 (thursday) 07:00 AM 
+
 (Korea Standard Time, The inspection time may vary depending on the conditions.)
 
 API service will be suspended during the inspection period.
