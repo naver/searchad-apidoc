@@ -1,9 +1,12 @@
 # Naver Search AD API
 
-## Inspection Notice (2018/2)
+## Emergency Inspection Notice (2018/4)
 
-Date: february, 8, 2018 (thursday) 03:00 AM - february, 8, 2017 (thursday) 07:00 AM 
+1st Inspection
+Date: April, 12, 2018 (thursday) 01:00 AM - April, 12, 2018 (thursday) 07:00 AM 
 
+2nd Inspection
+Date: April, 19, 2018 (thursday) 03:00 AM - April, 19, 2018 (thursday) 07:00 AM 
 (Korea Standard Time, The inspection time may vary depending on the conditions.)
 
 API service will be suspended during the inspection period.
