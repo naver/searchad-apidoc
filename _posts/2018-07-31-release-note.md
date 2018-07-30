@@ -19,5 +19,5 @@ No|Field Name|Value|Max.Length|Description
 * `PLACE` 유형의 캠페인 타입에 대한 자세한 내용은 아래 링크를 참고하세요.
 * To learn more about `PLACE` type campaigns, please see the link below.
 
-* [지역소항인광고 공지 사항 보기](https://saedu.naver.com/notice/view.nhn?notiSeq=3382)
+* [지역소상공인광고 공지사항 보기](https://saedu.naver.com/notice/view.nhn?notiSeq=3382)
 * [See announce](https://saedu.naver.com/notice/view.nhn?notiSeq=3382)
