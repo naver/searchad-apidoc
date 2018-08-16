@@ -19,3 +19,12 @@ No|Field Name|Value|Max.Length|Description
 * The new campaign type is `PLACE`.
 * To learn more about `PLACE` type campaigns, please see the link below.
 * [See announce](https://saedu.naver.com/notice/view.nhn?notiSeq=3382)
+
+#### AD
+* 플레이스 캠페인 하위에 등록가능한 소재 신규 유형 "PLACE_AD"가 추가 됩니다.
+* 소재에는 광고주가 입력할 내용은 없으므로, 소재 속성 에는 empty json 만 허용됩니다.
+* 광고그룹 하위에 단 1개의 소재만 등록 가능합니다.
+
+* The new type of ad, `PLACE_AD` will be added.
+* The available value of ad property is only **empty json**.
+* You can register only **one** ad per Adgroup.
