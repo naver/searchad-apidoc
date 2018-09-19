@@ -4,12 +4,9 @@
         "description":"Heroes 서비스에서 제공하는 NCC api 목록",
         "version":"2.0",
         "title":"Heroes New Clickchoice API",
-        "termsOfService":"http://searchad.naver.com",
-        "contact":{
-            "name":"jongcheol.kim@navercorp.com"
-        }
+        "termsOfService":"http://searchad.naver.com"
     },
-    "host":"xvacapi71.sa.nfra.io:10001",
+    "host":"avacapi71-sa.nfra.io:10001",
     "basePath":"/",
     "tags":[
         {
@@ -556,7 +553,8 @@
                             "WEB_SITE",
                             "SHOPPING",
                             "POWER_CONTENTS",
-                            "BRAND_SEARCH"
+                            "BRAND_SEARCH",
+                            "PLACE"
                         ]
                     }
                 ],
@@ -1094,7 +1092,8 @@
                             "networkBidWeight",
                             "targetLocation",
                             "targetTime",
-                            "targetMedia"
+                            "targetMedia",
+                            "targetGender"
                         ]
                     },
                     {
@@ -1232,7 +1231,8 @@
                             "networkBidWeight",
                             "targetLocation",
                             "targetTime",
-                            "targetMedia"
+                            "targetMedia",
+                            "targetGender"
                         ]
                     }
                 ],
@@ -1996,7 +1996,7 @@
                 ],
                 "summary":"list (by customer id, campaign type)",
                 "description":"Returns the list of partially campaigns of customer",
-                "operationId":"getCampaignsUsingGET",
+                "operationId":"getCampaignsUsingGET_1",
                 "consumes":[
                     "application/json"
                 ],
@@ -2124,7 +2124,7 @@
                 ],
                 "summary":"list (by ids)",
                 "description":"Returns the list of campaigns of input campaign ids.",
-                "operationId":"getCampaignsUsingGET_1",
+                "operationId":"getCampaignsUsingGET",
                 "consumes":[
                     "application/json"
                 ],
@@ -2257,6 +2257,33 @@
                         "schema":{
                             "$ref":"#/definitions/BusinessChannel"
                         }
+                    },
+                    {
+                        "in":"body",
+                        "name":"nidAut",
+                        "description":"nidAut",
+                        "required":false,
+                        "schema":{
+                            "type":"string"
+                        }
+                    },
+                    {
+                        "in":"body",
+                        "name":"nidSes",
+                        "description":"nidSes",
+                        "required":false,
+                        "schema":{
+                            "type":"string"
+                        }
+                    },
+                    {
+                        "in":"body",
+                        "name":"passNaTokenToSa",
+                        "description":"passNaTokenToSa",
+                        "required":false,
+                        "schema":{
+                            "type":"string"
+                        }
                     }
                 ],
                 "responses":{
@@ -2281,7 +2308,7 @@
                 }
             }
         },
-        "/api/ncc/channels/checkBookingUrl{?url}":{
+        "/api/ncc/channels/naver-booking/check-url{?url}":{
             "get":{
                 "tags":[
                     "BusinessChannel"
@@ -2323,7 +2350,245 @@
                 }
             }
         },
-        "/api/ncc/channels/nidmap":{
+        "/api/ncc/channels/naver-place/nid":{
+            "get":{
+                "tags":[
+                    "BusinessChannel"
+                ],
+                "summary":"get Naver Place List",
+                "description":" get Naver Place List from search es  #hidden",
+                "operationId":"getNaverPlacesUsingGET_1",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "type":"object"
+                            }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/channels/naver-place/nid-cookie":{
+            "get":{
+                "tags":[
+                    "BusinessChannel"
+                ],
+                "summary":"get Naver Place List",
+                "description":" get Naver Place List from search es  #hidden",
+                "operationId":"getNaverPlacesUsingGET",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters":[
+                    {
+                        "in":"body",
+                        "name":"nidAut",
+                        "description":"nidAut",
+                        "required":false,
+                        "schema":{
+                            "type":"string"
+                        }
+                    },
+                    {
+                        "in":"body",
+                        "name":"nidSes",
+                        "description":"nidSes",
+                        "required":false,
+                        "schema":{
+                            "type":"string"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "type":"object"
+                            }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/channels/naver-shopping/maker{?queryTp,query}":{
+            "get":{
+                "tags":[
+                    "BusinessChannel"
+                ],
+                "summary":"get naver shopping  maker info",
+                "description":"get Naver Shopping Mall maker info from Naver Shopping  #hidden",
+                "operationId":"getShoppingMallMakersUsingGET",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters":[
+                    {
+                        "name":"queryTp",
+                        "in":"query",
+                        "description":"queryTp",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"query",
+                        "in":"query",
+                        "description":"query",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/NaverShoppingMaker"
+                            }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/channels/naver-shopping/malls{?memberId}":{
+            "get":{
+                "tags":[
+                    "BusinessChannel"
+                ],
+                "summary":"get naver shopping mall info",
+                "description":"get Naver Shopping Mall info from Naver Shopping by memberId #hidden",
+                "operationId":"getShoppingMallsUsingGET",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters":[
+                    {
+                        "name":"memberId",
+                        "in":"query",
+                        "description":"memberId",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/NccShoppingMall"
+                            }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/channels/naver-shopping/mall{?shoppingToken,mallId}":{
+            "get":{
+                "tags":[
+                    "BusinessChannel"
+                ],
+                "summary":"get naver shopping mall info",
+                "description":"get Naver Shopping Mall info from Naver Shopping #hidden",
+                "operationId":"getShoppingMallUsingGET",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters":[
+                    {
+                        "name":"shoppingToken",
+                        "in":"query",
+                        "description":"shoppingToken",
+                        "required":false,
+                        "type":"string"
+                    },
+                    {
+                        "name":"mallId",
+                        "in":"query",
+                        "description":"mallId",
+                        "required":false,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/NccShoppingMall"
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/channels/naver-talk/nidmap":{
             "get":{
                 "tags":[
                     "BusinessChannel"
@@ -2356,7 +2621,41 @@
                 }
             }
         },
-        "/api/ncc/channels/talk/{channelKey}/name":{
+        "/api/ncc/channels/naver-talk/use-talk-channel":{
+            "get":{
+                "tags":[
+                    "BusinessChannel"
+                ],
+                "summary":"talk channel 사용 가능 여부",
+                "description":"#hidden",
+                "operationId":"isTalkChannerUserUsingGET",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"string"
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                },
+                "deprecated":true
+            }
+        },
+        "/api/ncc/channels/naver-talk/{channelKey}/name":{
             "put":{
                 "tags":[
                     "BusinessChannel"
@@ -2397,39 +2696,6 @@
                     },
                     "201":{
                         "description":"Created"
-                    },
-                    "401":{
-                        "description":"Unauthorized"
-                    },
-                    "403":{
-                        "description":"Forbidden"
-                    },
-                    "404":{
-                        "description":"Not Found"
-                    }
-                }
-            }
-        },
-        "/api/ncc/channels/useTalkChannel":{
-            "get":{
-                "tags":[
-                    "BusinessChannel"
-                ],
-                "summary":"talk channel 사용 가능 여부",
-                "description":"#hidden",
-                "operationId":"isTalkChannerUserUsingGET",
-                "consumes":[
-                    "application/json"
-                ],
-                "produces":[
-                    "*/*"
-                ],
-                "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "type":"string"
-                        }
                     },
                     "401":{
                         "description":"Unauthorized"
@@ -2645,7 +2911,7 @@
                 ],
                 "summary":"list(by channel Type)",
                 "description":"Returns the business channel list of channel type.",
-                "operationId":"getUsingGET_14",
+                "operationId":"getUsingGET_16",
                 "consumes":[
                     "application/json"
                 ],
@@ -2666,7 +2932,9 @@
                             "BOOKING",
                             "TALK",
                             "MALL",
-                            "CONTENTS"
+                            "CONTENTS",
+                            "PLACE",
+                            "CATALOG"
                         ]
                     }
                 ],
@@ -2763,7 +3031,7 @@
                 ],
                 "summary":"list(by ids)",
                 "description":"Returns the business channel list of input business channel ids.",
-                "operationId":"getUsingGET_16",
+                "operationId":"getUsingGET_14",
                 "consumes":[
                     "application/json"
                 ],
@@ -2914,7 +3182,7 @@
                 }
             }
         },
-        "/api/ncc/contents-campaign-keyword-categories/keywords{?adgroupContentType,includingKeywords}":{
+        "/api/ncc/contents-campaign-keyword-categories/keywords{?adgroupType,includingKeywords}":{
             "get":{
                 "tags":[
                     "contents-campaign-keyword-category-controller"
@@ -2929,11 +3197,20 @@
                 ],
                 "parameters":[
                     {
-                        "name":"adgroupContentType",
+                        "name":"adgroupType",
                         "in":"query",
-                        "description":"adgroupContentType",
+                        "description":"adgroupType",
                         "required":true,
-                        "type":"string"
+                        "type":"string",
+                        "enum":[
+                            "WEB_SITE",
+                            "SHOPPING",
+                            "INFORMATION",
+                            "PRODUCT",
+                            "BRAND_SEARCH",
+                            "PLACE",
+                            "CATALOG"
+                        ]
                     },
                     {
                         "name":"includingKeywords",
@@ -2951,6 +3228,55 @@
                             "items":{
                                 "$ref":"#/definitions/ContentsCampaignKeyword"
                             }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/keywords/impression-status{?nccKeywordId,keyword}":{
+            "get":{
+                "tags":[
+                    "AdKeyword"
+                ],
+                "summary":"AD Keyword Status",
+                "description":"AD Keyword 노출진단 조회 #hidden",
+                "operationId":"getImpressionStatusUsingGET",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters":[
+                    {
+                        "name":"nccKeywordId",
+                        "in":"query",
+                        "description":"nccKeywordId",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"keyword",
+                        "in":"query",
+                        "description":"keyword",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"string"
                         }
                     },
                     "401":{
@@ -4113,7 +4439,10 @@
                             "REMOVE_SHOPPING_ADEXT",
                             "EDIT_ADGROUP_NAME",
                             "ADD_SHOPPING_ADEXT_EXTRA",
-                            "EDIT_SHOPPING_ADEXT_EXTRA"
+                            "EDIT_SHOPPING_ADEXT_EXTRA",
+                            "ADD_CATALOG_AD",
+                            "ADD_CATALOG_ADEXT_DETAIL",
+                            "ADD_CATALOG_ADEXT_RELEASE"
                         ]
                     }
                 ],
@@ -4139,28 +4468,19 @@
                 }
             }
         },
-        "/api/ncc/shoppingMalls{?memberId}":{
+        "/api/ncc/purchasable-place-channels":{
             "get":{
                 "tags":[
                     "BusinessChannel"
                 ],
-                "summary":"get naver shopping mall info",
-                "description":"get Naver Shopping Mall info from Naver Shopping by memberId #hidden",
-                "operationId":"getShoppingMallsUsingGET",
+                "summary":"list(by channel Type)",
+                "description":"Returns the business channel list of purchasable place type.",
+                "operationId":"getSaleablePlaceChannelsUsingGET",
                 "consumes":[
                     "application/json"
                 ],
                 "produces":[
                     "*/*"
-                ],
-                "parameters":[
-                    {
-                        "name":"memberId",
-                        "in":"query",
-                        "description":"memberId",
-                        "required":true,
-                        "type":"string"
-                    }
                 ],
                 "responses":{
                     "200":{
@@ -4168,57 +4488,8 @@
                         "schema":{
                             "type":"array",
                             "items":{
-                                "$ref":"#/definitions/NccShoppingMall"
+                                "$ref":"#/definitions/BusinessChannel"
                             }
-                        }
-                    },
-                    "401":{
-                        "description":"Unauthorized"
-                    },
-                    "403":{
-                        "description":"Forbidden"
-                    },
-                    "404":{
-                        "description":"Not Found"
-                    }
-                }
-            }
-        },
-        "/api/ncc/shoppingMall{?shoppingToken,mallId}":{
-            "get":{
-                "tags":[
-                    "BusinessChannel"
-                ],
-                "summary":"get naver shopping mall info",
-                "description":"get Naver Shopping Mall info from Naver Shopping #hidden",
-                "operationId":"getShoppingMallUsingGET",
-                "consumes":[
-                    "application/json"
-                ],
-                "produces":[
-                    "*/*"
-                ],
-                "parameters":[
-                    {
-                        "name":"shoppingToken",
-                        "in":"query",
-                        "description":"shoppingToken",
-                        "required":false,
-                        "type":"string"
-                    },
-                    {
-                        "name":"mallId",
-                        "in":"query",
-                        "description":"mallId",
-                        "required":false,
-                        "type":"string"
-                    }
-                ],
-                "responses":{
-                    "200":{
-                        "description":"OK",
-                        "schema":{
-                            "$ref":"#/definitions/NccShoppingMall"
                         }
                     },
                     "401":{
@@ -4985,6 +5256,34 @@
         }
     },
     "definitions":{
+        "MainImage":{
+            "type":"object",
+            "properties":{
+                "fileSizeByte":{
+                    "type":"integer",
+                    "format":"int64"
+                },
+                "height":{
+                    "type":"integer",
+                    "format":"int64"
+                },
+                "sequence":{
+                    "type":"integer",
+                    "format":"int64"
+                },
+                "signature":{
+                    "type":"number",
+                    "format":"double"
+                },
+                "thumbnailUrl":{
+                    "type":"string"
+                },
+                "width":{
+                    "type":"integer",
+                    "format":"int64"
+                }
+            }
+        },
         "Ad":{
             "type":"object",
             "properties":{
@@ -5105,7 +5404,9 @@
                         "SHOPPING_PRODUCT_AD",
                         "CONTENTS_AD_INFORMATION",
                         "CONTENTS_AD_PRODUCT",
-                        "BRAND_SEARCH_AD"
+                        "BRAND_SEARCH_AD",
+                        "PLACE_AD",
+                        "CATALOG_AD"
                     ]
                 },
                 "userLock":{
@@ -5363,7 +5664,15 @@
                         "PROMOTION",
                         "SHOPPING_EXTRA",
                         "POWER_LINK_IMAGE",
-                        "IMAGE_SUB_LINKS"
+                        "IMAGE_SUB_LINKS",
+                        "PLACE",
+                        "CATALOG_RELEASE_DATE",
+                        "CATALOG_EXTRA",
+                        "CATALOG_DETAIL",
+                        "CATALOG_IMAGE",
+                        "CATALOG_PROMOTION",
+                        "CATALOG_EVENT",
+                        "CATALOG_MOVIE"
                     ]
                 },
                 "usePeriod":{
@@ -5658,7 +5967,7 @@
                 },
                 "targetTp":{
                     "type":"string",
-                    "description":"The type of the targeting. Available values are 'TIME_WEEKLY_TARGET', 'REGIONAL_TARGET', 'MEDIA_TARGET', 'PC_MOBILE_TARGET'.",
+                    "description":"The type of the targeting. Available values are 'TIME_WEEKLY_TARGET', 'REGIONAL_TARGET', 'MEDIA_TARGET', 'PC_MOBILE_TARGET', 'GENDER_TARGET.",
                     "enum":[
                         "TIME_WEEKLY_TARGET",
                         "REGIONAL_TARGET",
@@ -5686,12 +5995,33 @@
                         "WEB_SITE",
                         "SHOPPING",
                         "POWER_CONTENTS",
-                        "BRAND_SEARCH"
+                        "BRAND_SEARCH",
+                        "PLACE"
                     ]
                 },
                 "useNaChannelCnt":{
                     "type":"integer",
                     "format":"int64"
+                }
+            }
+        },
+        "NaverShoppingMaker":{
+            "type":"object",
+            "properties":{
+                "catId":{
+                    "type":"string"
+                },
+                "makerName":{
+                    "type":"string"
+                },
+                "makerSeq":{
+                    "type":"string"
+                },
+                "modelName":{
+                    "type":"string"
+                },
+                "nvMid":{
+                    "type":"string"
                 }
             }
         },
@@ -5788,6 +6118,9 @@
                 "maker":{
                     "type":"string"
                 },
+                "mallName":{
+                    "type":"string"
+                },
                 "mallNo":{
                     "type":"string"
                 },
@@ -5801,6 +6134,9 @@
                     "type":"string"
                 },
                 "mobilePrice":{
+                    "type":"string"
+                },
+                "mpTp":{
                     "type":"string"
                 },
                 "openDate":{
@@ -5831,9 +6167,20 @@
                 "rcvYn":{
                     "type":"string"
                 },
+                "referenceKey":{
+                    "type":"string"
+                },
                 "reviewCountSum":{
                     "type":"integer",
                     "format":"int64"
+                }
+            }
+        },
+        "NccShoppingProductImage":{
+            "type":"object",
+            "properties":{
+                "productImageInfo":{
+                    "$ref":"#/definitions/ProductImageInfo"
                 }
             }
         },
@@ -5889,6 +6236,9 @@
                 "lowestPrc":{
                     "type":"integer",
                     "format":"int64"
+                },
+                "mallNm":{
+                    "type":"string"
                 },
                 "mallPid":{
                     "type":"string"
@@ -6050,7 +6400,10 @@
                         "REMOVE_SHOPPING_ADEXT",
                         "EDIT_ADGROUP_NAME",
                         "ADD_SHOPPING_ADEXT_EXTRA",
-                        "EDIT_SHOPPING_ADEXT_EXTRA"
+                        "EDIT_SHOPPING_ADEXT_EXTRA",
+                        "ADD_CATALOG_AD",
+                        "ADD_CATALOG_ADEXT_DETAIL",
+                        "ADD_CATALOG_ADEXT_RELEASE"
                     ]
                 },
                 "typeCd":{
@@ -6259,10 +6612,31 @@
         "Adgroup":{
             "type":"object",
             "properties":{
+                "adRollingType":{
+                    "type":"string",
+                    "description":"The rolled type of the creative.",
+                    "enum":[
+                        "ROUND_ROBIN",
+                        "PERFORMANCE"
+                    ]
+                },
                 "adgroupAttrJson":{
                     "example":"{\n  \"contentsType\": \"INFORMATION\"\n} \nor\n {\n \"media\":\"PC\", \n \"templateId\":\"abcdefg\"",
                     "description":"adgroup attribute json. The 'media' and 'templateId' properties are required if the campaign type is 'BRAND_SEARCH', and the 'media' property can have values 'PC' and 'MOBILE'. The 'contentsType' property is required if the campaign type is 'POWER_CONTENTS'. The 'contentsType' property can have the values 'INFORMATION' and 'PRODUCT'. #optional-create #hidden-update",
                     "$ref":"#/definitions/JsonNode"
+                },
+                "adgroupType":{
+                    "type":"string",
+                    "description":"The type of the adgroup.",
+                    "enum":[
+                        "WEB_SITE",
+                        "SHOPING",
+                        "INFORMATION",
+                        "PRODUCT",
+                        "BRAND_SEARCH",
+                        "PLACE",
+                        "CATALOG"
+                    ]
                 },
                 "bidAmt":{
                     "type":"integer",
@@ -6761,14 +7135,50 @@
                 }
             }
         },
+        "SubImage":{
+            "type":"object",
+            "properties":{
+                "fileSizeByte":{
+                    "type":"integer",
+                    "format":"int64"
+                },
+                "height":{
+                    "type":"integer",
+                    "format":"int64"
+                },
+                "sequence":{
+                    "type":"integer",
+                    "format":"int64"
+                },
+                "signature":{
+                    "type":"number",
+                    "format":"double"
+                },
+                "svcYn":{
+                    "type":"string"
+                },
+                "thumbnailUrl":{
+                    "type":"string"
+                },
+                "width":{
+                    "type":"integer",
+                    "format":"int64"
+                }
+            }
+        },
         "ContentsCampaignKeywordCategory":{
             "type":"object",
             "properties":{
-                "adgroupContentsType":{
+                "adgroupType":{
                     "type":"string",
                     "enum":[
+                        "WEB_SITE",
+                        "SHOPPING",
                         "INFORMATION",
-                        "PRODUCT"
+                        "PRODUCT",
+                        "BRAND_SEARCH",
+                        "PLACE",
+                        "CATALOG"
                     ]
                 },
                 "depth":{
@@ -6806,6 +7216,20 @@
                 },
                 "parentCatId":{
                     "type":"string"
+                }
+            }
+        },
+        "ProductImageInfo":{
+            "type":"object",
+            "properties":{
+                "mainImage":{
+                    "$ref":"#/definitions/MainImage"
+                },
+                "subImageList":{
+                    "type":"array",
+                    "items":{
+                        "$ref":"#/definitions/SubImage"
+                    }
                 }
             }
         },
@@ -6864,11 +7288,16 @@
         "ContentsCampaignKeyword":{
             "type":"object",
             "properties":{
-                "adgroupContentsType":{
+                "adgroupType":{
                     "type":"string",
                     "enum":[
+                        "WEB_SITE",
+                        "SHOPPING",
                         "INFORMATION",
-                        "PRODUCT"
+                        "PRODUCT",
+                        "BRAND_SEARCH",
+                        "PLACE",
+                        "CATALOG"
                     ]
                 },
                 "categoryId1":{
