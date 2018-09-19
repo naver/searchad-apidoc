@@ -10,3 +10,9 @@
 * The new adgroup type is `CATALOG`.
 * To learn more about `CATALOG` type adgroup, please see the link below.
 * [See announce](https://saedu.naver.com/notice/view.nhn?notiSeq=3394)
+
+
+#### Ad
+* `CATALOG` 그룹 유형 하위에 등록가능한 소재 신규 유형 `CATALOG_AD` 가 추가 됩니다.
+
+* A new type of ad under CATALOG adgroup type, `CATALOG_AD` will be added.
