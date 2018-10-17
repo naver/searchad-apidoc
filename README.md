@@ -1,16 +1,8 @@
 # Naver Search AD API
 
-## Emergency Inspection Notice (2018/4)
+## Emergency Inspection Notice (2018/10)
 
-1st Inspection
-
-Date: April, 12, 2018 (thursday) 01:00 AM - April, 12, 2018 (thursday) 07:00 AM 
-
-(Korea Standard Time, The inspection time may vary depending on the conditions.)
-
-2nd Inspection
-
-Date: April, 19, 2018 (thursday) 03:00 AM - April, 19, 2018 (thursday) 07:00 AM 
+Date: October, 18, 2018 (thursday) 03:00 AM - October, 18, 2018 (thursday) 07:00 AM 
 
 (Korea Standard Time, The inspection time may vary depending on the conditions.)
 
