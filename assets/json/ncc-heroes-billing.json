@@ -6,7 +6,7 @@
     "title": "Heroes New Clickchoice 빌링 API",
     "termsOfService": "http://searchad.naver.com"
   },
-  "host": "test-interface.searchad.naver.com:8080",
+  "host": "10.99.163.35:10001",
   "basePath": "/",
   "tags": [
     {
