@@ -5762,7 +5762,9 @@
                         "ADDRESS",
                         "BOOKING",
                         "TALK",
-                        "CONTENTS"
+                        "CONTENTS",
+                        "PLACE",
+                        "CATALOG"
                     ]
                 },
                 "customerId":{
