@@ -202,7 +202,7 @@
         "tags": [
           "Bizmoney"
         ],
-        "summary": "get(charge)",
+        "summary": "get(period)",
         "description": "Daily BizMoney Status",
         "operationId": "getBillingHistoryForPeriodUsingGET",
         "consumes": [
