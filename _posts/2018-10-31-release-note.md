@@ -1,5 +1,5 @@
 ### Bizmoney
-add new method : get(charge), get(exhaust). get(period)
+add new method : get(charge), get(exhaust), get(period)
 
 #### get(charge)
   * Bizmoney charging history
