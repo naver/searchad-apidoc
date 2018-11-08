@@ -243,7 +243,10 @@
                      "ccnt",
 		     "recentAvgRnk",
                      "recentAvgCpc",
-		     "crto"
+		     "crto",
+		     "convAmt",
+		     "ror",
+		     "cpConv"
                   ]
                },
                {
@@ -350,7 +353,10 @@
                      "ccnt",
 		     "recentAvgRnk",
                      "recentAvgCpc",
-		     "crto"
+		     "crto",
+		     "convAmt",
+		     "ror",
+		     "cpConv"
                   ]
                },
                {
