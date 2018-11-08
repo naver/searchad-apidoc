@@ -231,7 +231,7 @@
                {
                   "name":"fields",
                   "in":"query",
-                  "description":"Fields to be retrieved (JSON format string). \n For example, [\"impCnt\",\"clkCnt\",\"salesAmt\"] #required-create #required-update",
+                  "description":"Fields to be retrieved (JSON format string). \n For example, [\"impCnt\",\"clkCnt\",\"salesAmt\",\"crto\"] #required-create #required-update",
                   "required":true,
                   "type":"string",
                   "enum":[
@@ -241,8 +241,9 @@
                      "cpc",
                      "avgRnk",
                      "ccnt",
-					 "recentAvgRnk",
-                     "recentAvgCpc"
+		     "recentAvgRnk",
+                     "recentAvgCpc",
+		     "crto"
                   ]
                },
                {
@@ -337,7 +338,7 @@
                {
                   "name":"fields",
                   "in":"query",
-                  "description":"Fields to be retrieved (JSON format string). \n For example, [\"impCnt\",\"clkCnt\",\"salesAmt\"] #required-create #required-update",
+                  "description":"Fields to be retrieved (JSON format string). \n For example, [\"impCnt\",\"clkCnt\",\"salesAmt\",\"crto\"] #required-create #required-update",
                   "required":true,
                   "type":"string",
                   "enum":[
@@ -347,8 +348,9 @@
                      "cpc",
                      "avgRnk",
                      "ccnt",
-					 "recentAvgRnk",
-                     "recentAvgCpc"
+		     "recentAvgRnk",
+                     "recentAvgCpc",
+		     "crto"
                   ]
                },
                {
