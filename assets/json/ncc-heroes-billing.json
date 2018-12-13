@@ -48,7 +48,7 @@
         }
       }
     },
-    "/api/billing/bizmoney/cost{?statDt}": {
+    "/api/billing/bizmoney/cost{?statDt,searchStartDt,searchEndDt}": {
       "get": {
         "tags": [
           "Bizmoney"
@@ -66,7 +66,21 @@
           {
             "name": "statDt",
             "in": "query",
-            "description": "Search date (KST, YYYYMMDD)",
+            "description": "Deprecated. Search date (KST, YYYYMMDD)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "searchStartDt",
+            "in": "query",
+            "description": "Period start date (KST, YYYYMMDD)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "searchEndDt",
+            "in": "query",
+            "description": "Period end date (KST, YYYYMMDD)",
             "required": true,
             "type": "string"
           }
@@ -129,7 +143,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/BillingHistoryForCharge"
+                "$ref": "#/definitions/BillingHistoryForChargeApi"
               }
             }
           },
@@ -181,7 +195,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/BillingStatActivity"
+                "$ref": "#/definitions/BillingStatActivityApi"
               }
             }
           },
@@ -233,7 +247,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/BillingStatAccount"
+                "$ref": "#/definitions/BillingStatAccountApi"
               }
             }
           },
@@ -251,7 +265,96 @@
     }
   },
   "definitions": {
-    "BillingStatActivity": {
+    "BillingHistoryForChargeApi": {
+      "type": "object",
+      "properties": {
+        "displayCd": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Charge type classification code. #hidden-create #hidden-update"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Charge Type Description(Korean). #hidden-create #hidden-update"
+        },
+        "newNonRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Free chared bizmoney amount. #hidden-create #hidden-update"
+        },
+        "newRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Purchased bizmoney amount. #hidden-create #hidden-update"
+        },
+        "statDt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "unixtimestamp, Used after removing the last 3 digits. #hidden-create #hidden-update"
+        }
+      }
+    },
+    "BillingStatAccountApi": {
+      "type": "object",
+      "properties": {
+        "addNonRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Free chared bizmoney amount. #hidden-create #hidden-update"
+        },
+        "addRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Purchased bizmoney amount. #hidden-create #hidden-update"
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The unique ID of the customer. #hidden-create #hidden-update"
+        },
+        "nonRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "balance of free charged amount, VAT included. #hidden-create #hidden-update"
+        },
+        "refundNonRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Refunded to free charged bizmoney amount, VAT included. #hidden-create #hidden-update"
+        },
+        "refundRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Refunded to purchased bizmoney amount, VAT included. #hidden-create #hidden-update"
+        },
+        "refundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "balance of Purchased amount, VAT included. #hidden-create #hidden-update"
+        },
+        "returnRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Amount of refunded by cash or canceled card payment, VAT included, VAT included. #hidden-create #hidden-update"
+        },
+        "settleDt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "unixtimestamp, Used after removing the last 3 digits. #hidden-create #hidden-update"
+        },
+        "useNonRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Used free charged amount, VAT included. #hidden-create #hidden-update"
+        },
+        "useRefundableAmt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Used Purchased amount, VAT included. #hidden-create #hidden-update"
+        }
+      }
+    },
+    "BillingStatActivityApi": {
       "type": "object",
       "properties": {
         "activityCd": {
@@ -312,35 +415,6 @@
           "type": "boolean",
           "example": false,
           "description": "the value which indicates a lock for refund"
-        }
-      }
-    },
-    "BillingHistoryForCharge": {
-      "type": "object",
-      "properties": {
-        "displayCd": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Charge type classification code. #hidden-create #hidden-update"
-        },
-        "displayName": {
-          "type": "string",
-          "description": "Charge Type Description(Korean). #hidden-create #hidden-update"
-        },
-        "newNonRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Free chared bizmoney amount. #hidden-create #hidden-update"
-        },
-        "newRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Purchased bizmoney amount. #hidden-create #hidden-update"
-        },
-        "statDt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "unixtimestamp, Used after removing the last 3 digits. #hidden-create #hidden-update"
         }
       }
     },
@@ -409,66 +483,6 @@
           "type": "integer",
           "format": "int64",
           "description": "amount of refundable bizmoney for the account"
-        }
-      }
-    },
-    "BillingStatAccount": {
-      "type": "object",
-      "properties": {
-        "addNonRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Free chared bizmoney amount. #hidden-create #hidden-update"
-        },
-        "addRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Purchased bizmoney amount. #hidden-create #hidden-update"
-        },
-        "customerId": {
-          "type": "integer",
-          "format": "int64",
-          "description": "The unique ID of the customer. #hidden-create #hidden-update"
-        },
-        "nonRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "balance of free charged amount, VAT included. #hidden-create #hidden-update"
-        },
-        "refundNonRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Refunded to free charged bizmoney amount, VAT included. #hidden-create #hidden-update"
-        },
-        "refundRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Refunded to purchased bizmoney amount, VAT included. #hidden-create #hidden-update"
-        },
-        "refundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "balance of Purchased amount, VAT included. #hidden-create #hidden-update"
-        },
-        "returnRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Amount of refunded by cash or canceled card payment, VAT included, VAT included. #hidden-create #hidden-update"
-        },
-        "settleDt": {
-          "type": "string",
-          "format": "date-time",
-          "description": "unixtimestamp, Used after removing the last 3 digits. #hidden-create #hidden-update"
-        },
-        "useNonRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Used free charged amount, VAT included. #hidden-create #hidden-update"
-        },
-        "useRefundableAmt": {
-          "type": "integer",
-          "format": "int64",
-          "description": "Used Purchased amount, VAT included. #hidden-create #hidden-update"
         }
       }
     }
