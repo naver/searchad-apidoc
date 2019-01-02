@@ -6841,11 +6841,6 @@
                     "example":false,
                     "description":"Whether an adult keyword."
                 },
-                "isBrand":{
-                    "type":"boolean",
-                    "example":false,
-                    "description":"Whether a brand keyword."
-                },
                 "isLowSearchVolume":{
                     "type":"boolean",
                     "example":false,
