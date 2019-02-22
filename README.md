@@ -18,7 +18,8 @@ STAT-REPORT :
 4. 기타 참고 사항 
 
 이미지형 서브링크는, 노출 대상 업종별 키워드가 별도로 정해져 있습니다.
-(공지사항 참조 : https://saedu.naver.com/notice/view.nhn?notiSeq=3317)
+(공지사항 참조 :
+https://saedu.naver.com/notice/view.nhn?notiSeq=3317)
 
 확장소재로 이미지형 서브링크를 등록 하고, 노출 대상 키워드가 아닌데
 확장소재의 노출로 오집계 되는 오류가 있음을 확인 했습니다. 
