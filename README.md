@@ -4,15 +4,20 @@
 보고서 데이터에 오류가 있어 공지 드립니다.
 
 1. 오류 발생 보고서
-STAT : id 에 확장소재id를 요청한 경우,  impCnt 
+
+STAT : id 에 확장소재id를 요청한 경우,impCnt 
+
 STAT-REPORT :
+
 - AD extension Report (reportTp : ADEXTENSION) impression
 
 
 2. 오류 발생 보고서 일자 
+
 2018년 2월 8일  ~ 2019 2월18일 
 
 3. 데이터 복구 시점 
+
 데이터 복구가 불가능 합니다. 
 
 4. 기타 참고 사항 
