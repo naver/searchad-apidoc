@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Master Report
 
 #### Catalog Contents (CatalogAd)

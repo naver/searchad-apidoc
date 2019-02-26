@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Master Report
    * `Adgroup` : The 9th field has been changed to `PC network bid weighting value`.
      * `before` : Using mobile network bidding weight

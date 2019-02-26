@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Target
 
 Json Property Name | AS-IS Type| TO-BE Type

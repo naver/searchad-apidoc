@@ -4,12 +4,12 @@ title: Notice
 permalink: pages/notice/
 ---
 <div>
-	<h1 id="release-notes">Release Notes</h1>
+	<h1 id="notice">Notice</h1>
 	<hr>
 	<div id="readme" class="readme blob instapaper_body">
 		<article class="markdown-body-disabled entry-content" itemprop="text">
-{% for post in site.posts %}
-			<h2>{{ post.date | date: "%Y.%m.%d" }} {{ post.title }}</h2>
+{% for post in site.categories.["notice"] %}
+			<h2>[{{ post.date | date: "%Y-%m-%d" }}] {{ post.title }}</h2>
 			{{ post.content }}
 {% endfor %}
 		</article>

@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Master Report
    * `SeasonalEvent` report has added
    

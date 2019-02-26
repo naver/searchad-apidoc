@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 #### AdExtension
 * `CATALOG` 광고 그룹 유형 및 `CATALOG_AD` 소재 유형 하위에 등록 가능한 신규 확장 소재들이 추가됩니다.
   * 신규 유형

@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Ad
  * The new property of ad field will be added for only `SHOPPING` type.
   * new property

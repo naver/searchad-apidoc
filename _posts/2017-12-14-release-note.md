@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### AdExtension
  * new types under `WEB_SITE` campaign will be added
    * here are new types.

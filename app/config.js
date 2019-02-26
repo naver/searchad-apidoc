@@ -20,6 +20,9 @@ angular.module('config', [])
   },
   menus: ['guides', 'reference', 'samples', {
     name: 'release-notes',
+    url: 'pages/release/'
+  }, {
+    name: 'notice',
     url: 'pages/notice/'
   }],
   tags: {

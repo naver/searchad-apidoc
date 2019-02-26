@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Campaign
  * a new type `POWER_CONTENTS` will be added.
 

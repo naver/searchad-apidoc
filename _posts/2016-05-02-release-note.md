@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Estimate
    * URI Moved  :   `/estimate/first-page-bid` => `/estimate/exposure-minimum-bid`
    * Required parameter (`period`) added : `/estiamte/median-bid`, `/estimate/exposure-minimum-bid`

@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Stat
 * The aggregation criteria for the provided indicators will change.
   + Applied to ```GET /stats?id,statType, statType=NPLA_SCH_KEYWORD```

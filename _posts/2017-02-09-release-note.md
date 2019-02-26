@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Master Report
    * The 12th, 13th fields have been added to `Media` master report. Two fields are date of `conclusion of a contract` and `revocation of a contract`. The date of `conclusion of a contract` is the date the exposure starts. The date of `revocation of a contract` is the date when the exposure is closed.
 

@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Target
 The name of the json property 'nccAdgroupId' has been changed.
 

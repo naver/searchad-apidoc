@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### AdExtension
  * new properties will be added.
    * name: `usePeriod`, type: boolean

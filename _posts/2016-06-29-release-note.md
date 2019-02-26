@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 # Ad Management
 
 ### add a new parameter

@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Estimate
    * `/estimate/performance-bulk` added
    * you can estimate max 200 of items of performance data.

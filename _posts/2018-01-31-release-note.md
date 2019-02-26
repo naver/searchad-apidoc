@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Estimate
  * new Naver-PowerContents estimation service will be added.
  * path: `/npc-estimate/performance`

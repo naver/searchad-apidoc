@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Bizmoney
 add new method : get(charge), get(exhaust), get(period)
 

@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Stat
 * Brand ad item detail(브랜드검색 소재 상세 항목) statistical metrics lookup functionality is added for the API below.
   + GET /stats?id,fields,timeRange,datePreset,timeIncrement,breakdown

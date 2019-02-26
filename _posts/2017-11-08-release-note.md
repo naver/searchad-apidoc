@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Stat
 #### Expansion of ```brand search ad breakdown data``` offer period
 * Applied to /api/stats when requesting with the breakdown parameter.

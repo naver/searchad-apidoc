@@ -18,4 +18,5 @@ defaults:
 exclude: ['README.md', '.gitignore']
 keep_files: ['.git', 'app', 'assets', 'robots.txt', 'index.html']
 encoding: "utf-8"
+timezone: Asia/Seoul
 highlighter: rouge

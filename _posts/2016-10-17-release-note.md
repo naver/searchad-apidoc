@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Stat
 
 #### add a new parameter

@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Stat Report
 #### Expansion of data offer period
 * Report type `AD_DETAIL` data offer period has been extended.

@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Master Report
    * `Media` : The 11th field has been added `Group Id`. `Group Id` is a superordinate id. If media doesn't belong to Group, `Group Id` is empty.
 

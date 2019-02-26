@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ## Bizmoney
 
 ### getCost

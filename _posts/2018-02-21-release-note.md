@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Stat Report
 
    * `Shopping Campaign Search Keyword Performance Detail` report has added

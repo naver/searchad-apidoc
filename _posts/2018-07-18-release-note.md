@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Adgroup
 * A new property will be added to Adgroup on July 18th.
 * The new property is `adRollingType`.

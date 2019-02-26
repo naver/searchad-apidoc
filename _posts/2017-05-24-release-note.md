@@ -1,3 +1,7 @@
+---
+categories: [release]
+---
+
 ### Stat
 * NccAdExtensionId statistical metrics lookup functionality is added for the API below.
  + GET /stats?id,fields,timeRange,datePreset,timeIncrement,breakdown
