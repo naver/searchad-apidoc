@@ -14,7 +14,7 @@ def get_header(method, uri, api_key, secret_key, customer_id):
 BASE_URL = 'https://api.naver.com'
 API_KEY = '<API_KEY>'
 SECRET_KEY = '<SECRET_KEY>'
-CUSTOMER_ID = <CUSTOMER_ID>
+CUSTOMER_ID = '<CUSTOMER_ID>'
 
 # ManageCustomerLink Usage Sample
 
@@ -60,7 +60,7 @@ print("response body = {}".format(r.json()))
 
 created_adgroup = r.json()
 
-# 3. UPDATE Adgroup" Usage Sample
+# 3. UPDATE Adgroup Usage Sample
 
 uri = '/ncc/adgroups/' + created_adgroup['nccAdgroupId']
 method = 'PUT'
@@ -69,6 +69,15 @@ r = requests.put(BASE_URL + uri, params={'fields': 'userLock'}, json=created_adg
 
 print("response status_code = {}".format(r.status_code))
 print("response body = {}".format(r.json()))
+
+# 4. DELETE Adgroup
+
+uri = '/ncc/adgroups/' + created_adgroup['nccAdgroupId']
+method = 'DELETE'
+r = requests.delete(BASE_URL + uri, headers=get_header(method, uri, API_KEY, SECRET_KEY, CUSTOMER_ID))
+
+print("response status_code = {}".format(r.status_code))
+print("response body = {}".format(r.content))
 
 # AdKeyword Usage Sample
 
@@ -105,15 +114,6 @@ print("response body = {}".format(r.json()))
 # 4. DELETE AdKeyword
 
 uri = '/ncc/keywords/' + created_adkeyword['nccKeywordId']
-method = 'DELETE'
-r = requests.delete(BASE_URL + uri, headers=get_header(method, uri, API_KEY, SECRET_KEY, CUSTOMER_ID))
-
-print("response status_code = {}".format(r.status_code))
-print("response body = {}".format(r.content))
-
-# 4. DELETE Adgroup
-
-uri = '/ncc/adgroups/' + created_adgroup['nccAdgroupId']
 method = 'DELETE'
 r = requests.delete(BASE_URL + uri, headers=get_header(method, uri, API_KEY, SECRET_KEY, CUSTOMER_ID))
 
