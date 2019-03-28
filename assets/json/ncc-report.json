@@ -629,7 +629,10 @@
                "description":"The summary period of stats",
                "$ref":"#/definitions/Summary"
             },
-            "cycleBaseTm":"The latest datetime available. (yyyyMMddHHmm)"
+            "cycleBaseTm":{
+                "type":"string",
+                "description":"The latest datetime available. (yyyyMMddHHmm)"
+	    }
          }
       },
       "BreakdownStat":{
@@ -766,7 +769,11 @@
                   "$ref":"#/definitions/SummaryStatMap"
                }
             },
-            "cycleBaseTm":"The latest datetime available. (yyyyMMddHHmm)"
+            "cycleBaseTm":{
+                "type":"string",
+                "description":"The latest datetime available. (yyyyMMddHHmm)"
+	    }
+            
          }
       },
       "Number":{
