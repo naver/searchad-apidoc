@@ -348,6 +348,7 @@
                   "enum":[
                      "impCnt",
                      "clkCnt",
+                     "salesAmt",
                      "ctr",
                      "cpc",
                      "avgRnk",
