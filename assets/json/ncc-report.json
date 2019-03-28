@@ -244,6 +244,8 @@
                      "ccnt",
 		     "recentAvgRnk",
                      "recentAvgCpc",
+                     "pcNxAvgRnk",
+                     "mblNxAvgRnk",
 		     "crto",
 		     "convAmt",
 		     "ror",
@@ -355,6 +357,8 @@
                      "ccnt",
 		     "recentAvgRnk",
                      "recentAvgCpc",
+                     "pcNxAvgRnk",
+                     "mblNxAvgRnk",
 		     "crto",
 		     "convAmt",
 		     "ror",
@@ -779,6 +783,10 @@
          }
       }, "StatTypeResponse":{
          "properties":{
+            "impCnt":{
+               "type":"integer",
+               "format":"int32"
+            },
             "clkCnt":{
                "type":"integer",
                "format":"int32"
