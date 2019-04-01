@@ -6544,7 +6544,7 @@
                     "description":"The unique Id of the keyword #required-update #required-update-items #hidden-create  #hidden-uri-managedKeyword"
                 },
                 "nccQi":{
-                    "description":"QI Information #hidden-request  #hidden-uri-managedKeyword",
+                    "description":"Quality index of SHOPPING_PRODUCT_AD/CATALOG_AD. 1 ~ 7",
                     "$ref":"#/definitions/NccQi"
                 },
                 "regTm":{
