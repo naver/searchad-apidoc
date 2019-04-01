@@ -5334,6 +5334,10 @@
                     "type":"string",
                     "description":"The id of the adgroup containing this ad. #required-create #hidden-update"
                 },
+                "nccQi":{
+                    "description":"Quality index of SHOPPING_PRODUCT_AD/CATALOG_AD. 1 ~ 7",
+                    "$ref":"#/definitions/NccNewQi"
+                },                
                 "regTm":{
                     "type":"string",
                     "description":"The time when this ad was created (RFC 3339 datetime). #hidden-request #hidden-create"
@@ -6294,6 +6298,16 @@
                 }
             }
         },
+        "NccNewQi":{
+           "type":"object",
+           "properties":{
+              "qiGrade":{
+                 "type":"integer",
+                 "format":"int32",
+                 "description":"qi grade"
+              }
+           }
+        },        
         "NccQi":{
             "type":"object",
             "properties":{
@@ -6544,7 +6558,7 @@
                     "description":"The unique Id of the keyword #required-update #required-update-items #hidden-create  #hidden-uri-managedKeyword"
                 },
                 "nccQi":{
-                    "description":"Quality index of SHOPPING_PRODUCT_AD/CATALOG_AD. 1 ~ 7",
+                    "description":"QI Information #hidden-request  #hidden-uri-managedKeyword",
                     "$ref":"#/definitions/NccQi"
                 },
                 "regTm":{
