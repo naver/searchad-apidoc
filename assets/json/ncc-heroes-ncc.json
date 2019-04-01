@@ -5335,7 +5335,7 @@
                     "description":"The id of the adgroup containing this ad. #required-create #hidden-update"
                 },
                 "nccQi":{
-                    "description":"Quality index of SHOPPING_PRODUCT_AD/CATALOG_AD. 1 ~ 7",
+                    "description":"Quality index of SHOPPING_PRODUCT_AD/CATALOG_AD. 1 ~ 7 #hidden-request #hidden-create",
                     "$ref":"#/definitions/NccNewQi"
                 },                
                 "regTm":{
