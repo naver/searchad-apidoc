@@ -1,5 +1,12 @@
 # Naver Search AD API
 
+## Inspection Notice (2019/5)
+Date: May, 16, 2019 (thursday) 03:00 AM - May, 16, 2019 (thursday) 07:00 AM
+
+(Korea Standard Time, The inspection time may vary depending on the conditions.)
+
+API service will be suspended during the inspection period.
+
 ## Notice (2019/4/30)
 ## 대용량보고서 변경 공지 예정 
 
