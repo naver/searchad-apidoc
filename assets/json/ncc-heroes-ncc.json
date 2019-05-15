@@ -5539,6 +5539,7 @@
             "type":"object",
             "properties":{
                 "adExtension":{
+                    "example": "[gist: \"f8e941f61b9152972feb676689046b87\"]",
                     "description":"The creative of the AD extension\nThe format of this value is JSON #hidden-request",
                     "$ref":"#/definitions/JsonNode"
                 },
@@ -5550,6 +5551,11 @@
                 "editTm":{
                     "type":"string",
                     "description":"Recently modified time (RFC 3339 datetime). #hidden-request"
+                },
+                "enable": {
+                    "type": "boolean",
+                    "example": false,
+                    "description": "Enable or Pause this ad extension by the system. false:'DISABLED', true:'ENABLED'. #hidden-request"
                 },
                 "inspectStatus":{
                     "type":"string",
@@ -5647,6 +5653,7 @@
                         "AD_EXTENSION_DISAPPROVED",
                         "AD_EXTENSION_UNDER_REVIEW",
                         "AD_EXTENSION_PENDING",
+                        "AD_EXTENSION_ABNORMAL_INTERLOCK",
                         "LACK_OF_ACCOUNT_BALANCE",
                         "REFUND_IN_PROGRESS",
                         "ENABLED"
@@ -5676,7 +5683,8 @@
                         "CATALOG_IMAGE",
                         "CATALOG_PROMOTION",
                         "CATALOG_EVENT",
-                        "CATALOG_MOVIE"
+                        "CATALOG_MOVIE",
+                        "NAVER_TV_VIDEO"
                     ]
                 },
                 "usePeriod":{
