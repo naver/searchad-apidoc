@@ -15,6 +15,9 @@ categories: [release]
   * 연동상태 여부 속성 입니다. `true` 일 경우에는 정상이며 `false` 인 경우에는 노출제한 상태로 되어 확장 소재 노출을 할 수 없게 됩니다.
   * `false` 로 바뀔 경우에는 연동된 서비스의 특정 엔터티의 상태에 변경사항이 발생하였다는 것을 의미합니다.
   * `NAVER_TV_VIDEO` 유형의 경우 특정 주기마다 네이버 TV 클립에서 광고 노출할 수 없는 조건이 반영되는 경우, 해당 확장 소재 `enable` 속성은 `false`로 변경됩니다.
+* 확장 소재의 상태 속성 (`status` property) 에 새로운 값이 추가됩니다.
+  * 상태 값: `AD_EXTENSION_ABNORMAL_INTERLOCK`
+  * 의미: `enable` 속성이 `false` 이면서 특정 조건을 만족하면 해당 상태값을 가지게 되며 이는 연동된 서비스에 의해 확장 소재를 노출할 수 없다는 의미입니다.
 
 * Under `WEB_SITE` Adgroup, new adExtension type (promotional video) is will be added.
   * type name: `NAVER_TV_VIDEO`
@@ -27,3 +30,6 @@ categories: [release]
 * New property `enable` of AdExtension resource will be added.
   * This property is the status of external service. When this value is `false`, this AdExtension cannot be exposed.
   * In the case of `NAVER_TV_VIDEO`, if ad related properties of clip changed, then `enable` property of AdExtension updated periodically.
+* New value of `status` property will be added.
+  * new value: `AD_EXTENSION_ABNORMAL_INTERLOCK`
+  * If the value of `enable` property is `false` and some conditions are met, then the value of status is `AD_EXTENSION_ABNORMAL_INTERLOCK`.
