@@ -10,18 +10,18 @@ API service will be suspended during the inspection period.
 ## Notice (2019/4/30)
 ## 대용량보고서 변경 공지 예정 
 
-*기존 4/30 조회수 영문 지표명을 'View' 에서 'viewCnt' 로 수정 하였습니다. (5/15) 
+*기존 4/30 조회수 영문 지표명을 'View' 에서 'View count' 로 수정 하였습니다. (5/16) 
 
 안녕하세요. 검색광고 API입니다. 
-대용량보고서에 조회수(‘viewCnt’)지표가 추가될 예정이어서 이에 공지 드립니다.
+대용량보고서에 조회수(‘View count’)지표가 추가될 예정이어서 이에 공지 드립니다.
 
 1.대상 오퍼레이션
 
 StatReport
 
 2.변경 사항 
-‘viewCnt’ 지표 추가. 
-(viewCnt 는 기준일자의 과금되는 동영상 조회수 입니다.)
+‘View count’ 지표 추가. 
+(View count 는 기준일자의 과금되는 동영상 조회수 입니다.)
 
 * 적용 지표 
  
@@ -37,7 +37,7 @@ SHOPPINGKEYWORD_DETAIL|쇼핑검색광고키워드상세보고서
 
 Property name | Data type | Description
 -----------| -------| -------|
-viewCnt|int| 기준일자의 과금되는 동영상 조회수 입니다.
+View count|int| 기준일자의 과금되는 동영상 조회수 입니다.
 
 3.변경 적용 시점
 
