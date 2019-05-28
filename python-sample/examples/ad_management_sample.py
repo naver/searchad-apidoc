@@ -111,7 +111,29 @@ r = requests.put(BASE_URL + uri, params={'fields': 'userLock'}, json=[created_ad
 print("response status_code = {}".format(r.status_code))
 print("response body = {}".format(r.json()))
 
-# 4. DELETE AdKeyword
+
+# 4. GET and UPDATE AdKeyword (BidAmt)
+
+uri = '/ncc/keywords/' + created_adkeyword['nccKeywordId']
+method = 'GET'
+r = requests.get(BASE_URL + uri, headers=get_header(method, uri, API_KEY, SECRET_KEY, CUSTOMER_ID))
+
+print("response status_code = {}".format(r.status_code))
+print("response body = {}".format(r.json()))
+
+retrieved_adkeyword = r.json()
+
+uri = '/ncc/keywords'
+method = 'PUT'
+retrieved_adkeyword['bidAmt'] = 300
+retrieved_adkeyword['useGroupBidAmt'] = 0
+r = requests.put(BASE_URL + uri, params={'fields': 'bidAmt'}, json=[retrieved_adkeyword], headers=get_header(method, uri, API_KEY, SECRET_KEY, CUSTOMER_ID))
+
+print("response status_code = {}".format(r.status_code))
+print("response body = {}".format(r.json()))
+
+
+# 5. DELETE AdKeyword
 
 uri = '/ncc/keywords/' + created_adkeyword['nccKeywordId']
 method = 'DELETE'
@@ -119,6 +141,7 @@ r = requests.delete(BASE_URL + uri, headers=get_header(method, uri, API_KEY, SEC
 
 print("response status_code = {}".format(r.status_code))
 print("response body = {}".format(r.content))
+
 
 # Estimate Usage Sample
 
