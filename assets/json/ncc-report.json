@@ -249,7 +249,8 @@
 		     "crto",
 		     "convAmt",
 		     "ror",
-		     "cpConv"
+		     "cpConv",
+		     "viewCnt"
                   ]
                },
                {
@@ -362,7 +363,8 @@
 		     "crto",
 		     "convAmt",
 		     "ror",
-		     "cpConv"
+		     "cpConv",
+		     "viewCnt"
                   ]
                },
                {
@@ -613,6 +615,11 @@
                "type":"integer",
                "format":"int64",
                "description":"Cost Summation(VAT included)"
+            },
+            "viewCnt":{
+               "type":"integer",
+               "format":"int64",
+               "description":"Number of times that a video was viewed"
             }
          }
       },
@@ -680,6 +687,11 @@
                "type":"integer",
                "format":"int64",
                "description":"Cost Summation(VAT included)"
+            },
+            "viewCnt":{
+               "type":"integer",
+               "format":"int64",
+               "description":"Number of times that a video was viewed"
             }
          }
       },
@@ -735,6 +747,11 @@
                "type":"integer",
                "format":"int64",
                "description":"Cost Summation(VAT included)"
+            },
+            "viewCnt":{
+               "type":"integer",
+               "format":"int64",
+               "description":"Number of times that a video was viewed"
             }
          }
       },
