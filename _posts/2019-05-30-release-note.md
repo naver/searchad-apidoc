@@ -1,7 +1,7 @@
-
 ---
 categories: [release]
 ---
+
 ### Stat Report
  * `View Count` 가 `AD`, `AD_DETAIL`, `ADEXTENSION`, `EXPKEYWORD`, `SHOPPINGKEYWORD_DETAIL` 에 추가되었습니다.
 
