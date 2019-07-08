@@ -191,3 +191,15 @@ r = requests.post(BASE_URL + uri, json={'items': [{'device': 'PC', 'keywordplus'
 
 print("response status_code = {}".format(r.status_code))
 print("response body = {}".format(r.json()))
+
+# Stat Usage Sample
+
+# 1. GET Summary Report per multiple entities 
+
+uri = '/stats'
+method = 'GET'
+stat_ids = [target_adgroup['nccCampaignId'], target_adgroup['nccAdgroupId']]
+r = requests.get(BASE_URL + uri, params={'ids': stat_ids, 'fields': '["clkCnt","impCnt","salesAmt", "ctr", "cpc", "avgRnk", "ccnt"]', 'timeRange': '{"since":"2019-06-01","until":"2019-06-25"}'}, headers=get_header(method, uri, API_KEY, SECRET_KEY, CUSTOMER_ID))
+
+print("response status_code = {}".format(r.status_code))
+print("response body = {}".format(r.json()))
