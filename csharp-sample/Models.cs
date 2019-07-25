@@ -29,25 +29,19 @@ namespace Naver.SearchAd
 
         public string Name { get; set; }
 
-        public UserLock UserLock { get; set; }
+        public bool UserLock { get; set; }
 
         public int DeliveryMethod { get; set; }
 
-        public int UseDailyBudget { get; set; }
+        public bool UseDailyBudget { get; set; }
 
         public long DailyBudget { get; set; }
 
-        public int UsePeriod { get; set; }
+        public bool UsePeriod { get; set; }
 
         public DateTime PeriodStartDt { get; set; }
 
         public DateTime PeriodEndDt { get; set; }
-    }
-
-    enum UserLock
-    {
-        ENABLED = 0,
-        PAUSED = 1
     }
 
 }
