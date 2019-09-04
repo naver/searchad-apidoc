@@ -5684,7 +5684,8 @@
                         "CATALOG_PROMOTION",
                         "CATALOG_EVENT",
                         "CATALOG_MOVIE",
-                        "NAVER_TV_VIDEO"
+                        "NAVER_TV_VIDEO",
+                        "NAVER_BLOG_REVIEW"
                     ]
                 },
                 "usePeriod":{
