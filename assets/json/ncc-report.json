@@ -396,8 +396,7 @@
                   "description":"Selection of daily aggregated stats(1) or summary stats(allDays). Default value is allDays #optional-request",
                   "required":false,
                   "type":"string",
-                  "enum":[
-                     "1",
+                  "enum":[                     
                      "allDays"
                   ]
                },
