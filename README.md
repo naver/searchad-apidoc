@@ -1,7 +1,7 @@
 # Naver Search AD API
 
 
-## 검색광고 보고서 API 점검 공지 / Serch Ads Report API Inspection Notice (2020/2/12 14:00~16:00 KST)
+## 검색광고 보고서 API 점검 공지 / Search Ads Report API Inspection Notice (2020/2/12 14:00~16:00 KST)
 작업 기간 (2020년 2월 12일 14:00-16:00) 동안 검색광고 API 보고서 작업이 예정 되어 있습니다. 
 작업 기간 동안에 서비스 중단 등은 없을 예정이오나, 해당 작업 시간에 API 요청시 응답이 실패 할 수도 있습니다. 
 이점 참고하여 주시기 바랍니다.  감사합니다. 
