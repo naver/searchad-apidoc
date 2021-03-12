@@ -85,7 +85,7 @@ categories: [release]
 * 상품 그룹은 광고주 계정에 연동이 되며 한개의 상품 그룹은 여러개의 광고 그룹에 연결 할 수 있습니다.
 * 상품 그룹에서 사용하는 NVMID는 네이버 쇼핑에서 조회 가능합니다.
 
-* 상품 그룹 
+* 상품 그룹 타입
 
   컬럼이름 | 타입 | 설명 
   --------|------|-----
@@ -104,7 +104,7 @@ categories: [release]
   editTm | string | 상품 그룹 최근 수정 시각
   numberOfAdgroups | number | 상품 그룹을 사용하고 있는 광고 그룹의 개수
 
-* 상품 그룹 속성 Json(ProductGroupAttrJson)
+* 상품 그룹 속성 Json(ProductGroupAttrJson) 타입
 
   프로퍼티 | 타입 | 설명 
   --------|------|------
