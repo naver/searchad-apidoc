@@ -86,7 +86,8 @@ categories: [release]
 * 상품 그룹에서 사용하는 NVMID는 네이버 쇼핑에서 조회 가능합니다.
 
 * 상품 그룹 
-  | 컬럼이름 | 타입 | 설명 |
+
+  컬럼이름 | 타입 | 설명 
   --------|------|-----
   nccProductGroupId | string | 상품 그룹 ID
   customerId | number | 광고주 번호
@@ -104,7 +105,8 @@ categories: [release]
   numberOfAdgroups | number | 상품 그룹을 사용하고 있는 광고 그룹의 개수
 
 * 상품 그룹 속성 Json(ProductGroupAttrJson)
-  | 프로퍼티 | 타입 | 설명 |
+
+  프로퍼티 | 타입 | 설명 
   --------|------|------
   productNvmids | string[] | 상품 그룹의 registrationMethod 값이 EACH일 경우에 노출할 상품의 nvmid 목록 (순서는 노출 선호 순서)
   excludeNvmids | string[] | 상품 그룹의 registrationMethod 값이 WHOLE일 경우에 노출 제외할 상품의 nvmid 목록
@@ -242,8 +244,9 @@ categories: [release]
 * Product groups are linked to advertiser accounts and one product group can be linked to multiple adgroups.
 * The NVMID used by the product group can be viewed on Naver Shopping.
 
-* Product Group 
-  | column | type | description |
+* Product Group
+
+  column | type | description 
   --------|------|-----
   nccProductGroupId | string | product group ID
   customerId | number | customer ID
@@ -261,7 +264,8 @@ categories: [release]
   numberOfAdgroups | number | The number of adgroups using a product group
 
 * Product group attribute JSON (ProductGroupAttrJson)
-  | column | type | description |
+
+  column | type | description
   --------|------|------
   productNvmids | string[] | NVMID list of products to be exposed if the registration method value of the product group is EACH (in order of exposure preference)
   excludeNvmids | string[] | NVMID list of products to be excluded from exposure if registration method value of product group is WHOLE
