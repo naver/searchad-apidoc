@@ -158,7 +158,7 @@ categories: [release]
   }]
   ```
 
-### 리포트
+### Stat
 * 쇼핑 브랜드 유형 광고의 /stats API에 성별, 연령대별 breakdown 추가
 * 성별, 연령대별 breakdown 은 쇼핑 캠페인 유형 광고에서만 사용할 수 있습니다.
 * 쇼핑 브랜드 유형 광고의 /stats API에 topImpRto(검색상단노출률) field 추가 (나머지 유형에 대해서는 0으로 리턴)
@@ -329,7 +329,7 @@ categories: [release]
   }]
   ```
 
-### Report
+### Stat
 * Add genderNm/ageRangeNm breakdown to /stats API in shopping campaign report.
 * Breakdown genderNm/ageRangeNm can be used only for shopping campaign report. 
 * Add topImpRtp field to /stats API in shopping-brand ad report
