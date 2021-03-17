@@ -158,6 +158,17 @@ categories: [release]
   }]
   ```
 
+### 리포트
+* 쇼핑 브랜드 유형 광고의 /stats API에 성별, 연령대별 breakdown 추가
+* 성별, 연령대별 breakdown 은 쇼핑 캠페인 유형 광고에서만 사용할 수 있습니다.
+* 쇼핑 브랜드 유형 광고의 /stats API에 topImpRto(검색상단노출률) field 추가 (나머지 유형에 대해서는 0으로 리턴)
+* topImpRto(검색상단노출률) 지표는 노출이 시작된 이후부터 값이 리턴됩니다. (노출 시작일  2021년 3월 31일)
+
+  * Request
+  ```shell
+  GET /stats{?id,fields,timeRange,datePreset,timeIncrement,breakdown}
+  GET /stats{?ids,fields,timeRange,datePreset,timeIncrement,breakdown}
+  ```
 
 ---
 
@@ -316,4 +327,16 @@ categories: [release]
 	"editTm": "2021-03-09T03:13:04.000Z",
 	"numberOfAdgroups": 0
   }]
+  ```
+
+### Report
+* Add genderNm/ageRangeNm breakdown to /stats API in shopping campaign report.
+* Breakdown genderNm/ageRangeNm can be used only for shopping campaign report. 
+* Add topImpRtp field to /stats API in shopping-brand ad report
+* topImpRto field will return values after impression start. (March 31, 2021)
+
+  * Request
+  ```shell
+  GET /stats{?id,fields,timeRange,datePreset,timeIncrement,breakdown}
+  GET /stats{?ids,fields,timeRange,datePreset,timeIncrement,breakdown}
   ```
