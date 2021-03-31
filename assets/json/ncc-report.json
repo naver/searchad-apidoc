@@ -516,8 +516,10 @@
                   "ADEXTENSION_CONVERSION",
                   "NAVERPAY_CONVERSION",
                   "EXPKEYWORD",
-		  "SHOPPINGKEYWORD_DETAIL",
-                  "SHOPPINGKEYWORD_CONVERSION_DETAIL"
+                  "SHOPPINGKEYWORD_DETAIL",
+                  "SHOPPINGKEYWORD_CONVERSION_DETAIL",
+                  "SHOPPINGBRANDPRODUCT",
+                  "SHOPPINGBRANDPRODUCT_CONVERSION"
                ]
             },
             "statDt":{
@@ -865,8 +867,10 @@
                   "ADEXTENSION_CONVERSION",
                   "NAVERPAY_CONVERSION",
                   "EXPKEYWORD",
-		  "SHOPPINGKEYWORD_DETAIL",
-                  "SHOPPINGKEYWORD_CONVERSION_DETAIL"
+                  "SHOPPINGKEYWORD_DETAIL",
+                  "SHOPPINGKEYWORD_CONVERSION_DETAIL",
+                  "SHOPPINGBRANDPRODUCT",
+                  "SHOPPINGBRANDPRODUCT_CONVERSION"
                ]
             },
             "statDt":{
