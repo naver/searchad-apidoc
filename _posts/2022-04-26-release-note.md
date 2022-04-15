@@ -82,7 +82,7 @@ categories: [release]
 #### 타겟팅 조회
   * Request 
     ```shell
-      GET /api/ncc/criterion/{광고 그룹 ID}?type={CriterionDictionaryType}
+      GET /ncc/criterion/{광고 그룹 ID}?type={CriterionDictionaryType}
     ```
   * Response
     ```
@@ -106,8 +106,8 @@ categories: [release]
 
 * Request
   ```shell
-  PUT /api/ncc/criterion/{광고그룹 ID}/bidWeight?codes={dictionaryCode 리스트}&bidWeight={입찰가 가중치 50 ~ 500}
-  ex) PUT /api/ncc/criterion/grp-a001-01-0000000000XXXXX/bidWeight?codes=SDWED0009,SDSUN0024&bidWeight=50
+  PUT /ncc/criterion/{광고그룹 ID}/bidWeight?codes={dictionaryCode 리스트}&bidWeight={입찰가 가중치 50 ~ 500}
+  ex) PUT /ncc/criterion/grp-a001-01-0000000000XXXXX/bidWeight?codes=SDWED0009,SDSUN0024&bidWeight=50
   ```
 * Response
   ```json
@@ -146,7 +146,7 @@ categories: [release]
 * 반경 타겟티의 추가의 경우 dictionaryCode에 'Proximity' 문자열을 입력해 주세요. 서버에 저장후 정상적인 code로 반환이 됩니다.
 * Request
   ```shell
-    POST /api/ncc/criterion/{광고그룹 ID}/{dictionary type}
+    POST /ncc/criterion/{광고그룹 ID}/{dictionary type}
   ```
 * Request Body
   ```json
@@ -177,7 +177,7 @@ categories: [release]
 * 반경(PROXIMITY)는 조회할 수 없습니다.
 * Request
   ```shell
-    GET /api/ncc/criterion-dictionary/{dictionary type}
+    GET /ncc/criterion-dictionary/{dictionary type}
   ```
 * Request Body
   ```json
@@ -292,7 +292,7 @@ Local Ad type | Targeting support, Bid weight not supported | Targeting support,
 #### Targeting inquiry
   * Request 
     ```shell
-      GET /api/ncc/criterion/{Adgroup ID}?type={CriterionDictionaryType}
+      GET /ncc/criterion/{Adgroup ID}?type={CriterionDictionaryType}
     ```
   * Response
     ```
@@ -316,8 +316,8 @@ Local Ad type | Targeting support, Bid weight not supported | Targeting support,
 
 * Request
   ```shell
-  PUT /api/ncc/criterion/{adgroup ID}/bidWeight?codes={dictionaryCode list}&bidWeight={bid weight 50 ~ 500}
-  ex) PUT /api/ncc/criterion/grp-a001-01-0000000000XXXXX/bidWeight?codes=SDWED0009,SDSUN0024&bidWeight=50
+  PUT /ncc/criterion/{adgroup ID}/bidWeight?codes={dictionaryCode list}&bidWeight={bid weight 50 ~ 500}
+  ex) PUT /ncc/criterion/grp-a001-01-0000000000XXXXX/bidWeight?codes=SDWED0009,SDSUN0024&bidWeight=50
   ```
 * Response
   ```json
@@ -356,7 +356,7 @@ Local Ad type | Targeting support, Bid weight not supported | Targeting support,
 * If you want to add a Proximity target, enter the "Proximity" string in dictionaryCode. It will be saved on the server and returned to normal code.
 * Request
   ```shell
-    POST /api/ncc/criterion/{Adgroup ID}/{dictionary type}
+    POST /ncc/criterion/{Adgroup ID}/{dictionary type}
   ```
 * Request Body
   ```json
@@ -388,7 +388,7 @@ Local Ad type | Targeting support, Bid weight not supported | Targeting support,
 
 * Request
   ```shell
-    GET /api/ncc/criterion-dictionary/{dictionary type}
+    GET /ncc/criterion-dictionary/{dictionary type}
   ```
 * Request Body
   ```json
