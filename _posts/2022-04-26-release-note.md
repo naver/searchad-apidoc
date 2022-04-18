@@ -146,7 +146,7 @@ categories: [release]
 * 반경 타겟티의 추가의 경우 dictionaryCode에 'Proximity' 문자열을 입력해 주세요. 서버에 저장후 정상적인 code로 반환이 됩니다.
 * Request
   ```shell
-    POST /ncc/criterion/{광고그룹 ID}/{dictionary type}
+    PUT /ncc/criterion/{광고그룹 ID}/{dictionary type}
   ```
 * Request Body
   ```json
@@ -356,7 +356,7 @@ Local Ad type | Targeting support, Bid weight not supported | Targeting support,
 * If you want to add a Proximity target, enter the "Proximity" string in dictionaryCode. It will be saved on the server and returned to normal code.
 * Request
   ```shell
-    POST /ncc/criterion/{Adgroup ID}/{dictionary type}
+    PUT /ncc/criterion/{Adgroup ID}/{dictionary type}
   ```
 * Request Body
   ```json
