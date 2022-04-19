@@ -224,7 +224,7 @@
                {
                   "name":"id",
                   "in":"query",
-                  "description":"Entity Id (campaign id, Ad group id, Ad keyword id, Ad id) #required-create #required-update",
+                  "description":"Entity Id (campaign id, Ad group id, Ad keyword id, Ad id, Criterion id) #required-create #required-update",
                   "required":true,
                   "type":"string"
                },
@@ -338,7 +338,7 @@
                {
                   "name":"ids",
                   "in":"query",
-                  "description":"Entity Id List (campaign id, Ad group id, Ad keyword id, Ad id) #required-create #required-update",
+                  "description":"Entity Id List (campaign id, Ad group id, Ad keyword id, Ad id, Criterion id) #required-create #required-update",
                   "required":true,
                   "type":"string"
                },
