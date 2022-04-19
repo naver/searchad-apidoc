@@ -212,6 +212,17 @@ categories: [release]
 * 연령대 코드
   * AG + 시작나이(2) + 종료나이(2), XX: 알수 없음
 
+#### Stat API 에 조회 항목 추가
+
+* 조회 Entity id에 Criterion id 추가
+  * Criterion id 는 ownerId 와 dictionaryCode 를 ~ 문자로 결합한 형태
+  * 예) grp-a001-01-0000000000XXXXX~AG0013
+* Criterion id 와 함께 조회가 불가능한 metric
+  * recentAvgRnk, recentAvgCpc, pcNxAvgRnk, mblNxAvgRnk 항목은 Criterion id와 함께 조회가 불가능합니다.
+* Criterion id 와 함께 조회가 가능한 metric
+  * pcMblTp, dayw breakdown이 Criterion id 와 함께 조회가 가능합니다.
+  * hh24, regnNo, regnR3Nm, eventCode, schTp, genderNm, ageRangeNm breakdown은 Criterion id와 함께 조회가 불가능합니다.
+
 ---
 #### On April 26, 2022, the advertising group's targeting management method will be changed. ([Notice](https://saedu.naver.com/notice/view.naver?notiSeq=3896))
 
@@ -422,3 +433,15 @@ Local Ad type | Targeting support, Bid weight not supported | Targeting support,
   * "RP" + sequence (9)
 * Age range code
   * AG + start age (2) + end age (2), XX: Unknown
+
+#### new entity criterion ID added  to Stat API
+
+* Criterion ID is added to query Entity ID.
+  * Criterion ID can be formed as owner ID and dictionary code concatenated by '~'.
+  * ex) grp-a001-01-0000000000XXXXX~AG0013 
+* Metrics allowed with criterion ID
+  * recentAvgRnk, recentAvgCpc, pcNxAvgRnk, mblNxAvgRnk  cannot be requested.
+  * Except the four fields, impCnt, clkCnt, salesAmt, ctr, cpc, avgRnk, ccnt, crto, convAmt, ror, cpConv, viewCnt can be requested.
+* Breakdowns allowed with criterion ID
+  * pcMblTp, dayw breakdowns can be requested.
+  * hh24, regnNo, regnR3Nm, eventCode, schTp, genderNm, ageRangeNm breakdowns cannot be requested with criterion ID.
