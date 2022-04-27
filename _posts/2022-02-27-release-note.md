@@ -1,0 +1,32 @@
+---
+title: 네이버 페이 전환 보고서 필드 변경 반영 시점 정정(28일 08시--> 28일 16시)
+categories: [notice]
+---
+
+안녕하십니까? 네이버 검색광고 API 담당자입니다.
+
+이전 공지 드린  네이버 페이 전환 보고서 필드 변경 건에 반영 시점이 변경되어 이에 공지 드립니다.<br>
+참고 공지 : https://github.com/naver/searchad-apidoc/blob/gh-pages/_posts/2022-03-31-notice1.md
+
+
+#### 변경 사항 
+
+
+* 기존 반영일자 : 2022년 4월 28일 08시 (KST 기준) 
+* 변경 반영일자 : 2022년 4월 28일 16시 (KST 기준) <br>
+   동일 15시 ~16시 사이 보고서 서비스 변경 작업이 진행되어 해당 보고서 생성이 실패할수 있습니다. 
+	
+감사합니다.
+
+Hello. This is in charge of Naver Search Ads API.
+
+The time to reflect the change in the Naver Pay Conversion Report field that was previously announced has changed, and we will notify you.<br>
+Note notice: https://github.com/naver/searchad-apidoc/blob/gh-pages/_posts/2022-03-31-notice1.md
+
+
+#### Changes
+
+* Existing reflection date: April 28, 2022, 08:00 (KST)
+* Change reflected date: April 28, 2022 at 16:00 (KST) <br>
+   The report service change is in progress between 15:00 and 16:00 (KST), and the generation of the report may fail.
+Thsnks.
