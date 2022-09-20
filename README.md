@@ -1,66 +1,46 @@
 # Naver Search AD API
 
-
-## 검색광고 보고서 API 점검 공지 / Serch Ads Report API Inspection Notice (2020/2/12 14:00~16:00 KST)
-작업 기간 (2020년 2월 12일 14:00-16:00) 동안 검색광고 API 보고서 작업이 예정 되어 있습니다. 
-작업 기간 동안에 서비스 중단 등은 없을 예정이오나, 해당 작업 시간에 API 요청시 응답이 실패 할 수도 있습니다. 
-이점 참고하여 주시기 바랍니다.  감사합니다. 
-
-Due to internal inspection within date, There will be NO API SERVICE INTERRUPTIONS on below date.
-But during the inspection schedule (about 2 hours), Some report API request could be fail.
-Please refer to these information. Thanks.
-
-Inspection date: Feb, 12, 2020 (Wed) 14:00~16:00 (KST)
-(Korea Standard Time, The inspection time may vary depending on the conditions.)
-
-## Inspection Notice (2019/5)
-Date: May, 16, 2019 (thursday) 03:00 AM - May, 16, 2019 (thursday) 07:00 AM
-
-(Korea Standard Time, The inspection time may vary depending on the conditions.)
-
-API service will be suspended during the inspection period.
-
-## Notice (2019/4/30)
-## 대용량보고서 변경 공지 예정 
-
-*기존 4/30 조회수 영문 지표명을 'View' 에서 'View count' 로 수정 하였습니다. (5/16) 
-
-안녕하세요. 검색광고 API입니다. 
-대용량보고서에 조회수(‘View count’)지표가 추가될 예정이어서 이에 공지 드립니다.
-
-1.대상 오퍼레이션
-
-StatReport
-
-2.변경 사항 
-‘View count’ 지표 추가. 
-(View count 는 기준일자의 과금되는 동영상 조회수 입니다.)
-
-* 적용 지표 
- 
-ReportType | 보고서 이름
------------| -------|
-AD|광고효과보고서
-AD_DETAIL|광고효과상세보고서
-ADEXTENSION|확장소재효과보고서
-EXPKEYWORD|키워드확장광고효과보고서
-SHOPPINGKEYWORD_DETAIL|쇼핑검색광고키워드상세보고서
-
-* 추가 프로퍼티
-
-Property name | Data type | Description
------------| -------| -------|
-View count|int| 기준일자의 과금되는 동영상 조회수 입니다.
-
-3.변경 적용 시점
-
-2019년 5월 30일 오전 1시 적용 예정 (5월 29일 지표 부터 조회 가능)
-
-업무에 참고 부탁 드립니다.
-
-감사합니다.
+## 네이버 검색광고 API 접속 도메인 변경 안내
 
 
+
+안녕하십니까 네이버 검색광고 API 담당자입니다. <br>
+
+네이버 검색광고 API의 서비스 도메인 변경이 예정되어 있어 공지 드립니다. <br>
+<br>
+1. 변경 내역<br> 
+ 현재 도메인 : api.naver.com<br>
+ 변경도메인 : api.searchad.naver.com<br>
+
+2. 변경 일정 (모든 시간 KST 기준)<br>
+   api.naver.com 도메인 서비스 중단 :  2023년 3월 22일 ,일정 변경시 별도 공지 <br>
+   api.searchad.naver.com 도메인 서비스 베타  테스트 시작 : 2022년 9월 21일  오후 중 <br>
+   api.searchad.naver.com 도메인 서비스 베타 테스트 종료 : 2022년 12월 중 <br>
+   api.searchad.naver.com 도메인 정식 서비스 시작 : 2022년 12월 중, 정식 서비스 식 별도 공지<br>
+   <br>
+   api.naver.com 도메인은 서비스 중단 시점인 2023년 3월까지는 계속 사용하실수 있으며 서비스 중단 시점 이후에는 
+   사용하실 수 없습니다. <br>
+<br>
+감사합니다. <br><br>
+
+Hello,This is Naver Search Ads API serive team. <br>
+
+We will inform you that the service domain of the Naver Search Ads API is scheduled to be changed. <br>
+<br>
+1. Changes<br>
+ Current domain: api.naver.com<br>
+ Changed domain: api.searchad.naver.com<br>
+
+2. Change schedule (all date and times KST)<br>
+   Discontinuation of api.naver.com domain service: March 22, 2023, separate notice for schedule change <br>
+   api.searchad.naver.com Domain Services Beta Testing Begins: September 21, 2022 in the afternoon <br>
+   api.searchad.naver.com Domain Services Beta Test Ended: December 2022 <br>
+   api.searchad.naver.com domain official service start: mid-December 2022, official service ceremony separate notice<br>
+   <br>
+   You can continue to use the api.naver.com domain until March 2023, when the service is stopped, and after the service is stopped,
+   It cannot be used. <br>
+<br>
+thank you<br>
 
 ## API Specification
 http://naver.github.io/searchad-apidoc/
