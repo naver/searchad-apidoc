@@ -16,7 +16,7 @@
    api.naver.com 도메인 서비스 중단 :  2023년 3월 22일 ,일정 변경시 별도 공지 <br>
    api.searchad.naver.com 도메인 서비스 베타  테스트 시작 : 2022년 9월 21일  오후 중 <br>
    api.searchad.naver.com 도메인 서비스 베타 테스트 종료 : 2022년 12월 중 <br>
-   api.searchad.naver.com 도메인 정식 서비스 시작 : 2022년 12월 중, 정식 서비스 식 별도 공지<br>
+   api.searchad.naver.com 도메인 정식 서비스 시작 : 2022년 12월 중, 정식 서비스  별도 공지<br>
    <br>
    api.naver.com 도메인은 서비스 중단 시점인 2023년 3월까지는 계속 사용하실수 있으며 서비스 중단 시점 이후에는 
    사용하실 수 없습니다. <br>
@@ -35,7 +35,7 @@ We will inform you that the service domain of the Naver Search Ads API is schedu
    Discontinuation of api.naver.com domain service: March 22, 2023, separate notice for schedule change <br>
    api.searchad.naver.com Domain Services Beta Testing Begins: September 21, 2022 in the afternoon <br>
    api.searchad.naver.com Domain Services Beta Test Ended: December 2022 <br>
-   api.searchad.naver.com domain official service start: mid-December 2022, official service ceremony separate notice<br>
+   api.searchad.naver.com domain official service start: mid-December 2022,separate notice for service starting<br>
    <br>
    You can continue to use the api.naver.com domain until March 2023, when the service is stopped, and after the service is stopped,
    It cannot be used. <br>
