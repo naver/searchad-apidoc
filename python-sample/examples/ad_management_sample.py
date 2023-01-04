@@ -11,7 +11,7 @@ def get_header(method, uri, api_key, secret_key, customer_id):
     return {'Content-Type': 'application/json; charset=UTF-8', 'X-Timestamp': timestamp, 'X-API-KEY': API_KEY, 'X-Customer': str(CUSTOMER_ID), 'X-Signature': signature}
 
 
-BASE_URL = 'https://api.naver.com'
+BASE_URL = 'https://api.searchad.naver.com'
 API_KEY = '<API_KEY>'
 SECRET_KEY = '<SECRET_KEY>'
 CUSTOMER_ID = '<CUSTOMER_ID>'
