@@ -1,4 +1,27 @@
 # Naver Search AD API
+## 공유 예산 기능 반영에 따른 대용량 보고서 변경 안내 (23/4/26반영)
+
+공유 예산 기능이 추가됨에 따라 마스터(MASTER-REPORT)에 수정 및 추가 사항이 있어 이에 공지드립니다.<br>
+변경 사항에 대해 미리 공지를 드리지 못한점 사과 말씀드립니다.<br>
+관련 공지 : https://saedu.naver.com/notice/view.naver?notiSeq=4064<br>
+릴리즈 노트 : https://naver.github.io/searchad-apidoc/#/release-notes<br>
+
+* 변경 마스터 및 변경 사항<br>
+Campaign MASTER(ITEM :Campaign) : 12번째열로 shared_budget_id 항목추가, string(31), nullable<br>
+Ad group MASTER(ITEM :Adgroup) : 19번째열로 shared_budget_id 항목추가, string(31), nullable<br>
+shared_budget_id는 공유 예산을 사용하는 경우에만 공유 예산 아이디가 표기 되며<br>
+공유 예산을 사용하지 않는 경우 null 입니다.<br>
+
+* 신규 마스터<br>
+공유 예산 마스터 (ITEM : SharedBudget)<br>
+
+* 적용 시점(KST 기준)<br>
+2023년 4월 26일 17시에서 동일 17시 30분 사이<br>
+
+세부사항은 레퍼런스 페이지의 공지 항목을 참고 부탁드립니다. <br>
+https://naver.github.io/searchad-apidoc/#/notice<br>
+
+감사합니다. <br>
 
 ## 네이버 검색광고 API 접속 도메인 변경 안내
 
