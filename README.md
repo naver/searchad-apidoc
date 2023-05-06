@@ -1,12 +1,44 @@
 # Naver Search AD API
 
+## 긴급 점검 공지/Urgent Maintenance Notice(23.05.06)
+
+보고서 등 일부 서비스에 대한 긴급 점검이 진행되어 공지드립니다.<br>
+
+* 작업 일정(KST기준) <br>
+**2023년 5월 6일 20시 00분 ~ 2023년 5월 6일 22시 00분**
+
+* 작업 영향성 <br>
+작업 기간 중 아래 서비스는 이용하실수 없습니다.<br>
+1.보고서: Stat(https://naver.github.io/searchad-apidoc/#/tags/Stat)<br>
+2.대용량보고서: StatReport(https://naver.github.io/searchad-apidoc/#/tags/StatReport)<br>
+3.키워드도구: RelKwdStat(https://naver.github.io/searchad-apidoc/#/tags/RelKwdStat)<br>
+
+위 기재된 서비스 외의 서비스들에서도 극히 드물지만 간혈적으로 속도 저하 및 순단 가능성이 있사오니 업무에 참고 부탁드립니다. 
+
+감사합니다.
+
+We are announcing that some services, such as reports, are undergoing an emergency inspection.<br>
+
+* Work schedule (based on KST) <br>
+**May 6, 2023 20:00 - May 6, 2023 22:00**
+
+* Work Impact <br>
+The following services are not available during the working period.<br>
+1.Report: Stat(https://naver.github.io/searchad-apidoc/#/tags/Stat)<br>
+2.Large report: StatReport (https://naver.github.io/searchad-apidoc/#/tags/StatReport)<br>
+3.Keyword Tools: RelKwdStat (https://naver.github.io/searchad-apidoc/#/tags/RelKwdStat)<br>
+
+Even in services other than those listed above, there is a possibility of intermittent speed reduction and interruption, <br>
+although it is extremely rare, so please refer to it for work.<br>
+
+
 
 ## 시스템 작업 공지(23.05.10)
 
 시스템 메인터넌스 작업이 예정 되어 있어 공지 드리오니 업무에 참고 부탁드립니다.<br>
 
 * 작업 일정(KST기준) <br>
-2023년 5월 10일 오후 7시 00분 ~ 2023년 5월 10일 오전 24시 00분
+2023년 5월 10일 19시 00분 ~ 2023년 5월 10일 24시 00분
 
 * 작업 영향성 <br>
 작업 기간 중 서비스는 정상 제공 됩니다. <br>
