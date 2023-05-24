@@ -55,6 +55,7 @@ false|false| Exact match
 
 
 #### Adgroup Example
+
 ```javascript
 {
     "nccAdgroupId": "grp-a001-00-000000000000000",
