@@ -1,26 +1,22 @@
 # Naver Search AD API
 
-## 시스템 작업 공지(작업중 서비스 중단)/System Maintenance Notice(23.06.08)
 
-시스템 유지보수 작업이 예정되어 있어 이에 공지드립니다.<br>
+## [긴급]유사 검색어 기능(beta) 제공에 따른 마스터(Master-Report) 변경 반영 연기 ##
 
-* 작업 일정(KST기준) <br>
-**2023년 6월 8일 01시 00분 ~ 2023년 6월 8일 05시 00분**
+지난 2023년 5월 29일 공지 드린 "유사 검색어 기능(beta) 제공에 따른 마스터(Master-Report) 변경" 
+건의 적용을 연기하게 되어 이에 공지 드립니다. 
 
-* 작업 영향성 <br>
-작업 기간 중 전체 API 서비스를 이용하실 수 없습니다.<br>
+변경 될 예정이었던 내용은 아래와 같습니다. 
+* 변경 마스터  및 변경 사항<br>
+대상 마스터 : Ad group MASTER(ITEM :Adgroup)<br>
+변경 사항 : 20번째 열로 유사 검색어 사용 여부를 표시하는 Using CloseVariant 항목추가, 데이터형은 int이며 값은 0:사용하지 않음, 1:사용함 입니다.
+ 
+해당 변경은 추후 반영될 예정으로 현재로서는 정확한 반영 일자를 특정하기 어려워, 
+변경의 반영 일자는 빠른 시일 내에 재공지 드리도록 하겠습니다. 
+
+업무에 불편과 어려움을 드리게 되어 대단히 죄송합니다. 
 
 감사합니다.
-
-System maintenance work is planned and this is an announcement.<br>
-
-* Work schedule (based on KST) <br>
-**June 8, 2023 01:00 ~ June 8, 2023 05:00**
-
-* Work Impact <br>
-All API services are unavailable during the working period.<br>
-
-Thanks
 
 ## API Specification
 http://naver.github.io/searchad-apidoc/
