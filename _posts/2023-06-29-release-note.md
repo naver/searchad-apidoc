@@ -6,9 +6,9 @@ categories: [release]
 
 #### Ad Group (AdGroup)
 
-- Column `Using CloseVariant` has added.
-
-No|Field Name|Value|Max.Length|Description
+   * Column `Use Close Variant` has added.
+   
+No | Field Name | Value | Max.Length | Description
 ----|---|---|---|---
 1|Customer ID|int||Customer ID
 2|Ad Group ID|string|31|Ad Group ID
