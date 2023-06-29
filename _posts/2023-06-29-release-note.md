@@ -6,7 +6,7 @@ categories: [release]
 
 #### Ad Group (AdGroup)
 
-   * Column `Using CloseVariant` has added.
+- Column `Using CloseVariant` has added.
 
 No|Field Name|Value|Max.Length|Description
 ----|---|---|---|---
@@ -29,4 +29,4 @@ No|Field Name|Value|Max.Length|Description
 17|Content Type|string|32|Content type information. Only if the campaign type is 3.<br/>- INFORMATION : Contents  Ad Type is Information Type.<br/>- PRODUCT : Contents Ad Type is Product Type.
 18|AdGroup Type|int||- 1: NAVER PowerLink<br/>- 2: NAVER Shopping Product Ad<br/>- 3: NAVER PowerContents Information<br/>- 4: NAVER PowerContents Product<br/>- 5: NAVER Brand SearchAd<br/>- 6: Local SMB Ad<br/>- 7: NAVER Catalog Ad<br/>- 8: NAVER Brand SearchAd Brand Zone<br/>- 9: NAVER Brand Shopping SearchAd<br/>- 10 Place ad<br/>-11: New product search ad
 19| Shared Budget ID | string | 31 | Share Budget ID
-20| Using CloseVariant | int | - 0: not used<br/> - 1: used
+20| Using CloseVariant | int |  | - 0: not used<br/> - 1: used
