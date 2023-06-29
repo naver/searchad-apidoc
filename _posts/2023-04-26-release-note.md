@@ -106,16 +106,16 @@ enum SharedBudgetOwnerType{
 
 Desc | Rest API | Params | Response
 ----------|----------|------|-----
-공유예산 전체 조회 | GET /api/ncc/shared-budgets | X | List\<SharedBudgetResponse> 
-공유예산 단건 조회 | GET /api/ncc/shared-budgets/{공유예산 ID} | SharedBudgetRequest | SharedBudgetResponse 
-공유예산 생성 | POST /api/ncc/shared-budgets | SharedBudgetRequest | SharedBudgetResponse  
-공유예산 수정 | PUT /api/ncc/shared-budgets/{공유예산 ID} | SharedBudgetRequest | SharedBudgetResponse  
-공유예산 하루예산액 수정 | PUT /api/ncc/shared-budgets | fields=dailyBudget, List\<SharedBudgetRequest\> | List\<SharedBudgetResponse> 
-공유예산 삭제 | DELETE /api/ncc/shared-budgets | ids=[{공유예산 id}, ...] | X 
-공유예산에 연결된 캠페인 제외 | PUT /api/ncc/shared-budgets/campaigns | ids=[{캠페인 id}, ...] | X 
-공유예산에 연결된 광고그룹 제외 | PUT /api/ncc/shared-budgets/adgroups | ids=[{광고그룹 id}, ...] | X 
-공유예산에 연결된 캠페인 리스트 조회 | GET /api/ncc/campaigns/shared-budgets/{공유예산 ID} | X | List\<CampaignResponse> 
-공유예산에 연결된 광고그룹 리스트 조회 | GET /api/ncc/adgroups/shared-budgets/{공유예산 ID} | X | List\<AdgroupResponse>
+공유예산 전체 조회 | GET /ncc/shared-budgets | X | List\<SharedBudgetResponse> 
+공유예산 단건 조회 | GET /ncc/shared-budgets/{공유예산 ID} | SharedBudgetRequest | SharedBudgetResponse 
+공유예산 생성 | POST /ncc/shared-budgets | SharedBudgetRequest | SharedBudgetResponse  
+공유예산 수정 | PUT /ncc/shared-budgets/{공유예산 ID} | SharedBudgetRequest | SharedBudgetResponse  
+공유예산 하루예산액 수정 | PUT /ncc/shared-budgets | fields=dailyBudget, List\<SharedBudgetRequest\> | List\<SharedBudgetResponse> 
+공유예산 삭제 | DELETE /ncc/shared-budgets | ids=[{공유예산 id}, ...] | X 
+공유예산에 연결된 캠페인 제외 | PUT /ncc/shared-budgets/campaigns | ids=[{캠페인 id}, ...] | X 
+공유예산에 연결된 광고그룹 제외 | PUT /ncc/shared-budgets/adgroups | ids=[{광고그룹 id}, ...] | X 
+공유예산에 연결된 캠페인 리스트 조회 | GET /ncc/campaigns/shared-budgets/{공유예산 ID} | X | List\<CampaignResponse> 
+공유예산에 연결된 광고그룹 리스트 조회 | GET /ncc/adgroups/shared-budgets/{공유예산 ID} | X | List\<AdgroupResponse>
 
 ---
 #### A shared budget feature to the ad system will be added On April 26, 2023, ([Announcement](https://saedu.naver.com/notice/view.naver?notiSeq=4064))
@@ -223,15 +223,15 @@ enum SharedBudgetOwnerType{
 
 Desc | Rest API | Params | Response
   ----------|----------|------|-----
-Get all shared budgets | GET /api/ncc/shared-budgets | X | List\<SharedBudgetResponse> 
-Get a single shared budget | GET /api/ncc/shared-budgets/{shared-budget ID} | SharedBudgetRequest | SharedBudgetResponse 
-Create a shared budget | POST /api/ncc/shared-budgets | SharedBudgetRequest | SharedBudgetResponse  
-Modify a shared budget | PUT /api/ncc/shared-budgets/{shared-budget ID} | SharedBudgetRequest | SharedBudgetResponse  
-Modify a shared budget daily budget amount | PUT /api/ncc/shared-budgets | fields=dailyBudget, List\<SharedBudgetRequest\> | List\<SharedBudgetResponse> 
-Delete a shared budget | DELETE /api/ncc/shared-budgets | ids=[{shared-budget id}, ...] | X 
-Remove a campaign associated with a shared budget | PUT /api/ncc/shared-budgets/campaigns | ids=[{campaign id}, ...] | X 
-Exclude ad groups linked to a shared budget | PUT /api/ncc/shared-budgets/adgroups | ids=[{adgroup id}, ...] | X 
-Get a list of campaigns connected to a shared budget | GET /api/ncc/campaigns/shared-budgets/{shared-budget ID} | X | List\<CampaignResponse> 
-Get a list of ad groups connected to a shared budget | GET /api/ncc/adgroups/shared-budgets/{shared-budget ID} | X | List\<AdgroupResponse>
+Get all shared budgets | GET /ncc/shared-budgets | X | List\<SharedBudgetResponse> 
+Get a single shared budget | GET /ncc/shared-budgets/{shared-budget ID} | SharedBudgetRequest | SharedBudgetResponse 
+Create a shared budget | POST /ncc/shared-budgets | SharedBudgetRequest | SharedBudgetResponse  
+Modify a shared budget | PUT /ncc/shared-budgets/{shared-budget ID} | SharedBudgetRequest | SharedBudgetResponse  
+Modify a shared budget daily budget amount | PUT /ncc/shared-budgets | fields=dailyBudget, List\<SharedBudgetRequest\> | List\<SharedBudgetResponse> 
+Delete a shared budget | DELETE /ncc/shared-budgets | ids=[{shared-budget id}, ...] | X 
+Remove a campaign associated with a shared budget | PUT /ncc/shared-budgets/campaigns | ids=[{campaign id}, ...] | X 
+Exclude ad groups linked to a shared budget | PUT /ncc/shared-budgets/adgroups | ids=[{adgroup id}, ...] | X 
+Get a list of campaigns connected to a shared budget | GET /ncc/campaigns/shared-budgets/{shared-budget ID} | X | List\<CampaignResponse> 
+Get a list of ad groups connected to a shared budget | GET /ncc/adgroups/shared-budgets/{shared-budget ID} | X | List\<AdgroupResponse>
 
 ---
