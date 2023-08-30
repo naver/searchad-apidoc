@@ -1,4 +1,4 @@
-{ 
+{
     "swagger":"2.0",
     "info":{
         "description":"Heroes 서비스에서 제공하는 NCC api 목록",
@@ -38,6 +38,10 @@
             "description":"Ad Template Controller"
         },
         {
+            "name":"SharedBudget",
+            "description":"New Click Choice SharedBudget Controller"
+        },
+        {
             "name":"Campaign",
             "description":"New Click Choice Campaign Controller"
         },
@@ -58,6 +62,10 @@
             "description":"Managed Keyword Controller"
         },
         {
+            "name":"Product",
+            "description":"New Click Choice Product Controller"
+        },
+        {
             "name":"ncc-mass-job-controller",
             "description":"Ncc Mass Job Controller"
         },
@@ -73,7 +81,7 @@
                     "AdExtension"
                 ],
                 "summary":"create",
-                "description":"Registers a new AD extension to the specified campaign or adgroup",
+                "description":"새로운 확장 소재를 생성합니다. ownerId는 확장 소재가 소속될 광고 객체(캠페인, 광고그룹)입니다.\n\nRegisters a new AD extension to the specified campaign or adgroup",
                 "operationId":"addUsingPOST_2",
                 "consumes":[
                     "application/json"
@@ -120,7 +128,7 @@
                     "AdExtension"
                 ],
                 "summary":"get",
-                "description":"Retrieves information on an AD extension",
+                "description":"특정 확장 소재(adExtensionId)의 정보를 조회합니다.\n\nRetrieves information on an AD extension",
                 "operationId":"getByIdUsingGET",
                 "consumes":[
                     "application/json"
@@ -160,7 +168,7 @@
                     "AdExtension"
                 ],
                 "summary":"delete",
-                "description":"Deletes a registered AD extension",
+                "description":"확장 소재를 삭제합니다.\n\nDeletes a AD extension",
                 "operationId":"removeUsingDELETE_3",
                 "consumes":[
                     "application/json"
@@ -196,7 +204,7 @@
                     "AdExtension"
                 ],
                 "summary":"update",
-                "description":"Change an AD extension\nThe parameter field, you can enter one of the following: 'userLock', 'period'",
+                "description":"특정 확장 소재의 정보를 변경합니다. field 파라미터가 없을 경우 확장 소재 정보 전체를 변경합니다. field 파라미터가 있을 경우 확장 소재의 특정 정보만 변경합니다. \n\n'userLock': On/Off 설정 변경\n'period': 노출 기간 설정\nChange an AD extension\nThe parameter field, you can enter one of the following: 'userLock', 'period'",
                 "operationId":"modifyUsingPUT_2",
                 "consumes":[
                     "application/json"
@@ -261,7 +269,7 @@
                     "AdExtension"
                 ],
                 "summary":"update items",
-                "description":"Change multiple AD extensions\nThe parameter field, you can enter one of the following: 'userLock', 'inspect', 'period'",
+                "description":"여러개의 확장 소재를 변경합니다. field 파라미터가 없을 경우 확장 소재 정보 전체를 변경합니다. field 파라미터가 있을 경우 확장 소재의 특정 정보만 변경합니다. \n\n'userLock': On/Off 설정 변경\n'period': 노출 기간 설정\nChange multiple AD extensions\nThe parameter field, you can enter one of the following: 'userLock', 'period'",
                 "operationId":"modifyUsingPUT_3",
                 "consumes":[
                     "application/json"
@@ -321,7 +329,7 @@
                     "AdExtension"
                 ],
                 "summary":"list (by ids)",
-                "description":"Retrieves information on multiple AD extensions",
+                "description":"다수의 확장 소재 ID를 이용하여 조회합니다.\n\nRetrieves information on multiple AD extensions",
                 "operationId":"getByIdsUsingGET",
                 "consumes":[
                     "application/json"
@@ -333,7 +341,7 @@
                     {
                         "name":"ids",
                         "in":"query",
-                        "description":"ids",
+                        "description":"확장소재 Id 목록\nAD Extension ID list",
                         "required":true,
                         "type":"string"
                     }
@@ -404,7 +412,7 @@
                     "AdExtension"
                 ],
                 "summary":"list (by label id)",
-                "description":"Returns the list of AD extensions of input label id.",
+                "description":"특정 즐겨찾기(label id)로 등록한 확장소재 목록을 조회합니다.\n\nReturns the list of AD extensions of input label id.",
                 "operationId":"getByLabelIdUsingGET",
                 "consumes":[
                     "application/json"
@@ -416,7 +424,7 @@
                     {
                         "name":"nccLabelId",
                         "in":"query",
-                        "description":"nccLabelId",
+                        "description":"즐겨찾기 ID 입니다.\nnccLabelId",
                         "required":true,
                         "type":"string"
                     }
@@ -449,7 +457,7 @@
                     "AdExtension"
                 ],
                 "summary":"list (by owner id)",
-                "description":"Retrieves information on multiple AD extensions\nThe ownerId value indicates either campaign id or adgroup id.",
+                "description":"확장 소재가 속한 특정 광고 객체(캠페인, 광고그룹, 소재)의 ID(ownerId)를 이용하여 조회합니다.\n\nRetrieves information on multiple AD extensions\nThe ownerId value indicates either campaign id or adgroup id.",
                 "operationId":"getByOwnerIdUsingGET",
                 "consumes":[
                     "application/json"
@@ -461,7 +469,7 @@
                     {
                         "name":"ownerId",
                         "in":"query",
-                        "description":"ownerId",
+                        "description":"확장 소재가 속한 광고 객체의 ID입니다. \nThe ID of the ad object to which the AD extension belongs",
                         "required":true,
                         "type":"string"
                     }
@@ -1513,7 +1521,7 @@
                     "Ad"
                 ],
                 "summary":"get",
-                "description":"Return the ad of the adId",
+                "description":"입력한 ID에 해당하는 소재를 조회합니다.\n\nSearch for a AD with the entered ID.",
                 "operationId":"getUsingGET_10",
                 "consumes":[
                     "application/json"
@@ -1525,7 +1533,7 @@
                     {
                         "name":"adId",
                         "in":"path",
-                        "description":"ID of new clickchoice ad",
+                        "description":"조회하고자 하는 소재의 고유 ID입니다.\nThe unique ID of the AD you want to search for.",
                         "required":true,
                         "type":"string"
                     }
@@ -1553,7 +1561,7 @@
                     "Ad"
                 ],
                 "summary":"delete",
-                "description":"remove an ad of the adId",
+                "description":"입력한 ID에 해당하는 소재를 삭제합니다.\n\nRemove for a AD with the entered ID",
                 "operationId":"removeUsingDELETE",
                 "consumes":[
                     "application/json"
@@ -1565,7 +1573,7 @@
                     {
                         "name":"adId",
                         "in":"path",
-                        "description":"ID of the ad",
+                        "description":"삭제하고자 하는 소재의 고유 ID입니다.\nThe unique ID of the AD you want to remove.",
                         "required":true,
                         "type":"string"
                     }
@@ -1589,7 +1597,7 @@
                     "Ad"
                 ],
                 "summary":"update",
-                "description":"Update the fields of the ads",
+                "description":"광고 소재의 정보를 변경합니다.\n\nUpdate the fields of the ads",
                 "operationId":"modifyUsingPUT",
                 "consumes":[
                     "application/json"
@@ -1601,7 +1609,7 @@
                     {
                         "in":"body",
                         "name":"ad",
-                        "description":"ad",
+                        "description":"광고 소재 정보입니다.\n\nThe AD information.",
                         "required":true,
                         "schema":{
                             "$ref":"#/definitions/Ad"
@@ -1614,14 +1622,14 @@
                         "required":true,
                         "type":"string",
                         "enum":[
-                            "userLock",
-                            "inspect"
+                            "userLock(On/Off)",
+                            "inspect(재검수요청)"
                         ]
                     },
                     {
                         "name":"adId",
                         "in":"path",
-                        "description":"ID of the ad",
+                        "description":"변경 하고자 하는 소재의 고유 ID입니다.\nThe unique ID of the AD you want to change.",
                         "required":true,
                         "type":"string"
                     }
@@ -1654,7 +1662,7 @@
                     "Ad"
                 ],
                 "summary":"copy",
-                "description":"Copy ads to another adgroup",
+                "description":"광고 소재를 원하는 광고그룹에 복사합니다. \n\nCopy ads to another adgroup",
                 "operationId":"copyUsingPUT",
                 "consumes":[
                     "application/json"
@@ -1666,21 +1674,21 @@
                     {
                         "name":"ids",
                         "in":"query",
-                        "description":"ids",
+                        "description":"소재의 ID 목록입니다.\nList of the ad ids",
                         "required":true,
                         "type":"string"
                     },
                     {
                         "name":"targetAdgroupId",
                         "in":"query",
-                        "description":"targetAdgroupId",
+                        "description":"새로운 소재가 속할 광고 그룹의 ID입니다.\nThe ID of the ad group the new AD will belong to.",
                         "required":true,
                         "type":"string"
                     },
                     {
                         "name":"userLock",
                         "in":"query",
-                        "description":"userLock",
+                        "description":"새로운 소재의 On/Off 설정입니다.\nThe on/off setting for the new AD.",
                         "required":true,
                         "type":"string"
                     }
@@ -1716,7 +1724,7 @@
                     "Ad"
                 ],
                 "summary":"list",
-                "description":"Return the list of ads",
+                "description":"입력한 ID 목록의 소재를 조회합니다.\n\nReturn the list of ads",
                 "operationId":"getUsingGET_11",
                 "consumes":[
                     "application/json"
@@ -1728,7 +1736,7 @@
                     {
                         "name":"ids",
                         "in":"query",
-                        "description":"IDs of the ad",
+                        "description":"소재 ID 목록입니다.\nIDs of the ad",
                         "required":false,
                         "type":"string"
                     }
@@ -1761,7 +1769,7 @@
                     "Ad"
                 ],
                 "summary":"list (by adgroup id)",
-                "description":"Returns the list of ads of the adgroup id",
+                "description":"광고그룹에 포함된 소재 목록을 조회합니다.\n\nReturns the list of ads of the adgroup id",
                 "operationId":"getByAdgroupIdUsingGET",
                 "consumes":[
                     "application/json"
@@ -1773,7 +1781,7 @@
                     {
                         "name":"nccAdgroupId",
                         "in":"query",
-                        "description":"ID of the adgroup",
+                        "description":"소재가 속한 광고그룹의 ID입니다.\nID of the adgroup",
                         "required":false,
                         "type":"string"
                     }
@@ -1806,7 +1814,7 @@
                     "Campaign"
                 ],
                 "summary":"create",
-                "description":"Create a new campaign",
+                "description":"새로운 캠페인을 생성합니다.\n\nCreate a new campaign",
                 "operationId":"addUsingPOST_5",
                 "consumes":[
                     "application/json"
@@ -1818,7 +1826,7 @@
                     {
                         "in":"body",
                         "name":"campaign",
-                        "description":"campaign",
+                        "description":"생성하고자 하는 캠페인 정보 JSON\nJSON of the campaign information you want to create",
                         "required":true,
                         "schema":{
                             "$ref":"#/definitions/Campaign"
@@ -1853,7 +1861,7 @@
                     "Campaign"
                 ],
                 "summary":"get",
-                "description":"Returns the campaign of input ID",
+                "description":"단일 개체의 캠페인을 조회합니다.\n\nReturns the campaign of input ID",
                 "operationId":"getUsingGET_17",
                 "consumes":[
                     "application/json"
@@ -1865,7 +1873,7 @@
                     {
                         "name":"campaignId",
                         "in":"path",
-                        "description":"ID of new click choice campaign",
+                        "description":"캠페인 ID\nThe unique ID of the Campaign",
                         "required":true,
                         "type":"string"
                     }
@@ -1929,7 +1937,7 @@
                     "Campaign"
                 ],
                 "summary":"update",
-                "description":"Change the Campaign. The parameter fields, enter the name of the Campaign field you want to change. or you can modify the campaign entire information if you give the full campaign json when calling api",
+                "description":"캠페인을 수정합니다. fields 파라미터가 없을 경우 캠페인 전체가 변경됩니다. fields 파라미터에 입력하는 값의 유형에 따라 수정되는 캠페인의 필드가 결정됩니다. \n\nChange the Campaign. The parameter fields, enter the name of the Campaign field you want to change. or you can modify the campaign entire information if you give the full campaign json when calling api",
                 "operationId":"modifyUsingPUT_10",
                 "consumes":[
                     "application/json"
@@ -1941,7 +1949,7 @@
                     {
                         "in":"body",
                         "name":"campaign",
-                        "description":"campaign",
+                        "description":"캠페인 정보",
                         "required":true,
                         "schema":{
                             "$ref":"#/definitions/Campaign"
@@ -1950,19 +1958,19 @@
                     {
                         "name":"fields",
                         "in":"query",
-                        "description":"Field name of the Campaign you want to modify",
+                        "description":"변경을 원하는 캠페인 정보를 나타냅니다. \nField name of the Campaign you want to modify",
                         "required":false,
                         "type":"string",
                         "enum":[
-                            "userLock",
-                            "budget",
-                            "period"
+                            "userLock(On/Off)",
+                            "budget(예산)",
+                            "period(기간)"
                         ]
                     },
                     {
                         "name":"campaignId",
                         "in":"path",
-                        "description":"The unique ID of the Campaign.",
+                        "description":"변경하고자 하는 캠페인의 ID입니다.\nThe unique ID of the Campaign.",
                         "required":true,
                         "type":"string"
                     }
@@ -1995,7 +2003,7 @@
                     "Campaign"
                 ],
                 "summary":"list (by customer id, campaign type)",
-                "description":"Returns the list of partially campaigns of customer",
+                "description":"조회 조건에 해당하는 캠페인 목록을 조회합니다.\n\nReturns the list of partially campaigns of customer",
                 "operationId":"getCampaignsUsingGET_1",
                 "consumes":[
                     "application/json"
@@ -2007,21 +2015,29 @@
                     {
                         "name":"campaignType",
                         "in":"query",
-                        "description":"Campaign Type value.",
+                        "description":"캠페인 유형값.\nCampaign Type value.",
                         "required":false,
-                        "type":"string"
+                        "type":"string",
+                        "enum":[
+                            "WEB_SITE(파워링크 유형)",
+                            "SHOPPING(쇼핑검색 유형)",
+                            "POWER_CONTENTS(파워컨텐츠 유형)",
+                            "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
+                            "PLACE(플레이스 유형)"
+                        ]
+
                     },
                     {
                         "name":"baseSearchId",
                         "in":"query",
-                        "description":"The query criteria Campaign ID value.",
+                        "description":"기준이 되는 캠페인 ID.\nThe query criteria Campaign ID value.",
                         "required":false,
                         "type":"string"
                     },
                     {
                         "name":"recordSize",
                         "in":"query",
-                        "description":"The number of list of Campaigns to receive the response. You can enter between 1 to 2000",
+                        "description":"조회하는 캠페인 개수. 1 ~ 1000 사이의 값을 가집니다. \nThe number of list of Campaigns to receive the response. You can enter between 1 to 1000",
                         "required":false,
                         "type":"integer",
                         "format":"int32"
@@ -2029,12 +2045,12 @@
                     {
                         "name":"selector",
                         "in":"query",
-                        "description":"If, please enter the value of the “PREVIOUS” to the selector parameter if you want to read the previous data.",
+                        "description":"baseSearchId기준으로 전방, 또는 후방 탐색을 결정합니다. \nIf, please enter the value of the “PREVIOUS” to the selector parameter if you want to read the previous data.",
                         "required":false,
                         "type":"string",
                         "enum":[
-                            "PREVIOUS",
-                            "NEXT"
+                            "PREVIOUS(전방)",
+                            "NEXT(후방)"
                         ]
                     }
                 ],
@@ -2123,7 +2139,7 @@
                     "Campaign"
                 ],
                 "summary":"list (by ids)",
-                "description":"Returns the list of campaigns of input campaign ids.",
+                "description":"입력된 아이디에 해당하는 캠페인 목록을 조회합니다. \n\nReturns the list of campaigns of input campaign ids.",
                 "operationId":"getCampaignsUsingGET",
                 "consumes":[
                     "application/json"
@@ -2135,7 +2151,7 @@
                     {
                         "name":"ids",
                         "in":"query",
-                        "description":"IDs of the campaign.",
+                        "description":"조회하고자 하는 캠페인의 ID 목록.\nIDs of the campaign.",
                         "required":true,
                         "type":"string"
                     }
@@ -2845,7 +2861,7 @@
                     "BusinessChannel"
                 ],
                 "summary":"update",
-                "description":"Change the business channel <br> The parameter field, you can enter one of the following: 'name', 'inspectId', 'inspectPw', 'secondary'",
+                "description":"Change the business channel. \nThe parameter field, you can enter one of the following: 'name', 'inspectId', 'inspectPw', 'secondary'",
                 "operationId":"modifyUsingPUT_8",
                 "consumes":[
                     "application/json"
@@ -3638,6 +3654,805 @@
                     },
                     "404":{
                         "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/product-groups": {
+            "get": {
+                "tags": [
+                    "ProductGroup"
+                ],
+                "summary": "get",
+                "description": "계정에 등록된 상품 그룹의 목록은 API를 이용하여 조회할 수 있습니다.\n\nThe list of product groups registered in the account can be inquired using the API below",
+                "operationId": "get_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref":"#/definitions/ProductGroup"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/criterion/{adgroupId}{?CriterionDictionaryType}": {
+            "get": {
+                "tags": [
+                    "Criterion"
+                ],
+                "summary": "list (by id)",
+                "description": "광고그룹에 속한 타겟팅 정보를 반환합니다.\n\nReturns the list of Criterion",
+                "operationId": "getByIdUsingGET_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of ad group",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "criterion dictionary type",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "SD",
+                            "AG",
+                            "GN",
+                            "AD",
+                            "RL",
+                            "RP"
+                        ]
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Criterion"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/criterion/{adgroupId}/bidWeight{?dictionaryCode}{?bidWeight}": {
+            "put":{
+                "tags":[
+                    "Criterion"
+                ],
+                "summary":"update bidWeight",
+                "description":"등록된 타겟팅의 입차가 가중치를 변경할 수 있습니다.\n\n You can change the weighting of registered criterion.",
+                "operationId":"update_bidWeight",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters":[
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"타겟팅이 속한 광고그룹 ID.\nID of ad group",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"codes",
+                        "in":"query",
+                        "description":"타겟팅 코드를 여러개 입력할 수 있습니다.\n The list of dictionary Code List",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "name":"bidWeight",
+                        "in":"query",
+                        "description":"입찰가중치를 50부터 500까지 설정할 수 있습니다.\n You can set the bidWeight from 50 to 500.",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/Criterion"
+                            }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/criterion/{adgroupId}/{?dictionary type}": {
+            "put": {
+                "tags": [
+                    "Criterion"
+                ],
+                "summary": "update Criterion",
+                "description": "타겟팅 유형별로 타겟팅을 변경할 수 있습니다.\n\n타겟팅 변경 시 Request Body에 포함되지 않는 코드는 모드 사용안함 처리가 되니 주의를 요합니다.\n\n반경 타겟팅 추가의 경우 dictionaryCode에 ‘Proximity’ 문자열을 입력해 주세요. 서버에 저장후 정상적인 code로 반환이 됩니다.\n\nTargeting can be changed by targeting type.\n\nPlease note that when you change the targeting, all code that is not included in the Request Body will be disabled.\n\nIf you want to add a Proximity target, enter the “Proximity” string in dictionaryCode. It will be saved on the server and returned to normal code.",
+                "operationId": "update_criterion",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "타겟팅이 속한 광고그룹 ID.\nID of ad group",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "타겟팅 종류.\ndictionary type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in":"body",
+                        "name":"criterions",
+                        "description":"타겟팅\ncriterions",
+                        "required":true,
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/Criterion"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Criterion"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/criterion-dictionary{?dictionary type}": {
+            "get": {
+                "tags": [
+                    "Criterion"
+                ],
+                "summary": "get Criterion Code",
+                "description": "광고그룹에서 지원되는 타게팅 코드를 조회할 수 있습니다. 반경(PROXIMITY)는 조회할 수 없습니다.\n\n You can check the target code supported by the adgroup.\n\n The PROXIMITY cannot be inquired.",
+                "operationId": "get_criterions",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "타겟팅 종류.\ndictionary type",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in":"body",
+                        "name":"criterions",
+                        "description":"타겟팅\ncriterions",
+                        "required":true,
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/Criterion"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Criterion"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/shared-budgets": {
+            "get":{
+                "tags":[
+                    "SharedBudget"
+                ],
+                "summary":"get",
+                "description":"공유예산의 리스트를 조회합니다.\n\nReturns the list of Shared budget.",
+                "operationId":"get",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/SharedBudget"
+                            }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "SharedBudget"
+                ],
+                "summary": "create",
+                "description": "공유예산을 생성합니다. \n\nCreate the shared budget.",
+                "operationId": "create_shared_budget",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "sharedBudget",
+                        "description": "sharedBudget",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SharedBudget"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SharedBudget"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete":{
+                "tags":[
+                    "SharedBudget"
+                ],
+                "summary":"delete",
+                "description":"공유예산을 삭제합니다.\n\nRemove requested shared budget.",
+                "operationId":"removeSharedBudgetsUsingDELETE",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters":[
+                    {
+                        "name":"ids",
+                        "in":"query",
+                        "description":"ids of the shared budget",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "204":{
+                        "description":"No Content"
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/ncc/shared-budgets{?fields}": {
+            "put": {
+                "tags": [
+                    "SharedBudget"
+                ],
+                "summary": "update budget",
+                "description": "공유예산의 하루예산을 수정합니다.\n\nModify the daily budget of the shared budget.",
+                "operationId": "modifyDailyBudget",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name":"fields",
+                        "in":"query",
+                        "description":"fields",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "sharedBudget",
+                        "description": "sharedBudget",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "$ref": "#/definitions/SharedBudget"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SharedBudget"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/shared-budgets/{id}": {
+            "get": {
+                "tags": [
+                    "SharedBudget"
+                ],
+                "summary": "get (by id)",
+                "description": "단건 공유예산을 조회합니다.\n\nReturns the Shared budget of input shared budget Id.",
+                "operationId": "getById",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of the shared budget",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/SharedBudget"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "SharedBudget"
+                ],
+                "summary": "update",
+                "description": "공유예산을 수정합니다.\n\nChange the shared budget.",
+                "operationId": "modifySharedBudget",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "sharedBudgetId",
+                        "in": "path",
+                        "description": "공유 예산 번호\nshared budget Id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "sharedBudget",
+                        "description": "sharedBudget",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SharedBudget"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/SharedBudget"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/shared-budgets/campaigns{?ids}":{
+            "put": {
+                "tags": [
+                    "SharedBudget"
+                ],
+                "summary": "exclude campaigns",
+                "description": "공유예산에 연결된 캠페인을 공유예산에서 제외합니다.\n\nRemove campaigns connected to a shared budget from the shared budget.",
+                "operationId": "excludeCampaigns",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name":"ids",
+                        "in":"query",
+                        "description":"ids of the campaigns",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"No Content"
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/ncc/shared-budgets/adgroups{?ids}":{
+            "put": {
+                "tags": [
+                    "SharedBudget"
+                ],
+                "summary": "exclude adgroups",
+                "description": "공유예산에 연결된 광고그룹을 공유예산에서 제외합니다.\n\nRemove adgroups connected to a shared budget from the shared budget.",
+                "operationId": "excludeAdgroups",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name":"ids",
+                        "in":"query",
+                        "description":"ids of the ad groups",
+                        "required":true,
+                        "type":"string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"No Content"
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/ncc/campaigns/shared-budgets/{id}":{
+            "get":{
+                "tags":[
+                    "SharedBudget"
+                ],
+                "summary":"get (campaigns)",
+                "description":"공유예산에 연결된 캠페인 리스트를 조회합니다.\n\nReturns a list of campaigns associated with shared budget.",
+                "operationId":"get",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of the shared budget",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/Campaign"
+                            }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/adgroups/shared-budgets/{id}":{
+            "get":{
+                "tags":[
+                    "SharedBudget"
+                ],
+                "summary":"get (adgroups)",
+                "description":"공유예산에 연결된 광고그룹 리스트를 조회합니다.\n\nReturns a list of adgroups associated with shared budget.",
+                "operationId":"get",
+                "consumes":[
+                    "application/json"
+                ],
+                "produces":[
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of the shared budget",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"OK",
+                        "schema":{
+                            "type":"array",
+                            "items":{
+                                "$ref":"#/definitions/Adgroup"
+                            }
+                        }
+                    },
+                    "401":{
+                        "description":"Unauthorized"
+                    },
+                    "403":{
+                        "description":"Forbidden"
+                    },
+                    "404":{
+                        "description":"Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/campaigns/{?fields}": {
+            "put": {
+                "tags": [
+                    "SharedBudget"
+                ],
+                "summary": "add campaigns (to shared budget)",
+                "description": "공유예산에 캠페인을 추가합니다.\n\nAdd a campaign to the shared budget.",
+                "operationId": "modifyDailyBudget",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name":"fields",
+                        "in":"query",
+                        "description":"fields의 값에 sharedBudget을 입력합니다.\n\nField sharedBudget if you want to add campaigns to shared budget.",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "campaign",
+                        "description": "campaign",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "$ref": "#/definitions/Campaign"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Campaign"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/api/ncc/adgroups/{?fields}": {
+            "put": {
+                "tags": [
+                    "SharedBudget"
+                ],
+                "summary": "add ad groups (to shared budget)",
+                "description": "공유예산에 광고그룹을 추가합니다.\n\nAdd a ad groups to the shared budget.",
+                "operationId": "modifyDailyBudget",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name":"fields",
+                        "in":"query",
+                        "description":"fields의 값에 sharedBudget을 입력합니다.\n\nField sharedBudget if you want to add ad groups to shared budget.",
+                        "required":true,
+                        "type":"string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "Adgroup",
+                        "description": "Adgroup",
+                        "required": true,
+                        "schema": {
+                            "type": "array",
+                            "$ref": "#/definitions/Adgroup"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Adgroup"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
                     }
                 }
             }
@@ -4510,7 +5325,7 @@
                     "Target"
                 ],
                 "summary":"update",
-                "description":"Change a target.",
+                "description":"타겟팅을 변경합니다.\n\n타겟팅 유형 중 AD_TAG는 쇼핑 캠페인 하위의 카탈로그 광고 소재에 적용되며, 그외 소재에 등록할 때 오류가 발생합니다.\n\n등록가능항 태그의 길이는 최소 3자 부터 최대 10자이며, 최대 30개까지 등록 가능합니다.\n\nChange a target.\n\nAmong the targeting types, AD_TAG is applied to catalog creatives under shopping campaigns, and an error occurs when registering for other creatives.\n\nThe length of registerable tag is minimum 3 characters to maximum 10 characters. Up to 30 tags can be registered.",
                 "operationId":"modifyUsingPUT_14",
                 "consumes":[
                     "application/json"
@@ -5337,7 +6152,7 @@
                 "nccQi":{
                     "description":"Quality index of SHOPPING_PRODUCT_AD/CATALOG_AD. 1 ~ 7 #hidden-request #hidden-create",
                     "$ref":"#/definitions/NccNewQi"
-                },                
+                },
                 "regTm":{
                     "type":"string",
                     "description":"The time when this ad was created (RFC 3339 datetime). #hidden-request #hidden-create"
@@ -5410,7 +6225,8 @@
                         "CONTENTS_AD_PRODUCT",
                         "BRAND_SEARCH_AD",
                         "PLACE_AD",
-                        "CATALOG_AD"
+                        "CATALOG_AD",
+                        "SHOPPING_BRAND_AD"
                     ]
                 },
                 "userLock":{
@@ -5540,26 +6356,26 @@
             "properties":{
                 "adExtension":{
                     "example": "[gist: \"f8e941f61b9152972feb676689046b87\"]",
-                    "description":"The creative of the AD extension\nThe format of this value is JSON #hidden-request",
+                    "description":"확장 소재의 소재 데이터가 JSON 구조로 저장되어 있습니다. The creative of the AD extension\nThe format of this value is JSON #hidden-request",
                     "$ref":"#/definitions/JsonNode"
                 },
                 "customerId":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The unique ID of the customer #hidden-request"
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account. #hidden-request"
                 },
                 "editTm":{
                     "type":"string",
-                    "description":"Recently modified time (RFC 3339 datetime). #hidden-request"
+                    "description":"최근 수정 시각 입니다.\nRecently modified time (RFC 3339 datetime). #hidden-request"
                 },
                 "enable": {
                     "type": "boolean",
                     "example": false,
-                    "description": "Enable or Pause this ad extension by the system. false:'DISABLED', true:'ENABLED'. #hidden-request"
+                    "description": "외부 데이터와 연결된 확장 소재의 경우 연결 상태를 나타냅니다.\nEnable or Pause this ad extension by the system. false:'DISABLED', true:'ENABLED'. #hidden-request"
                 },
                 "inspectStatus":{
                     "type":"string",
-                    "description":"The inspect status of the AD extension #hidden-request",
+                    "description":"확장 소재의 검수 상태입니다. 검수상태는 아래의 값을 가질수 있습니다.\nThe inspect status of the AD extension #hidden-request",
                     "enum":[
                         "UNDER_REVIEW",
                         "APPROVED",
@@ -5570,40 +6386,40 @@
                 },
                 "mobileChannelId":{
                     "type":"string",
-                    "description":"The unique ID of mobile Biz Channel which produces the creative #required-create #hidden-update"
+                    "description":"확장 소재와 연결된 모바일 비즈채널의 고유 ID입니다. \nThe unique ID of mobile Biz Channel which produces the creative #required-create #hidden-update"
                 },
                 "nccAdExtensionId":{
                     "type":"string",
-                    "description":"The unique ID of the AD extension #hidden-create #required-update"
+                    "description":"확장 소재의 고유 ID입니다. \nThe unique ID of the AD extension #hidden-create #required-update"
                 },
                 "ownerId":{
                     "type":"string",
-                    "description":"The unique ID of owner entity which is either campaign or adgroup containing this AD extension #required-create #hidden-update"
+                    "description":"캠페인, 광고 그룹, 광고 소재등 확장 소재가 연결된 광고 Entity의 고유 ID입니다. \nThe unique ID of owner entity which is either campaign or adgroup containing this AD extension #required-create #hidden-update"
                 },
                 "pcChannelId":{
                     "type":"string",
-                    "description":"The unique ID of PC Biz Channel which produces the creative #required-create #hidden-update"
+                    "description":"확장 소재와 연결된 PC 비즈채널의 고유 ID입니다. \nThe unique ID of PC Biz Channel which produces the creative #required-create #hidden-update"
                 },
                 "periodEndDt":{
                     "type":"string",
-                    "description":"The time at which the AD extension ends (RFC 3339 date-time)."
+                    "description":"확장 소재의 노출 종료일입니다. \nThe time at which the AD extension ends (RFC 3339 date-time)."
                 },
                 "periodStartDt":{
                     "type":"string",
-                    "description":"The time at which the AD extension starts (RFC 3339 date-time)."
+                    "description":"확장 소재의 노출 시작일입니다. \nThe time at which the AD extension starts (RFC 3339 date-time)."
                 },
                 "regTm":{
                     "type":"string",
-                    "description":"Time that the AD extension has been registered (RFC 3339 datetime). #hidden-request"
+                    "description":"확장 소재가 등록된 시각입니다.\nTime that the AD extension has been registered (RFC 3339 datetime). #hidden-request"
                 },
                 "schedule":{
                     "example":"[gist: \"0c01a5fdee874e93e2ab568a10a53fdb\"]",
-                    "description":"The schedule of the AD extension\nThe format of this value is JSON\n- Every day and time : null\n- Partially applied : {\"SUN\":16777215,\"MON\":16777215,\"TUE\":16777215,\"WED\":16777215,\"THU\":16777215,\"FRI\":16777215,\"SAT\":16777215}\n - Each key is the day of week and value is the sum of bit operation with hour which is between 0 and 23 #required-create #optional-update",
+                    "description":"확장 소재의 노출을 요일과 시간 별로 설정한 값입니다. 요일및 시간 계산은 https://github.com/naver/searchad-apidoc/wiki/FAQ 에서 확인할 수 있습니다. \nThe schedule of the AD extension\nThe format of this value is JSON\n- Every day and time : null\n- Partially applied : {\"SUN\":16777215,\"MON\":16777215,\"TUE\":16777215,\"WED\":16777215,\"THU\":16777215,\"FRI\":16777215,\"SAT\":16777215}\n - Each key is the day of week and value is the sum of bit operation with hour which is between 0 and 23 #required-create #optional-update",
                     "$ref":"#/definitions/JsonNode"
                 },
                 "status":{
                     "type":"string",
-                    "description":"Status of this AD extension #hidden-request",
+                    "description":"확장 소재의 계산된 상태를 나타냅니다. 상태 값은 아래의 값중 하나를 가질 수 있습니다.(https://github.com/naver/searchad-apidoc/wiki/FAQ)\nStatus of this AD extension. #hidden-request",
                     "enum":[
                         "ELIGIBLE",
                         "LIMITED_ELIGIBLE",
@@ -5613,7 +6429,7 @@
                 },
                 "statusReason":{
                     "type":"string",
-                    "description":"Status reason of this AD extension #hidden-request",
+                    "description":"확장 소재 상태에 대한 사유를 나타냅니다. 사유는 아래의 값중 하나를 가질 수 있습니다. \nStatus reason of this AD extension.(https://github.com/naver/searchad-apidoc/wiki/FAQ) #hidden-request",
                     "enum":[
                         "ELIGIBLE",
                         "CAMPAIGN_DELETED",
@@ -5661,7 +6477,7 @@
                 },
                 "type":{
                     "type":"string",
-                    "description":"The type of the AD extension #required-create #hidden-update",
+                    "description":"확장 소재의 종류를 나타냅니다.(https://github.com/naver/searchad-apidoc/wiki/FAQ)\n\nAPI를 이용하여 생성 불가능한 유형: \n- SHOPPING_EXTRA\n- CATALOG_EXTRA\n- CATALOG_EVENT\n- CATALOG_PURCHASE_CONDITION\n- SHOPPING_BRAND_BROADCAST\n- SHOPPING_BRAND_EVENT\n- PLACE_SMART_ORDER,NAVER_BLOG_REVIEW\n- POWER_LINK_IMAGE\n- IMAGE_SUB_LINKS\n- CATALOG_IMAGE\n- NAVER_TV_VIDEO\n- SHOPPING_BRAND_IMAGE\n- SHOPPING_BRAND_VIDEO\nThe type of the AD extension  #required-create #hidden-update",
                     "enum":[
                         "PHONE",
                         "LOCATION",
@@ -5684,19 +6500,27 @@
                         "CATALOG_PROMOTION",
                         "CATALOG_EVENT",
                         "CATALOG_MOVIE",
+                        "CATALOG_PURCHASE_CONDITION",
                         "NAVER_TV_VIDEO",
-                        "NAVER_BLOG_REVIEW"
+                        "NAVER_BLOG_REVIEW",
+                        "SHOPPING_BRAND_VIDEO",
+                        "SHOPPING_BRAND_IMAGE",
+                        "SHOPPING_BRAND_BROADCAST",
+                        "PLACE_SMART_ORDER",
+                        "SHOPPING_BRAND_EVENT",
+                        "PLACE_BEAUTY_STYLE",
+                        "DESCRIPTION_EXTRA"
                     ]
                 },
                 "usePeriod":{
                     "type":"boolean",
                     "example":false,
-                    "description":"use period.  \n true: use, false: unuse  If this field is blank, and then set to the default value(false)."
+                    "description":"노출 기간 설정 사용여부를 나타냅니다. true: 사용, false: 사용안함 \nIndicates whether the exposure duration setting is enabled. \n true: use, false: unuse  If this field is blank, and then set to the default value(false)."
                 },
                 "userLock":{
                     "type":"boolean",
                     "example":false,
-                    "description":"This field can be used for ENABLED or PAUSED of the AD extension #required-create #optional-update"
+                    "description":"확장 소재의 On/Off 노출 설정입니다. true일 경우 노출이 중지됩니다. false일 경우 노출이 가능합니다.\nOn/Off exposure setting for the AD extension. If true, exposure is stopped. If false, exposure is enabled. #required-create #optional-update"
                 }
             }
         },
@@ -5760,7 +6584,7 @@
                 "businessInfo":{
                     "type":"string",
                     "example":"[gist: \"6d0f4f48ed6cc6f8b80b633eb75e385a\"]",
-                    "description":"The main data of the business channel.<br>The format of this value is JSON"
+                    "description":"The main data of the business channel.\nThe format of this value is JSON"
                 },
                 "channelKey":{
                     "type":"string",
@@ -5777,17 +6601,18 @@
                         "TALK",
                         "CONTENTS",
                         "PLACE",
-                        "CATALOG"
+                        "CATALOG",
+                        "SHOPPING_BRAND"
                     ]
                 },
                 "customerId":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The unique ID of the customer #hidden-request"
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account. #hidden-request"
                 },
                 "editTm":{
                     "type":"string",
-                    "description":"Recently modified time (RFC 3339 datetime). #hidden-request"
+                    "description":"최근 수정 시각\nRecently modified time (RFC 3339 datetime). #hidden-request"
                 },
                 "firstChargeTm":{
                     "type":"string",
@@ -5904,7 +6729,7 @@
                 "customerId":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The unique ID of the customer #hidden-request"
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account. #hidden-request"
                 },
                 "editTm":{
                     "type":"string",
@@ -5939,6 +6764,203 @@
                 }
             }
         },
+        "SharedBudget":{
+            "type":"object",
+            "properties":{
+                "budgetLock":{
+                    "type":"boolean",
+                    "example":false,
+                    "description":"노출 잠김 여부입니다.\nDaily budget status of this AdGroup."
+                },
+                "customerId":{
+                    "type":"integer",
+                    "format":"int64",
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account. #hidden-request"
+                },
+                "editTm":{
+                    "type":"string",
+                    "description":"공유예산 수정 시각입니다.\nTime that the labelRef has been updated. (RFC 3339 datetime). #hidden-request"
+                },
+                "dailyBudget": {
+                    "type":"integer",
+                    "format":"int64",
+                    "description":"하루 동안 연결된 캠페인 또는 광고 그룹에서 사용할 수 있는 최대 예산입니다.\nThe maximum budget of the use of the connected campaigns or ad group during the day. You can enter between 70 to 1000000000. When you create a new Ad Group, If this field is blank, and then set to the default value.(0)."
+                },
+                "deliveryMethod":{
+                    "type":"string",
+                    "description":"노출 방식을 의미합니다. 캠페인 공유예산에서만 설정할 수 있습니다.\n choosing 'Accelerated' or 'Standard' ad delivery.  The default value is 'ACCELERATED'.  \n Available values are 'ACCELERATED', 'STANDARD'   #hidden-update",
+                    "enum":[
+                        "ACCELERATED",
+                        "STANDARD"
+                    ]
+                },
+                "expectCost":{
+                    "type":"integer",
+                    "format":"int64",
+                    "description":"예상 과금액입니다.\nExpected cost of the shared budget #hidden-request"
+                },
+                "name":{
+                    "type":"string",
+                    "description":"공유예산의 이름입니다.\nThe name of the shared budget"
+                },
+                "numberInUse":{
+                    "type":"integer",
+                    "format": "int32",
+                    "description":"공유예산에 연결된 캠페인 또는 광고그룹의 개수입니다.\nNumber of entities using the shared budget #hidden-request"
+                },
+                "sharedBudgetId":{
+                    "type":"string",
+                    "description":"공유예산의 고유 ID입니다.\nThe unique ID of the shared budget #hidden-request"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "공유예산의 상태입니다.\nStatus of this shared budget. #hidden-request #hidden-uri-managedKeyword",
+                    "enum": [
+                        "ELIGIBLE",
+                        "PAUSED",
+                        "DELETED",
+                        "LIMITED_ELIGIBLE"
+                    ]
+                },
+                "statusReason":{
+                    "type":"string",
+                    "description":"공유예산의 현재 상태에 대한 이유를 의미합니다.\nStatus reason of this shared budget. #hidden-request",
+                    "enum":[
+                        "CAMPAIGN_LIMITED_BY_SHARED_BUDGET",
+                        "GROUP_LIMITED_BY_SHARED_BUDGET",
+                        "SHARED_BUDGET_LIMITED_BY_BUDGET",
+                        "SHARED_BUDGET_DELETED"
+                    ]
+                },
+                "ownerType":{
+                    "type":"string",
+                    "description":"공유예산의 종류입니다.\nThe type of Shared budget. #hidden-request",
+                    "enum":[
+                        "CAMPAIGN",
+                        "ADGROUP"
+                    ]
+                },
+                "regTm":{
+                    "type":"string",
+                    "description":"공유예산을 등록한 시각입니다.\nTime that the labelRef has been created. #hidden-request"
+                }
+            }
+        },
+        "ProductGroup":{
+            "type":"object",
+            "properties":{
+                "brandName":{
+                    "type":"string",
+                    "description":"브랜드 이름입니다.\nThe name of the brand"
+                },
+                "brandNo":{
+                    "type":"string",
+                    "description":"브랜드 NO 또는 브랜드 SEQ 입니다.\nBrand No or Brand SEQ"
+                },
+                "customerId":{
+                    "type":"integer",
+                    "format":"int64",
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account."
+                },
+                "mallId":{
+                    "type":"string",
+                    "description":"몰 ID 입니다.\nThe unique number of the mall"
+                },
+                "mallName":{
+                    "type":"string",
+                    "description":"몰 이름입니다.\nThe name of the mall"
+                },
+                "name":{
+                    "type":"string",
+                    "description":"상품 그룹 이름입니다.\nThe name of product group"
+                },
+                "nccProductGroupId":{
+                    "type":"string",
+                    "description":"상품 그룹 고유 ID 입니다.\nThe unique number for your product group"
+                },
+                "nccBusinessChannelId":{
+                    "type":"string",
+                    "description":"비즈 채널 ID 입니다.\nThe unique number of the business channel"
+                },
+                "numberOfAdgroups":{
+                    "type":"integer",
+                    "format": "int32",
+                    "description":"상품 그룹을 사용하고 있는 광고 그룹의 개수입니다.\nThe number of adgroups using a product group"
+                },
+                "registeredProductType":{
+                    "type":"integer",
+                    "format": "int32",
+                    "description": "상품 그룹 등록시 선택한 비즈채널이 일반형인지 카탈로그형인지를 나타내는 값입니다. GENERAL: 일반형, CATALOG: 카탈로그형\nValue indicating whether the Biz channel selected when registering a product group is generic or catalog-type. GENERAL: Generic, CATALOG: Catalog"
+                },
+                "registrationMethod":{
+                    "type":"integer",
+                    "format": "int32",
+                    "description": "상품이 전체 등록인지 선택 등록인지를 나타내는 값입니다. EACH: 선택 등록, WHOLE: 전체 등록\nThe value indicating whether the product is a full or optional registration. EACH: Register selection, WHOLE: Register All"
+                },
+                "regTm":{
+                    "type":"string",
+                    "description":"상품 그룹 생성 시각입니다.\nProduct group creation time #hidden-request"
+                },
+                "editTm":{
+                    "type":"string",
+                    "description":"상품 그룹 최근 수정 시각입니다.\nProduct group last modified time #hidden-request"
+                }
+            }
+        },
+        "Criterion":{
+            "type":"object",
+            "properties":{
+                "bidWeight": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "입찰 가중치이며 범위는 50부터 500까지 설정 가능합니다.\nweight of bidding(50 ~ 500)"
+                },
+                "codeName": {
+                    "type": "string",
+                    "description": "Criterion Dictionary Code 이름입니다.\nThe name of Criterion Dictionary Code"
+                },
+                "customerId":{
+                    "type":"integer",
+                    "format":"int64",
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account.."
+                },
+                "dictionaryCode":{
+                    "type":"string",
+                    "description": "타겟팅 고유 번호입니다.\nCriterion Dictionary Code"
+                },
+                "enable": {
+                    "type": "boolean",
+                    "description": "타겟팅 사용 여부입니다.\nWhether to use criterion"
+                },
+                "negative": {
+                    "type": "boolean",
+                    "description": "노출 제외 여부입니다.\nWhether to exposure or not"
+                },
+                "ownerId":{
+                    "type":"string",
+                    "description":"타겟팅이 속한 광고그룹 ID입니다.\n The unique ID of owner entity which containing this criterion"
+                },
+                "regTm":{
+                    "type":"string",
+                    "description":"타겟팅이 등록된 시각입니다.\nThe time at which the target was created (RFC 3339 date-time). #hidden-request"
+                },
+                "type":{
+                    "type":"string",
+                    "description": "타게팅의 종류입니다.\nThe type of criterion. SCHEDULE(SD), REGIONAL(RL), PROXIMITY(RP), AGE(AG), GENDER(GN), AUDIENCE(AD)",
+                    "enum":[
+                        "SD",
+                        "RL",
+                        "RP",
+                        "AG",
+                        "GN",
+                        "AD"
+                    ]
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
         "TemplateQcPrice":{
             "type":"object",
             "properties":{
@@ -5961,7 +6983,7 @@
             "properties":{
                 "editTm":{
                     "type":"string",
-                    "description":"Recently modified time (RFC 3339 datetime). #hidden-request"
+                    "description":"최근 수정 시각\nRecently modified time (RFC 3339 datetime). #hidden-request"
                 },
                 "nccTargetId":{
                     "type":"string",
@@ -5992,7 +7014,8 @@
                         "NON_SEARCH_KEYWORD_TARGET",
                         "GENDER_TARGET",
                         "AGE_TARGET",
-                        "PERIOD_TARGET"
+                        "PERIOD_TARGET",
+                        "AD_TAG"
                     ]
                 }
             }
@@ -6007,11 +7030,11 @@
                 "campaignTp":{
                     "type":"string",
                     "enum":[
-                        "WEB_SITE",
-                        "SHOPPING",
-                        "POWER_CONTENTS",
-                        "BRAND_SEARCH",
-                        "PLACE"
+                        "WEB_SITE(파워링크 유형)",
+                        "SHOPPING(쇼핑검색 유형)",
+                        "POWER_CONTENTS(파워컨텐츠 유형)",
+                        "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
+                        "PLACE(플레이스 유형)"
                     ]
                 },
                 "useNaChannelCnt":{
@@ -6308,15 +7331,15 @@
             }
         },
         "NccNewQi":{
-           "type":"object",
-           "properties":{
-              "qiGrade":{
-                 "type":"integer",
-                 "format":"int32",
-                 "description":"qi grade"
-              }
-           }
-        },        
+            "type":"object",
+            "properties":{
+                "qiGrade":{
+                    "type":"integer",
+                    "format":"int32",
+                    "description":"qi grade"
+                }
+            }
+        },
         "NccQi":{
             "type":"object",
             "properties":{
@@ -6528,11 +7551,11 @@
                 "customerId":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The unique ID of the customer #hidden-request  #hidden-uri-managedKeyword"
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account. #hidden-request  #hidden-uri-managedKeyword"
                 },
                 "editTm":{
                     "type":"string",
-                    "description":"Recently modified time (RFC 3339 datetime). #hidden-request  #hidden-uri-managedKeyword"
+                    "description":"최근 수정 시각\nRecently modified time (RFC 3339 datetime). #hidden-request  #hidden-uri-managedKeyword"
                 },
                 "inspectStatus":{
                     "type":"string",
@@ -6639,20 +7662,20 @@
             "properties":{
                 "adRollingType":{
                     "type":"string",
-                    "description":"The rolled type of the creative.",
+                    "description":"광고 소재의 롤링 유형입니다.\nThe rolled type of the creative.",
                     "enum":[
                         "ROUND_ROBIN",
                         "PERFORMANCE"
                     ]
                 },
                 "adgroupAttrJson":{
-                    "example":"{\n  \"contentsType\": \"INFORMATION\"\n} \nor\n {\n \"media\":\"PC\", \n \"templateId\":\"abcdefg\"",
-                    "description":"adgroup attribute json. The 'media' and 'templateId' properties are required if the campaign type is 'BRAND_SEARCH', and the 'media' property can have values 'PC' and 'MOBILE'. The 'contentsType' property is required if the campaign type is 'POWER_CONTENTS'. The 'contentsType' property can have the values 'INFORMATION' and 'PRODUCT'. #optional-create #hidden-update",
+                    "example":"{\n  \"contentsType\": \"INFORMATION\"\n} \nor\n {\n \"media\":\"PC\", \n \"templateId\":\"abcdefg\"}",
+                    "description":"광고그룹 속성 Json 입니다. 애드그룹 속성 JSON. 캠페인 유형이 'BRAND_SEARCH'인 경우 'media' 및 'templateId' 속성이 필수이며, 'media' 속성에는 'PC' 및 'MOBILE' 값을 가질 수 있습니다. 캠페인 유형이 'POWER_CONTENTS'인 경우 'contentsType' 속성이 필요합니다. 'contentsType' 속성은 '정보' 및 '제품' 값을 가질 수 있습니다.\nadgroup attribute json. The 'media' and 'templateId' properties are required if the campaign type is 'BRAND_SEARCH', and the 'media' property can have values 'PC' and 'MOBILE'. The 'contentsType' property is required if the campaign type is 'POWER_CONTENTS'. The 'contentsType' property can have the values 'INFORMATION' and 'PRODUCT'. #optional-create #hidden-update",
                     "$ref":"#/definitions/JsonNode"
                 },
                 "adgroupType":{
                     "type":"string",
-                    "description":"The type of the adgroup.",
+                    "description":"광고그룹의 종류를 나타냅니다.\nThe type of the adgroup.",
                     "enum":[
                         "WEB_SITE",
                         "SHOPING",
@@ -6660,37 +7683,45 @@
                         "PRODUCT",
                         "BRAND_SEARCH",
                         "PLACE",
-                        "CATALOG"
+                        "CATALOG",
+                        "SHOPPING_BRAND",
+                        "LOCAL_AD",
+                        "BRAND_NEW"
                     ]
                 },
                 "bidAmt":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"Max CPC (cost per click) bid. At the Ad group level, this represents the default bid applicable for keywords in this Ad Group. You can enter between 70 to 100000. When you create a new Ad Group, If this field is blank, and then set to the default value (70). #required-update"
+                    "description":"광고그룹의 키워드에 적용되는 입찰가를 나타냅니다.\nMax CPC (cost per click) bid. At the Ad group level, this represents the default bid applicable for keywords in this Ad Group. You can enter between 70 to 100000. When you create a new Ad Group, If this field is blank, and then set to the default value (70). #required-update"
                 },
                 "budgetLock":{
                     "type":"boolean",
                     "example":false,
-                    "description":"Daily budget status of this AdGroup."
+                    "description":"노출 잠김 여부입니다.\nDaily budget status of this AdGroup."
                 },
                 "contentsNetworkBidAmt":{
                     "type":"integer",
                     "format":"int32",
-                    "description":"Max CPC (cost per click) bid used in contents networks. You can enter between 70 to 100000. When you create a new Ad Group, If this field is blank, and then set to the default value.(70). This field isn't use to Adgroup of Shopping campaign type. #required-update"
+                    "description":"컨텐츠 네트워크 입찰가를 나타냅니다. 쇼핑 캠페인이외 다른 캠페인에서는 무시됩니다.\nMax CPC (cost per click) bid used in contents networks. You can enter between 70 to 100000. When you create a new Ad Group, If this field is blank, and then set to the default value.(70). This field isn't use to Adgroup of Shopping campaign type. #required-update"
+                },
+                "contentsNetworkBidWeight":{
+                    "type":"integer",
+                    "format":"int32",
+                    "description":"컨텐츠 네트워크 가중치 값을 나타냅니다. 기본 값은 사용안함입니다. 쇼핑 캠페인이외 다른 캠페인에서는 무시됩니다.\nBids weights used in content networks. You can enter between 10 to 500. When you create a new Ad Group, If this field is blank, and then set to the default value.(100). #required-update"
                 },
                 "customerId":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The unique ID of the customer. #required-create #hidden-request"
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account.. #required-create #hidden-request"
                 },
                 "dailyBudget":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The maximum budget of the use of the Ad Group during the day. You can enter between 70 to 1000000000. When you create a new Ad Group, If this field is blank, and then set to the default value.(0). #required-update"
+                    "description":"광고 그룹의 하루 예산을 나타냅니다.The maximum budget of the use of the Ad Group during the day. You can enter between 70 to 1000000000. When you create a new Ad Group, If this field is blank, and then set to the default value.(0). #required-update"
                 },
                 "editTm":{
                     "type":"string",
-                    "description":"Recently modified time (RFC 3339 datetime). #hidden-request"
+                    "description":"광고 그룹 최근 수정 시각입니다.\nRecently modified time (RFC 3339 datetime). #hidden-request"
                 },
                 "keywordPlusWeight":{
                     "type":"integer",
@@ -6699,41 +7730,71 @@
                 },
                 "mobileChannelId":{
                     "type":"string",
-                    "description":"The unique ID of the mobile buisness channel containing this Ad Group. If necessary this ad group will need to enter the ID of the type of case belong to the campaign \"SITE\" type of channel type of web site, enter the ID of the channel type of case \"MALL\" type belonging to the shopping kind of campaign there is. #required-create"
+                    "description":"모바일 비즈니스 채널의 고유 ID입니다.\nThe unique ID of the mobile buisness channel containing this Ad Group. If necessary this ad group will need to enter the ID of the type of case belong to the campaign \"SITE\" type of channel type of web site, enter the ID of the channel type of case \"MALL\" type belonging to the shopping kind of campaign there is. #required-create"
                 },
                 "mobileNetworkBidWeight":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"Bids weights used in mobile networks. You can enter between 10 to 500. When you create a new Ad Group, If this field is blank, and then set to the default value.(100). #required-update"
+                    "description":"모바일 네트워크 가중치 값을 나타냅니다.\nBids weights used in mobile networks. You can enter between 10 to 500. When you create a new Ad Group, If this field is blank, and then set to the default value.(100). #required-update"
                 },
                 "name":{
                     "type":"string",
-                    "description":"Name of this Ad Group. This field is required and should not be null for ADD operations. #required-create"
+                    "description":"광고그룹의 이름입니다.\nName of this Ad Group. This field is required and should not be null for ADD operations. #required-create"
                 },
                 "nccAdgroupId":{
                     "type":"string",
-                    "description":"The unique ID of this Ad Group #hidden-create #required-update"
+                    "description":"광고그룹의 고유 ID입니다.\nThe unique ID of this Ad Group #hidden-create #required-update"
                 },
                 "nccCampaignId":{
                     "type":"string",
-                    "description":"The unique ID of the campaign with which this Ad Group is associated. #required-create"
+                    "description":"광고그룹이 속한 캠페인의 고유 ID입니다.\nThe unique ID of the campaign with which this Ad Group is associated. #required-create"
+                },
+                "numberInUse":{
+                    "type":"integer",
+                    "format": "int32",
+                    "description":"공유예산에 속한 광고 그룹의 개수입니다.\nNumber of entities using the shared budget"
                 },
                 "pcChannelId":{
                     "type":"string",
-                    "description":"The unique ID of the pc buisness channel containing this Ad Group. If necessary this ad group will need to enter the ID of the type of case belong to the campaign \"SITE\" type of channel type of web site, enter the ID of the channel type of case \"MALL\" type belonging to the shopping kind of campaign there is. #required-create"
+                    "description":"PC 비즈니스 채널의 고유 ID입니다.\nThe unique ID of the pc buisness channel containing this Ad Group. If necessary this ad group will need to enter the ID of the type of case belong to the campaign \"SITE\" type of channel type of web site, enter the ID of the channel type of case \"MALL\" type belonging to the shopping kind of campaign there is. #required-create"
                 },
                 "pcNetworkBidWeight":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"Bids weights used in PC networks. You can enter between 10 to 500. When you create a new Ad Group, If this field is blank, and then set to the default value.(100) #required-update"
+                    "description":"PC 네트워크 가중치 값을 나타냅니다.\nBids weights used in PC networks. You can enter between 10 to 500. When you create a new Ad Group, If this field is blank, and then set to the default value.(100) #required-update"
+                },
+                "productGroup":{
+                    "description":"Bundle unit for managing Naver shopping-linked products to be exposed along with the material",
+                    "$ref":"#/definitions/ProductGroup"
                 },
                 "regTm":{
                     "type":"string",
-                    "description":"Time that the Ad Group has been created. (RFC 3339 datetime). #hidden-request"
+                    "description":"광고그룹 등록 시각입니다.\nTime that the Ad Group has been created. (RFC 3339 datetime). #hidden-request"
+                },
+                "sharedBudgetId":{
+                    "type":"string",
+                    "description":"공유 예산을 사용할 경우 사용중인 공유 예산 번호입니다. 공유 예산을 사용하지 않으면 null값입니다. \nIf using shared budget, the shared budget ID in use. Null if you are not using shared budgets."
+                },
+                "sharedBudgetName":{
+                    "type":"string",
+                    "description":"공유 예산을 사용할 경우 사용중인 공유 예산 이름입니다. 공유 예산을 사용하지 않으면 null값입니다. \nIf using shared budget, the shared budget name in use. Null if you are not using shared budgets."
+                },
+                "sharedBudgetLock":{
+                    "type":"boolean",
+                    "description":"광고그룹이 속한 공유예산의 잠김 여부입니다.\nWhether the shared budget is locked or not"
+                },
+                "sharedBudgetExpectCost":{
+                    "type":"integer",
+                    "format":"int64",
+                    "description":"광고그룹이 속한 공유예산의 예상 과금액입니다.\nExpected cost of the shared budget"
+                },
+                "sharedDailyBudget":{
+                    "type":"string",
+                    "description":"광고그룹이 속한 공유예산의 하루예산입니다.\nShared Daily budget"
                 },
                 "status":{
                     "type":"string",
-                    "description":"Status of this Ad Group #hidden-request",
+                    "description":"광고그룹의 상태를 나타냅니다.\nStatus of this Ad Group #hidden-request",
                     "enum":[
                         "ELIGIBLE",
                         "LIMITED_ELIGIBLE",
@@ -6743,7 +7804,7 @@
                 },
                 "statusReason":{
                     "type":"string",
-                    "description":"Status reason of this Ad Group #hidden-request",
+                    "description":"광고그룹의 상태에 대한 원인을 나타냅니다.\nStatus reason of this Ad Group #hidden-request",
                     "enum":[
                         "CAMPAIGN_PAUSED",
                         "CAMPAIGN_PENDING",
@@ -6763,32 +7824,46 @@
                         "GROUP_LIMITED_BY_BUDGET"
                     ]
                 },
+                "systemBiddingType":{
+                    "type":"string",
+                    "description":"광고그룹의 자동입찰 속성을 나타냅니다.\nThe type of adgroup system bidding. allowableValues = NONE, ML, MAXCONV"
+                },
                 "targets":{
                     "type":"array",
-                    "description":"Each targeting information in the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default targetting",
+                    "description":"광고그룹의 타겟팅 정보를 나타냅니다.\nEach targeting information in the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default targetting",
                     "items":{
                         "$ref":"#/definitions/Target"
                     }
                 },
+                "useCloseVariant": {
+                    "type":"boolean",
+                    "example":false,
+                    "description":"일치(유사검색어) 노출 여부를 나타냅니다. 사용: true, 사용안함: false\nWhether to use Close Variant match."
+                },
                 "useCntsNetworkBidAmt":{
                     "type":"boolean",
                     "example":false,
-                    "description":"Whether to use separate bids for the content network. When you create a new Ad Group, If this field is blank, and then set to the default value.(false). This field isn't use to Adgroup of Shopping campaign type. #required-update"
+                    "description":"컨텐츠 네트워크 입찰가 사용 여부를 나타냅니다.\nWhether to use separate bids for the content network. When you create a new Ad Group, If this field is blank, and then set to the default value.(false). This field isn't use to Adgroup of Shopping campaign type. #required-update"
+                },
+                "useCntsNetworkBidWeight":{
+                    "type":"boolean",
+                    "example":false,
+                    "description":"컨텐츠 네트워크 입찰 가중치 사용여부를 나타냅니다.\nWhether to use separate bids for the content network. When you create a new Ad Group, If this field is blank, and then set to the default value.(false). #required-update"
                 },
                 "useDailyBudget":{
                     "type":"boolean",
                     "example":false,
-                    "description":"Whether to use maximum budget of a day of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
+                    "description":"광고그룹의 하루 최대 예산을 사용할지 여부를 나타냅니다.\nWhether to use maximum budget of a day of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
                 },
                 "useKeywordPlus":{
                     "type":"boolean",
                     "example":false,
-                    "description":"Whether to use keyword-plus of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false). This field isn't use to Adgroup of Shopping campaign type. #required-update"
+                    "description":"키워드 확장 기능을 사용할지 여부를 나타냅니다. true일 경우 키워드 확장 기능을 사용합니다. false일 경우 키워드 확장 기능을 사용안합니다.\nWhether to use keyword-plus of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false). This field isn't use to Adgroup of Shopping campaign type. #required-update"
                 },
                 "userLock":{
                     "type":"boolean",
                     "example":false,
-                    "description":"This field can be used for ENABLED or PAUSED of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
+                    "description":"광고그룹의 On/Off 노출 설정입니다. true일 경우 노출이 중지됩니다. false일 경우 노출이 가능합니다.\nThis field can be used for ENABLED or PAUSED of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
                 }
             }
         },
@@ -6943,25 +8018,28 @@
             "properties":{
                 "campaignTp":{
                     "type":"string",
-                    "description":"The type for the campaign.  #required-create #hidden-update",
+                    "description":"캠페인 유형입니다. \nThe type for the campaign.  #required-create #hidden-update",
                     "enum":[
-                        "WEB_SITE",
-                        "SHOPPING"
+                        "WEB_SITE(파워링크 유형)",
+                        "SHOPPING(쇼핑검색 유형)",
+                        "POWER_CONTENTS(파워컨텐츠 유형)",
+                        "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
+                        "PLACE(플레이스 유형)"
                     ]
                 },
                 "customerId":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The unique ID of the customer #required-create #required-update  #hidden-request"
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account. #required-create #required-update  #hidden-request"
                 },
                 "dailyBudget":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The maximum budget of the use of the campaign during the day. If this field is blank, and then set to the default value.(0). #hidden-update"
+                    "description":"캠페인에 설정된 하루 예산 최대값입니다. 'useDailyBudget' 값이 true일 경우에만 하루 예산이 적용됩니다. 광고주가 설정하지 않을 경우 기본값 0이 저장됩니다.\nThe maximum daily budget set for the campaign. The daily budget is only applied if the value of 'useDailyBudget' is true. If not set by the advertiser, the default value of 0 is saved. #hidden-update"
                 },
                 "deliveryMethod":{
                     "type":"string",
-                    "description":"choosing 'Accelerated' or 'Standard' ad delivery.  The default value is 'ACCELERATED'.  \n Available values are 'ACCELERATED', 'STANDARD'   #hidden-update",
+                    "description":"하루 예산을 이용하여 광고를 송출하는 방법을 나타냅니다. 기본 값은 빠른 소진(ACCELERATED) 이며, 균등 소진을 원할 경우 'STANDARD' 값을 입력 합니다.\nIndicates how ads are served using the daily budget. The default value is ACCELERATED, enter the value 'STANDARD' if you want an even distribution.  #hidden-update",
                     "enum":[
                         "ACCELERATED",
                         "STANDARD"
@@ -6969,31 +8047,60 @@
                 },
                 "editTm":{
                     "type":"string",
-                    "description":"Recently modified time (RFC 3339 datetime). #hidden-request"
+                    "description":"최근 수정 시각\nRecently modified time (RFC 3339 datetime). #hidden-request"
                 },
                 "name":{
                     "type":"string",
-                    "description":"Name of this campaign. This field is required and should not be null for ADD operations. #required-create  #hidden-update"
+                    "description":"캠페인의 이름입니다. 캠페인 생성시 경우 필수 입력되어야 합니다.\nName of this campaign. This field is required and should not be null for ADD operations. #required-create  #hidden-update"
                 },
                 "nccCampaignId":{
                     "type":"string",
-                    "description":"The unique ID of the campaign  #hidden-create #required-update"
+                    "description":"캠페인의 고유 식별자 입니다. \nThe unique ID of the campaign  #hidden-create #required-update"
                 },
                 "periodEndDt":{
                     "type":"string",
-                    "description":"The time at which the campaign ends (RFC 3339 date-time). #hidden-update"
+                    "description":"캠페인 노출이 종료되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe date the campaign impression ends. Valid only if the value of 'usePeriod' is true. (RFC 3339 date-time). #hidden-update"
                 },
                 "periodStartDt":{
                     "type":"string",
-                    "description":"The time at which the campaign starts (RFC 3339 date-time). #hidden-update"
+                    "description":"캠페인 노출이 시작되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe date the campaign impressions start. Valid only if the value of 'usePeriod' is true. (RFC 3339 date-time). #hidden-update"
                 },
                 "regTm":{
                     "type":"string",
-                    "description":"The time at which the campaign was created (RFC 3339 date-time). #hidden-request"
+                    "description":"캠페인이 생성된 시각을 나타냅니다. \nThe time at which the campaign was created (RFC 3339 date-time). #hidden-request"
+                },
+                "sharedBudgetId":{
+                    "type":"string",
+                    "description":"공유 예산을 사용할 경우 사용중인 공유 예산 번호입니다. 공유 예산을 사용하지 않으면 null값입니다. \nIf using shared budget, the shared budget ID in use. Null if you are not using shared budgets."
+                },
+                "sharedBudgetName":{
+                    "type":"string",
+                    "description":"공유 예산을 사용할 경우 사용중인 공유 예산 이름입니다. 공유 예산을 사용하지 않으면 null값입니다. \nIf using shared budget, the shared budget name in use. Null if you are not using shared budgets."
+                },
+                "sharedBudgetDeliveryMethod":{
+                    "type":"string",
+                    "description":"공유 예산을 사용하여 광고를 송출하는 방식입니다. 기본값은 빠른 소진(ACCELERATED) 이며 균등 소진은 'STANDARD' 입니다.\nHow ads are served using the shared budget. The default is 'ACCELERATED' for accelerated distribution and 'STANDARD' for even distribution.(ACCELERATED (1), STANDARD(2))",
+                    "enum":[
+                        "ACCELERATED",
+                        "STANDARD"
+                    ]
+                },
+                "sharedBudgetLock":{
+                    "type":"boolean",
+                    "description":"공유 예산이 부족하여 노출이 중지된 경우 'true'로 설정됩니다.\nWhether the shared budget is locked or not"
+                },
+                "sharedBudgetExpectCost":{
+                    "type":"integer",
+                    "format":"int64",
+                    "description":"공유 예산을 사용할 경우 공유 예산에서 차감될 예상 과금액을 나타냅니다.\nExpected cost of the shared budget"
+                },
+                "sharedDailyBudget":{
+                    "type":"string",
+                    "description":"공유 예산을 사용할 경우 설정된 공유 예산의 최대 금액입니다.\nShared Daily budget"
                 },
                 "status":{
                     "type":"string",
-                    "description":"Status of this campaign #hidden-request",
+                    "description":"캠페인 계산된 상태를 나타냅니다. 상태 값은 아래의 값중 하나를 가질 수 있습니다.(https://github.com/naver/searchad-apidoc/wiki/FAQ)\nStatus of this campaign #hidden-request",
                     "enum":[
                         "ELIGIBLE",
                         "PAUSED",
@@ -7002,41 +8109,42 @@
                 },
                 "statusReason":{
                     "type":"string",
-                    "description":"Status reason of this campaign #hidden-request",
+                    "description":"캠페인 상태에 대한 이유를 나타냅니다. 이유는 아래의 값중 하나를 가질 수 있습니다.\nStatus reason of this campaign #hidden-request",
                     "enum":[
-                        "CAMPAIGN_PAUSED",
-                        "CAMPAIGN_PENDING",
-                        "CAMPAIGN_ENDED",
-                        "CAMPAIGN_LIMITED_BY_BUDGET"
+                        "CAMPAIGN_PAUSED(사용자 중지)",
+                        "CAMPAIGN_PENDING(노출 기간 설정 이전)",
+                        "CAMPAIGN_ENDED(노출 기간 설정 이후)",
+                        "CAMPAIGN_LIMITED_BY_BUDGET(예산 도달)",
+                        "CAMPAIGN_LIMITED_BY_SHARED_BUDGET(공유 예산 도달)"
                     ]
                 },
                 "trackingMode":{
                     "type":"string",
-                    "description":"The type of the conversion tracking. Available values are 'TRACKING_DISABLED', 'AUTO_TRACKING_MODE', 'PASS_THROUGH_SITE_MODE'. If this field is blank, and then set to the default value(TRACKING_DISABLED). #hidden-update ",
+                    "description":"캠페인의 추적 기능 설정을 나타냅니다.\nThe type of the conversion tracking. Available values are 'TRACKING_DISABLED', 'AUTO_TRACKING_MODE', 'PASS_THROUGH_SITE_MODE'. If this field is blank, and then set to the default value(TRACKING_DISABLED). #hidden-update ",
                     "enum":[
-                        "TRACKING_DISABLED",
-                        "AUTO_TRACKING_MODE",
-                        "PASS_THROUGH_SITE_MODE"
+                        "TRACKING_DISABLED(추적기능 사용하지 않음)",
+                        "AUTO_TRACKING_MODE(자동 추적URL 파라미터)",
+                        "PASS_THROUGH_SITE_MODE(추적 경유 사이트)"
                     ]
                 },
                 "trackingUrl":{
                     "type":"string",
-                    "description":"The value which indicates an URL of the intermediate site used by customer for the purpose of conversion tracking. #hidden-update"
+                    "description":"캠페인의 추적 기능 설정이 '추적 경유 사이트(PASS_THROUGH_SITE_MODE)'일 때 중간 경유할 URL입니다.\nThe value which indicates an URL of the intermediate site used by customer for the purpose of conversion tracking. #hidden-update"
                 },
                 "useDailyBudget":{
                     "type":"boolean",
                     "example":false,
-                    "description":"Whether to use maximum budget of a day of the campaign. If this field is blank, and then set to the default value.(false)  \n true: use, false: unuse #hidden-update"
+                    "description":"하루 예산 사용 여부를 나타냅니다. 기본값은 false입니다.\nWhether to use maximum budget of a day of the campaign. If this field is blank, and then set to the default value.(false)  \n true: use, false: unuse #hidden-update"
                 },
                 "usePeriod":{
                     "type":"boolean",
                     "example":false,
-                    "description":"use period.  \n true: use, false: unuse  If this field is blank, and then set to the default value(false).  #hidden-update"
+                    "description":"캠페인의 노출기간 설정 여부입니다. 노출 기간을 설정할 경우 true입니다. 노출 기간 설정시 시작일(periodStartDt), 종료일(periodEndDt)도 같이 설정하여야 합니다.\nuse period.  \n true: use, false: unuse  If this field is blank, and then set to the default value(false).  #hidden-update"
                 },
                 "userLock":{
                     "type":"boolean",
                     "example":false,
-                    "description":"This field can be used for ENABLED or PAUSED of the campaign. When you create a new campaign, If this field is blank, and then set to the default value.(false)  #required-update"
+                    "description":"캠페인의 On/Off 설정입니다. 노출을 중지할 경우 true 값을 가집니다.\nThis field can be used for ENABLED or PAUSED of the campaign. When you create a new campaign, If this field is blank, and then set to the default value.(false)  #required-update"
                 }
             }
         },
@@ -7108,11 +8216,11 @@
                 "customerId":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"The unique ID of the customer"
+                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account."
                 },
                 "editTm":{
                     "type":"string",
-                    "description":"Recently modified time (RFC 3339 datetime)."
+                    "description":"최근 수정 시각\nRecently modified time (RFC 3339 datetime)."
                 },
                 "exposureEndDt":{
                     "type":"string",
@@ -7342,7 +8450,7 @@
             "properties":{
                 "editTm":{
                     "type":"string",
-                    "description":"Recently modified time (RFC 3339 datetime)."
+                    "description":"최근 수정 시각\nRecently modified time (RFC 3339 datetime)."
                 },
                 "enable":{
                     "type":"boolean",
