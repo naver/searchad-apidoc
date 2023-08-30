@@ -242,15 +242,15 @@
                      "cpc",
                      "avgRnk",
                      "ccnt",
-		     "recentAvgRnk",
+                     "recentAvgRnk",
                      "recentAvgCpc",
                      "pcNxAvgRnk",
                      "mblNxAvgRnk",
-		     "crto",
-		     "convAmt",
-		     "ror",
-		     "cpConv",
-		     "viewCnt"
+                     "crto",
+                     "convAmt",
+                     "ror",
+                     "cpConv",
+                     "viewCnt"
                   ]
                },
                {
@@ -356,15 +356,15 @@
                      "cpc",
                      "avgRnk",
                      "ccnt",
-		     "recentAvgRnk",
+                     "recentAvgRnk",
                      "recentAvgCpc",
                      "pcNxAvgRnk",
                      "mblNxAvgRnk",
-		     "crto",
-		     "convAmt",
-		     "ror",
-		     "cpConv",
-		     "viewCnt"
+                     "crto",
+                     "convAmt",
+                     "ror",
+                     "cpConv",
+                     "viewCnt"
                   ]
                },
                {
@@ -396,7 +396,7 @@
                   "description":"Selection of daily aggregated stats(1) or summary stats(allDays). Default value is allDays #optional-request",
                   "required":false,
                   "type":"string",
-                  "enum":[                     
+                  "enum":[
                      "allDays"
                   ]
                },
@@ -541,7 +541,7 @@
             },
             "updateTm":{
                "type":"string",
-               "description":"Recently modified time\n yyyy-MM-ddTHH:mm:ssZ (ISO8601)"
+               "description":"최근 수정 시각\nRecently modified time\n yyyy-MM-ddTHH:mm:ssZ (ISO8601)"
             }
          }
       },
@@ -638,9 +638,9 @@
                "$ref":"#/definitions/Summary"
             },
             "cycleBaseTm":{
-                "type":"string",
-                "description":"The latest datetime available. (yyyyMMddHHmm)"
-	    }
+               "type":"string",
+               "description":"The latest datetime available. (yyyyMMddHHmm)"
+            }
          }
       },
       "BreakdownStat":{
@@ -788,10 +788,10 @@
                }
             },
             "cycleBaseTm":{
-                "type":"string",
-                "description":"The latest datetime available. (yyyyMMddHHmm)"
-	    }
-            
+               "type":"string",
+               "description":"The latest datetime available. (yyyyMMddHHmm)"
+            }
+
          }
       },
       "Number":{
