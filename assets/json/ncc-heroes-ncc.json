@@ -7919,10 +7919,6 @@
         "ManagedKeyword":{
             "type":"object",
             "properties":{
-                "PCPLMaxDepth":{
-                    "type":"integer",
-                    "format":"int32"
-                },
                 "editTm":{
                     "type":"string",
                     "example":"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
