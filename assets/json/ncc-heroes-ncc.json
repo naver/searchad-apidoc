@@ -6477,7 +6477,7 @@
                 },
                 "type":{
                     "type":"string",
-                    "description":"확장 소재의 종류를 나타냅니다.(https://github.com/naver/searchad-apidoc/wiki/FAQ)\n\nAPI를 이용하여 생성 불가능한 유형: \n- SHOPPING_EXTRA\n- CATALOG_EXTRA\n- CATALOG_EVENT\n- CATALOG_PURCHASE_CONDITION\n- SHOPPING_BRAND_BROADCAST\n- SHOPPING_BRAND_EVENT\n- PLACE_SMART_ORDER,NAVER_BLOG_REVIEW\n- POWER_LINK_IMAGE\n- IMAGE_SUB_LINKS\n- CATALOG_IMAGE\n- NAVER_TV_VIDEO\n- SHOPPING_BRAND_IMAGE\n- SHOPPING_BRAND_VIDEO\nThe type of the AD extension  #required-create #hidden-update",
+                    "description":"확장 소재의 종류를 나타냅니다.(https://github.com/naver/searchad-apidoc/wiki/FAQ)\n\nAPI를 이용하여 생성 불가능한 유형: \n- SHOPPING_EXTRA\n- CATALOG_EXTRA\n- CATALOG_EVENT\n- CATALOG_PURCHASE_CONDITION\n- SHOPPING_BRAND_BROADCAST\n- SHOPPING_BRAND_EVENT\n- PLACE_SMART_ORDER,NAVER_BLOG_REVIEW\n- POWER_LINK_IMAGE\n- IMAGE_SUB_LINKS\n- CATALOG_IMAGE\n- NAVER_TV_VIDEO\n- SHOPPING_BRAND_IMAGE\n- SHOPPING_BRAND_VIDEO\n- SHOPPING_BRAND_DAY\nThe type of the AD extension  #required-create #hidden-update",
                     "enum":[
                         "PHONE",
                         "LOCATION",
@@ -6509,7 +6509,8 @@
                         "PLACE_SMART_ORDER",
                         "SHOPPING_BRAND_EVENT",
                         "PLACE_BEAUTY_STYLE",
-                        "DESCRIPTION_EXTRA"
+                        "DESCRIPTION_EXTRA",
+                        "SHOPPING_BRAND_DAY"
                     ]
                 },
                 "usePeriod":{
