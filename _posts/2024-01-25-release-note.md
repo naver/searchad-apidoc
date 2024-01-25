@@ -10,7 +10,7 @@ categories: [release]
 * 삭제된 캠페인과 광고 요소는 복구가 되지 않습니다.
 * API 문서는 추후 업데이트될 예정입니다.
 
-### 단일 켐페인 삭제
+### 단일 캠페인 삭제
 * 요청
   ```shell
   DELETE /ncc/campaigns/{campaign id}
