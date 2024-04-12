@@ -250,7 +250,20 @@
                         "Biz",
                         "SeasonalEvent",
                         "ShoppingProduct",
-                        "ContentsAd"
+                        "ContentsAd",
+                        "PlaceAd",
+                        "CatalogAd",
+                        "AdQi",
+                        "ProductGroup",
+                        "ProductGroupRel",
+                        "BrandAd",
+                        "BrandThumbnailAd",
+                        "BrandBannerAd",
+                        "Criterion",
+                        "SharedBudget",
+                        "Asset",
+                        "AdAssetLink",
+                        "RsaAd"
                     ],
                     "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
                 },
