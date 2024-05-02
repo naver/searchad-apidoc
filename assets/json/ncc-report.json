@@ -519,7 +519,9 @@
                   "SHOPPINGKEYWORD_DETAIL",
                   "SHOPPINGKEYWORD_CONVERSION_DETAIL",
                   "SHOPPINGBRANDPRODUCT",
-                  "SHOPPINGBRANDPRODUCT_CONVERSION"
+                  "SHOPPINGBRANDPRODUCT_CONVERSION",
+                  "CRITERION",
+                  "CRITERION_CONVERSION"
                ]
             },
             "statDt":{
@@ -870,7 +872,9 @@
                   "SHOPPINGKEYWORD_DETAIL",
                   "SHOPPINGKEYWORD_CONVERSION_DETAIL",
                   "SHOPPINGBRANDPRODUCT",
-                  "SHOPPINGBRANDPRODUCT_CONVERSION"
+                  "SHOPPINGBRANDPRODUCT_CONVERSION",
+                  "CRITERION",
+                  "CRITERION_CONVERSION"
                ]
             },
             "statDt":{
