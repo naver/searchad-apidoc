@@ -1,4 +1,4 @@
-{
+{ 
     "swagger":"2.0",
     "info":{
         "description":"Heroes 서비스에서 제공하는 NCC api 목록",
@@ -856,8 +856,8 @@
                 "tags":[
                     "Adgroup"
                 ],
-                "summary":"create (keyword plus restricted keywords)",
-                "description":"Create 'keyword plus' impression-restricted keywords for the adgroup. This feature is only available for adgroups of website campaign types.",
+                "summary":"create (restricted keywords)",
+                "description":"Create impression-restricted keywords for the adgroup. This feature is only available for adgroups of website campaign types.",
                 "operationId":"addRestrictedKeywordsUsingPOST",
                 "consumes":[
                     "application/json"
@@ -916,8 +916,8 @@
                 "tags":[
                     "Adgroup"
                 ],
-                "summary":"list (keyword plus restricted keywords)",
-                "description":"Returns a list of 'keyword plus' impression-restricted keywords. This feature is only available for adgroups of website campaign types.",
+                "summary":"list (restricted keywords)",
+                "description":"Returns a list of impression-restricted keywords. This feature is only available for adgroups of website campaign types.",
                 "operationId":"getRestrictedKeywordsUsingGET",
                 "consumes":[
                     "application/json"
@@ -929,7 +929,7 @@
                     {
                         "name":"type",
                         "in":"query",
-                        "description":"Type of keyword. default value is 'KEYWORD_PLUS_RESTRICT'",
+                        "description":"Type of the restricted keyword. default value is 'KEYWORD_PLUS_RESTRICT'. Such type of the restricted keyword is applied to 'Smart Block' and 'Close Variant'.\n제외 키워드의 type입니다. 기본값은 'KEYWORD_PLUS_RESTRICT' 입니다. 해당 type의 제외 키워드는 스마트블록 및 유사검색어에 적용됩니다.",
                         "required":false,
                         "type":"string",
                         "enum":[
@@ -971,8 +971,8 @@
                 "tags":[
                     "Adgroup"
                 ],
-                "summary":"delete (keyword plus restricted keywords)",
-                "description":"Remove 'keyword plus' impression-restricted keywords. This feature is only available for adgroups of website campaign types.",
+                "summary":"delete (restricted keywords)",
+                "description":"Remove impression-restricted keywords. This feature is only available for adgroups of website campaign types.",
                 "operationId":"removeRestrictedKeywordsUsingDELETE",
                 "consumes":[
                     "application/json"
@@ -1096,7 +1096,6 @@
                             "bidAmt",
                             "userLock",
                             "budget",
-                            "useKeywordPlus",
                             "networkBidWeight",
                             "targetLocation",
                             "targetTime",
@@ -1235,7 +1234,6 @@
                             "bidAmt",
                             "userLock",
                             "budget",
-                            "useKeywordPlus",
                             "networkBidWeight",
                             "targetLocation",
                             "targetTime",
@@ -1901,7 +1899,7 @@
                     "Campaign"
                 ],
                 "summary":"delete",
-                "description":"지정한 캠페인을 영구적으로 삭제합니다. 하위 요소가 존재하는 경우, 모든 하위요소는 함께 삭제됩니다. #hidden",
+                "description":"지정한 캠페인을 영구적으로 삭제합니다. 하위 요소가 존재하는 경우, 모든 하위요소는 함께 삭제됩니다.",
                 "operationId":"removeUsingDELETE_7",
                 "consumes":[
                     "application/json"
@@ -2019,13 +2017,13 @@
                         "required":false,
                         "type":"string",
                         "enum":[
-                            "WEB_SITE(파워링크 유형)",
-                            "SHOPPING(쇼핑검색 유형)",
-                            "POWER_CONTENTS(파워컨텐츠 유형)",
-                            "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
-                            "PLACE(플레이스 유형)"
-                        ]
-
+                          "WEB_SITE(파워링크 유형)",
+                          "SHOPPING(쇼핑검색 유형)",
+                          "POWER_CONTENTS(파워컨텐츠 유형)",
+                          "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
+                          "PLACE(플레이스 유형)"
+                      ]
+  
                     },
                     {
                         "name":"baseSearchId",
@@ -2182,7 +2180,7 @@
                     "Campaign"
                 ],
                 "summary":"delete items",
-                "description":"뉴 클릭초이스 다수의 캠페인 삭제 #hidden",
+                "description":"뉴 클릭초이스 다수의 캠페인 삭제",
                 "operationId":"removeCampaignsUsingDELETE",
                 "consumes":[
                     "application/json"
@@ -6152,7 +6150,7 @@
                 "nccQi":{
                     "description":"Quality index of SHOPPING_PRODUCT_AD/CATALOG_AD. 1 ~ 7 #hidden-request #hidden-create",
                     "$ref":"#/definitions/NccNewQi"
-                },
+                },                
                 "regTm":{
                     "type":"string",
                     "description":"The time when this ad was created (RFC 3339 datetime). #hidden-request #hidden-create"
@@ -6477,7 +6475,7 @@
                 },
                 "type":{
                     "type":"string",
-                    "description":"확장 소재의 종류를 나타냅니다.(https://github.com/naver/searchad-apidoc/wiki/FAQ)\n\nAPI를 이용하여 생성 불가능한 유형: \n- SHOPPING_EXTRA\n- CATALOG_EXTRA\n- CATALOG_EVENT\n- CATALOG_PURCHASE_CONDITION\n- SHOPPING_BRAND_BROADCAST\n- SHOPPING_BRAND_EVENT\n- PLACE_SMART_ORDER,NAVER_BLOG_REVIEW\n- POWER_LINK_IMAGE\n- IMAGE_SUB_LINKS\n- CATALOG_IMAGE\n- NAVER_TV_VIDEO\n- SHOPPING_BRAND_IMAGE\n- SHOPPING_BRAND_VIDEO\n- SHOPPING_BRAND_DAY\nThe type of the AD extension  #required-create #hidden-update",
+                    "description":"확장 소재의 종류를 나타냅니다.(https://github.com/naver/searchad-apidoc/wiki/FAQ)\n\nAPI를 이용하여 생성 불가능한 유형: \n- SHOPPING_EXTRA\n- CATALOG_EXTRA\n- CATALOG_EVENT\n- CATALOG_PURCHASE_CONDITION\n- SHOPPING_BRAND_BROADCAST\n- SHOPPING_BRAND_EVENT\n- PLACE_SMART_ORDER,NAVER_BLOG_REVIEW\n- POWER_LINK_IMAGE\n- IMAGE_SUB_LINKS\n- CATALOG_IMAGE\n- NAVER_TV_VIDEO\n- SHOPPING_BRAND_IMAGE\n- SHOPPING_BRAND_VIDEO\nThe type of the AD extension  #required-create #hidden-update",
                     "enum":[
                         "PHONE",
                         "LOCATION",
@@ -6509,8 +6507,7 @@
                         "PLACE_SMART_ORDER",
                         "SHOPPING_BRAND_EVENT",
                         "PLACE_BEAUTY_STYLE",
-                        "DESCRIPTION_EXTRA",
-                        "SHOPPING_BRAND_DAY"
+                        "DESCRIPTION_EXTRA"
                     ]
                 },
                 "usePeriod":{
@@ -7031,11 +7028,11 @@
                 "campaignTp":{
                     "type":"string",
                     "enum":[
-                        "WEB_SITE(파워링크 유형)",
-                        "SHOPPING(쇼핑검색 유형)",
-                        "POWER_CONTENTS(파워컨텐츠 유형)",
-                        "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
-                        "PLACE(플레이스 유형)"
+                      "WEB_SITE(파워링크 유형)",
+                      "SHOPPING(쇼핑검색 유형)",
+                      "POWER_CONTENTS(파워컨텐츠 유형)",
+                      "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
+                      "PLACE(플레이스 유형)"
                     ]
                 },
                 "useNaChannelCnt":{
@@ -7332,15 +7329,15 @@
             }
         },
         "NccNewQi":{
-            "type":"object",
-            "properties":{
-                "qiGrade":{
-                    "type":"integer",
-                    "format":"int32",
-                    "description":"qi grade"
-                }
-            }
-        },
+           "type":"object",
+           "properties":{
+              "qiGrade":{
+                 "type":"integer",
+                 "format":"int32",
+                 "description":"qi grade"
+              }
+           }
+        },        
         "NccQi":{
             "type":"object",
             "properties":{
@@ -7724,11 +7721,6 @@
                     "type":"string",
                     "description":"광고 그룹 최근 수정 시각입니다.\nRecently modified time (RFC 3339 datetime). #hidden-request"
                 },
-                "keywordPlusWeight":{
-                    "type":"integer",
-                    "format":"int32",
-                    "description":"Bids weights for keyword-plus of the Ad Group. You can enter between 1 to 9999. When you create a new Ad Group, If this field is blank, and then set to the default value.(100). This field isn't use to Adgroup of Shopping campaign type. #required-update"
-                },
                 "mobileChannelId":{
                     "type":"string",
                     "description":"모바일 비즈니스 채널의 고유 ID입니다.\nThe unique ID of the mobile buisness channel containing this Ad Group. If necessary this ad group will need to enter the ID of the type of case belong to the campaign \"SITE\" type of channel type of web site, enter the ID of the channel type of case \"MALL\" type belonging to the shopping kind of campaign there is. #required-create"
@@ -7836,11 +7828,6 @@
                         "$ref":"#/definitions/Target"
                     }
                 },
-                "useCloseVariant": {
-                    "type":"boolean",
-                    "example":false,
-                    "description":"일치(유사검색어) 노출 여부를 나타냅니다. 사용: true, 사용안함: false\nWhether to use Close Variant match."
-                },
                 "useCntsNetworkBidAmt":{
                     "type":"boolean",
                     "example":false,
@@ -7855,11 +7842,6 @@
                     "type":"boolean",
                     "example":false,
                     "description":"광고그룹의 하루 최대 예산을 사용할지 여부를 나타냅니다.\nWhether to use maximum budget of a day of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
-                },
-                "useKeywordPlus":{
-                    "type":"boolean",
-                    "example":false,
-                    "description":"키워드 확장 기능을 사용할지 여부를 나타냅니다. true일 경우 키워드 확장 기능을 사용합니다. false일 경우 키워드 확장 기능을 사용안합니다.\nWhether to use keyword-plus of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false). This field isn't use to Adgroup of Shopping campaign type. #required-update"
                 },
                 "userLock":{
                     "type":"boolean",
@@ -7920,6 +7902,10 @@
         "ManagedKeyword":{
             "type":"object",
             "properties":{
+                "PCPLMaxDepth":{
+                    "type":"integer",
+                    "format":"int32"
+                },
                 "editTm":{
                     "type":"string",
                     "example":"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
@@ -8017,11 +8003,11 @@
                     "type":"string",
                     "description":"캠페인 유형입니다. \nThe type for the campaign.  #required-create #hidden-update",
                     "enum":[
-                        "WEB_SITE(파워링크 유형)",
-                        "SHOPPING(쇼핑검색 유형)",
-                        "POWER_CONTENTS(파워컨텐츠 유형)",
-                        "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
-                        "PLACE(플레이스 유형)"
+                      "WEB_SITE(파워링크 유형)",
+                      "SHOPPING(쇼핑검색 유형)",
+                      "POWER_CONTENTS(파워컨텐츠 유형)",
+                      "BRAND_SEARCH(브랜드검색/신제품검색 유형)",
+                      "PLACE(플레이스 유형)"
                     ]
                 },
                 "customerId":{
@@ -8032,11 +8018,11 @@
                 "dailyBudget":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"캠페인에 설정된 하루 예산 최대값입니다. 'useDailyBudget' 값이 true일 경우에만 하루 예산이 적용됩니다. 광고주가 설정하지 않을 경우 기본값 0이 저장됩니다.\nThe maximum daily budget set for the campaign. The daily budget is only applied if the value of 'useDailyBudget' is true. If not set by the advertiser, the default value of 0 is saved. #hidden-update"
+                    "description":"캠페인에 설정된 하루 예산 최대값입니다. 'useDailyBudget' 값이 true일 경우에만 하루 예산이 적용됩니다. 광고주가 설정하지 않을 경우 기본값 0이 저장됩니다.\nThe maximum daily budget set for the campaign. The daily budget is only applied if the value of 'useDailyBudget' is true. If not set by the advertiser, the default value of 0 is saved."
                 },
                 "deliveryMethod":{
                     "type":"string",
-                    "description":"하루 예산을 이용하여 광고를 송출하는 방법을 나타냅니다. 기본 값은 빠른 소진(ACCELERATED) 이며, 균등 소진을 원할 경우 'STANDARD' 값을 입력 합니다.\nIndicates how ads are served using the daily budget. The default value is ACCELERATED, enter the value 'STANDARD' if you want an even distribution.  #hidden-update",
+                    "description":"하루 예산을 이용하여 광고를 송출하는 방법을 나타냅니다. 기본 값은 빠른 소진(ACCELERATED) 이며, 균등 소진을 원할 경우 'STANDARD' 값을 입력 합니다.\nIndicates how ads are served using the daily budget. The default value is ACCELERATED, enter the value 'STANDARD' if you want an even distribution.",
                     "enum":[
                         "ACCELERATED",
                         "STANDARD"
@@ -8056,11 +8042,11 @@
                 },
                 "periodEndDt":{
                     "type":"string",
-                    "description":"캠페인 노출이 종료되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe date the campaign impression ends. Valid only if the value of 'usePeriod' is true. (RFC 3339 date-time). #hidden-update"
+                    "description":"캠페인 노출이 종료되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe date the campaign impression ends. Valid only if the value of 'usePeriod' is true. (RFC 3339 date-time)."
                 },
                 "periodStartDt":{
                     "type":"string",
-                    "description":"캠페인 노출이 시작되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe date the campaign impressions start. Valid only if the value of 'usePeriod' is true. (RFC 3339 date-time). #hidden-update"
+                    "description":"캠페인 노출이 시작되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe date the campaign impressions start. Valid only if the value of 'usePeriod' is true. (RFC 3339 date-time)."
                 },
                 "regTm":{
                     "type":"string",
@@ -8117,7 +8103,7 @@
                 },
                 "trackingMode":{
                     "type":"string",
-                    "description":"캠페인의 추적 기능 설정을 나타냅니다.\nThe type of the conversion tracking. Available values are 'TRACKING_DISABLED', 'AUTO_TRACKING_MODE', 'PASS_THROUGH_SITE_MODE'. If this field is blank, and then set to the default value(TRACKING_DISABLED). #hidden-update ",
+                    "description":"캠페인의 추적 기능 설정을 나타냅니다.\nThe type of the conversion tracking. Available values are 'TRACKING_DISABLED', 'AUTO_TRACKING_MODE', 'PASS_THROUGH_SITE_MODE'. If this field is blank, and then set to the default value(TRACKING_DISABLED).",
                     "enum":[
                         "TRACKING_DISABLED(추적기능 사용하지 않음)",
                         "AUTO_TRACKING_MODE(자동 추적URL 파라미터)",
@@ -8126,17 +8112,17 @@
                 },
                 "trackingUrl":{
                     "type":"string",
-                    "description":"캠페인의 추적 기능 설정이 '추적 경유 사이트(PASS_THROUGH_SITE_MODE)'일 때 중간 경유할 URL입니다.\nThe value which indicates an URL of the intermediate site used by customer for the purpose of conversion tracking. #hidden-update"
+                    "description":"캠페인의 추적 기능 설정이 '추적 경유 사이트(PASS_THROUGH_SITE_MODE)'일 때 중간 경유할 URL입니다.\nThe value which indicates an URL of the intermediate site used by customer for the purpose of conversion tracking."
                 },
                 "useDailyBudget":{
                     "type":"boolean",
                     "example":false,
-                    "description":"하루 예산 사용 여부를 나타냅니다. 기본값은 false입니다.\nWhether to use maximum budget of a day of the campaign. If this field is blank, and then set to the default value.(false)  \n true: use, false: unuse #hidden-update"
+                    "description":"하루 예산 사용 여부를 나타냅니다. 기본값은 false입니다.\nWhether to use maximum budget of a day of the campaign. If this field is blank, and then set to the default value.(false)  \n true: use, false: unuse"
                 },
                 "usePeriod":{
                     "type":"boolean",
                     "example":false,
-                    "description":"캠페인의 노출기간 설정 여부입니다. 노출 기간을 설정할 경우 true입니다. 노출 기간 설정시 시작일(periodStartDt), 종료일(periodEndDt)도 같이 설정하여야 합니다.\nuse period.  \n true: use, false: unuse  If this field is blank, and then set to the default value(false).  #hidden-update"
+                    "description":"캠페인의 노출기간 설정 여부입니다. 노출 기간을 설정할 경우 true입니다. 노출 기간 설정시 시작일(periodStartDt), 종료일(periodEndDt)도 같이 설정하여야 합니다.\nuse period.  \n true: use, false: unuse  If this field is blank, and then set to the default value(false)."
                 },
                 "userLock":{
                     "type":"boolean",
