@@ -225,7 +225,7 @@
           {
             "name": "req",
             "in": "body",
-            "description": "requst array of `keyword`,`bid`,`device` and `keywordplus`",
+            "description": "requst array of `keyword`,`bid`,`device`",
             "required": true,
             "schema": {
               "$ref": "#/definitions/RequestPerformanceBulk"
@@ -738,10 +738,6 @@
             "BOTH"
           ]
         },
-        "keywordplus": {
-          "type": "boolean",
-          "description": "use keyword-plus statistics"
-        },
         "key": {
           "type": "string",
           "description": "if `type` is keyword, key is AdKeyword.`Keyword`. if `type` is id, key\nis AdKeyword.`nccKeywordId`\n"
@@ -768,10 +764,6 @@
             "MOBILE",
             "BOTH"
           ]
-        },
-        "keywordplus": {
-          "type": "boolean",
-          "description": "use keyword-plus statistics"
         },
         "keyword": {
           "type": "string",
@@ -860,10 +852,6 @@
             "BOTH"
           ]
         },
-        "keywordplus": {
-          "type": "boolean",
-          "description": "use keyword-plus statistics"
-        },
         "keyword": {
           "type": "string",
           "description": "Ad Keyword"
@@ -900,10 +888,6 @@
             "MOBILE",
             "BOTH"
           ]
-        },
-        "keywordplus": {
-          "type": "boolean",
-          "description": "use keyword-plus statistics"
         },
         "keyword": {
           "type": "string",
