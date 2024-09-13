@@ -856,8 +856,8 @@
                 "tags":[
                     "Adgroup"
                 ],
-                "summary":"create (restricted keywords)",
-                "description":"Create impression-restricted keywords for the adgroup. This feature is only available for adgroups of website campaign types.",
+                "summary":"create (negative search terms)",
+                "description":"Create impression-negative search terms for the adgroup. This feature is only available for adgroups of website campaign types.",
                 "operationId":"addRestrictedKeywordsUsingPOST",
                 "consumes":[
                     "application/json"
@@ -916,8 +916,8 @@
                 "tags":[
                     "Adgroup"
                 ],
-                "summary":"list (restricted keywords)",
-                "description":"Returns a list of impression-restricted keywords. This feature is only available for adgroups of website campaign types.",
+                "summary":"list (negative search terms)",
+                "description":"Returns a list of impression-negative search terms. This feature is only available for adgroups of website campaign types.",
                 "operationId":"getRestrictedKeywordsUsingGET",
                 "consumes":[
                     "application/json"
@@ -929,11 +929,12 @@
                     {
                         "name":"type",
                         "in":"query",
-                        "description":"Type of the restricted keyword. default value is 'KEYWORD_PLUS_RESTRICT'. Such type of the restricted keyword is applied to 'Smart Block' and 'Close Variant'.\n제외 키워드의 type입니다. 기본값은 'KEYWORD_PLUS_RESTRICT' 입니다. 해당 type의 제외 키워드는 스마트블록 및 유사검색어에 적용됩니다.",
+                        "description":"Type of the negative search term. default value is 'KEYWORD_PLUS_RESTRICT'. Such type of the negative search term is applied to 'Smart Block' and 'Close Variant'.\n제외 키워드의 type입니다. 기본값은 'KEYWORD_PLUS_RESTRICT' 입니다. 해당 type의 제외 키워드는 스마트블록 및 유사검색어에 적용됩니다.",
                         "required":false,
                         "type":"string",
                         "enum":[
-                            "KEYWORD_PLUS_RESTRICT"
+                            "KEYWORD_PLUS_RESTRICT",
+                            "EXP_SEARCH"
                         ]
                     },
                     {
@@ -971,8 +972,8 @@
                 "tags":[
                     "Adgroup"
                 ],
-                "summary":"delete (restricted keywords)",
-                "description":"Remove impression-restricted keywords. This feature is only available for adgroups of website campaign types.",
+                "summary":"delete (negative search terms)",
+                "description":"Remove impression-negative search terms. This feature is only available for adgroups of website campaign types.",
                 "operationId":"removeRestrictedKeywordsUsingDELETE",
                 "consumes":[
                     "application/json"
@@ -1100,7 +1101,8 @@
                             "targetLocation",
                             "targetTime",
                             "targetMedia",
-                            "targetGender"
+                            "targetGender",
+                            "useExpSearch"
                         ]
                     },
                     {
@@ -6536,7 +6538,7 @@
                 },
                 "keyword":{
                     "type":"string",
-                    "description":"Impression-restricted keyword"
+                    "description":"Impression-negative search term"
                 },
                 "nccAdgroupId":{
                     "type":"string",
@@ -6544,7 +6546,7 @@
                 },
                 "nccAdgroupRestrictKwdId":{
                     "type":"string",
-                    "description":"The unique ID of this impression-restricted keyword #hidden-create #required-delete"
+                    "description":"The unique ID of this impression-negative search term #hidden-create #required-delete"
                 },
                 "regTm":{
                     "type":"string",
@@ -6554,7 +6556,8 @@
                     "type":"string",
                     "description":"Type of the keyword. default value is 'KEYWORD_PLUS_RESTRICT'",
                     "enum":[
-                        "KEYWORD_PLUS_RESTRICT"
+                        "KEYWORD_PLUS_RESTRICT",
+                        "EXP_SEARCH"
                     ]
                 }
             }
@@ -7847,6 +7850,23 @@
                     "type":"boolean",
                     "example":false,
                     "description":"광고그룹의 On/Off 노출 설정입니다. true일 경우 노출이 중지됩니다. false일 경우 노출이 가능합니다.\nThis field can be used for ENABLED or PAUSED of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
+                },
+                "useExpSearch":{
+                    "type":"boolean",
+                    "example":false,
+                    "description":"광고 그룹 테이블에 '확장 검색 사용 여부' 필드 USE_EXP_SEARCH 추가:1 : 사용, 0 : 사용 안 함(기본: 사용)\nAdd 'Enable Extended Search' field USE_EXP_SEARCH to the Advertising Group table 1:1:Enable, 0:Disable (Default: Enable) #required-update"
+                },
+                "expSearchBudgetRatio":{
+                    "type":"integer",
+                    "format":"int32",
+                    "example":false,
+                    "description":"광고주가 설정하는 기존 예산 중 확장 검색  에 사용할 예산 비율.(기본: 100%)\nPercentage of the existing budget set by the advertiser to use for Extended Search  (Default: 100%) #required-update"
+                },
+                "sharedExpSearchBudgetRatio":{
+                    "type":"integer",
+                    "format":"int32",
+                    "example":false,
+                    "description":"공유예산:광고주가 설정하는 기존 예산 중 확장 검색  에 사용할 예산 비율.(기본: 100%)\nShared Budget: The percentage of existing budgets set by advertisers that will be used for Extended Search . (Default: 100%) #required-update"
                 }
             }
         },
