@@ -6955,7 +6955,7 @@
             "properties":{
                 "dictionaryCode":{
                     "type":"string",
-                    "description": "타겟팅 고유 번호입니다.\nCriterion Dictionary Code"
+                    "description": "Criterion Dictionary Code입니다.\nCriterion Dictionary Code"
                 },
                 "type":{
                     "type":"string",
