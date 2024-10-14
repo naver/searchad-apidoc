@@ -3882,7 +3882,7 @@
                 "tags": [
                     "Criterion"
                 ],
-                "summary": "get Criterion Code",
+                "summary": "get Criterion dictionary code",
                 "description": "광고그룹에서 지원되는 타게팅 코드를 조회할 수 있습니다. 반경(PROXIMITY)는 조회할 수 없습니다.\n\n You can check the target code supported by the adgroup.\n\n The PROXIMITY cannot be inquired.",
                 "operationId": "get_criterions",
                 "consumes": [
@@ -3893,23 +3893,11 @@
                 ],
                 "parameters": [
                     {
-                        "name": "type",
+                        "name": "dictionary type",
                         "in": "query",
-                        "description": "타겟팅 종류.\ndictionary type",
+                        "description": "Criterion code 종류.\ndictionary code",
                         "required": true,
                         "type": "string"
-                    },
-                    {
-                        "in":"body",
-                        "name":"criterions",
-                        "description":"타겟팅\ncriterions",
-                        "required":true,
-                        "schema":{
-                            "type":"array",
-                            "items":{
-                                "$ref":"#/definitions/Criterion"
-                            }
-                        }
                     }
                 ],
                 "responses": {
@@ -3918,7 +3906,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/Criterion"
+                                "$ref": "#/definitions/CriterionDictionary"
                             }
                         }
                     },
@@ -6959,6 +6947,35 @@
                 },
                 "value": {
                     "type": "string"
+                }
+            }
+        },
+        "CriterionDictionary":{
+            "type":"object",
+            "properties":{
+                "dictionaryCode":{
+                    "type":"string",
+                    "description": "타겟팅 고유 번호입니다.\nCriterion Dictionary Code"
+                },
+                "type":{
+                    "type":"string",
+                    "description": "타게팅의 종류입니다.\nThe type of criterion. SCHEDULE(SD), REGIONAL(RL), PROXIMITY(RP), AGE(AG), GENDER(GN), AUDIENCE(AD)",
+                    "enum":[
+                        "SD",
+                        "RL",
+                        "RP",
+                        "AG",
+                        "GN",
+                        "AD"
+                    ]
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Criterion Dictionary Code 이름입니다.\nThe name of Criterion Dictionary Code"
+                },
+                "value": {
+                    "type": "string",
+                    "description": "PROXIMITY의 경우 위도 경도가 저장됩니다."
                 }
             }
         },
