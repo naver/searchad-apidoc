@@ -18,8 +18,7 @@ GET /stats{?ids,fields,timeRange,datePreset,timeIncrement,breakdown}
 ### Stat
 * Gender(genderNm), Age Range(ageRangeNm), and Town/City District(regnR3Nm) breakdown will be removed from the /stats API.
 
-#### Request
-
+- Request
 ```
 GET /stats{?id,fields,timeRange,datePreset,timeIncrement,breakdown}
 GET /stats{?ids,fields,timeRange,datePreset,timeIncrement,breakdown}
