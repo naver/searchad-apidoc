@@ -8038,7 +8038,7 @@
             "properties":{
                 "campaignTp":{
                     "type":"string",
-                    "description":"캠페인 유형입니다. \nThe type for the campaign.  #required-create #hidden-update",
+                    "description":"캠페인 유형입니다. 캠페인 생성시 필수 입력해야 하는 값입니다.\nThe type for the campaign.  #required-create #hidden-update",
                     "enum":[
                       "WEB_SITE(파워링크 유형)",
                       "SHOPPING(쇼핑검색 유형)",
@@ -8050,7 +8050,7 @@
                 "customerId":{
                     "type":"integer",
                     "format":"int64",
-                    "description":"광고 계정 고유 번호입니다.\nThe unique number for your ad account. #required-create #required-update  #hidden-request"
+                    "description":"광고 계정 고유 번호입니다. 캠페인 생성/수정시 필수 입력값입니다.\nThe unique number for your ad account. #required-create #required-update  #hidden-request"
                 },
                 "dailyBudget":{
                     "type":"integer",
@@ -8165,6 +8165,11 @@
                     "type":"boolean",
                     "example":false,
                     "description":"캠페인의 On/Off 설정입니다. 노출을 중지할 경우 true 값을 가집니다.\nThis field can be used for ENABLED or PAUSED of the campaign. When you create a new campaign, If this field is blank, and then set to the default value.(false)  #required-update"
+                },
+                "trackingUrlCustomParams":{
+                    "type":"string",
+                    "example":false,
+                    "description":"캠페인의 URL 파라미터 값 변경 기능입니다.\nProperty to change the value of a tracking URL custom parameter in a campaign."
                 }
             }
         },
