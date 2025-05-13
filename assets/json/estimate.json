@@ -518,7 +518,7 @@
         },
         "position": {
           "type": "integer",
-          "description": "the `position` for a targetted keyword. valid range: 1~15 on PC, 1~5\non MOBILE\n  \n"
+          "description": "the `position` for a targetted keyword. valid range: 1~10 on PC, 1~5\non MOBILE\n  \n"
         }
       }
     },
