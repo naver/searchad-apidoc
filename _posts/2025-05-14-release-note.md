@@ -18,6 +18,12 @@ WEBSITE_INFO
 }
 ```
 
+### 소재
+* 소재 유형에 `병의원 업종 특화(MEDICAL_AD)` 유형 소재가 추가 되었습니다.
+* `병의원 업종 특화(MEDICAL_AD)` 유형의 소재는 API를 이용하여 등록할 수 없습니다.
+
+
+
 #### On May 14, 2025, the "WEBSITE_INFO" extension for powerlink ads is now available for registration. ([Notice](https://ads.naver.com/notice/21438?searchValue=&page=2))
 
 ### WEBSITE INFO(WEBSITE_INFO)
@@ -33,3 +39,8 @@ WEBSITE_INFO
   "agree": true
 }
 ```
+
+### Ad
+* Added `MEDICAL_AD` to ad type.
+* Ad of type `MEDICAL_AD` cannot be registered using API.
+
