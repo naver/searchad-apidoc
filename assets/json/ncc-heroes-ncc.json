@@ -6214,7 +6214,8 @@
                         "BRAND_SEARCH_AD",
                         "PLACE_AD",
                         "CATALOG_AD",
-                        "SHOPPING_BRAND_AD"
+                        "SHOPPING_BRAND_AD",
+                        "MEDICAL_AD"
                     ]
                 },
                 "userLock":{
