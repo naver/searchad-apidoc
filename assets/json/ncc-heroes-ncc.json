@@ -7721,7 +7721,7 @@
                 "contentsNetworkBidAmt":{
                     "type":"integer",
                     "format":"int32",
-                    "description":"컨텐츠 네트워크 입찰가를 나타냅니다. 쇼핑 캠페인이외 다른 캠페인에서는 무시됩니다.\nMax CPC (cost per click) bid used in contents networks. You can enter between 70 to 100000. When you create a new Ad Group, If this field is blank, and then set to the default value.(70). This field isn't use to Adgroup of Shopping campaign type. #required-update"
+                    "description":"컨텐츠 네트워크 입찰가를 나타냅니다. \nMax CPC (cost per click) bid used in contents networks. You can enter between 70 to 100000. When you create a new Ad Group, If this field is blank, and then set to the default value.(70). #required-update"
                 },
                 "contentsNetworkBidWeight":{
                     "type":"integer",
