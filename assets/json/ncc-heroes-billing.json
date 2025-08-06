@@ -48,65 +48,6 @@
         }
       }
     },
-    "/api/billing/bizmoney/cost{?statDt,searchStartDt,searchEndDt}": {
-      "get": {
-        "tags": [
-          "Bizmoney"
-        ],
-        "summary": "get(cost)",
-        "description": "Returns the used amount of bizmoney that day",
-        "operationId": "getBizmoneyCostUsingGET",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "*/*"
-        ],
-        "parameters": [
-          {
-            "name": "statDt",
-            "in": "query",
-            "description": "Deprecated. Search date (KST, YYYYMMDD)",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "searchStartDt",
-            "in": "query",
-            "description": "Period start date (KST, YYYYMMDD)",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "searchEndDt",
-            "in": "query",
-            "description": "Period end date (KST, YYYYMMDD)",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/BizmoneyCost"
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
     "/api/billing/bizmoney/histories/charge{?searchStartDt,searchEndDt}": {
       "get": {
         "tags": [
