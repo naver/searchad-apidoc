@@ -197,7 +197,8 @@
                         "SharedBudget",
                         "Asset",
                         "AdAssetLink",
-                        "RsaAd"
+                        "RsaAd",
+                        "HospitalAd"
                     ],
                     "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n"
                 },
@@ -263,7 +264,8 @@
                         "SharedBudget",
                         "Asset",
                         "AdAssetLink",
-                        "RsaAd"
+                        "RsaAd",
+                        "HospitalAd"
                     ],
                     "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
                 },
