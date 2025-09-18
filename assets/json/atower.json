@@ -11,15 +11,12 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   },
+  "host": "localhost:10065",
   "basePath": "/",
   "tags": [
     {
       "name": "AdAccounts",
       "description": "Api Ad Accounts Controller"
-    },
-    {
-      "name": "ManagedCustomerLink",
-      "description": "Api Customer Link Controller"
     },
     {
       "name": "ManagerAccounts",
@@ -105,53 +102,6 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/AdAccountMember"
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "deprecated": false
-      }
-    },
-    "/api/customer-links": {
-      "get": {
-        "tags": [
-          "ManagedCustomerLink"
-        ],
-        "summary": "list",
-        "description": "Returns a list of clients or managers (Deprecated)",
-        "operationId": "getCustomerLinksUsingGET",
-        "produces": [
-          "*/*"
-        ],
-        "parameters": [
-          {
-            "name": "type",
-            "in": "query",
-            "description": "Type of customer's relationship",
-            "required": false,
-            "type": "string",
-            "enum": [
-              "MYMANAGERS",
-              "MYCLIENTS"
-            ]
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ManagedCustomerLink"
               }
             }
           },
@@ -343,8 +293,7 @@
           "format": "int64"
         },
         "nonRefundableAmt": {
-          "type": "integer",
-          "format": "int64"
+          "type": "number"
         },
         "orgAmountBid": {
           "type": "integer",
@@ -371,20 +320,17 @@
           "format": "int64"
         },
         "refundableAmt": {
-          "type": "integer",
-          "format": "int64"
+          "type": "number"
         },
         "regTm": {
           "type": "string",
           "format": "date-time"
         },
         "totalCashAmt": {
-          "type": "integer",
-          "format": "int64"
+          "type": "number"
         },
         "totalCashRepaymentAmt": {
-          "type": "integer",
-          "format": "int64"
+          "type": "number"
         }
       },
       "title": "Account"
@@ -424,6 +370,49 @@
       },
       "title": "AdAccount",
       "description": "광고 계정 정보 / Ad Account Info"
+    },
+    "AdAccountAccessResponse": {
+      "type": "object",
+      "properties": {
+        "accessible": {
+          "type": "boolean"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AdAccountAccessResponse"
+    },
+    "AdAccountCustomerMemberResponse": {
+      "type": "object",
+      "properties": {
+        "loginId": {
+          "type": "string"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AdAccountCustomerMemberResponse"
+    },
+    "AdAccountCustomersResponse": {
+      "type": "object",
+      "properties": {
+        "customerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "roleId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "AdAccountCustomersResponse"
     },
     "AdAccountDetail": {
       "type": "object",
@@ -465,6 +454,10 @@
           "type": "integer",
           "format": "int64",
           "description": "광고 계정 번호 / Ad account number"
+        },
+        "penalty": {
+          "description": "계정 이용정지 상태 / Penalty",
+          "$ref": "#/definitions/Penalty"
         },
         "timezone": {
           "type": "string",
@@ -853,6 +846,9 @@
           "type": "string"
         },
         "addr2": {
+          "type": "string"
+        },
+        "adsUserId": {
           "type": "string"
         },
         "agreeAutopay": {
@@ -1273,12 +1269,10 @@
           "format": "date-time"
         },
         "nonRefundableAmt": {
-          "type": "integer",
-          "format": "int64"
+          "type": "number"
         },
         "refundableAmt": {
-          "type": "integer",
-          "format": "int64"
+          "type": "number"
         },
         "regTm": {
           "type": "string",
@@ -1294,6 +1288,10 @@
           "$ref": "#/definitions/ManagedAccount"
         },
         "accountId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "adAccountNo": {
           "type": "integer",
           "format": "int64"
         },
@@ -1900,6 +1898,16 @@
       },
       "title": "Pageable",
       "description": "페이지네이션 정보 / Pageable information"
+    },
+    "Penalty": {
+      "type": "object",
+      "properties": {
+        "penalized": {
+          "type": "boolean"
+        }
+      },
+      "title": "Penalty",
+      "description": "계정 이용정지 상태 / Penalty"
     },
     "PerfAdResponse": {
       "type": "object",
