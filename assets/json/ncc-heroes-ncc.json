@@ -4906,6 +4906,10 @@
           "type": "boolean",
           "example": false,
           "description": "광고그룹의 On/Off 노출 설정입니다. true일 경우 노출이 중지됩니다. false일 경우 노출이 가능합니다.\nThis field can be used for ENABLED or PAUSED of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false)"
+        },
+        "autobidStrategy": {
+         "description": "쇼핑몰 상품형 광고그룹의 자동입찰 전략 속성을 나타냅니다.\nThe type of adgroup system bidding.",
+          "$ref": "#/definitions/AutobidStrategy"
         }
       }
     },
@@ -5069,6 +5073,10 @@
           "type": "boolean",
           "example": false,
           "description": "광고그룹의 On/Off 노출 설정입니다. true일 경우 노출이 중지됩니다. false일 경우 노출이 가능합니다.\nThis field can be used for ENABLED or PAUSED of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
+        },
+        "autobidStrategy": {
+         "description": "쇼핑몰 상품형 광고그룹의 자동입찰 전략 속성을 나타냅니다.\nThe type of adgroup system bidding.",
+          "$ref": "#/definitions/AutobidStrategy"
         }
       }
     },
@@ -5190,6 +5198,47 @@
         "representImage": {
           "type": "integer",
           "format": "int32"
+        }
+      }
+    },
+    "AutobidStrategy": {
+      "type": "object",
+      "properties": {
+        "nccAutobidStrategyId": {
+          "type": "string",
+          "description": "Adgroup Automatic Bidding Strategy ID. 광고그룹의 자동입찰 전략 번호 #hidden-create #required-update"
+        },
+        "customerId": {
+          "type": "int32",
+          "description": "Customer ID. 광고 계정 번호 #hidden-create #required-update"
+        },
+        "autobidTargetId": {
+          "type": "string",
+          "description": "Target ID for applying the automated bidding strategy. 자동입찰을 적용할 대상 번호 #required-create #required-update"
+        },
+        "autobidTargetType": {
+          "type": "string",
+          "description": "Target types for applying automated bidding strategies. 자동입찰을 적용할 대상 유형 #required-create #required-update"
+        },
+        "isAutobidActive": {
+          "type": "boolean",
+          "description": "Whether to apply automatic bidding strategies. 자동입찰을 적용 여부 #required-create #required-update"
+        },
+        "autobidBidGoal": {
+          "type": "string",
+          "description": "Automatic Bidding Strategy Goal. 자동입찰 목표 #required-create #required-update"
+        },
+        "autobidBidType": {
+          "type": "string",
+          "description": "Bidding Strategy types. 입찰 유형 #required-create #required-update"
+        },
+        "autobidBidStrategy": {
+          "type": "string",
+          "description": "Bidding Strategy types. 입찰 전략  #required-create #required-update"
+        },
+        "autobidBidStrategyValue": {
+          "type": "string",
+          "description": "Bidding Strategy cap value. 입찰 전략 값 #required-create #required-update"
         }
       }
     },
