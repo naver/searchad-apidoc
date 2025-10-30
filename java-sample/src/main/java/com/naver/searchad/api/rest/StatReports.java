@@ -13,7 +13,6 @@ public class StatReports {
 	// create
 	public static StatReport create(RestClient rest, long customerId, String reportType, String statDate) throws Exception {
 		HttpResponse<String> response = rest.post("/stat-reports", customerId)
-				.header("Content-Type", "application/json")
 				.body("{\"reportTp\":\"" + reportType + "\", \"statDt\":\"" + statDate + "\"}")
 				.asString();
 
