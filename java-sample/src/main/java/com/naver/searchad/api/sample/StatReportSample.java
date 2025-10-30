@@ -21,7 +21,7 @@ public class StatReportSample {
 			RestClient rest = RestClient.of(baseUrl, apiKey, secretKey);
 
 			String reportType = "AD";
-			String statDate = "20160201";
+			String statDate = "20251001";
 
 			// 리포트 요청 POST /stat-reports
 			StatReport statReport = StatReports.create(rest, customerId, reportType, statDate);
