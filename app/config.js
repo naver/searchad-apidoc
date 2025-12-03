@@ -12,7 +12,8 @@ angular.module('config', [])
     'assets/json/ncc-report.json',
     'assets/json/master-report.json', 
     'assets/json/ncc-keywordstool.json',
-    'assets/json/estimate.json'
+    'assets/json/estimate.json',
+    'assets/json/ncc-inspect-history.json'
   ],
   i18n: {
     prefix: 'assets/i18n/locale-',
