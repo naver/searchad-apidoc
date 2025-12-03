@@ -1,0 +1,150 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Heroes New Clickchoice API",
+    "description": "Heroes 서비스에서 제공하는 NCC 검수이력 조회 api 목록",
+    "version": "v1"
+  },
+  "host": "",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "InspectHistory",
+      "description": "Inspect History Controller"
+    }
+  ],
+  "paths": {
+    "/api/ncc/inspect-history": {
+      "post": {
+        "tags": [
+          "InspectHistory"
+        ],
+        "summary": "Inspection history inquiry",
+        "description": "여러건의 검수이력을 조회합니다.\nView multiple inspection histories.",
+        "operationId": "findByIds",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "[]",
+            "in": "body",
+            "description": "조회할 ID 목록\nList of IDs to search\n Example([\"id1\",\"id2\"])",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "잘못된 요청"
+          },
+          "200": {
+            "description": "조회 성공",
+            "schema": {
+              "$ref": "#/definitions/InspectCommentResponse"
+            }
+          },
+          "404": {
+            "description": "데이터를 찾을 수 없음",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/InspectCommentResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ncc/inspect-history/{id}": {
+      "get": {
+        "tags": [
+          "InspectHistory"
+        ],
+        "summary": "Inspection history single inquiry",
+        "description": "특정 ID에 해당하는 검수이력을 조회합니다.\nView the inspection history corresponding to a specific ID.",
+        "operationId": "find",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "조회할 ID\nID to search",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "잘못된 요청"
+          },
+          "200": {
+            "description": "조회 성공",
+            "schema": {
+              "$ref": "#/definitions/InspectCommentResponse"
+            }
+          },
+          "404": {
+            "description": "데이터를 찾을 수 없음",
+            "schema": {
+              "$ref": "#/definitions/InspectCommentResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CommentResponse": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "title"
+        },
+        "comment": {
+          "type": "string",
+          "description": "comment"
+        },
+        "content": {
+          "type": "string",
+          "description": "content"
+        },
+        "faq": {
+          "type": "string",
+          "description": "faq"
+        }
+      }
+    },
+    "InspectCommentResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "pcInspectComments": {
+          "type": "array",
+          "description": "PC inspection comments",
+          "items": {
+            "$ref": "#/definitions/CommentResponse"
+          }
+        },
+        "mobileInspectComments": {
+          "type": "array",
+          "description": "mobile inspection comments",
+          "items": {
+            "$ref": "#/definitions/CommentResponse"
+          }
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+}
