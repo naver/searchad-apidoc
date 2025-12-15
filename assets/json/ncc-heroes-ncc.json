@@ -593,7 +593,7 @@
         ],
         "summary": "update",
         "description": "Change the Ad Group",
-        "operationId": "modifyUsingPUT_11",
+        "operationId": "modifyUsingPUT_10",
         "consumes": [
           "application/json"
         ],
@@ -839,7 +839,7 @@
         ],
         "summary": "update (by fields)",
         "description": "Change the Ad Group. The parameter fields, enter the name of the Ad Group field you want to change.",
-        "operationId": "modifyUsingPUT_10",
+        "operationId": "modifyUsingPUT_11",
         "consumes": [
           "application/json"
         ],
@@ -955,7 +955,7 @@
         ],
         "summary": "list (by campaign id)",
         "description": "Returns the list of partially AdGroups of input campaign id",
-        "operationId": "getGroupsUsingGET",
+        "operationId": "getGroupsUsingGET_1",
         "consumes": [
           "application/json"
         ],
@@ -1726,7 +1726,7 @@
         ],
         "summary": "list (by customer id, campaign type)",
         "description": "조회 조건에 해당하는 캠페인 목록을 조회합니다.\n\nReturns the list of partially campaigns of customer",
-        "operationId": "getCampaignsUsingGET_2",
+        "operationId": "getCampaignsUsingGET_1",
         "consumes": [
           "application/json"
         ],
@@ -1797,7 +1797,7 @@
         ],
         "summary": "list (by ids)",
         "description": "입력된 아이디에 해당하는 캠페인 목록을 조회합니다.\n\nReturns the list of campaigns of input campaign ids.",
-        "operationId": "getCampaignsUsingGET_1",
+        "operationId": "getCampaignsUsingGET_2",
         "consumes": [
           "application/json"
         ],
@@ -2183,7 +2183,7 @@
         ],
         "summary": "list(by channel Type)",
         "description": "Returns the business channel list of channel type.",
-        "operationId": "getUsingGET_18",
+        "operationId": "getUsingGET_19",
         "consumes": [
           "application/json"
         ],
@@ -2242,7 +2242,7 @@
         ],
         "summary": "list(by ids)",
         "description": "Returns the business channel list of input business channel ids.",
-        "operationId": "getUsingGET_19",
+        "operationId": "getUsingGET_18",
         "consumes": [
           "application/json"
         ],
@@ -4413,6 +4413,11 @@
     "AdKeyword": {
       "type": "object",
       "properties": {
+        "adRelevanceScore": {
+          "type": "integer",
+          "format": "int32",
+          "description": "AdRelevanceScore Information #hidden-request  #hidden-uri-managedKeyword"
+        },
         "attr": {
           "type": "string",
           "example": "{}",
@@ -4431,6 +4436,11 @@
         "editTm": {
           "type": "string",
           "description": "Recently modified time (RFC 3339 datetime). #hidden-request  #hidden-uri-managedKeyword"
+        },
+        "expectedClickScore": {
+          "type": "integer",
+          "format": "int32",
+          "description": "ExpectedClickScore Information #hidden-request  #hidden-uri-managedKeyword"
         },
         "inspectRequestMsg": {
           "type": "string",
@@ -4674,16 +4684,13 @@
           "format": "int64"
         },
         "keepCount": {
-          "type": "integer",
-          "format": "int32"
+          "type": "string"
         },
         "purchaseCount": {
-          "type": "integer",
-          "format": "int32"
+          "type": "string"
         },
         "reviewCount": {
-          "type": "integer",
-          "format": "int32"
+          "type": "string"
         },
         "standardPurchaseOptions": {
           "type": "array",
@@ -4724,6 +4731,10 @@
             "PLACE",
             "CATALOG"
           ]
+        },
+        "autobidStrategy": {
+          "description": "광고 그룹의 자동 입찰 전략입니다.. (쇼핑 검색 캠페인의 상품몰 유형만 유효합니다.)\nThis is the automatic bidding strategy for ad groups. (Valid only for Shopping Search campaigns of the product mall type.)",
+          "$ref": "#/definitions/AutobidStrategyRequest"
         },
         "bidAmt": {
           "type": "integer",
@@ -4906,10 +4917,6 @@
           "type": "boolean",
           "example": false,
           "description": "광고그룹의 On/Off 노출 설정입니다. true일 경우 노출이 중지됩니다. false일 경우 노출이 가능합니다.\nThis field can be used for ENABLED or PAUSED of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false)"
-        },
-        "autobidStrategy": {
-         "description": "쇼핑몰 상품형 광고그룹의 자동입찰 전략 속성을 나타냅니다.\nThe type of adgroup system bidding.",
-          "$ref": "#/definitions/AutobidStrategy"
         }
       }
     },
@@ -4941,6 +4948,10 @@
             "PLACE",
             "CATALOG"
           ]
+        },
+        "autobidStrategy": {
+          "description": "광고 그룹의 자동 입찰 전략입니다.. (쇼핑 검색 캠페인의 상품몰 유형만 유효합니다.)\nThis is the automatic bidding strategy for ad groups. (Valid only for Shopping Search campaigns of the product mall type.)",
+          "$ref": "#/definitions/AutobidStrategyRequest"
         },
         "bidAmt": {
           "type": "integer",
@@ -5073,10 +5084,6 @@
           "type": "boolean",
           "example": false,
           "description": "광고그룹의 On/Off 노출 설정입니다. true일 경우 노출이 중지됩니다. false일 경우 노출이 가능합니다.\nThis field can be used for ENABLED or PAUSED of the Ad Group. When you create a new Ad Group, If this field is blank, and then set to the default value.(false) #required-update"
-        },
-        "autobidStrategy": {
-         "description": "쇼핑몰 상품형 광고그룹의 자동입찰 전략 속성을 나타냅니다.\nThe type of adgroup system bidding.",
-          "$ref": "#/definitions/AutobidStrategy"
         }
       }
     },
@@ -5201,16 +5208,45 @@
         }
       }
     },
-    "AutobidStrategy": {
+    "AutobidStrategyRequest": {
       "type": "object",
       "properties": {
-        "nccAutobidStrategyId": {
+        "autobidBidGoal": {
           "type": "string",
-          "description": "Adgroup Automatic Bidding Strategy ID. 광고그룹의 자동입찰 전략 번호 #hidden-create #required-update"
+          "description": "Automatic Bidding Strategy Goal. 자동입찰을 목표 #required-create #required-update",
+          "enum": [
+            "NONE",
+            "MAX_CLICK",
+            "MAX_CONV",
+            "MAX_CONV_VALUE",
+            "TARGET_CPA",
+            "TARGET_IMPRESSIONSHARE"
+          ]
         },
-        "customerId": {
-          "type": "int32",
-          "description": "Customer ID. 광고 계정 번호 #hidden-create #required-update"
+        "autobidBidStrategy": {
+          "type": "string",
+          "description": "Bidding Strategy types. 입찰 전략 유형 #required-create #required-update",
+          "enum": [
+            "NO_CAP",
+            "BID_CAP",
+            "COST_CAP",
+            "FIXED_BID",
+            "TARGET_ROAS"
+          ]
+        },
+        "autobidBidStrategyValue": {
+          "type": "number",
+          "description": "Bidding Strategy cap value. 입찰 전략 값 #required-create #required-update"
+        },
+        "autobidBidType": {
+          "type": "string",
+          "description": "Bidding Types. Only the current CPC value is valid. 입찰 유형 #required-create #required-update",
+          "enum": [
+            "CPC",
+            "CPM",
+            "CPV",
+            "CPT"
+          ]
         },
         "autobidTargetId": {
           "type": "string",
@@ -5218,27 +5254,26 @@
         },
         "autobidTargetType": {
           "type": "string",
-          "description": "Target types for applying automated bidding strategies. 자동입찰을 적용할 대상 유형 #required-create #required-update"
+          "description": "Target types for applying automated bidding strategies. Only the current GRP value is valid. 자동입찰을 적용할 대상 유형 #required-create #required-update",
+          "enum": [
+            "CMP",
+            "GRP",
+            "PDG"
+          ]
+        },
+        "customerId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Customer ID. 광고 계정 번호 #hidden-create #required-update"
         },
         "isAutobidActive": {
           "type": "boolean",
+          "example": false,
           "description": "Whether to apply automatic bidding strategies. 자동입찰을 적용 여부 #required-create #required-update"
         },
-        "autobidBidGoal": {
+        "nccAutobidStrategyId": {
           "type": "string",
-          "description": "Automatic Bidding Strategy Goal. 자동입찰 목표 #required-create #required-update"
-        },
-        "autobidBidType": {
-          "type": "string",
-          "description": "Bidding Strategy types. 입찰 유형 #required-create #required-update"
-        },
-        "autobidBidStrategy": {
-          "type": "string",
-          "description": "Bidding Strategy types. 입찰 전략  #required-create #required-update"
-        },
-        "autobidBidStrategyValue": {
-          "type": "string",
-          "description": "Bidding Strategy cap value. 입찰 전략 값 #required-create #required-update"
+          "description": "Adgroup Automatic Bidding Strategy ID. 광고그룹의 자동입찰 전략 번호 #hidden-create #required-update"
         }
       }
     },
@@ -8116,8 +8151,7 @@
           "type": "string"
         },
         "keepCnt": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "lowPrice": {
           "type": "string"
@@ -8177,8 +8211,7 @@
           "type": "string"
         },
         "purchaseCnt": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "rcvYn": {
           "type": "string"
@@ -8190,8 +8223,7 @@
           "type": "boolean"
         },
         "reviewCountSum": {
-          "type": "integer",
-          "format": "int64"
+          "type": "string"
         },
         "saleTp": {
           "type": "string"
