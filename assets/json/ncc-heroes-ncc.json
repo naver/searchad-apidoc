@@ -593,7 +593,7 @@
         ],
         "summary": "update",
         "description": "Change the Ad Group",
-        "operationId": "modifyUsingPUT_10",
+        "operationId": "modifyUsingPUT_11",
         "consumes": [
           "application/json"
         ],
@@ -839,7 +839,7 @@
         ],
         "summary": "update (by fields)",
         "description": "Change the Ad Group. The parameter fields, enter the name of the Ad Group field you want to change.",
-        "operationId": "modifyUsingPUT_11",
+        "operationId": "modifyUsingPUT_10",
         "consumes": [
           "application/json"
         ],
@@ -910,7 +910,7 @@
         ],
         "summary": "list (by ids)",
         "description": "Returns the list of adgroups of input adgroup ids",
-        "operationId": "getGroupsUsingGET_2",
+        "operationId": "getGroupsUsingGET",
         "consumes": [
           "application/json"
         ],
@@ -955,7 +955,7 @@
         ],
         "summary": "list (by campaign id)",
         "description": "Returns the list of partially AdGroups of input campaign id",
-        "operationId": "getGroupsUsingGET_1",
+        "operationId": "getGroupsUsingGET_2",
         "consumes": [
           "application/json"
         ],
@@ -1880,7 +1880,7 @@
         ],
         "summary": "list",
         "description": "Returns the list of business channel.",
-        "operationId": "getUsingGET_20",
+        "operationId": "getUsingGET_18",
         "consumes": [
           "application/json"
         ],
@@ -2183,7 +2183,7 @@
         ],
         "summary": "list(by channel Type)",
         "description": "Returns the business channel list of channel type.",
-        "operationId": "getUsingGET_19",
+        "operationId": "getUsingGET_20",
         "consumes": [
           "application/json"
         ],
@@ -2242,7 +2242,7 @@
         ],
         "summary": "list(by ids)",
         "description": "Returns the business channel list of input business channel ids.",
-        "operationId": "getUsingGET_18",
+        "operationId": "getUsingGET_19",
         "consumes": [
           "application/json"
         ],
@@ -4026,7 +4026,8 @@
             "SHOPPING_BRAND_IMAGE_BANNER_AD",
             "BRAND_SEARCH_NEW_AD",
             "RSA_AD",
-            "MEDICAL_AD"
+            "MEDICAL_AD",
+            "DOOH_AD"
           ]
         },
         "userLock": {
@@ -4572,7 +4573,8 @@
             "SHOPPING_BRAND_IMAGE_BANNER_AD",
             "BRAND_SEARCH_NEW_AD",
             "RSA_AD",
-            "MEDICAL_AD"
+            "MEDICAL_AD",
+            "DOOH_AD"
           ]
         },
         "userLock": {
@@ -4615,7 +4617,8 @@
             "BRAND_ZONE",
             "SHOPPING_BRAND",
             "LOCAL_AD",
-            "BRAND_NEW"
+            "BRAND_NEW",
+            "DOOH"
           ]
         },
         "contractableMaxDays": {
@@ -6614,7 +6617,8 @@
             "BRAND_ZONE",
             "SHOPPING_BRAND",
             "LOCAL_AD",
-            "BRAND_NEW"
+            "BRAND_NEW",
+            "DOOH"
           ]
         },
         "categoryId1": {
@@ -6650,7 +6654,8 @@
             "BRAND_ZONE",
             "SHOPPING_BRAND",
             "LOCAL_AD",
-            "BRAND_NEW"
+            "BRAND_NEW",
+            "DOOH"
           ]
         },
         "depth": {
@@ -7421,6 +7426,71 @@
           "$ref": "#/definitions/Number"
         },
         "title": {
+          "type": "string"
+        }
+      }
+    },
+    "NaverPlaceClipGroupResponse": {
+      "type": "object",
+      "required": [
+        "clips",
+        "groupId"
+      ],
+      "properties": {
+        "clips": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NaverPlaceClipResponse"
+          }
+        },
+        "groupId": {
+          "type": "string"
+        }
+      }
+    },
+    "NaverPlaceClipGroupsResponse": {
+      "type": "object",
+      "required": [
+        "clipGroups",
+        "placeId",
+        "totalCount"
+      ],
+      "properties": {
+        "clipGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NaverPlaceClipGroupResponse"
+          }
+        },
+        "placeId": {
+          "type": "string"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "NaverPlaceClipResponse": {
+      "type": "object",
+      "required": [
+        "clipSeq",
+        "orientationType",
+        "thumbnailUrl",
+        "videoId"
+      ],
+      "properties": {
+        "clipSeq": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "orientationType": {
+          "type": "string"
+        },
+        "thumbnailUrl": {
+          "type": "string"
+        },
+        "videoId": {
           "type": "string"
         }
       }
