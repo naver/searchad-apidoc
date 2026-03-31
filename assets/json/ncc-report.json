@@ -250,7 +250,9 @@
                      "convAmt",
                      "ror",
                      "cpConv",
-                     "viewCnt"
+                     "viewCnt",
+                     "purchaseCcnt",
+                     "purchaseConvAmt"
                   ]
                },
                {
@@ -364,7 +366,9 @@
                      "convAmt",
                      "ror",
                      "cpConv",
-                     "viewCnt"
+                     "viewCnt",
+                     "purchaseCcnt",
+                     "purchaseConvAmt"
                   ]
                },
                {
