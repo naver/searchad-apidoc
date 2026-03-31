@@ -626,6 +626,16 @@
                "type":"integer",
                "format":"int64",
                "description":"Number of times that a video was viewed"
+            },
+            "purchaseCcnt":{
+               "type":"integer",
+               "format":"int64",
+               "description":"Purchase Conversion Count"
+            },
+            "purchaseConvAmt":{
+               "type":"number",
+               "format":"double",
+               "description":"Purchase Conversion Amount"
             }
          }
       },
@@ -698,6 +708,16 @@
                "type":"integer",
                "format":"int64",
                "description":"Number of times that a video was viewed"
+            },
+            "purchaseCcnt":{
+               "type":"integer",
+               "format":"int64",
+               "description":"Purchase Conversion Count"
+            },
+            "purchaseConvAmt":{
+               "type":"number",
+               "format":"double",
+               "description":"Purchase Conversion Amount"
             }
          }
       },
