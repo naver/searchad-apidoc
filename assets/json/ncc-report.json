@@ -252,7 +252,8 @@
                      "cpConv",
                      "viewCnt",
                      "purchaseCcnt",
-                     "purchaseConvAmt"
+                     "purchaseConvAmt",
+                     "purchaseRor"
                   ]
                },
                {
@@ -368,7 +369,8 @@
                      "cpConv",
                      "viewCnt",
                      "purchaseCcnt",
-                     "purchaseConvAmt"
+                     "purchaseConvAmt",
+                     "purchaseRor"
                   ]
                },
                {
@@ -636,6 +638,11 @@
                "type":"number",
                "format":"double",
                "description":"Purchase Conversion Amount"
+            },
+            "purchaseRor":{
+               "type":"number",
+               "format":"double",
+               "description":"Purchase ROR"
             }
          }
       },
@@ -718,6 +725,11 @@
                "type":"number",
                "format":"double",
                "description":"Purchase Conversion Amount"
+            },
+            "purchaseRor":{
+               "type":"number",
+               "format":"double",
+               "description":"Purchase ROR"
             }
          }
       },
