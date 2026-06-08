@@ -174,7 +174,6 @@
                         "Adgroup",
                         "AdgroupBudget",
                         "Keyword",
-                        "Account",
                         "Ad",
                         "AdExtension",
                         "Qi",
@@ -200,7 +199,7 @@
                         "RsaAd",
                         "HospitalAd"
                     ],
-                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n"
+                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n"
                 },
                 "fromTime": {
                     "type": "string",
@@ -241,7 +240,6 @@
                         "Adgroup",
                         "AdgroupBudget",
                         "Keyword",
-                        "Account",
                         "Ad",
                         "AdExtension",
                         "Qi",
@@ -267,7 +265,7 @@
                         "RsaAd",
                         "HospitalAd"
                     ],
-                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Account, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
+                    "description": "Master Report Item. Campaign, Campaign Budget, Business Channel, Ad group, Ad group Budget, Ad Keyword, Ad(creative), Ad Extension, Qi grade, Label, LabelRef, Media info.\n#required-request\n"
                 },
                 "fromTime": {
                     "type": "string",
