@@ -4294,7 +4294,8 @@
             "DESCRIPTION_EXTRA",
             "SHOPPING_BRAND_DAY",
             "SHOPPING_WEB",
-            "WEBSITE_INFO"
+            "WEBSITE_INFO",
+            "TALKTALK_CONSULTATION"
           ]
         },
         "usePeriod": {
@@ -4396,7 +4397,8 @@
             "DESCRIPTION_EXTRA",
             "SHOPPING_BRAND_DAY",
             "SHOPPING_WEB",
-            "WEBSITE_INFO"
+            "WEBSITE_INFO",
+            "TALKTALK_CONSULTATION"
           ]
         },
         "usePeriod": {
