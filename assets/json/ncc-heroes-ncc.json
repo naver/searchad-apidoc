@@ -4918,6 +4918,11 @@
           "example": false,
           "description": "광고 그룹 테이블에 '확장 검색 사용 여부' 필드 USE_EXP_SEARCH 추가:1 : 사용, 0 : 사용 안 함\nAdd 'Enable Extended Search' field USE_EXP_SEARCH to the Advertising Group table 1:1:Enable, 0:Disable (Default: Enable)"
         },
+        "aiAdsOptIn": {
+          "type": "boolean",
+          "example": true,
+          "description": "ADVoost Max 설정입니다. 파워링크 + 확장검색을 사용하는 광고그룹만 활성화할 수 있습니다.\nADVoost Max setting. It can be enabled only for ad groups using PowerLink and Extended Search."
+        },        
         "userLock": {
           "type": "boolean",
           "example": false,
@@ -5085,6 +5090,11 @@
           "example": false,
           "description": "광고 그룹 테이블에 '확장 검색 사용 여부' 필드 USE_EXP_SEARCH 추가:1 : 사용, 0 : 사용 안 함\nAdd 'Enable Extended Search' field USE_EXP_SEARCH to the Advertising Group table 1:1:Enable, 0:Disable (Default: Enable)"
         },
+        "aiAdsOptIn": {
+          "type": "boolean",
+          "example": true,
+          "description": "ADVoost Max 설정입니다. 파워링크 + 확장검색을 사용하는 광고그룹만 설정할 수 있으며, 미지정 시 true로 처리됩니다.\nADVoost Max setting. It can be set only for ad groups using PowerLink and Extended Search. (Default: true if not specified)"
+        },        
         "userLock": {
           "type": "boolean",
           "example": false,
