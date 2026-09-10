@@ -6,7 +6,7 @@
     "title": "Heroes New Clickchoice API",
     "termsOfService": "http://searchad.naver.com"
   },
-  "host": "",
+  "host": "localhost",
   "basePath": "/",
   "tags": [
     {
@@ -125,7 +125,7 @@
         ],
         "summary": "get",
         "description": "특정 확장 소재(adExtensionId)의 정보를 조회합니다.\nRetrieves information on an AD extension",
-        "operationId": "getByIdUsingGET",
+        "operationId": "getByIdUsingGET_3",
         "consumes": [
           "application/json"
         ],
@@ -416,7 +416,7 @@
         ],
         "summary": "list (by owner id)",
         "description": "확장 소재가 속한 특정 광고 객체(캠페인, 광고그룹, 소재)의 ID(ownerId)를 이용하여 조회합니다.\nRetrieves information on multiple AD extensions\nThe ownerId value indicates either campaign id or adgroup id.",
-        "operationId": "getByOwnerIdUsingGET",
+        "operationId": "getByOwnerIdUsingGET_2",
         "consumes": [
           "application/json"
         ],
@@ -553,7 +553,7 @@
         ],
         "summary": "get",
         "description": "Returns the adgroup of input ID",
-        "operationId": "getUsingGET_16",
+        "operationId": "getUsingGET_18",
         "consumes": [
           "application/json"
         ],
@@ -593,7 +593,7 @@
         ],
         "summary": "update",
         "description": "Change the Ad Group",
-        "operationId": "modifyUsingPUT_11",
+        "operationId": "modifyUsingPUT_10",
         "consumes": [
           "application/json"
         ],
@@ -839,7 +839,7 @@
         ],
         "summary": "update (by fields)",
         "description": "Change the Ad Group. The parameter fields, enter the name of the Ad Group field you want to change.",
-        "operationId": "modifyUsingPUT_10",
+        "operationId": "modifyUsingPUT_11",
         "consumes": [
           "application/json"
         ],
@@ -910,7 +910,7 @@
         ],
         "summary": "list (by ids)",
         "description": "Returns the list of adgroups of input adgroup ids",
-        "operationId": "getGroupsUsingGET",
+        "operationId": "getGroupsUsingGET_1",
         "consumes": [
           "application/json"
         ],
@@ -1118,7 +1118,7 @@
         ],
         "summary": "get",
         "description": "입력한 ID에 해당하는 소재를 조회합니다.\nReturn the ad of the adId",
-        "operationId": "getUsingGET_10",
+        "operationId": "getUsingGET_12",
         "consumes": [
           "application/json"
         ],
@@ -1321,7 +1321,7 @@
         ],
         "summary": "list",
         "description": "입력한 ID 목록의 소재를 조회합니다.\nReturn the list of ads",
-        "operationId": "getUsingGET_11",
+        "operationId": "getUsingGET_13",
         "consumes": [
           "application/json"
         ],
@@ -1366,7 +1366,7 @@
         ],
         "summary": "list (by adgroup id)",
         "description": "광고그룹에 포함된 소재 목록을 조회합니다.\nReturns the list of ads of the adgroup id",
-        "operationId": "getByAdgroupIdUsingGET",
+        "operationId": "getByAdgroupIdUsingGET_2",
         "consumes": [
           "application/json"
         ],
@@ -1584,7 +1584,7 @@
         ],
         "summary": "get",
         "description": "단일 개체의 캠페인을 조회합니다.\n\nReturns the campaign of input ID",
-        "operationId": "getUsingGET_13",
+        "operationId": "getUsingGET_15",
         "consumes": [
           "application/json"
         ],
@@ -1880,7 +1880,7 @@
         ],
         "summary": "list",
         "description": "Returns the list of business channel.",
-        "operationId": "getUsingGET_18",
+        "operationId": "getUsingGET_22",
         "consumes": [
           "application/json"
         ],
@@ -1930,33 +1930,6 @@
             "schema": {
               "$ref": "#/definitions/BusinessChannel"
             }
-          },
-          {
-            "in": "body",
-            "name": "nidAut",
-            "description": "nidAut",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "body",
-            "name": "nidSes",
-            "description": "nidSes",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "body",
-            "name": "passNaTokenToSa",
-            "description": "passNaTokenToSa",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -1988,7 +1961,7 @@
         ],
         "summary": "get",
         "description": "Returns the business channel of input business channel id.",
-        "operationId": "getUsingGET_17",
+        "operationId": "getUsingGET_19",
         "consumes": [
           "application/json"
         ],
@@ -2183,7 +2156,7 @@
         ],
         "summary": "list(by channel Type)",
         "description": "Returns the business channel list of channel type.",
-        "operationId": "getUsingGET_20",
+        "operationId": "getUsingGET_21",
         "consumes": [
           "application/json"
         ],
@@ -2242,7 +2215,7 @@
         ],
         "summary": "list(by ids)",
         "description": "Returns the business channel list of input business channel ids.",
-        "operationId": "getUsingGET_19",
+        "operationId": "getUsingGET_20",
         "consumes": [
           "application/json"
         ],
@@ -2566,7 +2539,7 @@
         ],
         "summary": "get",
         "description": "Return an AdKeyword of input AdKeywordId.",
-        "operationId": "getUsingGET_14",
+        "operationId": "getUsingGET_16",
         "consumes": [
           "application/json"
         ],
@@ -2857,7 +2830,7 @@
         ],
         "summary": "list (by adgroup id)",
         "description": "Returns the partially keyword list of input AdGroup Id.",
-        "operationId": "getByAdgroupIdUsingGET_1",
+        "operationId": "getByAdgroupIdUsingGET_3",
         "consumes": [
           "application/json"
         ],
@@ -3143,6 +3116,56 @@
             "description": "OK",
             "schema": {
               "$ref": "#/definitions/Label"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/ncc/managedKeyword": {
+      "post": {
+        "tags": [
+          "ManagedKeyword"
+        ],
+        "summary": "list (by keywords, POST)",
+        "description": "POST version of /managedKeyword. Accepts keywords in JSON body to avoid URL length limits.",
+        "operationId": "postKeywordAttributesUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ManagedKeywordRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ManagedKeywordResponse"
+              }
             }
           },
           "201": {
@@ -3706,7 +3729,7 @@
         ],
         "summary": "list (by owner id)",
         "description": "Retrieves information on multiple Targets\nThe ownerId value indicates either adgroup id or ad id.",
-        "operationId": "getByOwnerIdUsingGET_1",
+        "operationId": "getByOwnerIdUsingGET_3",
         "consumes": [
           "application/json"
         ],
@@ -4027,7 +4050,8 @@
             "BRAND_SEARCH_NEW_AD",
             "RSA_AD",
             "MEDICAL_AD",
-            "DOOH_AD"
+            "DOOH_AD",
+            "ADVOOST_PLACE_AD"
           ]
         },
         "userLock": {
@@ -4175,11 +4199,11 @@
         },
         "periodEndDt": {
           "type": "string",
-          "description": "확장 소재의 노출 종료일입니다.\nThe time at which the AD extension ends (RFC 3339 date-time)."
+          "description": "확장 소재의 노출 종료일입니다. UTC 기준으로 한국시간(KST) 자정에 해당하는 값(예: T15:00:00.000Z)만 허용됩니다.\nThe date on which the AD extension ends. The time component must be UTC midnight of Korea Standard Time (KST) — i.e. T15:00:00.000Z (e.g. 2026-06-30T15:00:00.000Z)."
         },
         "periodStartDt": {
           "type": "string",
-          "description": "확장 소재의 노출 시작일입니다.\nThe time at which the AD extension starts (RFC 3339 date-time)."
+          "description": "확장 소재의 노출 시작일입니다. UTC 기준으로 한국시간(KST) 자정에 해당하는 값(예: T15:00:00.000Z)만 허용됩니다.\nThe date on which the AD extension starts. The time component must be UTC midnight of Korea Standard Time (KST) — i.e. T15:00:00.000Z (e.g. 2026-06-01T15:00:00.000Z)."
         },
         "regTm": {
           "type": "string",
@@ -4345,11 +4369,11 @@
         },
         "periodEndDt": {
           "type": "string",
-          "description": "확장 소재의 노출 종료일입니다\nThe time at which the AD extension ends (RFC 3339 date-time)."
+          "description": "확장 소재의 노출 종료일입니다. UTC 기준으로 한국시간(KST) 자정에 해당하는 값(예: T15:00:00.000Z)만 허용됩니다.\nThe date on which the AD extension ends. The time component must be UTC midnight of Korea Standard Time (KST) — i.e. T15:00:00.000Z (e.g. 2026-06-30T15:00:00.000Z)."
         },
         "periodStartDt": {
           "type": "string",
-          "description": "확장 소재의 노출 시작일입니다.\nThe time at which the AD extension starts (RFC 3339 date-time)."
+          "description": "확장 소재의 노출 시작일입니다. UTC 기준으로 한국시간(KST) 자정에 해당하는 값(예: T15:00:00.000Z)만 허용됩니다.\nThe date on which the AD extension starts. The time component must be UTC midnight of Korea Standard Time (KST) — i.e. T15:00:00.000Z (e.g. 2026-06-01T15:00:00.000Z)."
         },
         "preNccAdExtensionId": {
           "type": "string"
@@ -4576,7 +4600,8 @@
             "BRAND_SEARCH_NEW_AD",
             "RSA_AD",
             "MEDICAL_AD",
-            "DOOH_AD"
+            "DOOH_AD",
+            "ADVOOST_PLACE_AD"
           ]
         },
         "userLock": {
@@ -4734,8 +4759,18 @@
             "PRODUCT",
             "BRAND_SEARCH",
             "PLACE",
-            "CATALOG"
+            "CATALOG",
+            "BRAND_ZONE",
+            "SHOPPING_BRAND",
+            "LOCAL_AD",
+            "BRAND_NEW",
+            "DOOH"
           ]
+        },
+        "aiAdsOptIn": {
+          "type": "boolean",
+          "example": false,
+          "description": "ADVoost Max 설정입니다. 파워링크 + 확장검색을 사용하는 광고그룹만 활성화할 수 있습니다.\nADVoost Max setting. It can be enabled only for ad groups using PowerLink and Extended Search."
         },
         "autobidStrategy": {
           "description": "광고 그룹의 자동 입찰 전략입니다.. (쇼핑 검색 캠페인의 상품몰 유형만 유효합니다.)\nThis is the automatic bidding strategy for ad groups. (Valid only for Shopping Search campaigns of the product mall type.)",
@@ -4918,11 +4953,6 @@
           "example": false,
           "description": "광고 그룹 테이블에 '확장 검색 사용 여부' 필드 USE_EXP_SEARCH 추가:1 : 사용, 0 : 사용 안 함\nAdd 'Enable Extended Search' field USE_EXP_SEARCH to the Advertising Group table 1:1:Enable, 0:Disable (Default: Enable)"
         },
-        "aiAdsOptIn": {
-          "type": "boolean",
-          "example": true,
-          "description": "ADVoost Max 설정입니다. 파워링크 + 확장검색을 사용하는 광고그룹만 활성화할 수 있습니다.\nADVoost Max setting. It can be enabled only for ad groups using PowerLink and Extended Search."
-        },        
         "userLock": {
           "type": "boolean",
           "example": false,
@@ -4956,8 +4986,18 @@
             "PRODUCT",
             "BRAND_SEARCH",
             "PLACE",
-            "CATALOG"
+            "CATALOG",
+            "BRAND_ZONE",
+            "SHOPPING_BRAND",
+            "LOCAL_AD",
+            "BRAND_NEW",
+            "DOOH"
           ]
+        },
+        "aiAdsOptIn": {
+          "type": "boolean",
+          "example": false,
+          "description": "ADVoost Max 설정입니다. 파워링크 + 확장검색을 사용하는 광고그룹만 설정할 수 있으며, 미지정 시 true로 처리됩니다.\nADVoost Max setting. It can be set only for ad groups using PowerLink and Extended Search. (Default: true if not specified)"
         },
         "autobidStrategy": {
           "description": "광고 그룹의 자동 입찰 전략입니다.. (쇼핑 검색 캠페인의 상품몰 유형만 유효합니다.)\nThis is the automatic bidding strategy for ad groups. (Valid only for Shopping Search campaigns of the product mall type.)",
@@ -5090,11 +5130,6 @@
           "example": false,
           "description": "광고 그룹 테이블에 '확장 검색 사용 여부' 필드 USE_EXP_SEARCH 추가:1 : 사용, 0 : 사용 안 함\nAdd 'Enable Extended Search' field USE_EXP_SEARCH to the Advertising Group table 1:1:Enable, 0:Disable (Default: Enable)"
         },
-        "aiAdsOptIn": {
-          "type": "boolean",
-          "example": true,
-          "description": "ADVoost Max 설정입니다. 파워링크 + 확장검색을 사용하는 광고그룹만 설정할 수 있으며, 미지정 시 true로 처리됩니다.\nADVoost Max setting. It can be set only for ad groups using PowerLink and Extended Search. (Default: true if not specified)"
-        },        
         "userLock": {
           "type": "boolean",
           "example": false,
@@ -5141,6 +5176,82 @@
             "KEYWORD_PLUS_RESTRICT",
             "EXP_SEARCH"
           ]
+        }
+      }
+    },
+    "AdvoostShoppingMigrationRequest": {
+      "type": "object",
+      "required": [
+        "dailyBudget",
+        "nccAdgroupId"
+      ],
+      "properties": {
+        "dailyBudget": {
+          "type": "integer",
+          "format": "int64",
+          "description": "ADVoost 쇼핑 캠페인 일예산 (원 단위, 10000~100000000)"
+        },
+        "loggingContext": {
+          "type": "object",
+          "description": "광고주 리액션 로깅용 메타 (FE pass-through)"
+        },
+        "nccAdgroupId": {
+          "type": "string",
+          "description": "ADV 동시 등록을 trigger 할 쇼검 광고그룹 ID"
+        }
+      }
+    },
+    "AdvoostShoppingMigrationResponse": {
+      "type": "object",
+      "required": [
+        "advoostCampaignName",
+        "shoppingSearchCampaignName",
+        "status",
+        "taskId"
+      ],
+      "properties": {
+        "advoostCampaignName": {
+          "type": "string"
+        },
+        "expiresAt": {
+          "type": "string"
+        },
+        "shoppingSearchCampaignName": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "taskId": {
+          "type": "string"
+        }
+      }
+    },
+    "AdvoostShoppingStatusResponse": {
+      "type": "object",
+      "required": [
+        "advoostShoppingEligible",
+        "hasActiveShoppingSearchAd",
+        "hasNaverShoppingMall"
+      ],
+      "properties": {
+        "advoostShoppingEligible": {
+          "type": "boolean"
+        },
+        "advoostShoppingEligibleReason": {
+          "type": "string",
+          "enum": [
+            "ALREADY_HAS_ACTIVE_PMAX",
+            "ALREADY_HAS_INACTIVE_PMAX",
+            "INFLIGHT_TASK_EXISTS",
+            "RECENT_FAILED_TASK"
+          ]
+        },
+        "hasActiveShoppingSearchAd": {
+          "type": "boolean"
+        },
+        "hasNaverShoppingMall": {
+          "type": "boolean"
         }
       }
     },
@@ -6361,9 +6472,9 @@
           "enum": [
             "WEB_SITE",
             "SHOPPING",
+            "POWER_CONTENTS",
             "BRAND_SEARCH",
-            "PLACE",
-            "POWER_CONTENTS"
+            "PLACE"
           ]
         },
         "customerId": {
@@ -6402,11 +6513,11 @@
         },
         "periodEndDt": {
           "type": "string",
-          "description": "캠페인 노출이 종료되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe time at which the campaign ends (RFC 3339 date-time). #hidden-update"
+          "description": "캠페인 노출이 종료되는 날짜입니다. UTC 기준으로 한국시간(KST) 자정에 해당하는 값(예: T15:00:00.000Z)만 허용됩니다. 'usePeriod' 값이 true일 경우에만 유효합니다.\nThe date on which the campaign ends. The time component must be UTC midnight of Korea Standard Time (KST) — i.e. T15:00:00.000Z (e.g. 2026-06-30T15:00:00.000Z). Valid only when usePeriod is true. #hidden-update"
         },
         "periodStartDt": {
           "type": "string",
-          "description": "캠페인 노출이 시작되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe time at which the campaign starts (RFC 3339 date-time). #hidden-update"
+          "description": "캠페인 노출이 시작되는 날짜입니다. UTC 기준으로 한국시간(KST) 자정에 해당하는 값(예: T15:00:00.000Z)만 허용됩니다. 'usePeriod' 값이 true일 경우에만 유효합니다.\nThe date on which the campaign starts. The time component must be UTC midnight of Korea Standard Time (KST) — i.e. T15:00:00.000Z (e.g. 2026-06-01T15:00:00.000Z). Valid only when usePeriod is true. #hidden-update"
         },
         "regTm": {
           "type": "string",
@@ -6505,15 +6616,15 @@
           "enum": [
             "WEB_SITE",
             "SHOPPING",
+            "POWER_CONTENTS",
             "BRAND_SEARCH",
-            "PLACE",
-            "POWER_CONTENTS"
+            "PLACE"
           ]
         },
         "customerId": {
           "type": "integer",
           "format": "int64",
-          "description": "광고 계정 고유 번호입니다. 캠페인 생성/수정시 필수 입력값입니다.\n The unique ID of the customer #required-create #required-update #hidden-request"
+          "description": "광고 계정 고유 번호입니다. 캠페인 생성시 필수 입력값입니다.\n The unique ID of the customer #required-create"
         },
         "dailyBudget": {
           "type": "integer",
@@ -6538,11 +6649,11 @@
         },
         "periodEndDt": {
           "type": "string",
-          "description": "캠페인 노출이 종료되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe time at which the campaign ends (RFC 3339 date-time)."
+          "description": "캠페인 노출이 종료되는 날짜입니다. UTC 기준으로 한국시간(KST) 자정에 해당하는 값(예: T15:00:00.000Z)만 허용됩니다. 'usePeriod' 값이 true일 경우에만 유효합니다.\nThe date on which the campaign ends. The time component must be UTC midnight of Korea Standard Time (KST) — i.e. T15:00:00.000Z (e.g. 2026-06-30T15:00:00.000Z). Valid only when usePeriod is true."
         },
         "periodStartDt": {
           "type": "string",
-          "description": "캠페인 노출이 시작되는 날짜입니다. 'usePeriod' 값이 true 일 경우에만 유효합니다.\nThe time at which the campaign starts (RFC 3339 date-time)."
+          "description": "캠페인 노출이 시작되는 날짜입니다. UTC 기준으로 한국시간(KST) 자정에 해당하는 값(예: T15:00:00.000Z)만 허용됩니다. 'usePeriod' 값이 true일 경우에만 유효합니다.\nThe date on which the campaign starts. The time component must be UTC midnight of Korea Standard Time (KST) — i.e. T15:00:00.000Z (e.g. 2026-06-01T15:00:00.000Z). Valid only when usePeriod is true."
         },
         "sharedBudgetDeliveryMethod": {
           "type": "string",
@@ -7276,6 +7387,20 @@
         }
       }
     },
+    "ManagedKeywordRequest": {
+      "type": "object",
+      "properties": {
+        "disablePattern": {
+          "type": "boolean"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "ManagedKeywordResponse": {
       "type": "object",
       "properties": {
@@ -7442,6 +7567,33 @@
         }
       }
     },
+    "NaverPlaceBusinessImage": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "$ref": "#/definitions/NaverPlaceBusinessImagePrimary"
+        }
+      }
+    },
+    "NaverPlaceBusinessImagePrimary": {
+      "type": "object",
+      "properties": {
+        "height": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "thumbnail": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "width": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
     "NaverPlaceClipGroupResponse": {
       "type": "object",
       "required": [
@@ -7520,9 +7672,17 @@
         "address": {
           "type": "string"
         },
+        "brandCategoryId": {
+          "type": "string"
+        },
+        "businessImage": {
+          "$ref": "#/definitions/NaverPlaceBusinessImage"
+        },
+        "categoryId": {
+          "type": "string"
+        },
         "id": {
-          "type": "integer",
-          "format": "int32"
+          "type": "string"
         },
         "name": {
           "type": "string"
@@ -9025,7 +9185,7 @@
         "customerId": {
           "type": "integer",
           "format": "int64",
-          "description": "광고 계정 고유 번호입니다.\nThe unique number for your ad account."
+          "description": "광고 계정 고유 번호입니다. 공유예산 생성시 필수 입력값입니다.\nThe unique number for your ad account. #required-create"
         },
         "dailyBudget": {
           "type": "integer",
@@ -9379,6 +9539,59 @@
           "format": "int64"
         }
       }
+    },
+    "TalkConsultationForm": {
+      "type": "object",
+      "required": [
+        "formId",
+        "name",
+        "url"
+      ],
+      "properties": {
+        "formId": {
+          "type": "string",
+          "example": "ct:w975n96:1",
+          "description": "상담요청서 식별자. 톡톡 파트너센터에서 발급. AD_EXTENSION.REFERENCE_KEY 컬럼에 저장된다."
+        },
+        "name": {
+          "type": "string",
+          "example": "에어컨 청소 견적서",
+          "description": "상담요청서 이름. 광고주가 톡톡 파트너센터에서 입력한 값. 등록 팝업 드롭다운 표시용."
+        },
+        "url": {
+          "type": "string",
+          "example": "https://talk.naver.com/profile/w975n96/form/1",
+          "description": "상담요청서 랜딩 URL. talk.naver.com 도메인만 허용된다."
+        }
+      },
+      "description": "톡톡 상담요청서 단건. 광고그룹당 1개 확장소재로 연결된다."
+    },
+    "TalkConsultationFormsResponse": {
+      "type": "object",
+      "required": [
+        "forms",
+        "talkAccountStatus"
+      ],
+      "properties": {
+        "forms": {
+          "type": "array",
+          "description": "상담요청서 목록. 톡톡 파트너센터에 등록된 상담요청서를 최대 5개까지 반환한다.",
+          "items": {
+            "$ref": "#/definitions/TalkConsultationForm"
+          }
+        },
+        "talkAccountStatus": {
+          "type": "string",
+          "example": "NORMAL",
+          "description": "톡톡 계정 상태. 톡톡 파트너센터에서 계정이 중지/삭제되면 비즈채널 노출제한과 함께 동작한다.",
+          "enum": [
+            "NORMAL",
+            "PAUSE",
+            "DELETED"
+          ]
+        }
+      },
+      "description": "톡톡 상담요청서 목록 조회(F1) 응답. TALKTALK_CONSULTATION(type=36) 확장소재 등록 팝업에서 사용한다."
     },
     "Target": {
       "type": "object",
