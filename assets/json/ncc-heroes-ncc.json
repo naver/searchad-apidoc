@@ -752,11 +752,13 @@
           {
             "name": "type",
             "in": "query",
-            "description": "Type of the restricted keyword. default value is 'KEYWORD_PLUS_RESTRICT'. Such type of the restricted keyword is applied to 'Smart Block' and 'Close Variant'.\n제외 키워드의 type입니다. 기본값은 'KEYWORD_PLUS_RESTRICT' 입니다. 해당 type의 제외 키워드는 스마트블록 및 유사검색어에 적용됩니다.",
+            "description": "Type of the restricted keyword. default value is 'KEYWORD_PLUS_RESTRICT'. Such type of the restricted keyword is applied to 'Smart Block' and 'Close Variant'. 'EXP_SEARCH_SUBSTRING' is applied to the same scope as 'EXP_SEARCH' with its own count limit.\n제외 키워드의 type입니다. 기본값은 'KEYWORD_PLUS_RESTRICT' 입니다. 해당 type의 제외 키워드는 스마트블록 및 유사검색어에 적용됩니다. 'EXP_SEARCH_SUBSTRING'(단어 포함)은 'EXP_SEARCH'와 동일한 유형에 적용되며 개수 한도만 독립입니다.",
             "required": false,
             "type": "string",
             "enum": [
-              "KEYWORD_PLUS_RESTRICT"
+              "KEYWORD_PLUS_RESTRICT",
+              "EXP_SEARCH",
+              "EXP_SEARCH_SUBSTRING"
             ]
           },
           {
@@ -5174,7 +5176,8 @@
           "description": "Type of the keyword. default value is 'KEYWORD_PLUS_RESTRICT'",
           "enum": [
             "KEYWORD_PLUS_RESTRICT",
-            "EXP_SEARCH"
+            "EXP_SEARCH",
+            "EXP_SEARCH_SUBSTRING"
           ]
         }
       }
@@ -8013,7 +8016,8 @@
           "description": "Type of the keyword. default value is 'KEYWORD_PLUS_RESTRICT'",
           "enum": [
             "KEYWORD_PLUS_RESTRICT",
-            "EXP_SEARCH"
+            "EXP_SEARCH",
+            "EXP_SEARCH_SUBSTRING"
           ]
         }
       }
